@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="MRCP Part 1" />
+  <meta name="theme-color" content="#0f0f13" />
+  <title>MRCP Part 1 — Sept 2026</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E🩺%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28'%3E🩺%3C/text%3E%3C/svg%3E" />
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; min-height: 100vh; background: #0f0f13;
+                 overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Georgia', 'Times New Roman', serif; color: #e8e4dc;
+           padding-left: env(safe-area-inset-left);
+           padding-right: env(safe-area-inset-right); }
+    button { font-family: inherit; touch-action: manipulation; }
+    input, textarea { font-family: inherit; -webkit-appearance: none; appearance: none; }
+    input[type=range] { accent-color: #4A90D9; }
+    /* Hide scrollbar in tab strip */
+    .tab-strip::-webkit-scrollbar, .specialty-strip::-webkit-scrollbar { display: none; }
+    .tab-strip, .specialty-strip { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    /* Touch targets ≥44px on iOS */
+    @media (pointer: coarse) {
+      button { min-height: 38px; }
+    }
+    /* iPhone — collapse the tracker sidebar into a horizontal strip */
+    .tracker-sidebar { width: 200px; }
+    .tracker-strip { display: none; }
+    @media (max-width: 720px) {
+      .tracker-sidebar { display: none; }
+      .tracker-strip { display: flex; }
+    }
+    /* Canvas: stop the page scrolling while drawing */
+    .pencil-canvas { touch-action: none; -webkit-user-select: none; user-select: none; }
+    /* Pen-only mode: ignore touch on canvas (palm rejection) */
+    .pencil-canvas.pen-only { touch-action: none; }
+    /* Modal full-screen with safe area */
+    .pencil-overlay {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="data.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div style="padding:2rem;color:#888;font-family:monospace;text-align:center;">
+      Loading… (first load compiles JSX in-browser, takes a couple of seconds)
+    </div>
+  </div>
+
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect, useMemo, useRef, useCallback } = React;
+
+    const SPECIALTIES = window.SPECIALTIES;
+    const PHASES = window.PHASES;
+    const TIPS = window.TIPS;
+    const EXAM_DATE = new Date(window.EXAM_DATE + "T00:00:00");
+    const PLAN_START = new Date(window.PLAN_START + "T00:00:00");
+
+    const PRIORITY_COLORS = {
+      HIGH: { bg: "#FEE2E2", text: "#991B1B", label: "High yield" },
+      MED:  { bg: "#FEF9C3", text: "#854D0E", label: "Medium" },
+      LOW:  { bg: "#F0FDF4", text: "#166534", label: "Lower yield" },
+      EXAM: { bg: "#1a1a2e", text: "#ffffff", label: "EXAM DAY" },
+    };
+
+    const STATUS_CONFIG = {
+      green:  { label: "Confident",      color: "#16a34a", bg: "#dcfce7", border: "#86efac" },
+      yellow: { label: "Working on it",  color: "#d97706", bg: "#fef3c7", border: "#fcd34d" },
+      red:    { label: "Struggling",     color: "#dc2626", bg: "#fee2e2", border: "#fca5a5" },
+      none:   { label: "Not rated",      color: "#6b7280", bg: "transparent", border: "transparent" },
+    };
+
+    // -------- date / phase helpers --------
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+    const stripTime = d => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
+
+    function getDaysUntilExam(today = new Date()) {
+      return Math.max(0, Math.round((stripTime(EXAM_DATE) - stripTime(today)) / MS_PER_DAY));
+    }
+    function getCurrentWeek(today = new Date()) {
+      const days = (stripTime(today) - stripTime(PLAN_START)) / MS_PER_DAY;
+      if (days < 0) return 0;
+      return Math.min(22, Math.floor(days / 7) + 1);
+    }
+    function getCurrentPhaseIndex(week) {
+      const idx = PHASES.findIndex(p => week >= p.weekStart && week <= p.weekEnd);
+      return idx === -1 ? (week < 1 ? 0 : PHASES.length - 1) : idx;
+    }
+    function phaseBaselineHours(phase) {
+      return +(5 * phase.weekdayHrsBase + 2 * phase.dayOffHrsBase).toFixed(2);
+    }
+    function totalBaselineHours() {
+      return PHASES.reduce((sum, p) => sum + phaseBaselineHours(p) * (p.weekEnd - p.weekStart + 1), 0);
+    }
+
+    // -------- Apple Pencil note canvas --------
+    const PEN_COLORS = ["#1a1a2e", "#dc2626", "#2563eb", "#16a34a", "#d97706", "#7c3aed"];
+
+    function NoteCanvas({ initialDataUrl, onSave, onClose, title }) {
+      const canvasRef = useRef(null);
+      const wrapRef = useRef(null);
+      const [tool, setTool] = useState("pen"); // pen | highlighter | eraser
+      const [color, setColor] = useState("#1a1a2e");
+      const [penOnly, setPenOnly] = useState(() => localStorage.getItem("mrcp_pen_only") === "1");
+      const [hasPen, setHasPen] = useState(false); // ever seen a pen pointer?
+      const drawing = useRef(false);
+      const lastPt = useRef(null);
+      const undoStack = useRef([]); // ImageData snapshots
+      const dprRef = useRef(1);
+      const sizeRef = useRef({ w: 0, h: 0 });
+
+      useEffect(() => { localStorage.setItem("mrcp_pen_only", penOnly ? "1" : "0"); }, [penOnly]);
+
+      // Setup canvas with DPR scaling, optionally restore initial PNG
+      const setupCanvas = useCallback(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const wrap = wrapRef.current;
+        const rect = wrap.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        dprRef.current = dpr;
+        sizeRef.current = { w: rect.width, h: rect.height };
+        canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+        canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, rect.width, rect.height);
+        if (initialDataUrl) {
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0, rect.width, rect.height);
+          };
+          img.src = initialDataUrl;
+        }
+      }, [initialDataUrl]);
+
+      useEffect(() => {
+        setupCanvas();
+        const onResize = () => setupCanvas();
+        window.addEventListener("resize", onResize);
+        window.addEventListener("orientationchange", onResize);
+        return () => {
+          window.removeEventListener("resize", onResize);
+          window.removeEventListener("orientationchange", onResize);
+        };
+      }, [setupCanvas]);
+
+      const getPos = e => {
+        const canvas = canvasRef.current;
+        const rect = canvas.getBoundingClientRect();
+        return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      };
+
+      const snapshot = () => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext("2d");
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        undoStack.current.push(data);
+        if (undoStack.current.length > 20) undoStack.current.shift();
+      };
+
+      const persist = () => {
+        try {
+          const dataUrl = canvasRef.current.toDataURL("image/png");
+          onSave(dataUrl);
+        } catch {}
+      };
+
+      const onPointerDown = e => {
+        if (e.pointerType === "pen") setHasPen(true);
+        // Palm / touch rejection: when pen-only is on AND we've seen a pen, ignore touches
+        if (penOnly && hasPen && e.pointerType === "touch") return;
+        if (penOnly && e.pointerType === "touch" && !hasPen) {
+          // First touch when no pen seen yet — still allow but flag for user
+        }
+        e.preventDefault();
+        try { e.target.setPointerCapture(e.pointerId); } catch {}
+        snapshot();
+        drawing.current = true;
+        const { x, y } = getPos(e);
+        lastPt.current = { x, y, pressure: e.pressure || 0.5 };
+      };
+
+      const onPointerMove = e => {
+        if (!drawing.current) return;
+        if (penOnly && hasPen && e.pointerType === "touch") return;
+        e.preventDefault();
+        const { x, y } = getPos(e);
+        const ctx = canvasRef.current.getContext("2d");
+        const pressure = e.pressure && e.pressure > 0 ? e.pressure : (e.pointerType === "pen" ? 0.5 : 0.6);
+        let lineWidth, strokeStyle, comp = "source-over";
+        if (tool === "pen") {
+          lineWidth = 1 + pressure * 3.2;
+          strokeStyle = color;
+        } else if (tool === "highlighter") {
+          lineWidth = 14;
+          strokeStyle = color + "55";
+        } else { // eraser
+          lineWidth = 22;
+          strokeStyle = "rgba(0,0,0,1)";
+          comp = "destination-out";
+        }
+        ctx.globalCompositeOperation = comp;
+        ctx.lineWidth = lineWidth;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = strokeStyle;
+        ctx.beginPath();
+        ctx.moveTo(lastPt.current.x, lastPt.current.y);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.globalCompositeOperation = "source-over";
+        lastPt.current = { x, y, pressure };
+      };
+
+      const onPointerUp = e => {
+        if (!drawing.current) return;
+        drawing.current = false;
+        lastPt.current = null;
+        persist();
+      };
+
+      const undo = () => {
+        const stack = undoStack.current;
+        if (!stack.length) return;
+        const data = stack.pop();
+        const ctx = canvasRef.current.getContext("2d");
+        ctx.putImageData(data, 0, 0);
+        persist();
+      };
+
+      const clear = () => {
+        if (!confirm("Clear all notes for this condition?")) return;
+        snapshot();
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.setTransform(dprRef.current, 0, 0, dprRef.current, 0, 0);
+        persist();
+      };
+
+      const toolBtn = (active, color = "#fff") => ({
+        background: active ? "#2a4a8a" : "rgba(255,255,255,0.06)",
+        border: `1px solid ${active ? "#4a8adc" : "rgba(255,255,255,0.15)"}`,
+        color, padding: "0.5rem 0.7rem", borderRadius: 6, cursor: "pointer",
+        fontSize: "0.78rem", fontFamily: "monospace", minWidth: 44, minHeight: 38,
+        display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 4,
+      });
+
+      return (
+        <div className="pencil-overlay" style={{
+          position: "fixed", inset: 0, background: "rgba(8,8,14,0.96)", zIndex: 100,
+          display: "flex", flexDirection: "column",
+        }}>
+          {/* Toolbar */}
+          <div style={{
+            padding: "0.6rem 0.75rem", display: "flex", flexWrap: "wrap",
+            alignItems: "center", gap: "0.45rem",
+            borderBottom: "1px solid rgba(255,255,255,0.1)", background: "#0f0f20",
+          }}>
+            <button onClick={() => { persist(); onClose(); }} style={toolBtn(false)} title="Close">
+              ✕ Close
+            </button>
+            <div style={{
+              fontSize: "0.78rem", color: "#9ab5cc", fontFamily: "monospace",
+              flex: "1 1 140px", overflow: "hidden", textOverflow: "ellipsis",
+              whiteSpace: "nowrap", padding: "0 0.4rem",
+            }}>{title}</div>
+            <button onClick={() => setTool("pen")}        style={toolBtn(tool === "pen", color)}        title="Pen">✏️ Pen</button>
+            <button onClick={() => setTool("highlighter")} style={toolBtn(tool === "highlighter", "#d4a017")} title="Highlighter">🖍️ Hi-lite</button>
+            <button onClick={() => setTool("eraser")}      style={toolBtn(tool === "eraser")}      title="Eraser">🧽 Erase</button>
+
+            <div style={{ display: "flex", gap: 4, marginLeft: 4 }}>
+              {PEN_COLORS.map(c => (
+                <button key={c} onClick={() => setColor(c)} title={c} style={{
+                  width: 28, height: 28, borderRadius: "50%",
+                  border: color === c ? "2px solid #fff" : "1px solid rgba(255,255,255,0.2)",
+                  background: c, cursor: "pointer", padding: 0,
+                }} />
+              ))}
+            </div>
+
+            <button onClick={undo}  style={toolBtn(false)} title="Undo last stroke">↶ Undo</button>
+            <button onClick={clear} style={{ ...toolBtn(false), color: "#ffb4b4" }} title="Clear all">🗑 Clear</button>
+
+            <label style={{
+              display: "inline-flex", alignItems: "center", gap: 5, color: "#9ab5cc",
+              fontSize: "0.72rem", fontFamily: "monospace", cursor: "pointer",
+              padding: "0.4rem 0.6rem", border: "1px solid rgba(255,255,255,0.15)",
+              borderRadius: 6, background: penOnly ? "#2a4a8a33" : "transparent",
+              minHeight: 38,
+            }}>
+              <input type="checkbox" checked={penOnly} onChange={e => setPenOnly(e.target.checked)} />
+              Pen only
+            </label>
+          </div>
+
+          {/* Canvas */}
+          <div ref={wrapRef} style={{
+            flex: 1, background: "#fff", margin: "0.5rem", borderRadius: 8,
+            overflow: "hidden", position: "relative",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.5)",
+          }}>
+            <canvas
+              ref={canvasRef}
+              className={"pencil-canvas" + (penOnly ? " pen-only" : "")}
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
+              onPointerLeave={onPointerUp}
+              style={{ display: "block", width: "100%", height: "100%", background: "#fff" }}
+            />
+            {/* faint hint */}
+            {!initialDataUrl && (
+              <div style={{
+                position: "absolute", top: 12, left: 14, color: "#bbb",
+                fontSize: "0.78rem", pointerEvents: "none", fontFamily: "monospace",
+              }}>
+                ✍️ Write notes here · Apple Pencil pressure-sensitive
+              </div>
+            )}
+          </div>
+
+          <div style={{
+            padding: "0.4rem 0.75rem 0.6rem", fontSize: "0.7rem",
+            color: "#666", fontFamily: "monospace", textAlign: "center",
+          }}>
+            Saves automatically · {hasPen ? "Pencil detected" : "Touch / mouse input"}
+          </div>
+        </div>
+      );
+    }
+
+    // -------- shared chrome --------
+    function Header({ hoursPerWeek, setHoursPerWeek, view, setView }) {
+      const today = new Date();
+      const daysToExam = getDaysUntilExam(today);
+      const totalHours = (hoursPerWeek * 22).toFixed(0);
+      const baselineTotal = totalBaselineHours().toFixed(0);
+      // Feasibility ratio against baseline
+      const ratio = (hoursPerWeek * 22) / totalBaselineHours();
+      let feasibility, feasColor;
+      if (ratio < 0.55)      { feasibility = "Very tight — won't cover everything"; feasColor = "#E74C3C"; }
+      else if (ratio < 0.80) { feasibility = "Tight — prioritise high-yield";        feasColor = "#E67E22"; }
+      else if (ratio < 1.10) { feasibility = "On pace with the plan";                feasColor = "#27AE60"; }
+      else                   { feasibility = "Ahead of pace — extra mocks/Anki";     feasColor = "#4A90D9"; }
+
+      return (
+        <div style={{
+          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          position: "sticky", top: 0, zIndex: 10,
+        }}>
+          <div style={{ padding: "1.4rem 1.5rem 0.5rem", maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem", flexWrap: "wrap" }}>
+              <div style={{ flex: "1 1 260px" }}>
+                <div style={{
+                  fontSize: "0.65rem", letterSpacing: "0.2em", color: "#4A90D9",
+                  textTransform: "uppercase", fontFamily: "'Courier New', monospace", marginBottom: 4,
+                }}>
+                  22-week study plan · adaptive
+                </div>
+                <h1 style={{ margin: 0, fontSize: "1.6rem", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>
+                  MRCP Part 1
+                </h1>
+                <div style={{ fontSize: "0.85rem", color: "#a8b8d0", marginTop: 4 }}>
+                  Exam: <span style={{ color: "#E74C3C", fontWeight: 600 }}>23 Sep 2026</span>
+                  <span style={{ margin: "0 0.6rem", opacity: 0.4 }}>·</span>
+                  <span style={{ color: "#E74C3C" }}>{daysToExam} days to go</span>
+                </div>
+              </div>
+
+              <div style={{
+                background: "rgba(0,0,0,0.25)", border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 8, padding: "0.75rem 1rem", minWidth: 290, flex: "1 1 320px",
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <label htmlFor="hpw" style={{
+                    fontSize: "0.7rem", letterSpacing: "0.15em", color: "#7a9abf",
+                    textTransform: "uppercase", fontFamily: "monospace",
+                  }}>Hours / week</label>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <input
+                      type="number" id="hpw" min={3} max={40} step={1} value={hoursPerWeek}
+                      onChange={e => setHoursPerWeek(Math.max(3, Math.min(40, +e.target.value || 0)))}
+                      style={{
+                        width: 60, padding: "0.2rem 0.4rem", textAlign: "center",
+                        background: "#0f0f20", border: "1px solid #2a4a8a", borderRadius: 4,
+                        color: "#fff", fontFamily: "monospace", fontSize: "0.95rem",
+                      }}
+                    />
+                    <span style={{ color: "#7a9abf", fontSize: "0.75rem", fontFamily: "monospace" }}>hrs/wk</span>
+                  </div>
+                </div>
+                <input
+                  type="range" min={3} max={40} step={1} value={hoursPerWeek}
+                  onChange={e => setHoursPerWeek(+e.target.value)}
+                  style={{ width: "100%", margin: 0 }}
+                />
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+                  <span style={{ fontSize: "0.7rem", color: "#7a9abf", fontFamily: "monospace" }}>
+                    {totalHours} h total · plan baseline {baselineTotal} h
+                  </span>
+                  <span style={{ fontSize: "0.7rem", color: feasColor, fontWeight: 600, fontFamily: "monospace" }}>
+                    ● {feasibility}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="tab-strip" style={{
+              display: "flex", marginTop: "0.9rem",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              overflowX: "auto",
+            }}>
+              {[
+                { id: "today",   label: "Today",   icon: "📍" },
+                { id: "plan",    label: "Plan",    icon: "🗺️" },
+                { id: "tracker", label: "Tracker", icon: "✅" },
+              ].map(t => (
+                <button key={t.id} onClick={() => setView(t.id)} style={{
+                  background: "none", border: "none",
+                  padding: "0.6rem 1.1rem", cursor: "pointer",
+                  borderBottom: view === t.id ? "2px solid #4A90D9" : "2px solid transparent",
+                  color: view === t.id ? "#4A90D9" : "#888",
+                  fontSize: "0.85rem", fontFamily: "'Courier New', monospace",
+                  letterSpacing: "0.05em", whiteSpace: "nowrap",
+                }}>
+                  <span style={{ marginRight: 6 }}>{t.icon}</span>{t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // -------- TODAY VIEW --------
+    function TodayView({ hoursPerWeek, statuses, setView, setActiveSpecialty }) {
+      const today = new Date();
+      const week = getCurrentWeek(today);
+      const dow = today.getDay(); // 0 Sun .. 6 Sat
+      const isWeekend = dow === 0 || dow === 6;
+
+      // Pre-plan: today is before plan start.
+      if (week < 1) {
+        const days = Math.ceil((stripTime(PLAN_START) - stripTime(today)) / MS_PER_DAY);
+        return (
+          <div style={{ padding: "2rem 1.5rem", maxWidth: 900, margin: "0 auto" }}>
+            <Card>
+              <div style={{ fontSize: "0.7rem", color: "#666", fontFamily: "monospace", letterSpacing: "0.15em" }}>
+                PLAN STARTS IN {days} DAYS
+              </div>
+              <p style={{ marginTop: 8, color: "#c8c4bc" }}>
+                The 22-week plan begins on 21 April 2026. Use this time to set up your Anki deck and Passmedicine subscription.
+              </p>
+            </Card>
+          </div>
+        );
+      }
+      // After exam.
+      if (today > EXAM_DATE) {
+        return (
+          <div style={{ padding: "2rem 1.5rem", maxWidth: 900, margin: "0 auto" }}>
+            <Card>
+              <div style={{ fontSize: "1.1rem", color: "#E74C3C", fontWeight: 700 }}>Exam complete.</div>
+              <p style={{ color: "#c8c4bc" }}>Hopefully it went well. Onward.</p>
+            </Card>
+          </div>
+        );
+      }
+
+      const phaseIdx = getCurrentPhaseIndex(week);
+      const phase = PHASES[phaseIdx];
+      const baseline = phaseBaselineHours(phase);
+      const scale = hoursPerWeek / baseline;
+
+      const weekdayHrs = phase.weekdayHrsBase * scale;
+      const dayOffHrs = phase.dayOffHrsBase * scale;
+      const todayHrs = isWeekend ? dayOffHrs : weekdayHrs;
+      const todayQs = Math.round((isWeekend ? phase.qsPerDayOffBase : phase.qsPerWeekdayBase) * scale);
+
+      const dayLabel = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dow];
+      const dateStr = today.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
+      // Current week's systems (those whose label includes "Wk N" matching this week)
+      const weekSystems = phase.systems.filter(s => systemMatchesWeek(s, week));
+
+      // Conditions tracker stats for this phase
+      const phaseTrackerIds = [...new Set(phase.systems.map(s => s.trackerId).filter(Boolean))];
+      const phaseConds = phaseTrackerIds.flatMap(id => {
+        const sp = SPECIALTIES.find(s => s.id === id); return sp ? sp.conditions : [];
+      });
+      const stats = { green: 0, yellow: 0, red: 0, none: 0 };
+      phaseConds.forEach(c => stats[statuses[c.id] || "none"]++);
+      const total = phaseConds.length || 1;
+      const pctConfident = Math.round((stats.green / total) * 100);
+
+      return (
+        <div style={{ padding: "1.5rem", maxWidth: 1000, margin: "0 auto" }}>
+          {/* Day banner */}
+          <div style={{
+            display: "flex", alignItems: "flex-start", gap: "1rem", flexWrap: "wrap",
+            marginBottom: "1.5rem",
+          }}>
+            <div style={{
+              background: `linear-gradient(135deg, ${phase.color}33, ${phase.color}11)`,
+              border: `1px solid ${phase.color}66`,
+              borderRadius: 10, padding: "1rem 1.4rem", minWidth: 220,
+            }}>
+              <div style={{
+                fontSize: "0.65rem", color: phase.color, letterSpacing: "0.15em",
+                textTransform: "uppercase", fontFamily: "monospace",
+              }}>{dayLabel} · {isWeekend ? "Day off" : "Post-shift"}</div>
+              <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "#fff", marginTop: 4 }}>
+                {dateStr}
+              </div>
+              <div style={{ fontSize: "0.85rem", color: "#a8b8d0", marginTop: 6 }}>
+                Week <strong style={{ color: "#fff" }}>{week} of 22</strong> ·
+                {" "}Phase {phase.id}: <span style={{ color: phase.color }}>{phase.name}</span>
+              </div>
+            </div>
+
+            {/* Today's targets */}
+            <div style={{ flex: 1, minWidth: 260, display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
+              <Stat label="Today's hours" value={`${todayHrs.toFixed(1)} h`}
+                    sub={isWeekend ? "Long block" : "Post-shift"} color={phase.color} />
+              <Stat label="Q target" value={`${todayQs}`} sub="Passmed/Pastest" color="#27AE60" />
+              <Stat label="Anki" value="Daily" sub="No skip days" color="#9B59B6" />
+            </div>
+          </div>
+
+          {/* This week's focus */}
+          <Card>
+            <SectionLabel>This week's focus</SectionLabel>
+            {weekSystems.length === 0 ? (
+              <p style={{ margin: 0, color: "#888", fontSize: "0.9rem" }}>
+                No specific system flagged for week {week}. Stick with the phase strategy below.
+              </p>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {weekSystems.map((s, i) => {
+                  const pc = PRIORITY_COLORS[s.priority];
+                  const canOpen = !!s.trackerId;
+                  return (
+                    <div key={i} style={{
+                      background: "rgba(255,255,255,0.03)",
+                      borderRadius: 7, padding: "0.7rem 0.9rem",
+                      borderLeft: `3px solid ${s.priority === "EXAM" ? "#E74C3C" : s.priority === "HIGH" ? "#E74C3C88" : s.priority === "MED" ? "#E67E2288" : "#27AE6088"}`,
+                      display: "flex", alignItems: "center", gap: "0.7rem", flexWrap: "wrap",
+                    }}>
+                      <span style={{
+                        background: pc.bg, color: pc.text,
+                        fontSize: "0.62rem", padding: "0.18rem 0.5rem",
+                        borderRadius: 3, fontFamily: "monospace", fontWeight: 700,
+                      }}>{s.priority === "EXAM" ? "EXAM DAY" : pc.label.toUpperCase()}</span>
+                      <span style={{ fontSize: "0.7rem", color: "#666", fontFamily: "monospace" }}>{s.weeks}</span>
+                      <span style={{ flex: 1, fontSize: "0.95rem", color: "#d8d4cc" }}>{s.name}</span>
+                      {canOpen && (
+                        <button onClick={() => { setActiveSpecialty(s.trackerId); setView("tracker"); }}
+                          style={pillBtn(phase.color)}>Open in Tracker →</button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </Card>
+
+          {/* Strategy */}
+          <Card>
+            <SectionLabel>Phase {phase.id} strategy</SectionLabel>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+              {phase.strategy.map((s, i) => (
+                <li key={i} style={{ display: "flex", gap: "0.8rem", marginBottom: "0.7rem" }}>
+                  <span style={{ color: phase.color, fontFamily: "monospace", flexShrink: 0 }}>→</span>
+                  <span style={{ color: "#b8b4ac", fontSize: "0.92rem", lineHeight: 1.6 }}>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+
+          {/* Phase tracker progress */}
+          {phaseTrackerIds.length > 0 && (
+            <Card>
+              <SectionLabel>Tracker progress · current phase systems</SectionLabel>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "#fff" }}>{pctConfident}%</div>
+                <div style={{ fontSize: "0.85rem", color: "#888" }}>
+                  {stats.green} of {total} conditions marked confident
+                </div>
+              </div>
+              <div style={{ height: 8, background: "#0f0f20", borderRadius: 4, overflow: "hidden", display: "flex" }}>
+                {["green","yellow","red"].map(s => stats[s] > 0 && (
+                  <div key={s} style={{ width: `${(stats[s]/total)*100}%`, background: STATUS_CONFIG[s].color }} />
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 16, marginTop: 10, fontSize: "0.78rem", flexWrap: "wrap" }}>
+                {["green","yellow","red","none"].map(s => (
+                  <span key={s} style={{ color: "#9ab5cc" }}>
+                    <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%",
+                      background: s === "none" ? "#444" : STATUS_CONFIG[s].color, marginRight: 6 }} />
+                    {STATUS_CONFIG[s].label}: {stats[s]}
+                  </span>
+                ))}
+              </div>
+            </Card>
+          )}
+        </div>
+      );
+    }
+
+    function systemMatchesWeek(system, weekNum) {
+      const m = (system.weeks || "").match(/Wk(?:s)?\s*(\d+)(?:[–-](\d+))?/);
+      if (!m) return false;
+      const a = +m[1], b = m[2] ? +m[2] : a;
+      return weekNum >= a && weekNum <= b;
+    }
+
+    // -------- PLAN VIEW --------
+    function PlanView({ hoursPerWeek, setView, setActiveSpecialty, autoOpenPhase }) {
+      const [activePhase, setActivePhase] = useState(autoOpenPhase ?? getCurrentPhaseIndex(getCurrentWeek()));
+      const [showTips, setShowTips] = useState(false);
+      const phase = PHASES[activePhase];
+
+      const baseline = phaseBaselineHours(phase);
+      const scale = hoursPerWeek / baseline;
+      const weekdayHrs = phase.weekdayHrsBase * scale;
+      const dayOffHrs  = phase.dayOffHrsBase * scale;
+      const weekdayQs  = Math.round(phase.qsPerWeekdayBase * scale);
+      const dayOffQs   = Math.round(phase.qsPerDayOffBase * scale);
+      const phaseHrsPerWeek = (5*weekdayHrs + 2*dayOffHrs).toFixed(1);
+
+      let phaseLabel, phaseColor;
+      if (scale < 0.6)       { phaseLabel = "Light pace";    phaseColor = "#E74C3C"; }
+      else if (scale < 0.85) { phaseLabel = "Reduced pace";  phaseColor = "#E67E22"; }
+      else if (scale < 1.15) { phaseLabel = "Plan baseline"; phaseColor = "#27AE60"; }
+      else                   { phaseLabel = "Above baseline"; phaseColor = "#4A90D9"; }
+
+      return (
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          {/* Phase tabs */}
+          <div className="tab-strip" style={{
+            display: "flex", borderBottom: "1px solid rgba(255,255,255,0.06)",
+            overflowX: "auto", padding: "0 1rem",
+          }}>
+            {PHASES.map((p, i) => {
+              const currentWeek = getCurrentWeek();
+              const isCurrent = currentWeek >= p.weekStart && currentWeek <= p.weekEnd;
+              return (
+                <button key={p.id} onClick={() => setActivePhase(i)} style={{
+                  background: "none", border: "none", padding: "0.9rem 1.2rem", cursor: "pointer",
+                  borderBottom: activePhase === i ? `2px solid ${p.color}` : "2px solid transparent",
+                  color: activePhase === i ? p.color : "#666",
+                  fontSize: "0.78rem", fontFamily: "'Courier New', monospace",
+                  letterSpacing: "0.05em", whiteSpace: "nowrap", position: "relative",
+                }}>
+                  {isCurrent && <span style={{
+                    position: "absolute", top: 6, right: 6, width: 6, height: 6,
+                    borderRadius: "50%", background: p.color,
+                  }} />}
+                  <span style={{ display: "block", fontSize: "0.62rem", marginBottom: 2, opacity: 0.7 }}>{p.label}</span>
+                  {p.name}
+                </button>
+              );
+            })}
+            <button onClick={() => setShowTips(s => !s)} style={{
+              marginLeft: "auto", background: "none", border: "none", padding: "0.9rem 1.2rem",
+              cursor: "pointer", color: "#4A90D9", fontFamily: "monospace", fontSize: "0.78rem",
+            }}>{showTips ? "▲ Hide tips" : "▼ Study tips"}</button>
+          </div>
+
+          {showTips && (
+            <div style={{ padding: "1rem 1.5rem", background: "#131320", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "0.8rem" }}>
+                {TIPS.map((tip, i) => (
+                  <div key={i} style={{
+                    background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: 8, padding: "0.9rem",
+                  }}>
+                    <div style={{ fontSize: "1.2rem", marginBottom: 4 }}>{tip.icon}</div>
+                    <div style={{ fontWeight: 600, fontSize: "0.82rem", color: "#e8e4dc", marginBottom: 4 }}>{tip.title}</div>
+                    <div style={{ fontSize: "0.75rem", color: "#8a8a9a", lineHeight: 1.5 }}>{tip.body}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Phase header */}
+          <div style={{ padding: "1.5rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+            <div style={{
+              background: `linear-gradient(135deg, ${phase.color}22, ${phase.color}11)`,
+              border: `1px solid ${phase.color}44`,
+              borderRadius: 10, padding: "1.2rem 1.4rem", minWidth: 200,
+            }}>
+              <div style={{
+                fontSize: "0.62rem", color: phase.color, letterSpacing: "0.15em",
+                textTransform: "uppercase", fontFamily: "monospace",
+              }}>{phase.weeks}</div>
+              <div style={{ fontSize: "1.3rem", fontWeight: 700, color: "#fff", marginTop: 4, lineHeight: 1.2 }}>
+                Phase {phase.id}:<br/>{phase.name}
+              </div>
+              <div style={{ fontSize: "0.72rem", color: "#888", marginTop: 6 }}>
+                {fmtRange(phase.dateStart, phase.dateEnd)}
+              </div>
+              <div style={{
+                marginTop: 10, display: "inline-block", background: `${phaseColor}22`,
+                border: `1px solid ${phaseColor}55`, borderRadius: 4,
+                padding: "0.18rem 0.55rem", fontSize: "0.68rem", color: phaseColor, fontFamily: "monospace",
+              }}>● {phaseLabel} · {phaseHrsPerWeek} hrs/wk</div>
+            </div>
+
+            <div style={{ flex: 1, minWidth: 240 }}>
+              <SectionLabel>Phase goal</SectionLabel>
+              <p style={{ margin: 0, color: "#c8c4bc", fontSize: "0.92rem", lineHeight: 1.65 }}>{phase.goal}</p>
+            </div>
+          </div>
+
+          <div style={{ padding: "0 1.5rem 2rem", display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+            {/* Adapted weekly rhythm */}
+            <Card>
+              <SectionLabel>Weekly rhythm · adapted to {hoursPerWeek} hrs/wk</SectionLabel>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                <RhythmRow icon="🏥" label="Weekdays (post-shift) × 5"
+                  hours={weekdayHrs} qs={weekdayQs} color={phase.color}
+                  baseHours={phase.weekdayHrsBase} baseQs={phase.qsPerWeekdayBase} />
+                <RhythmRow icon="📚" label="Day off #1"
+                  hours={dayOffHrs} qs={dayOffQs} color={phase.color}
+                  baseHours={phase.dayOffHrsBase} baseQs={phase.qsPerDayOffBase} suffix=" — deep topic / mock" />
+                <RhythmRow icon="🔁" label="Day off #2"
+                  hours={dayOffHrs} qs={Math.round(dayOffQs*0.6)} color={phase.color}
+                  baseHours={phase.dayOffHrsBase} baseQs={Math.round(phase.qsPerDayOffBase*0.6)} suffix=" — review / weak areas" />
+              </div>
+            </Card>
+
+            {/* Strategy */}
+            <Card>
+              <SectionLabel>Strategy</SectionLabel>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                {phase.strategy.map((s, i) => (
+                  <li key={i} style={{ display: "flex", gap: "0.8rem", marginBottom: "0.7rem" }}>
+                    <span style={{ color: phase.color, fontFamily: "monospace", flexShrink: 0 }}>→</span>
+                    <span style={{ color: "#b8b4ac", fontSize: "0.92rem", lineHeight: 1.65 }}>{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            {/* Topics */}
+            <Card>
+              <SectionLabel>Topics / tasks</SectionLabel>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                {phase.systems.map((s, i) => {
+                  const pc = PRIORITY_COLORS[s.priority];
+                  return (
+                    <div key={i} style={{
+                      background: "rgba(255,255,255,0.03)", borderRadius: 7,
+                      padding: "0.7rem 0.9rem",
+                      borderLeft: `3px solid ${s.priority === "EXAM" ? "#E74C3C" : s.priority === "HIGH" ? "#E74C3C88" : s.priority === "MED" ? "#E67E2288" : "#27AE6088"}`,
+                      display: "flex", alignItems: "center", gap: "0.7rem", flexWrap: "wrap",
+                    }}>
+                      <span style={{
+                        background: pc.bg, color: pc.text,
+                        fontSize: "0.62rem", padding: "0.18rem 0.5rem",
+                        borderRadius: 3, fontFamily: "monospace", fontWeight: 700,
+                      }}>{s.priority === "EXAM" ? "EXAM DAY" : pc.label.toUpperCase()}</span>
+                      <span style={{ fontSize: "0.7rem", color: "#666", fontFamily: "monospace" }}>{s.weeks}</span>
+                      <span style={{ flex: 1, fontSize: "0.92rem", color: s.priority === "EXAM" ? "#E74C3C" : "#d8d4cc",
+                                     fontWeight: s.priority === "EXAM" ? 700 : 400 }}>{s.name}</span>
+                      {s.trackerId && (
+                        <button onClick={() => { setActiveSpecialty(s.trackerId); setView("tracker"); }}
+                          style={pillBtn(phase.color)}>Open →</button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+
+            {/* Phase nav */}
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button onClick={() => setActivePhase(Math.max(0, activePhase - 1))} disabled={activePhase === 0}
+                style={navBtn(activePhase === 0)}>← Previous phase</button>
+              <button onClick={() => setActivePhase(Math.min(PHASES.length-1, activePhase + 1))} disabled={activePhase === PHASES.length - 1}
+                style={navBtn(activePhase === PHASES.length - 1, phase.color)}>Next phase →</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function fmtRange(a, b) {
+      const fmt = d => new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+      return `${fmt(a)} – ${fmt(b)}`;
+    }
+
+    function RhythmRow({ icon, label, hours, qs, color, suffix, baseHours, baseQs }) {
+      return (
+        <div>
+          <div style={{ fontSize: "0.72rem", color: "#777", fontFamily: "monospace", marginBottom: 5 }}>
+            {icon}  {label}
+          </div>
+          <div style={{
+            background: "rgba(255,255,255,0.03)", borderRadius: 6,
+            padding: "0.6rem 0.9rem", borderLeft: `3px solid ${color}`,
+            color: "#c8c4bc", fontSize: "0.92rem", lineHeight: 1.6,
+          }}>
+            <strong style={{ color: "#fff" }}>{hours.toFixed(1)} hrs</strong>
+            {" "}<span style={{ color: "#888" }}>(plan: {baseHours}h)</span>
+            <span style={{ margin: "0 0.5rem", opacity: 0.4 }}>·</span>
+            <strong style={{ color: "#fff" }}>~{qs} Qs</strong>
+            {" "}<span style={{ color: "#888" }}>(plan: {baseQs})</span>
+            {suffix && <span style={{ color: "#888" }}>{suffix}</span>}
+          </div>
+        </div>
+      );
+    }
+
+    // -------- TRACKER VIEW --------
+    function TrackerView({ statuses, setStatuses, activeSpecialty, setActiveSpecialty, notes, setNote }) {
+      const [search, setSearch] = useState("");
+      const [filterStatus, setFilterStatus] = useState("all");
+      const [expandedId, setExpandedId] = useState(null);
+      const [noteEditId, setNoteEditId] = useState(null);
+
+      const setStatus = (conditionId, status) => {
+        const updated = { ...statuses, [conditionId]: status };
+        setStatuses(updated);
+      };
+
+      const currentSpecialty = SPECIALTIES.find(s => s.id === activeSpecialty) || SPECIALTIES[0];
+
+      const filtered = currentSpecialty.conditions.filter(c => {
+        const matchSearch = !search ||
+          c.name.toLowerCase().includes(search.toLowerCase()) ||
+          (c.presentation || "").toLowerCase().includes(search.toLowerCase());
+        const matchFilter = filterStatus === "all" || (statuses[c.id] || "none") === filterStatus;
+        return matchSearch && matchFilter;
+      });
+
+      const getStats = sp => {
+        const counts = { green: 0, yellow: 0, red: 0, none: 0 };
+        sp.conditions.forEach(c => counts[statuses[c.id] || "none"]++);
+        return counts;
+      };
+
+      const totalStats = { green: 0, yellow: 0, red: 0, none: 0 };
+      SPECIALTIES.forEach(s => {
+        const stats = getStats(s);
+        for (const k of Object.keys(totalStats)) totalStats[k] += stats[k];
+      });
+      const totalConds = Object.values(totalStats).reduce((a, b) => a + b, 0) || 1;
+
+      return (
+        <div style={{ background: "#f8f7f4", color: "#1a1a1a", minHeight: "calc(100vh - 200px)" }}>
+          {/* Tracker subheader (light) */}
+          <div style={{ background: "#1a1a2e", padding: "1rem 1.5rem", borderBottom: "3px solid #2a4a8a" }}>
+            <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem" }}>
+                <div style={{ fontSize: "0.95rem", color: "#fff", fontWeight: 700 }}>Condition Tracker</div>
+                <div style={{ fontSize: "0.78rem", color: "#7a9abf", fontFamily: "monospace" }}>
+                  {totalConds} conditions · {SPECIALTIES.length} specialties
+                </div>
+                {["green","yellow","red"].map(s => (
+                  <span key={s} style={{ fontSize: "0.78rem", color: "#9ab5cc", display: "flex", alignItems: "center", gap: 5 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", background: STATUS_CONFIG[s].color }} />
+                    {STATUS_CONFIG[s].label}: {totalStats[s]}
+                  </span>
+                ))}
+              </div>
+              <div style={{ marginTop: 8, height: 5, background: "#0f0f20", borderRadius: 3, overflow: "hidden", display: "flex" }}>
+                {["green","yellow","red"].map(s => (
+                  <div key={s} style={{ width: `${(totalStats[s]/totalConds)*100}%`, background: STATUS_CONFIG[s].color, transition: "width .4s" }} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: horizontal specialty strip (sidebar hidden under 720px) */}
+          <div className="tracker-strip specialty-strip" style={{
+            display: "none", overflowX: "auto", gap: 6,
+            padding: "0.55rem 0.75rem",
+            background: "#1e1e30", borderBottom: "1px solid #2a2a45",
+          }}>
+            {SPECIALTIES.map(s => {
+              const stats = getStats(s);
+              const total = s.conditions.length;
+              const isActive = activeSpecialty === s.id;
+              return (
+                <button key={s.id}
+                  onClick={() => { setActiveSpecialty(s.id); setExpandedId(null); setSearch(""); }}
+                  style={{
+                    flex: "0 0 auto",
+                    background: isActive ? "#2a4a8a" : "rgba(255,255,255,0.04)",
+                    border: `1px solid ${isActive ? "#4a8adc" : "rgba(255,255,255,0.08)"}`,
+                    color: isActive ? "#fff" : "#9ab5cc",
+                    borderRadius: 18, padding: "0.4rem 0.8rem",
+                    fontSize: "0.78rem", whiteSpace: "nowrap",
+                    display: "inline-flex", alignItems: "center", gap: 6, cursor: "pointer",
+                  }}>
+                  <span>{s.icon}</span>
+                  <span style={{ fontWeight: isActive ? 600 : 400 }}>{s.name}</span>
+                  <span style={{
+                    fontSize: "0.65rem", fontFamily: "monospace",
+                    color: isActive ? "#cfdcec" : "#6b8aa6",
+                  }}>{total - stats.none}/{total}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div style={{ display: "flex", maxWidth: 1200, margin: "0 auto" }}>
+            {/* Sidebar (hidden on small screens) */}
+            <div className="tracker-sidebar" style={{
+              flexShrink: 0, background: "#1e1e30",
+              minHeight: "calc(100vh - 220px)", borderRight: "1px solid #2a2a45",
+              padding: "0.5rem 0",
+            }}>
+              {SPECIALTIES.map(s => {
+                const stats = getStats(s);
+                const total = s.conditions.length;
+                const rated = total - stats.none;
+                const isActive = activeSpecialty === s.id;
+                return (
+                  <button key={s.id} onClick={() => { setActiveSpecialty(s.id); setExpandedId(null); setSearch(""); }}
+                    style={{
+                      width: "100%", background: isActive ? "#2a4a8a" : "none",
+                      border: "none", textAlign: "left", padding: "0.55rem 0.85rem", cursor: "pointer",
+                      borderLeft: isActive ? "3px solid #4a8adc" : "3px solid transparent",
+                      color: "#fff",
+                    }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: 3 }}>
+                      <span style={{ fontSize: "0.85rem" }}>{s.icon}</span>
+                      <span style={{ fontSize: "0.76rem", fontWeight: isActive ? 600 : 400,
+                        color: isActive ? "#fff" : "#9ab5cc", lineHeight: 1.3 }}>{s.name}</span>
+                    </div>
+                    <div style={{ display: "flex", gap: 2, marginLeft: "1.35rem", alignItems: "center" }}>
+                      {["green","yellow","red"].map(st => stats[st] > 0 && (
+                        <span key={st} style={{
+                          width: `${(stats[st]/total)*48}px`, minWidth: 4, height: 3,
+                          background: STATUS_CONFIG[st].color, borderRadius: 2,
+                        }} />
+                      ))}
+                      {rated < total && (
+                        <span style={{ fontSize: "0.6rem", color: "#4a6a8a", marginLeft: 3 }}>{rated}/{total}</span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Main */}
+            <div style={{ flex: 1, padding: "1.1rem", overflowX: "hidden",
+                          fontFamily: "'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif" }}>
+              {/* Controls */}
+              <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", alignItems: "center", marginBottom: "0.9rem" }}>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 6,
+                  background: "#fff", border: "1px solid #d0d0c0", borderRadius: 6,
+                  padding: "0.35rem 0.7rem", flex: 1, maxWidth: 320,
+                }}>
+                  <span style={{ color: "#888", fontSize: "0.85rem" }}>🔍</span>
+                  <input value={search} onChange={e => setSearch(e.target.value)}
+                    placeholder="Search conditions..." style={{
+                    border: "none", outline: "none", fontSize: "0.85rem",
+                    background: "transparent", width: "100%", color: "#1a1a1a", fontFamily: "inherit",
+                  }} />
+                </div>
+                <div style={{ display: "flex", gap: 4 }}>
+                  {["all","none","green","yellow","red"].map(f => (
+                    <button key={f} onClick={() => setFilterStatus(f)} style={{
+                      padding: "0.3rem 0.65rem", borderRadius: 5, cursor: "pointer",
+                      fontSize: "0.72rem", fontFamily: "monospace",
+                      background: filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].bg) : "#fff",
+                      color: filterStatus === f ? (f === "all" || f === "none" ? "#fff" : STATUS_CONFIG[f].color) : "#666",
+                      border: `1px solid ${filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].border) : "#d0d0c0"}`,
+                      fontWeight: filterStatus === f ? 600 : 400,
+                    }}>
+                      {f === "all" ? "All" : f === "none" ? "Unrated" : STATUS_CONFIG[f].label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Specialty header */}
+              <div style={{ marginBottom: "0.7rem", display: "flex", alignItems: "baseline", gap: "0.7rem" }}>
+                <span style={{ fontSize: "1.3rem" }}>{currentSpecialty.icon}</span>
+                <h2 style={{ margin: 0, fontSize: "1.18rem", fontWeight: 700, color: "#1a1a2e" }}>{currentSpecialty.name}</h2>
+                <span style={{ fontSize: "0.78rem", color: "#888", fontFamily: "monospace" }}>{filtered.length} conditions</span>
+              </div>
+
+              {/* Conditions */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+                {filtered.map(condition => {
+                  const status = statuses[condition.id] || "none";
+                  const sc = STATUS_CONFIG[status];
+                  const isExpanded = expandedId === condition.id;
+                  return (
+                    <div key={condition.id} style={{
+                      background: status === "none" ? "#fff" : sc.bg,
+                      border: `1.5px solid ${status === "none" ? "#e0ddd5" : sc.border}`,
+                      borderRadius: 8, overflow: "hidden",
+                      boxShadow: isExpanded ? "0 2px 12px rgba(0,0,0,0.08)" : "none",
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center",
+                        padding: "0.6rem 0.85rem", gap: "0.7rem", cursor: "pointer" }}
+                        onClick={() => setExpandedId(isExpanded ? null : condition.id)}>
+                        <div style={{ display: "flex", gap: 6, flexShrink: 0 }} onClick={e => e.stopPropagation()}>
+                          {["green","yellow","red"].map(s => (
+                            <button key={s} onClick={() => setStatus(condition.id, status === s ? "none" : s)}
+                              title={STATUS_CONFIG[s].label} style={{
+                              width: 28, height: 28, borderRadius: "50%",
+                              border: `2px solid ${status === s ? STATUS_CONFIG[s].color : "#c0bdb5"}`,
+                              background: status === s ? STATUS_CONFIG[s].color : "transparent",
+                              cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                              padding: 0,
+                            }}>
+                              {status === s && <span style={{ color: "#fff", fontSize: 12, fontWeight: 700, lineHeight: 1 }}>✓</span>}
+                            </button>
+                          ))}
+                        </div>
+                        <span style={{
+                          fontWeight: 600, fontSize: "0.92rem",
+                          color: status === "none" ? "#1a1a2e" : sc.color,
+                          flex: 1, lineHeight: 1.3, minWidth: 0,
+                        }}>{condition.name}</span>
+                        {notes[condition.id] && (
+                          <span title="Has handwritten notes" style={{
+                            fontSize: "0.78rem", flexShrink: 0,
+                          }}>✏️</span>
+                        )}
+                        {status !== "none" && (
+                          <span style={{
+                            fontSize: "0.7rem", fontFamily: "monospace", color: sc.color, fontWeight: 600,
+                            background: "rgba(255,255,255,0.6)", padding: "0.13rem 0.5rem", borderRadius: 3,
+                            flexShrink: 0,
+                          }}>{sc.label}</span>
+                        )}
+                        <span style={{
+                          color: "#aaa", fontSize: "0.75rem", flexShrink: 0,
+                          transform: isExpanded ? "rotate(180deg)" : "none", transition: "transform .2s",
+                        }}>▼</span>
+                      </div>
+                      {isExpanded && (
+                        <div style={{
+                          borderTop: `1px solid ${status === "none" ? "#e0ddd5" : sc.border}`,
+                          padding: "0.85rem", background: "rgba(255,255,255,0.7)",
+                        }}>
+                          {[
+                            { label: "🩺 Presentation",   value: condition.presentation },
+                            { label: "🔬 Investigations", value: condition.investigations },
+                            { label: "💊 Treatment",       value: condition.treatment },
+                          ].map(row => row.value && (
+                            <div key={row.label} style={{ marginBottom: "0.65rem" }}>
+                              <div style={{
+                                fontSize: "0.66rem", fontWeight: 700, color: "#888",
+                                textTransform: "uppercase", letterSpacing: "0.1em",
+                                fontFamily: "monospace", marginBottom: 4,
+                              }}>{row.label}</div>
+                              <div style={{ fontSize: "0.86rem", color: "#2a2a2a",
+                                            lineHeight: 1.65, whiteSpace: "pre-line" }}>{row.value}</div>
+                            </div>
+                          ))}
+                          {/* Notes section */}
+                          <div style={{
+                            marginTop: "0.5rem", paddingTop: "0.7rem",
+                            borderTop: "1px dashed #d0cdc3",
+                          }}>
+                            <div style={{
+                              display: "flex", alignItems: "center", gap: 8, marginBottom: 6,
+                            }}>
+                              <div style={{
+                                fontSize: "0.66rem", fontWeight: 700, color: "#888",
+                                textTransform: "uppercase", letterSpacing: "0.1em",
+                                fontFamily: "monospace", flex: 1,
+                              }}>✏️ My notes</div>
+                              <button
+                                onClick={() => setNoteEditId(condition.id)}
+                                style={{
+                                  background: "#1a1a2e", color: "#fff", border: "none",
+                                  padding: "0.5rem 0.85rem", borderRadius: 6,
+                                  fontFamily: "monospace", fontSize: "0.75rem", cursor: "pointer",
+                                  minHeight: 38,
+                                }}>
+                                {notes[condition.id] ? "Edit notes" : "Add notes"}
+                              </button>
+                              {notes[condition.id] && (
+                                <button
+                                  onClick={() => { if (confirm("Delete notes for this condition?")) setNote(condition.id, null); }}
+                                  style={{
+                                    background: "transparent", color: "#888", border: "1px solid #d0cdc3",
+                                    padding: "0.4rem 0.7rem", borderRadius: 6,
+                                    fontFamily: "monospace", fontSize: "0.75rem", cursor: "pointer",
+                                  }}>Delete</button>
+                              )}
+                            </div>
+                            {notes[condition.id] ? (
+                              <img
+                                src={notes[condition.id]}
+                                alt="Handwritten notes"
+                                onClick={() => setNoteEditId(condition.id)}
+                                style={{
+                                  width: "100%", maxHeight: 360, objectFit: "contain",
+                                  borderRadius: 6, background: "#fff",
+                                  border: "1px solid #d0cdc3", cursor: "pointer", display: "block",
+                                }}
+                              />
+                            ) : (
+                              <div style={{
+                                fontSize: "0.78rem", color: "#888",
+                                background: "#fff", border: "1px dashed #d0cdc3",
+                                borderRadius: 6, padding: "0.7rem",
+                              }}>
+                                Tap "Add notes" to write with Apple Pencil or finger.
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                {filtered.length === 0 && (
+                  <div style={{ textAlign: "center", padding: "2.5rem", color: "#888" }}>
+                    No conditions match your filters.
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {noteEditId && (() => {
+            const cond = currentSpecialty.conditions.find(c => c.id === noteEditId)
+              || SPECIALTIES.flatMap(s => s.conditions).find(c => c.id === noteEditId);
+            return (
+              <NoteCanvas
+                title={cond ? `${currentSpecialty.icon} ${cond.name}` : "Notes"}
+                initialDataUrl={notes[noteEditId]}
+                onSave={dataUrl => setNote(noteEditId, dataUrl)}
+                onClose={() => setNoteEditId(null)}
+              />
+            );
+          })()}
+        </div>
+      );
+    }
+
+    // -------- shared atoms --------
+    function Card({ children }) {
+      return (
+        <div style={{
+          background: "#1a1a24", border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: 10, padding: "1.4rem", marginBottom: "1.2rem",
+        }}>{children}</div>
+      );
+    }
+    function SectionLabel({ children }) {
+      return (
+        <div style={{
+          fontSize: "0.68rem", letterSpacing: "0.15em", color: "#666",
+          textTransform: "uppercase", fontFamily: "monospace", marginBottom: "0.9rem",
+        }}>{children}</div>
+      );
+    }
+    function Stat({ label, value, sub, color }) {
+      return (
+        <div style={{
+          background: "#1a1a24", border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: 8, padding: "0.8rem 1rem", flex: "1 1 130px", minWidth: 130,
+        }}>
+          <div style={{ fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase",
+                         color: "#777", fontFamily: "monospace" }}>{label}</div>
+          <div style={{ fontSize: "1.4rem", fontWeight: 700, color, marginTop: 4 }}>{value}</div>
+          {sub && <div style={{ fontSize: "0.72rem", color: "#888", marginTop: 2 }}>{sub}</div>}
+        </div>
+      );
+    }
+    const pillBtn = color => ({
+      background: `${color}22`, border: `1px solid ${color}55`, color, fontSize: "0.7rem",
+      padding: "0.25rem 0.6rem", borderRadius: 4, cursor: "pointer", fontFamily: "monospace",
+    });
+    const navBtn = (disabled, color = "#888") => ({
+      background: disabled ? "none" : `${color}22`,
+      border: `1px solid ${disabled ? "rgba(255,255,255,0.1)" : color + "55"}`,
+      color: disabled ? "#333" : color,
+      padding: "0.5rem 1.1rem", borderRadius: 5,
+      cursor: disabled ? "not-allowed" : "pointer",
+      fontSize: "0.78rem", fontFamily: "monospace",
+    });
+
+    // -------- root --------
+    function App() {
+      const [hoursPerWeek, setHoursPerWeek] = useState(() => {
+        const saved = +localStorage.getItem("mrcp_hours_per_week");
+        return saved >= 3 && saved <= 40 ? saved : 14;
+      });
+      const [view, setView] = useState(() => localStorage.getItem("mrcp_view") || "today");
+      const [statuses, setStatuses] = useState(() => {
+        try { return JSON.parse(localStorage.getItem("mrcp_statuses") || "{}"); } catch { return {}; }
+      });
+      const [activeSpecialty, setActiveSpecialty] = useState(() =>
+        localStorage.getItem("mrcp_active_specialty") || "cardiology"
+      );
+      const [notes, setNotes] = useState(() => {
+        try { return JSON.parse(localStorage.getItem("mrcp_notes") || "{}"); } catch { return {}; }
+      });
+
+      useEffect(() => { localStorage.setItem("mrcp_hours_per_week", hoursPerWeek); }, [hoursPerWeek]);
+      useEffect(() => { localStorage.setItem("mrcp_view", view); }, [view]);
+      useEffect(() => { localStorage.setItem("mrcp_statuses", JSON.stringify(statuses)); }, [statuses]);
+      useEffect(() => { localStorage.setItem("mrcp_active_specialty", activeSpecialty); }, [activeSpecialty]);
+
+      const setNote = useCallback((id, dataUrl) => {
+        setNotes(prev => {
+          const updated = { ...prev };
+          if (dataUrl) updated[id] = dataUrl; else delete updated[id];
+          try {
+            localStorage.setItem("mrcp_notes", JSON.stringify(updated));
+          } catch (err) {
+            alert("Couldn't save note — browser storage is full. Try deleting older notes.");
+            return prev;
+          }
+          return updated;
+        });
+      }, []);
+
+      return (
+        <div>
+          <Header hoursPerWeek={hoursPerWeek} setHoursPerWeek={setHoursPerWeek}
+                  view={view} setView={setView} />
+          {view === "today"   && <TodayView   hoursPerWeek={hoursPerWeek} statuses={statuses}
+                                              setView={setView} setActiveSpecialty={setActiveSpecialty} />}
+          {view === "plan"    && <PlanView    hoursPerWeek={hoursPerWeek}
+                                              setView={setView} setActiveSpecialty={setActiveSpecialty} />}
+          {view === "tracker" && <TrackerView statuses={statuses} setStatuses={setStatuses}
+                                              activeSpecialty={activeSpecialty}
+                                              setActiveSpecialty={setActiveSpecialty}
+                                              notes={notes} setNote={setNote} />}
+          <div style={{ textAlign: "center", padding: "1.2rem", fontSize: "0.7rem",
+                        color: "#444", fontFamily: "monospace" }}>
+            Saved locally in this browser · refresh to keep your data
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
