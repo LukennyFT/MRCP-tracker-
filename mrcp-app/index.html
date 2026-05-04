@@ -44,9 +44,12 @@
       padding-bottom: env(safe-area-inset-bottom);
     }
   </style>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="vendor/react.min.js"></script>
+  <script src="vendor/react-dom.min.js"></script>
+  <script src="vendor/babel.min.js"></script>
+  <script src="vendor/firebase-app-compat.js"></script>
+  <script src="vendor/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
   <script src="data.js"></script>
 </head>
 <body>
@@ -64,6 +67,35 @@
     const TIPS = window.TIPS;
     const EXAM_DATE = new Date(window.EXAM_DATE + "T00:00:00");
     const PLAN_START = new Date(window.PLAN_START + "T00:00:00");
+
+    // -------- Firebase init (sync across devices) --------
+    let FIRESTORE = null;
+    try {
+      if (window.firebase && window.FIREBASE_CONFIG) {
+        if (!firebase.apps.length) firebase.initializeApp(window.FIREBASE_CONFIG);
+        FIRESTORE = firebase.firestore();
+        // Enable offline persistence — survives airplane mode, syncs on reconnect
+        FIRESTORE.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+      }
+    } catch (err) {
+      console.warn("Firebase init failed:", err);
+    }
+
+    // generate readable sync codes like  m7k3-l9xq-pd4t-r8sy
+    function generateSyncCode() {
+      const chars = "abcdefghjkmnpqrstuvwxyz23456789"; // unambiguous chars
+      const bytes = new Uint8Array(16);
+      crypto.getRandomValues(bytes);
+      let s = "";
+      for (let i = 0; i < 16; i++) {
+        if (i > 0 && i % 4 === 0) s += "-";
+        s += chars[bytes[i] % chars.length];
+      }
+      return s; // e.g. "m7k3-l9xq-pd4t-r8sy"
+    }
+    const isValidSyncCode = c =>
+      typeof c === "string" && c.replace(/-/g, "").length >= 12 && c.replace(/-/g, "").length <= 32;
+    const normaliseSyncCode = c => (c || "").toLowerCase().trim().replace(/[^a-z0-9-]/g, "");
 
     const PRIORITY_COLORS = {
       HIGH: { bg: "#FEE2E2", text: "#991B1B", label: "High yield" },
@@ -346,8 +378,200 @@
       );
     }
 
+    // -------- Sync modal --------
+    function SyncModal({ syncCode, setSyncCode, syncStatus, lastSyncAt, onClose }) {
+      const [enterCode, setEnterCode] = useState("");
+      const [copied, setCopied] = useState(false);
+
+      const generate = () => {
+        if (syncCode && !confirm("Replace the current sync code with a new one? Existing remote data under the old code stays intact but this device disconnects from it.")) return;
+        const code = generateSyncCode();
+        setSyncCode(code);
+      };
+      const useExisting = () => {
+        const trimmed = normaliseSyncCode(enterCode);
+        if (!isValidSyncCode(trimmed)) {
+          alert("Code looks too short. It should be the 16-character code from your other device (with or without dashes).");
+          return;
+        }
+        if (!confirm("Replace this device's data with whatever is in the cloud under that code? Tip: do this on your second device, not the one with all your existing notes/progress.")) return;
+        setSyncCode(trimmed);
+        setEnterCode("");
+      };
+      const disconnect = () => {
+        if (!confirm("Stop syncing across devices? Your local data stays here, but changes won't propagate.")) return;
+        setSyncCode(null);
+      };
+      const copy = () => {
+        if (!syncCode) return;
+        navigator.clipboard?.writeText(syncCode).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 1500);
+        });
+      };
+
+      const statusColor = {
+        idle:        "#888",
+        connecting:  "#E67E22",
+        synced:      "#27AE60",
+        offline:     "#E67E22",
+        error:       "#E74C3C",
+        disabled:    "#888",
+      }[syncStatus] || "#888";
+      const statusLabel = {
+        idle:        "Local only",
+        connecting:  "Connecting…",
+        synced:      "Synced",
+        offline:     "Offline (will sync)",
+        error:       "Error",
+        disabled:    "Sync unavailable",
+      }[syncStatus] || syncStatus;
+
+      const lastSyncStr = lastSyncAt ? new Date(lastSyncAt).toLocaleTimeString() : null;
+
+      return (
+        <div onClick={onClose} className="pencil-overlay" style={{
+          position: "fixed", inset: 0, background: "rgba(8,8,14,0.82)",
+          zIndex: 200, display: "flex", alignItems: "center", justifyContent: "center",
+          padding: "1rem",
+        }}>
+          <div onClick={e => e.stopPropagation()} style={{
+            background: "#1a1a24", border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 12, padding: "1.4rem", width: "100%", maxWidth: 460,
+            maxHeight: "90vh", overflowY: "auto",
+            boxShadow: "0 8px 40px rgba(0,0,0,0.6)",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+              <span style={{ fontSize: "1.4rem" }}>🔄</span>
+              <h2 style={{ margin: 0, fontSize: "1.1rem", color: "#fff", flex: 1 }}>Sync across devices</h2>
+              <button onClick={onClose} style={{
+                background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)",
+                color: "#ddd", borderRadius: 6, padding: "0.35rem 0.7rem", cursor: "pointer",
+              }}>✕</button>
+            </div>
+
+            {syncStatus === "disabled" && (
+              <div style={{
+                background: "#3a1f1f", border: "1px solid #7a3030", color: "#ffb4b4",
+                padding: "0.7rem 0.9rem", borderRadius: 8, marginBottom: 12,
+                fontSize: "0.82rem", lineHeight: 1.5,
+              }}>
+                Firebase didn't initialize. Check that <code>vendor/firebase-app-compat.js</code>,
+                {" "}<code>vendor/firebase-firestore-compat.js</code>, and <code>firebase-config.js</code> all loaded.
+              </div>
+            )}
+
+            <div style={{
+              background: "rgba(255,255,255,0.04)", borderRadius: 8,
+              padding: "0.75rem 0.9rem", marginBottom: 14,
+              display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap",
+            }}>
+              <span style={{
+                width: 10, height: 10, borderRadius: "50%", background: statusColor,
+                boxShadow: `0 0 8px ${statusColor}`,
+              }} />
+              <span style={{ color: "#fff", fontWeight: 600, fontSize: "0.85rem" }}>{statusLabel}</span>
+              {lastSyncStr && (
+                <span style={{ color: "#888", fontSize: "0.78rem", fontFamily: "monospace", marginLeft: "auto" }}>
+                  Last sync: {lastSyncStr}
+                </span>
+              )}
+            </div>
+
+            {syncCode ? (
+              <div style={{ marginBottom: 16 }}>
+                <div style={{ fontSize: "0.7rem", color: "#888", letterSpacing: "0.1em",
+                              textTransform: "uppercase", fontFamily: "monospace", marginBottom: 6 }}>
+                  Your sync code
+                </div>
+                <div style={{
+                  background: "#0f0f20", border: "1px solid #2a4a8a", borderRadius: 8,
+                  padding: "0.85rem 1rem", color: "#fff", fontSize: "1.15rem",
+                  fontFamily: "monospace", letterSpacing: "0.05em",
+                  display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap",
+                  userSelect: "all",
+                }}>
+                  <span style={{ flex: 1, wordBreak: "break-all" }}>{syncCode}</span>
+                  <button onClick={copy} style={{
+                    background: copied ? "#27AE60" : "#2a4a8a", color: "#fff",
+                    border: "none", padding: "0.4rem 0.8rem", borderRadius: 6,
+                    cursor: "pointer", fontSize: "0.75rem", fontFamily: "monospace",
+                  }}>{copied ? "✓ Copied" : "Copy"}</button>
+                </div>
+                <div style={{ fontSize: "0.78rem", color: "#888", marginTop: 8, lineHeight: 1.5 }}>
+                  On your other device, open this app → Sync → "I have a code" → paste this in.
+                </div>
+                <div style={{ display: "flex", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
+                  <button onClick={generate} style={{
+                    background: "transparent", color: "#a8b8d0", border: "1px solid rgba(255,255,255,0.15)",
+                    padding: "0.5rem 0.85rem", borderRadius: 6, cursor: "pointer",
+                    fontSize: "0.78rem", fontFamily: "monospace",
+                  }}>Regenerate code</button>
+                  <button onClick={disconnect} style={{
+                    background: "transparent", color: "#ffb4b4", border: "1px solid #7a3030",
+                    padding: "0.5rem 0.85rem", borderRadius: 6, cursor: "pointer",
+                    fontSize: "0.78rem", fontFamily: "monospace",
+                  }}>Disconnect</button>
+                </div>
+              </div>
+            ) : (
+              <div style={{ marginBottom: 16 }}>
+                <button onClick={generate} disabled={syncStatus === "disabled"} style={{
+                  width: "100%", background: "#2a4a8a", color: "#fff",
+                  border: "1px solid #4a8adc", padding: "0.8rem", borderRadius: 8,
+                  cursor: syncStatus === "disabled" ? "not-allowed" : "pointer",
+                  fontSize: "0.9rem", fontWeight: 600,
+                  opacity: syncStatus === "disabled" ? 0.5 : 1,
+                }}>
+                  ✨ Generate sync code (start syncing)
+                </button>
+                <div style={{ fontSize: "0.78rem", color: "#888", marginTop: 8, lineHeight: 1.5 }}>
+                  Creates a unique 16-character code. Your current data uploads to the cloud, then any change on this device propagates to other devices using the same code.
+                </div>
+              </div>
+            )}
+
+            <div style={{
+              borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 14, marginTop: 4,
+            }}>
+              <div style={{ fontSize: "0.7rem", color: "#888", letterSpacing: "0.1em",
+                            textTransform: "uppercase", fontFamily: "monospace", marginBottom: 8 }}>
+                I have a code from another device
+              </div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <input
+                  value={enterCode}
+                  onChange={e => setEnterCode(e.target.value)}
+                  placeholder="paste 16-char code"
+                  spellCheck={false}
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  style={{
+                    flex: 1, minWidth: 180, background: "#0f0f20",
+                    border: "1px solid #2a4a8a", borderRadius: 6,
+                    padding: "0.6rem 0.8rem", color: "#fff",
+                    fontFamily: "monospace", fontSize: "0.9rem",
+                  }}
+                />
+                <button onClick={useExisting} disabled={syncStatus === "disabled"} style={{
+                  background: "#2a4a8a", color: "#fff", border: "1px solid #4a8adc",
+                  padding: "0.6rem 1rem", borderRadius: 6,
+                  cursor: syncStatus === "disabled" ? "not-allowed" : "pointer",
+                  fontSize: "0.85rem", fontWeight: 600,
+                  opacity: syncStatus === "disabled" ? 0.5 : 1,
+                }}>Use code</button>
+              </div>
+              <div style={{ fontSize: "0.75rem", color: "#666", marginTop: 8, lineHeight: 1.5 }}>
+                ⚠ This <strong>overwrites</strong> your local data with the remote copy. Use this on your <em>second</em> device, not the one with all your work.
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     // -------- shared chrome --------
-    function Header({ hoursPerWeek, setHoursPerWeek, view, setView }) {
+    function Header({ hoursPerWeek, setHoursPerWeek, view, setView, onOpenSync, syncStatus }) {
       const today = new Date();
       const daysToExam = getDaysUntilExam(today);
       const totalHours = (hoursPerWeek * 22).toFixed(0);
@@ -375,9 +599,27 @@
                 }}>
                   22-week study plan · adaptive
                 </div>
-                <h1 style={{ margin: 0, fontSize: "1.6rem", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>
-                  MRCP Part 1
-                </h1>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                  <h1 style={{ margin: 0, fontSize: "1.6rem", fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>
+                    MRCP Part 1
+                  </h1>
+                  <button onClick={onOpenSync} title="Sync across devices" style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    color: "#a8b8d0", padding: "0.35rem 0.7rem", borderRadius: 6,
+                    cursor: "pointer", fontSize: "0.78rem", fontFamily: "monospace",
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                  }}>
+                    <span style={{
+                      width: 8, height: 8, borderRadius: "50%",
+                      background: {
+                        synced: "#27AE60", connecting: "#E67E22",
+                        offline: "#E67E22", error: "#E74C3C",
+                      }[syncStatus] || "#888",
+                    }} />
+                    🔄 Sync
+                  </button>
+                </div>
                 <div style={{ fontSize: "0.85rem", color: "#a8b8d0", marginTop: 4 }}>
                   Exam: <span style={{ color: "#E74C3C", fontWeight: 600 }}>23 Sep 2026</span>
                   <span style={{ margin: "0 0.6rem", opacity: 0.4 }}>·</span>
@@ -1222,10 +1464,159 @@
         try { return JSON.parse(localStorage.getItem("mrcp_notes") || "{}"); } catch { return {}; }
       });
 
+      // ---- sync state ----
+      const [syncCode, setSyncCodeState] = useState(() => localStorage.getItem("mrcp_sync_code") || null);
+      const [syncStatus, setSyncStatus] = useState(() =>
+        FIRESTORE ? (localStorage.getItem("mrcp_sync_code") ? "connecting" : "idle") : "disabled"
+      );
+      const [lastSyncAt, setLastSyncAt] = useState(null);
+      const [showSyncModal, setShowSyncModal] = useState(false);
+
+      // Refs to prevent write-loops when applying remote snapshots
+      const applyingRemote = useRef(false);
+      const initialUploadDone = useRef(false);
+      const writeTimer = useRef(null);
+
+      const setSyncCode = useCallback(code => {
+        if (code) {
+          localStorage.setItem("mrcp_sync_code", code);
+          initialUploadDone.current = false;
+          setSyncCodeState(code);
+        } else {
+          localStorage.removeItem("mrcp_sync_code");
+          initialUploadDone.current = false;
+          setSyncCodeState(null);
+          setSyncStatus(FIRESTORE ? "idle" : "disabled");
+        }
+      }, []);
+
+      // Persist local state
       useEffect(() => { localStorage.setItem("mrcp_hours_per_week", hoursPerWeek); }, [hoursPerWeek]);
       useEffect(() => { localStorage.setItem("mrcp_view", view); }, [view]);
       useEffect(() => { localStorage.setItem("mrcp_statuses", JSON.stringify(statuses)); }, [statuses]);
       useEffect(() => { localStorage.setItem("mrcp_active_specialty", activeSpecialty); }, [activeSpecialty]);
+
+      // ---- Firestore: read remote, listen for changes, do initial upload if empty ----
+      useEffect(() => {
+        if (!FIRESTORE || !syncCode) return;
+        setSyncStatus("connecting");
+        const docRef = FIRESTORE.collection("sync").doc(syncCode);
+        const notesRef = docRef.collection("notes");
+
+        // online/offline indicator
+        const onOnline  = () => setSyncStatus(s => s === "offline" ? "synced" : s);
+        const onOffline = () => setSyncStatus("offline");
+        window.addEventListener("online",  onOnline);
+        window.addEventListener("offline", onOffline);
+
+        let mainUnsub = null, notesUnsub = null;
+
+        docRef.get({ source: "server" }).catch(() => docRef.get()).then(snap => {
+          applyingRemote.current = true;
+          if (snap.exists) {
+            const data = snap.data() || {};
+            if (typeof data.hoursPerWeek === "number") setHoursPerWeek(data.hoursPerWeek);
+            if (data.statuses && typeof data.statuses === "object") setStatuses(data.statuses);
+          } else {
+            // First time using this code: upload current local state as the seed
+            docRef.set({
+              hoursPerWeek, statuses,
+              updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            }, { merge: true }).catch(err => console.warn("seed write failed:", err));
+          }
+          // also pull any existing notes
+          notesRef.get().then(qs => {
+            if (!qs.empty) {
+              const incoming = {};
+              qs.forEach(d => { const v = d.data(); if (v && v.dataUrl) incoming[d.id] = v.dataUrl; });
+              setNotes(prev => ({ ...prev, ...incoming }));
+              try { localStorage.setItem("mrcp_notes", JSON.stringify({ ...JSON.parse(localStorage.getItem("mrcp_notes") || "{}"), ...incoming })); } catch {}
+            } else if (!snap.exists) {
+              // seed notes too on first time
+              try {
+                const localNotes = JSON.parse(localStorage.getItem("mrcp_notes") || "{}");
+                Object.entries(localNotes).forEach(([id, dataUrl]) => {
+                  notesRef.doc(id).set({
+                    dataUrl,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                  }).catch(() => {});
+                });
+              } catch {}
+            }
+          }).finally(() => {
+            applyingRemote.current = false;
+            initialUploadDone.current = true;
+            setLastSyncAt(Date.now());
+            setSyncStatus(navigator.onLine === false ? "offline" : "synced");
+
+            // Subscribe AFTER initial reconciliation
+            mainUnsub = docRef.onSnapshot(s => {
+              if (!s.exists) return;
+              applyingRemote.current = true;
+              const data = s.data() || {};
+              if (typeof data.hoursPerWeek === "number") {
+                setHoursPerWeek(prev => prev !== data.hoursPerWeek ? data.hoursPerWeek : prev);
+              }
+              if (data.statuses) {
+                setStatuses(prev => JSON.stringify(prev) !== JSON.stringify(data.statuses) ? data.statuses : prev);
+              }
+              setLastSyncAt(Date.now());
+              // unset on next tick
+              setTimeout(() => { applyingRemote.current = false; }, 0);
+            }, err => { console.warn("main snapshot err:", err); setSyncStatus("error"); });
+
+            notesUnsub = notesRef.onSnapshot(qs => {
+              applyingRemote.current = true;
+              setNotes(prev => {
+                let updated = prev;
+                qs.docChanges().forEach(change => {
+                  const id = change.doc.id;
+                  if (change.type === "removed") {
+                    if (id in updated) { updated = { ...updated }; delete updated[id]; }
+                  } else {
+                    const data = change.doc.data();
+                    if (data && data.dataUrl && updated[id] !== data.dataUrl) {
+                      updated = { ...updated, [id]: data.dataUrl };
+                    }
+                  }
+                });
+                if (updated !== prev) {
+                  try { localStorage.setItem("mrcp_notes", JSON.stringify(updated)); } catch {}
+                }
+                return updated;
+              });
+              setLastSyncAt(Date.now());
+              setTimeout(() => { applyingRemote.current = false; }, 0);
+            }, err => console.warn("notes snapshot err:", err));
+          });
+        }).catch(err => {
+          console.warn("Firestore initial fetch failed:", err);
+          setSyncStatus("error");
+        });
+
+        return () => {
+          window.removeEventListener("online",  onOnline);
+          window.removeEventListener("offline", onOffline);
+          if (mainUnsub) mainUnsub();
+          if (notesUnsub) notesUnsub();
+        };
+      }, [syncCode]);
+
+      // ---- Debounced write of state changes to Firestore ----
+      useEffect(() => {
+        if (!FIRESTORE || !syncCode || !initialUploadDone.current) return;
+        if (applyingRemote.current) return;
+        clearTimeout(writeTimer.current);
+        writeTimer.current = setTimeout(() => {
+          FIRESTORE.collection("sync").doc(syncCode).set({
+            hoursPerWeek, statuses,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+          }, { merge: true })
+            .then(() => setLastSyncAt(Date.now()))
+            .catch(err => { console.warn("write failed:", err); setSyncStatus("error"); });
+        }, 700);
+        return () => clearTimeout(writeTimer.current);
+      }, [hoursPerWeek, statuses, syncCode]);
 
       const setNote = useCallback((id, dataUrl) => {
         setNotes(prev => {
@@ -1239,12 +1630,27 @@
           }
           return updated;
         });
-      }, []);
+        // Mirror to Firestore (don't write if change came FROM remote)
+        if (FIRESTORE && syncCode && !applyingRemote.current) {
+          const noteDoc = FIRESTORE.collection("sync").doc(syncCode).collection("notes").doc(id);
+          if (dataUrl) {
+            noteDoc.set({
+              dataUrl,
+              updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            }).then(() => setLastSyncAt(Date.now()))
+              .catch(err => console.warn("note write failed:", err));
+          } else {
+            noteDoc.delete().then(() => setLastSyncAt(Date.now())).catch(() => {});
+          }
+        }
+      }, [syncCode]);
 
       return (
         <div>
           <Header hoursPerWeek={hoursPerWeek} setHoursPerWeek={setHoursPerWeek}
-                  view={view} setView={setView} />
+                  view={view} setView={setView}
+                  onOpenSync={() => setShowSyncModal(true)}
+                  syncStatus={syncStatus} />
           {view === "today"   && <TodayView   hoursPerWeek={hoursPerWeek} statuses={statuses}
                                               setView={setView} setActiveSpecialty={setActiveSpecialty} />}
           {view === "plan"    && <PlanView    hoursPerWeek={hoursPerWeek}
@@ -1253,9 +1659,20 @@
                                               activeSpecialty={activeSpecialty}
                                               setActiveSpecialty={setActiveSpecialty}
                                               notes={notes} setNote={setNote} />}
+          {showSyncModal && (
+            <SyncModal
+              syncCode={syncCode}
+              setSyncCode={setSyncCode}
+              syncStatus={syncStatus}
+              lastSyncAt={lastSyncAt}
+              onClose={() => setShowSyncModal(false)}
+            />
+          )}
           <div style={{ textAlign: "center", padding: "1.2rem", fontSize: "0.7rem",
                         color: "#444", fontFamily: "monospace" }}>
-            Saved locally in this browser · refresh to keep your data
+            {syncCode
+              ? <>Syncing across devices · code <span style={{ color: "#888" }}>{syncCode}</span></>
+              : <>Saved locally in this browser · tap 🔄 Sync to share across devices</>}
           </div>
         </div>
       );
