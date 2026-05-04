@@ -20,7 +20,49 @@
     button { font-family: inherit; touch-action: manipulation; }
     input, textarea { font-family: inherit; }
     input:not([type=range]), textarea { -webkit-appearance: none; appearance: none; }
-    input[type=range] { accent-color: #4A90D9; }
+    /* Custom slider — colour explicit so iOS / Safari render it blue */
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #1c2a4a;
+      outline: none;
+      accent-color: #4A90D9;
+      cursor: pointer;
+      padding: 0;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 3px;
+      background: #1c2a4a;
+    }
+    input[type=range]::-moz-range-track {
+      height: 6px;
+      border-radius: 3px;
+      background: #1c2a4a;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4A90D9;
+      border: 2px solid #ffffff;
+      margin-top: -6px; /* centre on 6px track */
+      box-shadow: 0 0 0 1px rgba(74,144,217,0.4);
+      cursor: pointer;
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4A90D9;
+      border: 2px solid #ffffff;
+      cursor: pointer;
+    }
     /* Hide scrollbar in tab strip */
     .tab-strip::-webkit-scrollbar, .specialty-strip::-webkit-scrollbar { display: none; }
     .tab-strip, .specialty-strip { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
