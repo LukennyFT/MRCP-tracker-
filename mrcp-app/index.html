@@ -18,7 +18,8 @@
            padding-left: env(safe-area-inset-left);
            padding-right: env(safe-area-inset-right); }
     button { font-family: inherit; touch-action: manipulation; }
-    input, textarea { font-family: inherit; -webkit-appearance: none; appearance: none; }
+    input, textarea { font-family: inherit; }
+    input:not([type=range]), textarea { -webkit-appearance: none; appearance: none; }
     input[type=range] { accent-color: #4A90D9; }
     /* Hide scrollbar in tab strip */
     .tab-strip::-webkit-scrollbar, .specialty-strip::-webkit-scrollbar { display: none; }
