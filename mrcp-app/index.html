@@ -146,6 +146,31 @@
       typeof c === "string" && c.replace(/-/g, "").length >= 12 && c.replace(/-/g, "").length <= 32;
     const normaliseSyncCode = c => (c || "").toLowerCase().trim().replace(/[^a-z0-9-]/g, "");
 
+    // Days since a timestamp (ms epoch). Returns whole days from today.
+    function daysSince(ts) {
+      if (!ts) return null;
+      const now = stripTime(new Date()).getTime();
+      const then = stripTime(new Date(ts)).getTime();
+      return Math.max(0, Math.round((now - then) / MS_PER_DAY));
+    }
+    function fmtDaysShort(ts) {
+      const d = daysSince(ts);
+      if (d == null) return "";
+      if (d === 0) return "today";
+      return `${d}d`;
+    }
+    function fmtDaysLong(ts) {
+      const d = daysSince(ts);
+      if (d == null) return "";
+      if (d === 0) return "today";
+      if (d === 1) return "1 day";
+      return `${d} days`;
+    }
+    function fmtSinceDate(ts) {
+      if (!ts) return "";
+      return new Date(ts).toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+    }
+
     const PRIORITY_COLORS = {
       HIGH: { bg: "#FEE2E2", text: "#991B1B", label: "High yield" },
       MED:  { bg: "#FEF9C3", text: "#854D0E", label: "Medium" },
@@ -1125,16 +1150,11 @@
     }
 
     // -------- TRACKER VIEW --------
-    function TrackerView({ statuses, setStatuses, activeSpecialty, setActiveSpecialty, notes, setNote }) {
+    function TrackerView({ statuses, setStatus, statusChangedAt, activeSpecialty, setActiveSpecialty, notes, setNote }) {
       const [search, setSearch] = useState("");
       const [filterStatus, setFilterStatus] = useState("all");
       const [expandedId, setExpandedId] = useState(null);
       const [noteEditId, setNoteEditId] = useState(null);
-
-      const setStatus = (conditionId, status) => {
-        const updated = { ...statuses, [conditionId]: status };
-        setStatuses(updated);
-      };
 
       const currentSpecialty = SPECIALTIES.find(s => s.id === activeSpecialty) || SPECIALTIES[0];
 
@@ -1343,7 +1363,15 @@
                             fontSize: "0.7rem", fontFamily: "monospace", color: sc.color, fontWeight: 600,
                             background: "rgba(255,255,255,0.6)", padding: "0.13rem 0.5rem", borderRadius: 3,
                             flexShrink: 0,
-                          }}>{sc.label}</span>
+                            display: "inline-flex", alignItems: "center", gap: 5,
+                          }}>
+                            {sc.label}
+                            {statusChangedAt[condition.id] && (
+                              <span style={{ opacity: 0.65, fontWeight: 400 }}>
+                                · {fmtDaysShort(statusChangedAt[condition.id])}
+                              </span>
+                            )}
+                          </span>
                         )}
                         <span style={{
                           color: "#aaa", fontSize: "0.75rem", flexShrink: 0,
@@ -1355,6 +1383,20 @@
                           borderTop: `1px solid ${status === "none" ? "#e0ddd5" : sc.border}`,
                           padding: "0.85rem", background: "rgba(255,255,255,0.7)",
                         }}>
+                          {status !== "none" && statusChangedAt[condition.id] && (
+                            <div style={{
+                              fontSize: "0.78rem", color: sc.color,
+                              marginBottom: "0.7rem", padding: "0.5rem 0.75rem",
+                              background: "#fff", borderRadius: 6,
+                              border: `1px dashed ${sc.border}`,
+                              fontFamily: "monospace", display: "flex",
+                              flexWrap: "wrap", gap: "0.5rem", alignItems: "center",
+                            }}>
+                              <span>🕒</span>
+                              <span><strong>{sc.label}</strong> for {fmtDaysLong(statusChangedAt[condition.id])}</span>
+                              <span style={{ opacity: 0.6 }}>· since {fmtSinceDate(statusChangedAt[condition.id])}</span>
+                            </div>
+                          )}
                           {[
                             { label: "🩺 Presentation",   value: condition.presentation },
                             { label: "🔬 Investigations", value: condition.investigations },
@@ -1513,6 +1555,9 @@
       const [notes, setNotes] = useState(() => {
         try { return JSON.parse(localStorage.getItem("mrcp_notes") || "{}"); } catch { return {}; }
       });
+      const [statusChangedAt, setStatusChangedAt] = useState(() => {
+        try { return JSON.parse(localStorage.getItem("mrcp_status_changed_at") || "{}"); } catch { return {}; }
+      });
 
       // ---- sync state ----
       const [syncCode, setSyncCodeState] = useState(() => localStorage.getItem("mrcp_sync_code") || null);
@@ -1545,6 +1590,40 @@
       useEffect(() => { localStorage.setItem("mrcp_view", view); }, [view]);
       useEffect(() => { localStorage.setItem("mrcp_statuses", JSON.stringify(statuses)); }, [statuses]);
       useEffect(() => { localStorage.setItem("mrcp_active_specialty", activeSpecialty); }, [activeSpecialty]);
+      useEffect(() => { localStorage.setItem("mrcp_status_changed_at", JSON.stringify(statusChangedAt)); }, [statusChangedAt]);
+
+      // Single status setter — updates BOTH the rating and the change timestamp.
+      const setStatus = useCallback((id, newStatus) => {
+        setStatuses(prev => {
+          const cur = prev[id] || "none";
+          if (cur === newStatus) return prev;
+          const u = { ...prev };
+          if (!newStatus || newStatus === "none") delete u[id]; else u[id] = newStatus;
+          return u;
+        });
+        setStatusChangedAt(prev => {
+          const u = { ...prev };
+          if (!newStatus || newStatus === "none") delete u[id]; else u[id] = Date.now();
+          return u;
+        });
+      }, []);
+
+      // Backfill: if a condition has a status but no timestamp, stamp it now.
+      // Runs whenever either map changes; safe to re-run since it's idempotent
+      // once timestamps exist.
+      useEffect(() => {
+        if (applyingRemote.current) return;
+        const missing = Object.keys(statuses).filter(
+          id => statuses[id] && statuses[id] !== "none" && !statusChangedAt[id]
+        );
+        if (missing.length === 0) return;
+        const now = Date.now();
+        setStatusChangedAt(prev => {
+          const u = { ...prev };
+          missing.forEach(id => { if (!u[id]) u[id] = now; });
+          return u;
+        });
+      }, [statuses, statusChangedAt]);
 
       // ---- Firestore: read remote, listen for changes, do initial upload if empty ----
       useEffect(() => {
@@ -1567,10 +1646,11 @@
             const data = snap.data() || {};
             if (typeof data.hoursPerWeek === "number") setHoursPerWeek(data.hoursPerWeek);
             if (data.statuses && typeof data.statuses === "object") setStatuses(data.statuses);
+            if (data.statusChangedAt && typeof data.statusChangedAt === "object") setStatusChangedAt(data.statusChangedAt);
           } else {
             // First time using this code: upload current local state as the seed
             docRef.set({
-              hoursPerWeek, statuses,
+              hoursPerWeek, statuses, statusChangedAt,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
             }, { merge: true }).catch(err => console.warn("seed write failed:", err));
           }
@@ -1609,6 +1689,9 @@
               }
               if (data.statuses) {
                 setStatuses(prev => JSON.stringify(prev) !== JSON.stringify(data.statuses) ? data.statuses : prev);
+              }
+              if (data.statusChangedAt) {
+                setStatusChangedAt(prev => JSON.stringify(prev) !== JSON.stringify(data.statusChangedAt) ? data.statusChangedAt : prev);
               }
               setLastSyncAt(Date.now());
               // unset on next tick
@@ -1659,14 +1742,14 @@
         clearTimeout(writeTimer.current);
         writeTimer.current = setTimeout(() => {
           FIRESTORE.collection("sync").doc(syncCode).set({
-            hoursPerWeek, statuses,
+            hoursPerWeek, statuses, statusChangedAt,
             updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
           }, { merge: true })
             .then(() => setLastSyncAt(Date.now()))
             .catch(err => { console.warn("write failed:", err); setSyncStatus("error"); });
         }, 700);
         return () => clearTimeout(writeTimer.current);
-      }, [hoursPerWeek, statuses, syncCode]);
+      }, [hoursPerWeek, statuses, statusChangedAt, syncCode]);
 
       const setNote = useCallback((id, dataUrl) => {
         setNotes(prev => {
@@ -1705,7 +1788,8 @@
                                               setView={setView} setActiveSpecialty={setActiveSpecialty} />}
           {view === "plan"    && <PlanView    hoursPerWeek={hoursPerWeek}
                                               setView={setView} setActiveSpecialty={setActiveSpecialty} />}
-          {view === "tracker" && <TrackerView statuses={statuses} setStatuses={setStatuses}
+          {view === "tracker" && <TrackerView statuses={statuses} setStatus={setStatus}
+                                              statusChangedAt={statusChangedAt}
                                               activeSpecialty={activeSpecialty}
                                               setActiveSpecialty={setActiveSpecialty}
                                               notes={notes} setNote={setNote} />}
