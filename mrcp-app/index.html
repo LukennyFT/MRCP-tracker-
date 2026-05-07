@@ -100,6 +100,7 @@
   <script src="vendor/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="data.js"></script>
+  <script src="notebook-data.js"></script>
 </head>
 <body>
   <div id="root">
@@ -746,9 +747,10 @@
               overflowX: "auto",
             }}>
               {[
-                { id: "today",   label: "Today",   icon: "📍" },
-                { id: "plan",    label: "Plan",    icon: "🗺️" },
-                { id: "tracker", label: "Tracker", icon: "✅" },
+                { id: "today",    label: "Today",    icon: "📍" },
+                { id: "plan",     label: "Plan",     icon: "🗺️" },
+                { id: "tracker",  label: "Tracker",  icon: "✅" },
+                { id: "notebook", label: "Notebook", icon: "📓" },
               ].map(t => (
                 <button key={t.id} onClick={() => setView(t.id)} style={{
                   background: "none", border: "none",
@@ -1496,6 +1498,380 @@
       );
     }
 
+    // -------- NOTEBOOK VIEW --------
+    const NOTEBOOK = window.NOTEBOOK || { sections: [] };
+
+    // Tiny markdown-lite renderer.
+    // Supports: ## h3, ### h4, - bullets, **bold**, *italic*, `code`,
+    // | tables, --- horizontal rule, > blockquote, paragraphs.
+    function renderInline(text) {
+      // Split on **, *, ` while preserving them; then rebuild as React nodes.
+      const parts = [];
+      let buf = "";
+      let i = 0;
+      const flush = () => { if (buf) { parts.push(buf); buf = ""; } };
+      while (i < text.length) {
+        if (text.startsWith("**", i)) {
+          const end = text.indexOf("**", i + 2);
+          if (end > -1) { flush(); parts.push(<strong key={parts.length}>{text.slice(i + 2, end)}</strong>); i = end + 2; continue; }
+        }
+        if (text[i] === "*") {
+          const end = text.indexOf("*", i + 1);
+          if (end > -1) { flush(); parts.push(<em key={parts.length}>{text.slice(i + 1, end)}</em>); i = end + 1; continue; }
+        }
+        if (text[i] === "`") {
+          const end = text.indexOf("`", i + 1);
+          if (end > -1) { flush(); parts.push(
+            <code key={parts.length} style={{ background: "rgba(255,255,255,0.06)", padding: "0.1rem 0.35rem", borderRadius: 3, fontSize: "0.88em" }}>
+              {text.slice(i + 1, end)}
+            </code>); i = end + 1; continue; }
+        }
+        buf += text[i]; i++;
+      }
+      flush();
+      return parts;
+    }
+
+    function MarkdownLite({ content }) {
+      const lines = (content || "").split("\n");
+      const blocks = [];
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        // headings
+        if (line.startsWith("### ")) { blocks.push({ kind: "h4", text: line.slice(4) }); i++; continue; }
+        if (line.startsWith("## "))  { blocks.push({ kind: "h3", text: line.slice(3) }); i++; continue; }
+        // hr
+        if (line.trim() === "---")   { blocks.push({ kind: "hr" }); i++; continue; }
+        // blockquote
+        if (line.startsWith("> "))   { blocks.push({ kind: "quote", text: line.slice(2) }); i++; continue; }
+        // table (collect contiguous | lines)
+        if (line.trim().startsWith("|")) {
+          const rows = [];
+          while (i < lines.length && lines[i].trim().startsWith("|")) {
+            rows.push(lines[i].trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(c => c.trim()));
+            i++;
+          }
+          // detect separator row (all dashes)
+          const sepIdx = rows.findIndex(r => r.every(c => /^[-: ]+$/.test(c)));
+          let header = null, body = rows;
+          if (sepIdx > 0) { header = rows.slice(0, sepIdx); body = rows.slice(sepIdx + 1); }
+          blocks.push({ kind: "table", header, body });
+          continue;
+        }
+        // bullets
+        if (line.startsWith("- ") || line.startsWith("* ")) {
+          const items = [];
+          while (i < lines.length && (lines[i].startsWith("- ") || lines[i].startsWith("* "))) {
+            items.push(lines[i].slice(2));
+            i++;
+          }
+          blocks.push({ kind: "list", items });
+          continue;
+        }
+        // blank line
+        if (!line.trim()) { i++; continue; }
+        // paragraph (collect contiguous non-blank, non-special lines)
+        const paraLines = [line];
+        i++;
+        while (i < lines.length && lines[i].trim() &&
+               !lines[i].startsWith("#") && !lines[i].startsWith("- ") &&
+               !lines[i].startsWith("* ") && !lines[i].startsWith("> ") &&
+               !lines[i].trim().startsWith("|") && lines[i].trim() !== "---") {
+          paraLines.push(lines[i]); i++;
+        }
+        blocks.push({ kind: "p", text: paraLines.join(" ") });
+      }
+
+      return (
+        <div style={{ fontSize: "0.92rem", lineHeight: 1.65, color: "#d8d4cc" }}>
+          {blocks.map((b, idx) => {
+            if (b.kind === "h3") return (
+              <h3 key={idx} style={{ fontSize: "1.05rem", fontWeight: 700, color: "#fff",
+                                      margin: "1.2rem 0 0.5rem", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: 4 }}>
+                {renderInline(b.text)}
+              </h3>
+            );
+            if (b.kind === "h4") return (
+              <h4 key={idx} style={{ fontSize: "0.92rem", fontWeight: 700, color: "#a8b8d0",
+                                      margin: "0.9rem 0 0.4rem" }}>
+                {renderInline(b.text)}
+              </h4>
+            );
+            if (b.kind === "hr") return <hr key={idx} style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.1)", margin: "1rem 0" }} />;
+            if (b.kind === "quote") return (
+              <blockquote key={idx} style={{
+                margin: "0.8rem 0", padding: "0.5rem 0.9rem", borderLeft: "3px solid #4A90D9",
+                background: "rgba(74,144,217,0.06)", color: "#c8d4e0", borderRadius: "0 6px 6px 0",
+                fontSize: "0.88rem",
+              }}>{renderInline(b.text)}</blockquote>
+            );
+            if (b.kind === "list") return (
+              <ul key={idx} style={{ margin: "0.4rem 0 0.8rem", paddingLeft: "1.2rem" }}>
+                {b.items.map((it, j) => <li key={j} style={{ marginBottom: 4 }}>{renderInline(it)}</li>)}
+              </ul>
+            );
+            if (b.kind === "table") return (
+              <div key={idx} style={{ overflowX: "auto", margin: "0.6rem 0 0.9rem" }}>
+                <table style={{ borderCollapse: "collapse", fontSize: "0.85rem", width: "100%" }}>
+                  {b.header && (
+                    <thead>
+                      {b.header.map((row, ri) => (
+                        <tr key={ri}>{row.map((c, ci) => (
+                          <th key={ci} style={{
+                            padding: "0.4rem 0.6rem",
+                            background: "rgba(255,255,255,0.05)",
+                            color: "#fff", textAlign: "left",
+                            border: "1px solid rgba(255,255,255,0.08)",
+                          }}>{renderInline(c)}</th>
+                        ))}</tr>
+                      ))}
+                    </thead>
+                  )}
+                  <tbody>
+                    {b.body.map((row, ri) => (
+                      <tr key={ri}>{row.map((c, ci) => (
+                        <td key={ci} style={{
+                          padding: "0.4rem 0.6rem",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          color: "#c8c4bc", verticalAlign: "top",
+                        }}>{renderInline(c)}</td>
+                      ))}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+            return (
+              <p key={idx} style={{ margin: "0.5rem 0", color: "#c8c4bc" }}>{renderInline(b.text)}</p>
+            );
+          })}
+        </div>
+      );
+    }
+
+    function NotebookView({ activeNotebookSectionId, setActiveNotebookSectionId,
+                            activeTopicId, setActiveTopicId,
+                            bookmarks, toggleBookmark }) {
+      const [search, setSearch] = useState("");
+      const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+
+      const sections = NOTEBOOK.sections || [];
+      const currentSection = sections.find(s => s.id === activeNotebookSectionId) || sections[0];
+
+      // If searching, show flat results across all sections
+      const searchActive = !!search.trim() || showOnlyBookmarks;
+      const allTopics = sections.flatMap(s => s.topics.map(t => ({ ...t, sectionId: s.id, sectionName: s.name, sectionIcon: s.icon })));
+      const filteredAll = allTopics.filter(t => {
+        const matchSearch = !search.trim() ||
+          t.name.toLowerCase().includes(search.toLowerCase()) ||
+          (t.content || "").toLowerCase().includes(search.toLowerCase());
+        const matchBookmark = !showOnlyBookmarks || bookmarks[t.id];
+        return matchSearch && matchBookmark;
+      });
+
+      const sectionTopics = currentSection ? currentSection.topics : [];
+
+      const topicsToShow = searchActive
+        ? filteredAll
+        : sectionTopics.map(t => ({ ...t, sectionId: currentSection?.id, sectionIcon: currentSection?.icon }));
+
+      const activeTopic = activeTopicId
+        ? allTopics.find(t => t.id === activeTopicId)
+        : null;
+
+      const totalCount = allTopics.length;
+      const bookmarkedCount = Object.values(bookmarks).filter(Boolean).length;
+
+      return (
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {/* Search + filters */}
+          <div style={{
+            display: "flex", flexWrap: "wrap", gap: "0.6rem", alignItems: "center",
+            padding: "0.9rem 1.1rem", borderBottom: "1px solid rgba(255,255,255,0.06)",
+          }}>
+            <div style={{
+              display: "flex", alignItems: "center", gap: 6,
+              background: "#1a1a24", border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: 6, padding: "0.4rem 0.7rem",
+              flex: 1, maxWidth: 360,
+            }}>
+              <span style={{ color: "#666" }}>🔍</span>
+              <input value={search} onChange={e => setSearch(e.target.value)}
+                placeholder="Search across all sections..."
+                style={{ border: "none", outline: "none", background: "transparent",
+                          color: "#fff", width: "100%", fontSize: "0.88rem" }} />
+            </div>
+            <button onClick={() => setShowOnlyBookmarks(s => !s)} style={{
+              background: showOnlyBookmarks ? "#2a4a8a" : "rgba(255,255,255,0.04)",
+              border: `1px solid ${showOnlyBookmarks ? "#4a8adc" : "rgba(255,255,255,0.1)"}`,
+              color: showOnlyBookmarks ? "#fff" : "#a8b8d0",
+              padding: "0.4rem 0.8rem", borderRadius: 6, cursor: "pointer",
+              fontSize: "0.78rem", fontFamily: "monospace",
+            }}>
+              ⭐ Bookmarks {bookmarkedCount > 0 && <span style={{ opacity: 0.7 }}>({bookmarkedCount})</span>}
+            </button>
+            <span style={{ marginLeft: "auto", fontSize: "0.72rem", color: "#666", fontFamily: "monospace" }}>
+              {totalCount} topics
+            </span>
+          </div>
+
+          <div style={{ display: "flex", minHeight: "calc(100vh - 240px)" }}>
+            {/* Section sidebar (desktop) */}
+            <div className="tracker-sidebar" style={{
+              flexShrink: 0, background: "#0f0f20",
+              borderRight: "1px solid rgba(255,255,255,0.06)", padding: "0.6rem 0",
+            }}>
+              {sections.map(s => {
+                const sBookmarks = s.topics.filter(t => bookmarks[t.id]).length;
+                const isActive = !searchActive && currentSection?.id === s.id;
+                return (
+                  <button key={s.id}
+                    onClick={() => { setActiveNotebookSectionId(s.id); setActiveTopicId(null); setSearch(""); setShowOnlyBookmarks(false); }}
+                    style={{
+                      width: "100%", background: isActive ? "#1a1a3a" : "none",
+                      border: "none", textAlign: "left",
+                      borderLeft: isActive ? "3px solid #4A90D9" : "3px solid transparent",
+                      padding: "0.6rem 0.85rem", cursor: "pointer", color: "#fff",
+                    }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span>{s.icon}</span>
+                      <span style={{ fontSize: "0.8rem", fontWeight: isActive ? 600 : 400,
+                                      color: isActive ? "#fff" : "#9ab5cc" }}>{s.name}</span>
+                    </div>
+                    <div style={{ marginLeft: "1.4rem", fontSize: "0.65rem", color: "#4a6a8a", fontFamily: "monospace" }}>
+                      {s.topics.length} topics{sBookmarks > 0 ? ` · ⭐ ${sBookmarks}` : ""}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Mobile section strip */}
+            <div className="tracker-strip specialty-strip" style={{
+              display: "none", overflowX: "auto", gap: 6, padding: "0.55rem 0.75rem",
+              background: "#0f0f20", borderBottom: "1px solid rgba(255,255,255,0.06)",
+              width: "100%", position: "absolute", marginTop: -52,
+            }}>
+              {sections.map(s => {
+                const isActive = !searchActive && currentSection?.id === s.id;
+                return (
+                  <button key={s.id}
+                    onClick={() => { setActiveNotebookSectionId(s.id); setActiveTopicId(null); setSearch(""); setShowOnlyBookmarks(false); }}
+                    style={{
+                      flex: "0 0 auto", whiteSpace: "nowrap",
+                      background: isActive ? "#2a4a8a" : "rgba(255,255,255,0.04)",
+                      border: `1px solid ${isActive ? "#4a8adc" : "rgba(255,255,255,0.08)"}`,
+                      color: isActive ? "#fff" : "#9ab5cc",
+                      borderRadius: 18, padding: "0.4rem 0.8rem",
+                      fontSize: "0.78rem", cursor: "pointer",
+                    }}>
+                    {s.icon} {s.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Main content area */}
+            <div style={{ flex: 1, padding: "1rem 1.2rem", minWidth: 0 }}>
+              {activeTopic ? (
+                <TopicReader
+                  topic={activeTopic}
+                  isBookmarked={!!bookmarks[activeTopic.id]}
+                  onToggleBookmark={() => toggleBookmark(activeTopic.id)}
+                  onBack={() => setActiveTopicId(null)}
+                />
+              ) : (
+                <TopicList
+                  topics={topicsToShow}
+                  bookmarks={bookmarks}
+                  searchActive={searchActive}
+                  currentSectionName={currentSection?.name}
+                  onOpen={id => setActiveTopicId(id)}
+                  onToggleBookmark={toggleBookmark}
+                  search={search}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function TopicList({ topics, bookmarks, searchActive, currentSectionName, onOpen, onToggleBookmark, search }) {
+      if (topics.length === 0) {
+        return (
+          <div style={{ textAlign: "center", padding: "3rem 1rem", color: "#666" }}>
+            {searchActive ? "No topics match your search." : "No topics in this section yet."}
+          </div>
+        );
+      }
+      return (
+        <div>
+          {!searchActive && currentSectionName && (
+            <h2 style={{ margin: "0 0 0.9rem", fontSize: "1.1rem", color: "#fff", fontWeight: 700 }}>
+              {currentSectionName}
+            </h2>
+          )}
+          <div style={{ display: "grid", gap: "0.6rem", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}>
+            {topics.map(t => (
+              <div key={t.id} style={{
+                background: "#1a1a24", border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: 8, padding: "0.7rem 0.85rem", cursor: "pointer",
+                display: "flex", flexDirection: "column", gap: 4,
+              }} onClick={() => onOpen(t.id)}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  {searchActive && t.sectionIcon && (
+                    <span style={{ fontSize: "0.85rem", opacity: 0.7 }}>{t.sectionIcon}</span>
+                  )}
+                  <span style={{ flex: 1, color: "#e8e4dc", fontSize: "0.92rem", fontWeight: 600 }}>{t.name}</span>
+                  <button onClick={e => { e.stopPropagation(); onToggleBookmark(t.id); }}
+                    title={bookmarks[t.id] ? "Remove bookmark" : "Bookmark"}
+                    style={{ background: "transparent", border: "none", color: bookmarks[t.id] ? "#FFD700" : "#666",
+                              fontSize: "0.95rem", cursor: "pointer", padding: 0, lineHeight: 1 }}>
+                    {bookmarks[t.id] ? "★" : "☆"}
+                  </button>
+                </div>
+                {searchActive && (
+                  <div style={{ fontSize: "0.7rem", color: "#666", fontFamily: "monospace" }}>
+                    in {t.sectionName}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    function TopicReader({ topic, isBookmarked, onToggleBookmark, onBack }) {
+      return (
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "0.9rem", flexWrap: "wrap" }}>
+            <button onClick={onBack} style={{
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)",
+              color: "#a8b8d0", padding: "0.35rem 0.7rem", borderRadius: 6,
+              cursor: "pointer", fontSize: "0.78rem", fontFamily: "monospace",
+            }}>← Topics</button>
+            <h2 style={{ margin: 0, fontSize: "1.15rem", color: "#fff", fontWeight: 700, flex: 1, minWidth: 0 }}>
+              {topic.name}
+            </h2>
+            <button onClick={onToggleBookmark} title={isBookmarked ? "Remove bookmark" : "Bookmark"}
+              style={{
+                background: isBookmarked ? "rgba(255,215,0,0.1)" : "rgba(255,255,255,0.04)",
+                border: `1px solid ${isBookmarked ? "rgba(255,215,0,0.4)" : "rgba(255,255,255,0.1)"}`,
+                color: isBookmarked ? "#FFD700" : "#a8b8d0",
+                padding: "0.35rem 0.7rem", borderRadius: 6,
+                cursor: "pointer", fontSize: "0.85rem",
+              }}>
+              {isBookmarked ? "★ Saved" : "☆ Bookmark"}
+            </button>
+          </div>
+          <MarkdownLite content={topic.content} />
+        </div>
+      );
+    }
+
     // -------- shared atoms --------
     function Card({ children }) {
       return (
@@ -1558,6 +1934,13 @@
       const [statusChangedAt, setStatusChangedAt] = useState(() => {
         try { return JSON.parse(localStorage.getItem("mrcp_status_changed_at") || "{}"); } catch { return {}; }
       });
+      const [notebookBookmarks, setNotebookBookmarks] = useState(() => {
+        try { return JSON.parse(localStorage.getItem("mrcp_notebook_bookmarks") || "{}"); } catch { return {}; }
+      });
+      const [activeNotebookSectionId, setActiveNotebookSectionId] = useState(() =>
+        localStorage.getItem("mrcp_notebook_section") || (window.NOTEBOOK?.sections?.[0]?.id || "haematology")
+      );
+      const [activeTopicId, setActiveTopicId] = useState(null);
 
       // ---- sync state ----
       const [syncCode, setSyncCodeState] = useState(() => localStorage.getItem("mrcp_sync_code") || null);
@@ -1591,6 +1974,16 @@
       useEffect(() => { localStorage.setItem("mrcp_statuses", JSON.stringify(statuses)); }, [statuses]);
       useEffect(() => { localStorage.setItem("mrcp_active_specialty", activeSpecialty); }, [activeSpecialty]);
       useEffect(() => { localStorage.setItem("mrcp_status_changed_at", JSON.stringify(statusChangedAt)); }, [statusChangedAt]);
+      useEffect(() => { localStorage.setItem("mrcp_notebook_bookmarks", JSON.stringify(notebookBookmarks)); }, [notebookBookmarks]);
+      useEffect(() => { localStorage.setItem("mrcp_notebook_section", activeNotebookSectionId); }, [activeNotebookSectionId]);
+
+      const toggleBookmark = useCallback(id => {
+        setNotebookBookmarks(prev => {
+          const u = { ...prev };
+          if (u[id]) delete u[id]; else u[id] = true;
+          return u;
+        });
+      }, []);
 
       // Single status setter — updates BOTH the rating and the change timestamp.
       const setStatus = useCallback((id, newStatus) => {
@@ -1647,10 +2040,11 @@
             if (typeof data.hoursPerWeek === "number") setHoursPerWeek(data.hoursPerWeek);
             if (data.statuses && typeof data.statuses === "object") setStatuses(data.statuses);
             if (data.statusChangedAt && typeof data.statusChangedAt === "object") setStatusChangedAt(data.statusChangedAt);
+            if (data.notebookBookmarks && typeof data.notebookBookmarks === "object") setNotebookBookmarks(data.notebookBookmarks);
           } else {
             // First time using this code: upload current local state as the seed
             docRef.set({
-              hoursPerWeek, statuses, statusChangedAt,
+              hoursPerWeek, statuses, statusChangedAt, notebookBookmarks,
               updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
             }, { merge: true }).catch(err => console.warn("seed write failed:", err));
           }
@@ -1692,6 +2086,9 @@
               }
               if (data.statusChangedAt) {
                 setStatusChangedAt(prev => JSON.stringify(prev) !== JSON.stringify(data.statusChangedAt) ? data.statusChangedAt : prev);
+              }
+              if (data.notebookBookmarks) {
+                setNotebookBookmarks(prev => JSON.stringify(prev) !== JSON.stringify(data.notebookBookmarks) ? data.notebookBookmarks : prev);
               }
               setLastSyncAt(Date.now());
               // unset on next tick
@@ -1742,14 +2139,14 @@
         clearTimeout(writeTimer.current);
         writeTimer.current = setTimeout(() => {
           FIRESTORE.collection("sync").doc(syncCode).set({
-            hoursPerWeek, statuses, statusChangedAt,
+            hoursPerWeek, statuses, statusChangedAt, notebookBookmarks,
             updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
           }, { merge: true })
             .then(() => setLastSyncAt(Date.now()))
             .catch(err => { console.warn("write failed:", err); setSyncStatus("error"); });
         }, 700);
         return () => clearTimeout(writeTimer.current);
-      }, [hoursPerWeek, statuses, statusChangedAt, syncCode]);
+      }, [hoursPerWeek, statuses, statusChangedAt, notebookBookmarks, syncCode]);
 
       const setNote = useCallback((id, dataUrl) => {
         setNotes(prev => {
@@ -1793,6 +2190,13 @@
                                               activeSpecialty={activeSpecialty}
                                               setActiveSpecialty={setActiveSpecialty}
                                               notes={notes} setNote={setNote} />}
+          {view === "notebook" && <NotebookView
+                                              activeNotebookSectionId={activeNotebookSectionId}
+                                              setActiveNotebookSectionId={setActiveNotebookSectionId}
+                                              activeTopicId={activeTopicId}
+                                              setActiveTopicId={setActiveTopicId}
+                                              bookmarks={notebookBookmarks}
+                                              toggleBookmark={toggleBookmark} />}
           {showSyncModal && (
             <SyncModal
               syncCode={syncCode}
