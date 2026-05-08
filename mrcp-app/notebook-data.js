@@ -3131,11 +3131,131 @@ IgG/IgM against cell surface or matrix antigen.
       ],
     },
 
-    // =========================================================================
+    // ====================== HISTOPATHOLOGY SECTIONS ======================
     {
-      id: "histopath",
-      name: "Histopath Highlights",
+      id: "cardiac_path",
+      name: "Cardiac Pathology",
+      icon: "🫀",
+      topics: [
+        {
+          id: "_pending_cardiac_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Cardiac histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "lung_path",
+      name: "Lung Pathology",
+      icon: "🫁",
+      topics: [
+        {
+          id: "_pending_lung_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Lung histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "gi_path",
+      name: "GI Pathology",
+      icon: "🍽️",
+      topics: [
+        {
+          id: "_pending_gi_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. GI histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "pancreatic_path",
+      name: "Pancreatic Pathology",
       icon: "🔬",
+      topics: [
+        {
+          id: "_pending_pancreatic_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Pancreatic histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "liver_path",
+      name: "Liver Pathology",
+      icon: "🔬",
+      topics: [
+        {
+          id: "_pending_liver_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Liver histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "urological_path",
+      name: "Urological Pathology",
+      icon: "🔬",
+      topics: [
+        {
+          id: "_pending_urological_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Urological histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "renal_path",
+      name: "Renal Pathology",
+      icon: "🫘",
+      topics: [
+        {
+          id: "_pending_renal_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Renal histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "gynae_path",
+      name: "Gynaecological Pathology",
+      icon: "⚧️",
+      topics: [
+        {
+          id: "_pending_gynae_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Gynaecological histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "breast_path",
+      name: "Breast Pathology",
+      icon: "🔬",
+      topics: [
+        {
+          id: "_pending_breast_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Breast histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "cerebral_path",
+      name: "Cerebral Pathology",
+      icon: "🧠",
+      topics: [
+        {
+          id: "_pending_cerebral_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Cerebral histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "vasculitides_path",
+      name: "Vasculitides",
+      icon: "🩸",
       topics: [
         {
           id: "vasculitides",
@@ -3208,6 +3328,13 @@ IgG/IgM against cell surface or matrix antigen.
   - Arthralgia
 - → glomerulonephritis (small vessel)`,
         },
+      ],
+    },
+    {
+      id: "amyloidosis_path",
+      name: "Amyloidosis",
+      icon: "🔬",
+      topics: [
         {
           id: "amyloidosis",
           name: "Amyloidosis",
@@ -3258,6 +3385,13 @@ Think: amyloid either constricts the organ or makes it bigger.
 - SAP (serum amyloid precursor) scan — Royal Free
 - Biopsy of affected organ`,
         },
+      ],
+    },
+    {
+      id: "sarcoidosis_path",
+      name: "Sarcoidosis",
+      icon: "🔬",
+      topics: [
         {
           id: "sarcoidosis",
           name: "Sarcoidosis",
@@ -3309,6 +3443,13 @@ Think: amyloid either constricts the organ or makes it bigger.
 - Non-caseating granulomas on histology
 - High calcium + high ACE`,
         },
+      ],
+    },
+    {
+      id: "ctd_path",
+      name: "Connective Tissue Diseases",
+      icon: "🧬",
+      topics: [
         {
           id: "ctd",
           name: "Connective Tissue Diseases",
@@ -3389,6 +3530,13 @@ Think: amyloid either constricts the organ or makes it bigger.
 - **Duodenal biopsy** = gold standard
 - Beer + pasta NOT gluten-free; rice + eggs + chips + wine ARE`,
         },
+      ],
+    },
+    {
+      id: "neurodegen_path",
+      name: "Neurodegenerative Diseases",
+      icon: "🧠",
+      topics: [
         {
           id: "neurodegenerative",
           name: "Neurodegenerative Diseases",
@@ -3468,6 +3616,13 @@ Alzheimer's > vascular > Lewy body > frontotemporal
 
 All cause spongiform changes + prion deposits.`,
         },
+      ],
+    },
+    {
+      id: "metabolic_bone_path",
+      name: "Metabolic Bone Diseases",
+      icon: "🦴",
+      topics: [
         {
           id: "metabolic_bone",
           name: "Metabolic Bone Disease",
@@ -3503,6 +3658,49 @@ All cause spongiform changes + prion deposits.`,
 - Complications: deafness (cranial nerve compression), pathological fracture, **osteosarcoma**, **high-output HF**
 - Tx: bisphosphonates`,
         },
+      ],
+    },
+    {
+      id: "nonneoplastic_bone_path",
+      name: "Non-neoplastic Bone Disease",
+      icon: "🦴",
+      topics: [
+        {
+          id: "_pending_nonneoplastic_bone_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Non-neoplastic bone disease content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "neoplastic_bone_path",
+      name: "Neoplastic Bone Disease",
+      icon: "🦴",
+      topics: [
+        {
+          id: "_pending_neoplastic_bone_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Neoplastic bone disease content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "skin_path",
+      name: "Skin Pathology",
+      icon: "🩹",
+      topics: [
+        {
+          id: "_pending_skin_path",
+          name: "(Coming soon)",
+          content: `## Pending\n\nThis section is currently empty. Skin histopathology content will be added on request.`,
+        },
+      ],
+    },
+    {
+      id: "stains_path",
+      name: "Histological Stains",
+      icon: "🎨",
+      topics: [
         {
           id: "stains",
           name: "Histological Stains Reference",
