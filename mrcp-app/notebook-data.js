@@ -890,47 +890,52 @@ Normal serum osmolality 275-295 mmol/kg.`,
           name: "Sodium: Hyponatraemia",
           content: `## Severity by symptoms
 
-- <134: nausea, vomiting
-- <131: confusion
-- <125: seizures, non-cardiogenic pulmonary oedema
-- <117: coma
-- *Chronic asymptomatic in 110s rarely an emergency — correcting too fast is more dangerous*
+The clinical picture worsens as sodium falls:
 
-## Step 1: serum osmolality
+- Below 134 mmol/L the patient develops nausea and vomiting.
+- Below 131 mmol/L confusion appears.
+- Below 125 mmol/L the patient is at risk of seizures and non-cardiogenic pulmonary oedema.
+- Below 117 mmol/L coma develops.
 
-| Osmolality | Cause |
+A patient with chronic asymptomatic hyponatraemia even in the 110s is rarely a true emergency, because the brain has had time to compensate by extruding intracellular solutes. In this situation, correcting the sodium too fast is more dangerous than leaving it where it is.
+
+## Step 1: measure serum osmolality
+
+The first step is to confirm whether the hyponatraemia is real or an artefact of the laboratory measurement.
+
+| Osmolality | Interpretation |
 | --- | --- |
-| **High** | Glucose / mannitol → osmotic dilution |
-| **Normal** | **Pseudohyponatraemia** (hyperlipidaemia, paraproteinaemia); drip-arm sample |
-| **Low** | True hyponatraemia |
+| **High** | Glucose or mannitol is osmotically pulling water out of cells, diluting the sodium. Common in hyperosmolar hyperglycaemic state. |
+| **Normal** | **Pseudohyponatraemia** caused by hyperlipidaemia or paraproteinaemia (the analyser falsely reads the protein/lipid volume as water), or contamination from a drip-arm sample. |
+| **Low** | True hyponatraemia. Continue to step 2. |
 
-## Step 2: hydration + urinary Na (true hypoNa)
+## Step 2: assess hydration status and urinary sodium
 
-| Volume | UNa | Causes |
+In true hyponatraemia, the next step is to classify the patient as hypovolaemic, euvolaemic, or hypervolaemic and to measure urinary sodium. Diuretics interfere with urinary sodium and should be stopped before the sample is taken.
+
+| Volume status | Urinary sodium | Causes |
 | --- | --- | --- |
-| **Hypovolaemic** | >20 = renal | Diuretics, Addison's, salt-losing nephropathy |
-|  | <20 = non-renal | Vomiting, diarrhoea, sweating, third-space (ascites, burns) |
-| **Euvolaemic** | >20 | **SIADH**, severe hypothyroid, glucocorticoid deficiency |
-| **Hypervolaemic** | >20 = renal | AKI, CKD |
-|  | <20 = non-renal | **HF, cirrhosis**, inappropriate IV fluids |
+| **Hypovolaemic** | Greater than 20 mmol/L (renal loss) | Diuretics, Addison's disease, salt-losing nephropathy |
+| | Less than 20 mmol/L (non-renal loss) | Vomiting, diarrhoea, excessive sweating, third-space losses such as ascites or burns |
+| **Euvolaemic** | Greater than 20 mmol/L | **Syndrome of inappropriate antidiuretic hormone secretion (SIADH)**, severe hypothyroidism, glucocorticoid deficiency |
+| **Hypervolaemic** | Greater than 20 mmol/L (renal) | Acute kidney injury, chronic kidney disease |
+| | Less than 20 mmol/L (non-renal) | **Cardiac failure, cirrhosis**, inappropriate intravenous fluids |
 
-> Stop diuretics before measuring UNa.
+## Transurethral resection of prostate (TURP) syndrome
 
-## TURP syndrome
-
-Glycine 1.5% irrigation absorbed via damaged prostate → dilutional hyponatraemia + glycine metabolism.
+During transurethral resection of the prostate, glycine 1.5% irrigation fluid can be absorbed through the damaged prostatic vessels. The result is a dilutional hyponatraemia compounded by the systemic effects of glycine metabolism.
 
 ## Management
 
-- Hypovolaemic: treat cause + slow volume replacement
-- Euvolaemic: see SIADH; thyroid/adrenal replacement
-- Hypervolaemic: fluid restrict ± diuresis
+- In **hypovolaemic** hyponatraemia, treat the underlying cause (for example with antiemetics) and replace the depleted fluid slowly, rechecking sodium regularly to ensure it is not rising too fast.
+- In **euvolaemic** hyponatraemia, treat the underlying cause: levothyroxine for hypothyroidism, hydrocortisone with or without fludrocortisone for Addison's, and follow the SIADH protocol if SIADH is the cause.
+- In **hypervolaemic** hyponatraemia, restrict fluid intake with or without diuresis. Cirrhosis usually requires specialist input.
 
-## Correction speed
+## Speed of correction
 
-**No more than 8-10 mmol/L per 24 h** — else **central pontine myelinolysis** (pseudobulbar palsy, paraparesis, locked-in). ↑ risk: malnourished alcoholics.
+The serum sodium must not be allowed to rise by more than 8 to 10 mmol/L per 24 hours. If the rate of correction is faster than this, the patient is at risk of **osmotic demyelination syndrome (central pontine myelinolysis)**, which causes pseudobulbar palsy, paraparesis, and at worst a locked-in syndrome. Malnourished alcoholics are at particularly high risk.
 
-Hypertonic 3% saline only for status epilepticus from hyponatraemia, ITU/specialist input.`,
+Hypertonic (3%) saline is reserved for exceptional circumstances such as a patient in status epilepticus secondary to severe hyponatraemia. It should only be given on specialist advice and is usually administered in an intensive care setting.`,
         },
         {
           id: "siadh",
@@ -1382,7 +1387,7 @@ Treat underlying cause (transsphenoidal pituitary surgery, adrenalectomy, etc.)
 - **Treatment ABC**:
   1. **A**lpha blockade first (phenoxybenzamine)
   2. **B**eta blockade
-  3. **C**ut out — surgery once BP controlled
+  3. **C**ut out - surgery when blood pressure well controlled.
 
 > Associations: MEN2, neurofibromatosis, von Hippel-Lindau`,
         },
@@ -1440,8 +1445,8 @@ Treat underlying cause (transsphenoidal pituitary surgery, adrenalectomy, etc.)
 | --- | --- | --- | --- | --- | --- |
 | **1° hyperPTH** | Adenoma (80%), hyperplasia, MEN | ↑ | ↓ | ↑/N | ↑/N |
 | **2° hyperPTH** | CKD, vit D deficiency, malabsorption | ↓ | ↑ | ↑ | ↑ |
-| **3° hyperPTH** | Prolonged 2°, kidney transplant | ↑/N | ↑/↓ | ↑ | ↑/N |
-| **HypoPTH** | Post-surgery (commonest), autoimmune, DiGeorge, hypomagnesaemia | ↓ | ↑ | ↓ | ↓/N |
+| **3° hyperPTH** | Prolonged 2°, kidney transplant | ↑/N | ↓/↑ | ↑ | ↑/N |
+| **HypoPTH** | Post-surgery (commonest), autoimmune, DiGeorge, hypomagnesaemia | ↓ | ↑ | ↓ | ↓ / N |
 | Rickets / osteomalacia | Vit D deficiency | ↓ | ↓ | ↑ | ↑ |
 | Paget's | Bone remodelling | N | N | N | **↑↑** |
 | Osteoporosis | Bone loss | N | N | N | N |
@@ -1546,37 +1551,46 @@ Dehydration, abnormal urine pH, ↑ excretion of stone constituents, **infection
         {
           id: "lipids",
           name: "Lipoprotein Metabolism & Dyslipidaemias",
-          content: `## Lipoproteins (by ↑ density)
+          content: `## What lipoproteins are
 
-Chylomicron < FFA < VLDL < LDL < IDL < HDL
+Lipids (cholesterol and triglycerides) cannot dissolve in plasma, so the body packages them inside particles called lipoproteins. Each particle has a core of triglyceride and cholesterol ester surrounded by a shell of phospholipid, free cholesterol, and apolipoproteins (the proteins that direct the particle to its destination).
 
-## Key concepts
+The five main lipoprotein classes differ in size, density, and which lipid they predominantly carry. As the proportion of triglyceride (low density) falls and the proportion of protein (high density) rises, the particles become smaller and denser:
 
-- **PCSK9** binds LDL receptor → its degradation. Gain-of-function mutation → ↑ LDL. **Evolocumab** = anti-PCSK9.
-- Lipoprotein(a) is a CV risk factor; nicotinic acid lowers it.
+- **Chylomicrons** — the largest and least dense particles. They carry dietary triglyceride absorbed from the gut to peripheral tissues.
+- **Very low density lipoprotein (VLDL)** — made by the liver to carry endogenous triglyceride to peripheral tissues.
+- **Intermediate density lipoprotein (IDL)** — formed when VLDL has lost some of its triglyceride to tissues.
+- **Low density lipoprotein (LDL)** — the main carrier of cholesterol to tissues, and the lipoprotein most strongly associated with atherosclerosis.
+- **High density lipoprotein (HDL)** — the smallest and densest. It carries cholesterol from peripheral tissues back to the liver in a process called reverse cholesterol transport, and is generally protective.
+
+> Free fatty acids (FFAs) are not lipoproteins; they are individual fatty acid molecules released into the blood from adipose tissue and transported bound to albumin.
+
+## Key concepts to remember
+
+- **Proprotein convertase subtilisin/kexin type 9 (PCSK9)** is a liver-derived enzyme that binds to the LDL receptor and promotes its degradation. When the LDL receptor is destroyed, the liver cannot clear LDL from the blood, so circulating LDL rises. A gain-of-function mutation in PCSK9 therefore causes high LDL and premature cardiovascular disease. The therapeutic strategy is to block PCSK9: **evolocumab** and **alirocumab** are monoclonal antibodies against PCSK9 used in patients with familial hypercholesterolaemia or statin-intolerant high-risk individuals.
+- **Lipoprotein(a)**, written Lp(a), is a modified form of LDL that is an independent cardiovascular risk factor. It is genetically determined and not lowered by statins. Nicotinic acid (niacin) reduces Lp(a) levels but is rarely used now because of side effects.
 
 ## Familial dyslipidaemias
 
-- **Familial hypercholesterolaemia** (Type II)
-  - AD: **LDLR** (commonest), **apoB**, **PCSK9** mutations
-  - Tendon xanthomata, premature CVD
-  - Tx: high-intensity statin ± **PCSK9 inhibitor**
-- Familial hyperalpha-lipoproteinaemia — CETP deficiency
-- Familial type I hypertriglyceridaemia — lipoprotein lipase or apoC-II deficiency
-- Tangier disease — HDL deficiency
-- Abetalipoproteinaemia — MTP deficiency (acanthocytes!)
+- **Familial hypercholesterolaemia** (historically called Type II hyperlipidaemia) is an autosomal dominant condition caused most commonly by mutations in the LDL receptor (LDLR) gene; less commonly by mutations in apolipoprotein B (apoB) or PCSK9, or autosomal recessive mutations in LDLRAP1. Patients present with very high LDL, tendon xanthomata, corneal arcus, and premature cardiovascular disease (myocardial infarction before age 55 in men or 60 in women). First-line treatment is a high-intensity statin, with ezetimibe and PCSK9 inhibitors added if needed.
+- Familial hyperalphalipoproteinaemia is caused by cholesteryl ester transfer protein (CETP) deficiency and produces high HDL.
+- Familial type I hypertriglyceridaemia is caused by lipoprotein lipase or apolipoprotein C-II (apoC-II) deficiency, producing massive elevation of chylomicrons and triglyceride.
+- Tangier disease is a rare condition with very low HDL.
+- Abetalipoproteinaemia is caused by microsomal triglyceride transfer protein (MTP) deficiency and produces acanthocytes on the blood film.
 
 ## Management of dyslipidaemia
 
-- Lifestyle first
-- **Statins** (HMG-CoA reductase inhibitor) — SE myopathy/rhabdomyolysis, fatigue
-- Ezetimibe; PCSK9 inhibitors
+The first step is always lifestyle modification: dietary saturated fat reduction, weight loss, exercise, and smoking cessation.
 
-## Obesity
+- **Statins** inhibit HMG-CoA reductase, the rate-limiting enzyme of hepatic cholesterol synthesis, which lowers intracellular cholesterol and upregulates LDL receptor expression so the liver clears more LDL from the blood. Side effects include myopathy ranging from mild myalgia to rhabdomyolysis, fatigue, and a small rise in transaminases.
+- **Ezetimibe** blocks intestinal cholesterol absorption and is added when statins alone are insufficient.
+- **PCSK9 inhibitors** (evolocumab, alirocumab) are reserved for familial hypercholesterolaemia or statin-intolerant high-risk patients.
 
-- Bariatric surgery: BMI >40 (or >35 + comorbidity)
-- Orlistat (lipase inhibitor) — SE flatus/diarrhoea
-- Rimonabant withdrawn (suicide risk)`,
+## Management of obesity
+
+- **Bariatric surgery** is indicated if body mass index is greater than 40, or greater than 35 with an obesity-related comorbidity such as type 2 diabetes.
+- **Orlistat** is a pancreatic lipase inhibitor that reduces dietary fat absorption. The major side effects are flatus and steatorrhoea, which many patients find intolerable.
+- Rimonabant, a cannabinoid receptor antagonist, was previously used but has been withdrawn because of an increased risk of suicide.`,
         },
         {
           id: "vitamins",
@@ -1819,7 +1833,7 @@ Any of:
 - Latent TB prophylaxis: **isoniazid monotherapy**; isolate active in negative-pressure room
 - Vaccine: BCG
 
-## Other mycobacteria
+## Other mycobacterial diseases
 
 - **Leprosy (Hansen's)**: *M. leprae*. Skin depigmentation, nodules, trophic ulcers, nerve thickening
 - **MAI complex**: disseminated TB-like, HIV with CD4 <75
@@ -2037,7 +2051,7 @@ Norovirus (adult outbreaks), adenovirus (<2y), rotavirus (<6y, nurseries) — al
 ## Risk factors
 
 - N. meningitidis: complement deficiency, **hyposplenism**, hypogammaglobulinaemia
-- S. pneumoniae: complement deficiency, hyposplenism, alcohol, prior head trauma + CSF leak
+- S. pneumoniae: complement deficiency, hyposplenism, alcohol, pneumonia, prior head trauma + CSF leak
 
 ## Management
 
@@ -2070,7 +2084,7 @@ Norovirus (adult outbreaks), adenovirus (<2y), rotavirus (<6y, nurseries) — al
 
 ## Chlamydia
 
-- *Chlamydia trachomatis* — obligate intracellular Gram-ve
+- *Chlamydia trachomatis* — obligate intracellular gram -ve pathogen
 - Often asymptomatic (50% men, 80% women); UK prevalence high in <25s
 - Serovars A-C: trachoma (eye); D-K: genital
 - Dx: **NAAT**
