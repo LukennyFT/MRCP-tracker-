@@ -3138,9 +3138,594 @@ IgG/IgM against cell surface or matrix antigen.
       icon: "🫀",
       topics: [
         {
-          id: "_pending_cardiac_path",
-          name: "(Coming soon)",
-          content: `## Pending\n\nThis section is currently empty. Cardiac histopathology content will be added on request.`,
+          id: "atherosclerosis",
+          name: "Atherosclerosis",
+          content: `## Definition
+
+Atherosclerosis is a chronic inflammatory disease of the tunica intima (the innermost layer) of large and medium-sized muscular and elastic arteries. It is characterised by intimal thickening and lipid accumulation.
+
+## Steps of atherogenesis
+
+1. Endothelial injury (from hypertension, smoking, hyperglycaemia, dyslipidaemia, or abnormal shear stress) increases endothelial permeability and allows low density lipoprotein (LDL) to accumulate.
+2. LDL enters the intima and is trapped in the sub-intimal space.
+3. Trapped LDL is converted to modified and oxidised LDL, which triggers local inflammation.
+4. Macrophages take up oxidised LDL via scavenger receptors and become **foam cells**.
+5. Foam cells eventually undergo apoptosis, releasing their lipid content. This forms the cholesterol-rich core of the plaque and amplifies inflammation.
+6. Up-regulation of adhesion molecules on the inflamed endothelium (such as VCAM-1 and ICAM-1) recruits more macrophages and T lymphocytes into the plaque.
+7. Vascular smooth muscle cells migrate from the media to the intima, proliferate, and lay down extracellular matrix to form the **fibrous cap**, which physically separates the thrombogenic core from the lumen.
+
+## Plaque components
+
+The mature atheromatous plaque has three principal components:
+- **Cells**: smooth muscle cells, macrophages, foam cells, and T lymphocytes.
+- **Extracellular matrix**: collagen, elastin, and proteoglycans, forming the fibrous cap.
+- **Intracellular and extracellular lipid**, forming the cholesterol-rich core.
+
+## Distribution
+
+The abdominal aorta is more affected than the thoracic aorta. Plaques are most prominent around the ostia (origins) of major branches, where turbulent flow with low and oscillatory shear stress is atherogenic. Areas of high laminar flow are protective.
+
+## Plaque stability and rupture
+
+Plaque stability depends largely on the thickness of the fibrous cap. Thick caps are stable; thin caps with a large lipid core are vulnerable to rupture.
+
+- **Plaque rupture** is the commonest trigger of acute coronary syndromes — cap thinning by macrophage-derived metalloproteinases exposes the thrombogenic core to flowing blood.
+- **Plaque erosion** (where the cap is intact but the endothelium is denuded) accounts for a smaller proportion, particularly in younger women and in smokers.
+
+## Risk factors
+
+### Modifiable
+- Hypertension
+- Hyperlipidaemia (high LDL, low high density lipoprotein, HDL)
+- Smoking
+- Type 2 diabetes mellitus
+- Obesity, sedentary lifestyle, poor diet
+
+### Non-modifiable
+- Increasing age
+- Male sex (risk in women rises and equalises after menopause)
+- Family history of premature cardiovascular disease
+
+## High-yield additions for MRCP
+
+- **Lipid management**: a high-intensity statin (atorvastatin 80 mg) typically reduces LDL by 50% or more. Add ezetimibe and proprotein convertase subtilisin/kexin type 9 (PCSK9) inhibitors (evolocumab, alirocumab) if LDL targets are not met.
+- **NICE primary prevention**: offer a statin if the 10-year cardiovascular risk (calculated by QRISK3) is greater than or equal to 10%.
+- **Familial hypercholesterolaemia** is autosomal dominant and is most often caused by mutations in the LDL receptor, apolipoprotein B, or PCSK9. Consider it in patients with very high LDL or premature cardiovascular disease.
+- **Statin side effects**: myalgia, myopathy (rarely rhabdomyolysis), and transaminitis. Check creatine kinase if symptomatic.`,
+        },
+        {
+          id: "ihd_mi",
+          name: "Ischaemic Heart Disease & Myocardial Infarction",
+          content: `## Ischaemic heart disease overview
+
+Ischaemic heart disease describes a group of conditions in which oxygen supply to the myocardium falls below demand, almost always because of narrowed coronary arteries from atherosclerosis. The spectrum includes:
+
+- **Stable angina**: predictable chest pain on exertion, typically associated with around 70% vessel occlusion. Pain resolves with rest or glyceryl trinitrate (GTN).
+- **Unstable angina**: pain at rest or rapidly worsening pain, with around 90% or greater vessel occlusion. This represents impending infarction and is part of the **acute coronary syndrome (ACS)** spectrum.
+- **Prinzmetal (variant) angina**: a rare cause due to coronary artery spasm rather than fixed atherosclerosis. Typically occurs at rest, often in the early morning, and may produce transient ST elevation.
+- **Myocardial infarction**: irreversible myocyte death from prolonged ischaemia.
+
+In stable and unstable angina the ischaemia is reversible — there is no muscle death.
+
+## Acute coronary syndrome classification
+
+Acute coronary syndrome is divided clinically by ECG and biomarkers:
+- **Unstable angina**: typical chest pain at rest with no rise in troponin.
+- **Non-ST-elevation myocardial infarction (NSTEMI)**: troponin rises but the ECG does not show ST elevation. The ECG may show ST depression or T-wave inversion.
+- **ST-elevation myocardial infarction (STEMI)**: ST elevation on ECG (≥1 mm in two contiguous limb leads or ≥2 mm in two contiguous chest leads), or new left bundle branch block, with rise in troponin.
+
+## Pathogenesis of myocardial infarction
+
+Coronary atherosclerotic plaque rupture or erosion exposes the thrombogenic core (collagen, lipid, tissue factor) to flowing blood. This triggers platelet activation and aggregation, fibrin formation, and an occlusive intracoronary thrombus overlying the disrupted plaque. Vasospasm contributes. The distal myocardium is rendered ischaemic, and severe ischaemia lasting more than 20 to 40 minutes results in irreversible injury and myocyte death.
+
+## Histological evolution of myocardial infarction
+
+The histological appearance of an infarct evolves predictably with time:
+
+| Time after MI | Histological findings |
+| --- | --- |
+| 0-6 hours | Normal histology (and creatine kinase-MB still normal) |
+| 6-24 hours | Loss of nuclei, homogeneous (eosinophilic) cytoplasm, coagulative necrosis |
+| 1-4 days | Infiltration by neutrophils, then macrophages; debris clearance begins |
+| 5-10 days | Removal of necrotic debris by macrophages |
+| 1-2 weeks | Granulation tissue: new blood vessels, myofibroblasts, early collagen |
+| Weeks to months | Strengthening, decellularising scar tissue (mature fibrous scar) |
+
+This timeline is highly examined and allows histological dating of an infarct.
+
+## Complications of myocardial infarction
+
+### Mechanical
+- **Contractile dysfunction**: loss of viable muscle reduces cardiac output and may produce **cardiogenic shock**.
+- **Congestive cardiac failure** secondary to ventricular dysfunction.
+- **Papillary muscle dysfunction or rupture** (especially after inferior MI): produces acute mitral regurgitation.
+- **Cardiac rupture**: of the ventricular free wall (with tamponade), of the interventricular septum (causing a left-to-right shunt and a new ventricular septal defect), or of a papillary muscle.
+- **Ventricular aneurysm**: develops more than 4 weeks after MI; suggested by persistent ST elevation on ECG.
+
+### Arrhythmic
+- **Ventricular fibrillation**: usually within the first 24 hours; a common cause of sudden cardiac death post-MI.
+- Approximately 90% of patients develop some form of arrhythmia after MI.
+- AV block, especially with inferior MI affecting the right coronary artery (which supplies the AV node).
+
+### Pericardial
+- **Early or peri-infarct pericarditis**: 1-3 days post-MI; the underlying tissue is dusky and haemorrhagic.
+- **Pericardial effusion**, with or without tamponade.
+- **Dressler's syndrome**: chest pain, fevers, and pericardial effusion 2 to 10 weeks after MI; thought to be autoimmune.
+- **Fibrinous pericarditis**: occurs when the infarct extends to the epicardium.
+
+### Thromboembolic
+- Mural thrombus formation in the akinetic ventricular wall, with risk of **systemic embolisation** (stroke, mesenteric ischaemia, limb ischaemia).
+
+## Treatment of STEMI
+
+- **Immediate**: aspirin 300 mg loading dose plus a second antiplatelet (ticagrelor, prasugrel, or clopidogrel); morphine for pain; oxygen if hypoxic; nitrates; an anti-emetic.
+- **Reperfusion**:
+  - **Primary percutaneous coronary intervention (PCI)** is first-line if available within 120 minutes of medical contact. The door-to-balloon target is less than 90 minutes.
+  - **Thrombolysis** (alteplase, tenecteplase) if PCI is not available within 120 minutes; rescue PCI if thrombolysis fails.
+
+## Treatment of NSTEMI / unstable angina
+
+- Aspirin plus ticagrelor as antiplatelet therapy, plus anticoagulation (fondaparinux or low molecular weight heparin).
+- Risk-stratify with the **GRACE score**:
+  - Low risk: medical management with later outpatient evaluation.
+  - Intermediate or high risk: invasive strategy with coronary angiography within 24-72 hours.
+
+## Secondary prevention — the four pillars
+
+After MI, every patient should be offered:
+1. **Aspirin** 75 mg lifelong (plus a second antiplatelet for 12 months).
+2. A **beta-blocker** (e.g. bisoprolol).
+3. An **angiotensin-converting enzyme inhibitor (ACEi)**, or an angiotensin receptor blocker (ARB) if intolerant.
+4. A **high-intensity statin** (atorvastatin 80 mg).
+
+Cardiac rehabilitation, smoking cessation, blood pressure and glucose control, and weight loss are equally important.`,
+        },
+        {
+          id: "heart_failure",
+          name: "Heart Failure",
+          content: `## Definition
+
+Heart failure is the clinical syndrome in which the heart is unable to pump sufficient blood to meet the metabolic demands of the body, or can do so only at the cost of elevated filling pressures.
+
+## Key haemodynamic concepts
+
+- **Preload** is the initial stretch of cardiomyocytes before contraction, determined by ventricular end-diastolic volume. Increased preload increases stroke volume (the Frank-Starling law), up to an optimum point beyond which stroke volume falls.
+- **Afterload** is the pressure (in the aorta or pulmonary artery) against which the ventricle must contract to eject blood. Increased afterload reduces stroke volume.
+- **Contractility** is the inherent strength of myocardial contraction, independent of preload or afterload.
+
+## Common causes
+
+- **Ischaemic heart disease** is the commonest cause.
+- Long-standing hypertension.
+- Cardiomyopathy (especially dilated).
+- Valvular heart disease.
+- Myocarditis.
+- Arrhythmias.
+- Less common: high-output failure (severe anaemia, hyperthyroidism, arteriovenous malformation, beriberi).
+
+## Pathophysiology and compensatory mechanisms
+
+When cardiac output falls, two main neurohormonal systems are activated:
+- **Renin-angiotensin-aldosterone system (RAAS)**: activated in response to reduced renal perfusion. It causes salt and water retention, which maintains short-term perfusion but produces fluid overload when sustained.
+- **Sympathetic nervous system**: baroreceptors detect the falling blood pressure and increase sympathetic outflow. This raises heart rate, contractility, and peripheral resistance, but eventually contributes to ventricular hypertrophy, dilatation, and worsening function.
+
+Sustained activation of these systems produces ventricular remodelling: hypertrophy, then dilatation, then poor contractility — the substrate of heart failure with reduced ejection fraction.
+
+## Left ventricular failure
+
+Pooling of blood in the pulmonary circulation, due to high pressures in the left side of the heart, produces:
+- Dyspnoea (initially exertional, later at rest).
+- Orthopnoea.
+- Paroxysmal nocturnal dyspnoea.
+- Wheeze ("cardiac asthma").
+- Fatigue.
+- Pulmonary oedema (frothy pink sputum).
+
+Eventually peripheral perfusion falls, with cool peripheries and oliguria.
+
+## Right ventricular failure
+
+Most commonly secondary to left ventricular failure. Primary right heart failure can result from chronic severe pulmonary hypertension, called **cor pulmonale**. There is little pulmonary congestion but engorgement of the systemic and portal venous systems:
+- Peripheral oedema (especially in dependent areas).
+- Ascites.
+- Facial engorgement.
+- Raised jugular venous pressure.
+- **Hepatomegaly with congestion**, producing the classical "**nutmeg liver**" — an alternating pale-and-red appearance on cut section, reflecting central venous congestion of the hepatic lobules.
+
+## Investigations
+
+- **B-type natriuretic peptide (BNP) or NT-proBNP**: BNP less than 100 pg/mL effectively rules out heart failure; greater than 400 pg/mL is highly suggestive.
+- Chest X-ray: cardiomegaly, **alveolar oedema (bat's wing)**, **Kerley B lines**, upper lobe diversion of vessels, and pleural effusions.
+- ECG: looks for evidence of underlying ischaemia, arrhythmia, or strain.
+- **Echocardiogram**: gold standard for assessing left ventricular ejection fraction (LVEF) and distinguishing heart failure with reduced ejection fraction (HFrEF, LVEF < 40%) from heart failure with preserved ejection fraction (HFpEF, LVEF ≥ 50%).
+
+## NYHA functional classification
+
+- **Class I**: no limitation; ordinary activity does not cause symptoms.
+- **Class II**: slight limitation; ordinary activity causes symptoms.
+- **Class III**: marked limitation; less than ordinary activity causes symptoms.
+- **Class IV**: symptoms at rest; any activity worsens them.
+
+## Management of heart failure with reduced ejection fraction
+
+The four pillars of guideline-directed medical therapy (GDMT) all reduce mortality:
+1. **ACE inhibitor**, or an ARB if intolerant. **Sacubitril/valsartan** (an angiotensin receptor-neprilysin inhibitor, or ARNI) is preferred over ACEi in symptomatic patients on optimal therapy.
+2. **Beta-blocker** (bisoprolol, carvedilol, or nebivolol).
+3. **Mineralocorticoid receptor antagonist (MRA)**: spironolactone or eplerenone.
+4. **Sodium-glucose cotransporter 2 (SGLT2) inhibitor**: dapagliflozin or empagliflozin (proven mortality benefit irrespective of diabetes status).
+
+Add a **loop diuretic** (e.g. furosemide) for symptomatic congestion. Loop diuretics improve symptoms but do not improve mortality.
+
+Device therapy:
+- **Implantable cardioverter defibrillator (ICD)** if LVEF less than 35% with NYHA class II or III despite optimal therapy.
+- **Cardiac resynchronisation therapy (CRT)** if LVEF less than 35%, NYHA class II to IV, and QRS greater than 130 ms (especially with left bundle branch block morphology).
+
+## Acute pulmonary oedema management
+
+- Sit the patient upright.
+- High-flow oxygen aiming for SpO₂ 94-98%.
+- **Intravenous loop diuretic** (furosemide 40-80 mg).
+- **Nitrates** if systolic BP greater than 110 mmHg (GTN infusion).
+- CPAP or non-invasive ventilation if severe.
+- Treat the precipitant (ischaemia, arrhythmia, infection, non-compliance with therapy).`,
+        },
+        {
+          id: "cardiomyopathy",
+          name: "Cardiomyopathy & Inherited Arrhythmia Syndromes",
+          content: `## Patterns of cardiomyopathy
+
+| Pattern | Mechanism of failure | Common causes | Indirect (non-cardiomyopathic) causes |
+| --- | --- | --- | --- |
+| **Dilated** ("too thin") | Systolic dysfunction | Idiopathic, alcohol, thyroid disease, haemochromatosis, viral myocarditis, peripartum, anthracyclines | Ischaemic heart disease, valve disease, hypertension, congenital heart disease |
+| **Hypertrophic** ("too thick") | Diastolic dysfunction | Genetic (sarcomeric mutations), storage diseases | Hypertension, aortic stenosis (causing secondary hypertrophy) |
+| **Restrictive** ("too stiff") | Diastolic dysfunction | Sarcoidosis, amyloidosis, radiation-induced fibrosis, endomyocardial fibrosis | Pericardial constriction (mimics restrictive but is not myocardial disease) |
+
+## Hypertrophic cardiomyopathy (HCM)
+
+- The heart is typically thick-walled, heavy, and hyper-contracting.
+- The phenotype is myocardial hypertrophy (especially of the interventricular septum and the left ventricle) without ventricular dilatation.
+- **Histology**: classical **myocyte disarray** — the disorganised arrangement of hypertrophied myocytes is highly arrhythmogenic.
+- **Inheritance**: autosomal dominant.
+- **Genetics**: mutations in genes encoding sarcomeric proteins.
+  - The most common single mutation is in the **β-myosin heavy chain (β-MHC)** gene (the classical mutation is 403 Arg→Gln).
+  - **Myosin-binding protein C (MYBP-C)** and **Troponin T (Trop-T)** mutations are also common. Together with β-MHC, these account for 70-80% of cases.
+  - **Troponin T mutations** confer a particularly high risk of sudden cardiac death.
+- HCM may cause **sudden cardiac death** in young people, classically during exertion (school athletes).
+- **Hypertrophic obstructive cardiomyopathy (HOCM)** describes asymmetric septal hypertrophy producing dynamic left ventricular outflow tract obstruction, with systolic anterior motion (SAM) of the mitral valve and a characteristic ejection systolic murmur that worsens with the Valsalva manoeuvre or on standing.
+- 15-20% of HCM cases eventually evolve into a dilated cardiomyopathy phenotype.
+- **Management**: beta-blockers or non-dihydropyridine calcium-channel blockers such as verapamil; avoid dehydration, vasodilators, and high-intensity competitive sport. Septal myectomy or alcohol septal ablation is offered for refractory HOCM. An ICD is considered for those with high sudden death risk.
+
+## Dilated cardiomyopathy (DCM)
+
+- Eccentric ventricular dilatation with thinning of the wall and reduced systolic function.
+- Causes (mnemonic ABCCCDS):
+  - **A**lcohol
+  - **B**eriberi (thiamine deficiency)
+  - **C**oxsackie B virus (and other post-viral myocarditis)
+  - **C**hagas disease
+  - **C**ocaine
+  - **D**oxorubicin and other anthracyclines
+  - **S**arcoidosis, haemochromatosis, idiopathic, peripartum (within the last month of pregnancy or 5 months postpartum), familial
+- Treatment is the same as for heart failure with reduced ejection fraction (the four pillars), plus treatment of the underlying cause.
+
+## Restrictive cardiomyopathy
+
+- Stiff ventricles with normal or near-normal systolic function.
+- Causes: amyloidosis (the most common in clinical practice), sarcoidosis, haemochromatosis, radiation, endomyocardial fibrosis, and Loeffler endocarditis (eosinophilic).
+- It is important to distinguish clinically from constrictive pericarditis (a pericardial disease), which has different management.
+
+## Arrhythmogenic right ventricular cardiomyopathy (ARVC)
+
+- Myocyte loss with **fibrofatty replacement**, typically affecting the right ventricle.
+- Autosomal dominant, with mutations in desmosomal proteins (PKP2 is the most common).
+- Presents with palpitations, syncope, or sudden cardiac death (often in young athletes).
+- ECG: T-wave inversion in V1-V3; the **epsilon wave** (a small deflection at the end of the QRS in right precordial leads) is characteristic.
+- Cardiac magnetic resonance imaging is the diagnostic gold standard.
+- Treatment: avoid competitive sport; beta-blockers; an ICD for high-risk features.
+
+## Other inherited arrhythmia syndromes
+
+- **Long QT syndrome (LQTS)**: a prolonged corrected QT interval; risk of torsades de pointes. The classical subtypes are LQT1 (KCNQ1, exercise/swimming triggers); LQT2 (KCNH2, emotion/loud noise); LQT3 (SCN5A, sleep/rest). Avoid QT-prolonging drugs (the resource crediblemeds.org maintains a current list). Treatment: beta-blockers (effective in LQT1 and LQT2; less so in LQT3, where mexiletine is added).
+- **Brugada syndrome**: a sodium channel (SCN5A) mutation; coved ST elevation in V1-V3; risk of polymorphic VT and sudden death, often during fever or sleep. ICD for symptomatic patients.
+- **Catecholaminergic polymorphic ventricular tachycardia (CPVT)**: an RYR2 mutation; bidirectional VT during exercise or emotion. Treatment with beta-blockers; avoid stress; ICD if needed.
+- **Takotsubo cardiomyopathy** ("broken-heart syndrome"): stress-induced apical ballooning, usually in postmenopausal women after emotional or physical stress. Usually fully reversible with supportive care.`,
+        },
+        {
+          id: "rheumatic_fever",
+          name: "Acute Rheumatic Fever",
+          content: `## Background
+
+Acute rheumatic fever is a multisystem inflammatory disease that follows infection with **Group A streptococcus** (Streptococcus pyogenes). The peak age of incidence is 5 to 15 years. It is now uncommon in developed countries but remains an important cause of acquired heart disease worldwide.
+
+## Pathogenesis
+
+The mechanism is **antigenic mimicry**: cell-mediated immunity and antibodies directed against streptococcal antigens (M protein in particular) cross-react with similar epitopes in human tissue, including myocardial myosin and valvular tissue.
+
+## Multisystem features
+
+- **Heart (pancarditis)**: endocarditis, myocarditis, and pericarditis. The mitral valve alone is affected in around 70% of cases; both mitral and aortic valves in approximately 25%.
+- **Joints**: large-joint migratory polyarthritis and synovitis.
+- **Skin**: erythema marginatum (an evanescent, well-demarcated pink macular rash on the trunk and limbs); subcutaneous nodules over extensor surfaces.
+- **Central nervous system**: Sydenham's chorea (involuntary, non-rhythmic, choreiform movements); rheumatic encephalopathy.
+
+## Modified Jones criteria
+
+Diagnosis requires **evidence of preceding Group A streptococcal infection** plus either:
+- 2 major criteria, OR
+- 1 major plus 2 minor criteria.
+
+| Major (mnemonic JONES) | Minor | Evidence of GAS infection |
+| --- | --- | --- |
+| **J**oint involvement (migratory polyarthritis) | Fever | Positive throat culture for Group A streptococcus |
+| Carditis (the **O** for "heart shape") | Raised CRP or ESR | Elevated antistreptolysin O (ASO) titre |
+| **N**odules (subcutaneous) | Migratory arthralgia | Recent scarlet fever |
+| **E**rythema marginatum | Prolonged PR interval on ECG | |
+| **S**ydenham's chorea | Previous rheumatic fever | |
+
+Symptoms typically develop 2 to 4 weeks after a streptococcal pharyngitis.
+
+## Histology
+
+- **Verrucae**: small, beady fibrinous vegetations along the lines of valve leaflet closure.
+- **Aschoff bodies**: small giant-cell granulomas, considered pathognomonic.
+- **Anitschkow myocytes** (caterpillar cells): regenerating myocytes with characteristic "owl-eye" or caterpillar-shaped chromatin pattern.
+
+## Treatment
+
+- **Benzylpenicillin** (or oral penicillin V) is first-line. **Erythromycin** is used if the patient is penicillin-allergic.
+- Anti-inflammatory therapy: aspirin or non-steroidal anti-inflammatory drugs (NSAIDs); corticosteroids if there is severe carditis.
+- **Secondary prophylaxis**: monthly intramuscular benzathine penicillin (or daily oral penicillin) to prevent recurrent attacks. Duration depends on disease severity:
+  - Without carditis: 5 years (or until age 21).
+  - With carditis but no residual valve disease: 10 years (or until age 21).
+  - With carditis and residual valve disease: 10 years (or until age 40), often lifelong.
+
+## Chronic rheumatic heart disease
+
+The chronic sequel of recurrent acute rheumatic fever is chronic rheumatic valve disease. It is predominantly left-sided, and most commonly affects the **mitral valve**:
+
+Mitral > Aortic > Tricuspid > Pulmonary.
+
+The pathological features are:
+- Thickening of valve leaflets, especially along the lines of closure.
+- Fusion of the **commissures**.
+- Thickening, shortening, and fusion of the **chordae tendineae**, producing a characteristic "fish-mouth" or "buttonhole" deformity in mitral stenosis.
+
+This is the leading cause of mitral stenosis worldwide.`,
+        },
+        {
+          id: "endocarditis",
+          name: "Endocarditis (Infective and Vegetative Patterns)",
+          content: `## Vegetative endocarditis: comparison
+
+| Disease | Pathology | Vegetation morphology |
+| --- | --- | --- |
+| **Rheumatic heart disease** | Antigenic mimicry — cross-reaction of anti-streptococcal antibodies with heart tissue | Small, warty vegetations along the lines of closure of valve leaflets ("**verrucae**") |
+| **Infective endocarditis** | Colonisation or invasion of heart valves or mural endocardium by microbes | Large, irregular masses on valve cusps that may extend into the chordae |
+| **Non-bacterial thrombotic (marantic) endocarditis** | Disseminated intravascular coagulation or hypercoagulable states (often associated with malignancy) | Small, bland, sterile thrombotic vegetations along lines of closure |
+| **Libman-Sacks endocarditis** | Pathogenesis unknown; associated with **systemic lupus erythematosus (SLE)** and antiphospholipid syndrome | Small (up to 2 mm) sterile, platelet-rich, warty vegetations on either side of the leaflet |
+
+## Infective endocarditis: pathogenesis
+
+Infective endocarditis is colonisation of the endocardium that follows transient bacteraemia in a patient with a structurally abnormal valve or another risk factor.
+
+Common sources of bacteraemia include:
+- Poor dental hygiene or recent dental treatment (Streptococcus viridans).
+- Intravenous drug use.
+- Soft tissue infection.
+- Indwelling cannulas, central lines, or pacemakers.
+- Recent cardiac or valvular surgery.
+- A previously damaged valve, for example after rheumatic fever.
+
+## Acute compared with subacute infective endocarditis
+
+| Feature | Acute IE | Subacute IE |
+| --- | --- | --- |
+| Causative organisms | **Staphylococcus aureus** (35-40%); Streptococcus pyogenes | Streptococcus viridans, Staphylococcus epidermidis, **HACEK** group (culture-negative), Coxiella burnetii, Mycoplasma, Candida |
+| Virulence | High | Low |
+| Vegetation morphology | Larger, more localised | Friable, small (a few mm in size) thrombi |
+| Spread | Aorta and surrounding tissues | Chordae tendineae |
+
+The HACEK group consists of **H**aemophilus, **A**ggregatibacter, **C**ardiobacterium, **E**ikenella, and **K**ingella — fastidious Gram-negative bacteria that may not grow on routine blood cultures.
+
+## Clinical features
+
+- **Constitutional**: fever, malaise, rigors, weight loss, anaemia, fatigue, night sweats — often present for weeks or months.
+- **Cardiac**: a new (often regurgitant) murmur, typically mitral or aortic regurgitation.
+- **Immunological phenomena**:
+  - **Roth spots** (retinal haemorrhages with pale centres) on fundoscopy.
+  - **Osler's nodes** (tender nodules on finger pulps).
+  - Glomerulonephritis (haematuria).
+- **Embolic / thromboembolic phenomena**:
+  - **Janeway lesions** (painless macules on palms and soles).
+  - **Splinter haemorrhages** under the nails.
+  - Splenomegaly.
+  - Septic abscesses in lungs, brain, spleen, or kidneys.
+
+The typical patient has had non-specific systemic symptoms for months, often with intermittent improvement on antibiotics, alongside microscopic or macroscopic haematuria. In intravenous drug users, the **right-sided (tricuspid)** valve is most commonly affected; otherwise the mitral or aortic valve is usually involved.
+
+## Modified Duke's criteria
+
+Diagnosis requires:
+- 2 major, OR
+- 1 major plus 3 minor, OR
+- 5 minor.
+
+**Major criteria**:
+- Positive blood cultures: typical organisms grown from 2 separate cultures more than 12 hours apart.
+- Evidence of endocardial involvement: vegetation or abscess on echocardiogram, or a new regurgitant murmur.
+
+**Minor criteria**:
+- Risk factor (e.g. prosthetic valve, intravenous drug use, congenital valve abnormality).
+- Fever greater than 38 °C.
+- Embolic phenomena (Janeway lesions, splinter haemorrhages).
+- Immunological phenomena (Roth spots, Osler's nodes, glomerulonephritis).
+- Microbiological evidence not meeting major criteria.
+
+## Investigations
+
+- **Three sets of blood cultures** from separate sites, ideally before antibiotics are given.
+- **Transthoracic echocardiogram (TTE)** first; **transoesophageal echocardiogram (TOE)** if TTE is non-diagnostic, in prosthetic valves, or if abscess is suspected.
+- Inflammatory markers, urinalysis, full blood count, urea and electrolytes.
+
+## Treatment
+
+Start **broad-spectrum empirical antibiotics** once cultures are taken, then narrow according to sensitivities. Typical regimens (always use local guidelines):
+- **Subacute, native valve**: benzylpenicillin plus gentamicin; vancomycin if penicillin-allergic. Duration 4 weeks.
+- **Acute, native valve**: flucloxacillin (for methicillin-sensitive Staphylococcus aureus); rifampicin plus vancomycin plus gentamicin for methicillin-resistant Staphylococcus aureus. Staphylococcus aureus IE is particularly aggressive — always cover.
+- **Prosthetic valve endocarditis**: vancomycin plus gentamicin plus rifampicin for 6 weeks.
+
+Surgical intervention is indicated for:
+- Heart failure caused by acute valvular incompetence.
+- Persistent infection despite appropriate antibiotics.
+- Recurrent septic emboli.
+- Large vegetations.
+- Perivalvular abscess.`,
+        },
+        {
+          id: "valve_disease",
+          name: "Valve Disease",
+          content: `## Comparative summary of the four major valve lesions
+
+| Feature | Aortic stenosis | Aortic regurgitation | Mitral stenosis | Mitral regurgitation |
+| --- | --- | --- | --- | --- |
+| **Pathophysiology** | Narrowed aortic valve produces high-velocity, high-pressure ejection | Incompetent aortic valve allows blood to flow back into the left ventricle in diastole | Narrowed mitral valve obstructs left atrial emptying, causing left atrial dilatation and back pressure | Incompetent mitral valve allows blood to flow back into the left atrium during systole |
+| **Common causes** | Calcific (older patients), congenital bicuspid valve, rheumatic | Infective endocarditis, dissecting aortic aneurysm, left ventricular dilatation, connective tissue disease (Marfan, Ehlers-Danlos), ankylosing spondylitis, syphilis | **Almost always rheumatic fever** | Infective endocarditis, post-MI papillary muscle dysfunction, connective tissue disease, rheumatic fever, left ventricular dilatation (functional MR), mitral valve prolapse |
+| **Murmur** | Crescendo-decrescendo ejection systolic, radiating to the carotids | Early diastolic, decrescendo, with collapsing pulse | Mid-diastolic with an opening snap | Pansystolic, radiating to the axilla |
+| **Other signs** | Slow-rising pulse, narrow pulse pressure, soft S2 | Wide pulse pressure, Quincke's sign (nail-bed pulsation), Corrigan's pulse, de Musset's sign (head bobbing) | Loud S1, malar flush, atrial fibrillation common | Displaced apex beat, soft S1, S3 if severe |
+
+## Aortic stenosis
+
+- The **classic triad** is angina, syncope (especially exertional), and dyspnoea (from heart failure).
+- Echocardiographic criteria for severe aortic stenosis: peak gradient greater than 64 mmHg; valve area less than 1.0 cm²; jet velocity greater than 4 m/s.
+- **Indications for intervention**: symptomatic severe AS; asymptomatic severe AS with reduced left ventricular ejection fraction.
+- Treatment options:
+  - **Surgical aortic valve replacement (SAVR)** — historically the standard.
+  - **Transcatheter aortic valve implantation (TAVI)** — increasingly used, especially in older or higher-surgical-risk patients.
+- Avoid vasodilators in severe AS — they can precipitate critical hypotension.
+
+## Aortic regurgitation
+
+- May be acute (e.g. infective endocarditis, aortic dissection) or chronic.
+- **Acute AR is poorly tolerated** and usually requires urgent surgery, because the unprepared left ventricle cannot dilate quickly.
+- Chronic AR allows time for ventricular dilatation and physiological compensation.
+- Indications for surgery: symptomatic; asymptomatic with LVEF less than 55% or left ventricular end-systolic diameter (LVESD) greater than 55 mm.
+
+## Mitral stenosis
+
+- **Almost exclusively rheumatic** in origin.
+- Symptoms: dyspnoea, fatigue, haemoptysis (from rupture of small bronchial veins), atrial fibrillation, systemic embolism, malar flush.
+- The **Wilkins score** assesses suitability for percutaneous balloon valvotomy based on leaflet mobility, leaflet thickening, leaflet calcification, and subvalvular thickening.
+- **Treatment**: rate control plus anticoagulation for atrial fibrillation; **percutaneous mitral commissurotomy** if anatomy is favourable; surgical mitral valve replacement if not.
+
+## Mitral regurgitation
+
+- May be acute (papillary muscle rupture post-MI, infective endocarditis) or chronic (rheumatic, mitral valve prolapse, ischaemic, ventricular dilatation).
+- Acute severe MR causes flash pulmonary oedema and is a surgical emergency.
+- **Treatment**: ACEi or ARB plus diuretics for symptoms; surgical repair is preferred over replacement when feasible; **MitraClip** (transcatheter edge-to-edge repair) for high-surgical-risk patients.
+
+## Mitral valve prolapse
+
+- The most common valvular abnormality in developed countries (around 2-3% of the population).
+- Classically presents in middle-aged women with palpitations, atypical chest pain, or dyspnoea.
+- **Auscultation**: a mid-systolic click followed by a late systolic murmur.
+- Often associated with annular dilatation due to dilated cardiomyopathy, or with myxomatous degeneration of the leaflets.
+- Most cases are asymptomatic and require only reassurance.
+
+## Chronic rheumatic valve disease (recap)
+
+Chronic rheumatic valve disease is predominantly left-sided, with the mitral valve most commonly affected (Mitral > Aortic > Tricuspid > Pulmonary). The pathological features are leaflet thickening (especially along the lines of closure), commissural fusion, and thickening, shortening, and fusion of the chordae tendineae.`,
+        },
+        {
+          id: "pericarditis",
+          name: "Pericarditis & Pericardial Disease",
+          content: `## Definition
+
+Pericarditis is inflammation of the pericardium, the fibrous sac surrounding the heart.
+
+## Types and causes
+
+| Type | Common causes |
+| --- | --- |
+| **Viral and idiopathic** | Most common (around 90%); coxsackievirus, echovirus, Epstein-Barr virus |
+| **Fibrinous** | Post-myocardial infarction ("peri-infarct" pericarditis); uraemia |
+| **Purulent** | Bacterial — Staphylococcus aureus is the most common |
+| **Granulomatous** | Tuberculosis; sarcoidosis |
+| **Haemorrhagic** | Tumour, tuberculosis, uraemia, anticoagulation |
+| **Constrictive (fibrous)** | A late sequel of any chronic pericardial inflammation; classically tuberculous |
+
+Other causes include autoimmune disease (SLE, rheumatoid arthritis), Dressler's syndrome, drugs (hydralazine, isoniazid, procainamide), and radiation.
+
+## Clinical features
+
+- **Sharp, pleuritic chest pain** that is worse on lying flat and relieved by sitting forward.
+- A **pericardial friction rub** on auscultation (a scratchy, three-component rub).
+- Fever and constitutional symptoms in inflammatory or infective causes.
+
+## ECG findings
+
+The ECG evolves through 4 stages:
+1. **Saddle-shaped ST elevation** in most leads (concave upwards), with **PR depression**. PR depression in lead aVR is a sensitive sign.
+2. ST returns to baseline; T waves flatten.
+3. T-wave inversion.
+4. Resolution.
+
+This contrasts with the typical ST elevation of myocardial infarction, which is usually convex, regional, and accompanied by reciprocal changes in opposite leads.
+
+## Investigations
+
+- ECG (above) — can be normal in approximately 10% of cases.
+- Inflammatory markers (CRP is usually raised).
+- Troponin (rises if there is myopericarditis).
+- Echocardiography to look for an effusion or wall-motion abnormality.
+- Chest X-ray (cardiomegaly with a large effusion).
+
+## Treatment
+
+- **Non-steroidal anti-inflammatory drugs** (high-dose ibuprofen or aspirin) for 1 to 2 weeks.
+- **Colchicine** for 3 months reduces recurrence and is now standard adjunctive therapy.
+- Treat the underlying cause.
+- Restrict exercise during the acute phase.
+
+## Pericardial effusion
+
+A pericardial effusion is an accumulation of fluid in the pericardial sac.
+
+- The most common cause is chronic heart failure (a transudate).
+- Exudative effusions occur secondary to inflammatory, infectious, malignant, or autoimmune processes within the pericardium.
+- A small effusion may be asymptomatic; a large or rapidly accumulating effusion produces tamponade.
+
+## Cardiac tamponade
+
+Cardiac tamponade is a clinical emergency in which the pericardial fluid raises intrapericardial pressure enough to compromise diastolic filling, reducing cardiac output.
+
+**Beck's triad**:
+1. Hypotension.
+2. Raised jugular venous pressure (with absence of the Y descent).
+3. Muffled heart sounds.
+
+Other features include **pulsus paradoxus** (a fall in systolic blood pressure of more than 10 mmHg on inspiration) and **electrical alternans** on the ECG (alternating QRS amplitude as the heart swings within the effusion).
+
+The treatment is **urgent pericardiocentesis** (echocardiogram-guided drainage), with subsequent treatment of the underlying cause.
+
+## Haemopericardium
+
+Haemopericardium is blood in the pericardial sac. It is classically caused by:
+- Myocardial rupture after acute MI.
+- Penetrating chest trauma.
+- Aortic dissection extending proximally into the pericardium.
+- Iatrogenic injury (post-cardiac procedures).
+
+It often produces rapid-onset cardiac tamponade.
+
+## Constrictive pericarditis
+
+Constrictive pericarditis is chronic pericardial fibrosis, often calcified, that prevents normal diastolic filling.
+
+- Most cases were historically post-tuberculous; in developed countries, post-cardiac surgery and post-radiation are now more common.
+- Clinical features mimic right heart failure: a raised jugular venous pressure (with prominent Y descent and Kussmaul's sign — paradoxical rise in JVP on inspiration), peripheral oedema, ascites, and hepatomegaly.
+- A **pericardial knock** may be heard.
+- CT or MRI confirms pericardial thickening (often with calcification).
+- The definitive treatment is **pericardiectomy**.`,
         },
       ],
     },
