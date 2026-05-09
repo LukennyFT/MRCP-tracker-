@@ -4581,9 +4581,716 @@ The cornerstone is supportive:
       icon: "🫘",
       topics: [
         {
-          id: "_pending_renal_path",
-          name: "(Coming soon)",
-          content: `## Pending\n\nThis section is currently empty. Renal histopathology content will be added on request.`,
+          id: "nephrotic_syndrome",
+          name: "Nephrotic Syndrome",
+          content: `## Classification of renal disease by site of pathology
+
+Renal pathology can be classified by the part of the nephron primarily affected:
+
+- **Glomerulus**: nephrotic syndrome (primary or secondary causes), nephritic syndrome.
+- **Tubules and interstitium**: acute tubular necrosis, tubulointerstitial nephritis.
+- **Blood vessels**: thrombotic microangiopathies (haemolytic uraemic syndrome, thrombotic thrombocytopenic purpura).
+
+## Nephrotic syndrome — definition
+
+Nephrotic syndrome is not a single disease but a constellation of features that can be caused by several glomerular diseases. It is defined by the **diagnostic triad**:
+1. **Proteinuria** greater than 3 g per 24 hours, or a urine protein-to-creatinine ratio greater than 300 mg/mmol.
+2. **Hypoalbuminaemia** with serum albumin less than 30 g/L.
+3. **Oedema** (often periorbital in children, peripheral in adults).
+
+Other features include hyperlipidaemia (the liver compensates for protein loss by producing more lipoproteins) and an increased risk of thrombotic disease (due to urinary loss of antithrombin III, protein C, and protein S).
+
+Classical exam clues include "swelling, classically periorbital in children" and "frothy urine" (the foam is due to proteinuria reducing the surface tension of urine).
+
+## Primary causes of nephrotic syndrome
+
+| Feature | Minimal Change Disease | Membranous Glomerular Disease | Focal Segmental Glomerulosclerosis (FSGS) |
+| --- | --- | --- | --- |
+| **Epidemiology** | Most common in children (75% of paediatric nephrotic syndrome); a second peak in elderly adults | Common in adults (around 30%) | Common in adults (around 30%); most common in Afro-Caribbean people |
+| **Light microscopy** | No changes | Diffuse glomerular basement membrane (GBM) thickening | Focal and segmental glomerular consolidation, scarring, and hyalinosis |
+| **Electron microscopy** | Loss of podocyte foot processes (effacement) | Loss of podocyte foot processes; subepithelial deposits with basement membrane projections — the "**spikey appearance**" | Loss of podocyte foot processes |
+| **Immunofluorescence** | No immune deposits | Immune complex deposits along the entire GBM | No immune deposits |
+| **Response to steroids** | 90% respond | Poor response | Around 50% respond |
+| **Prognosis** | Less than 5% progress to end-stage renal failure | 40% reach end-stage renal failure over 2-20 years | 50% reach end-stage renal failure over 10 years |
+| **Associations / triggers** | Recent allergic reaction; eczema, asthma | May be primary (around 75% have antibodies against **phospholipase A2 receptor (anti-PLA2R)**) or secondary to systemic lupus erythematosus, infections (hepatitis B), drugs, malignancy | Primary, or secondary to obesity, HIV, drugs (lithium, heroin), lymphoma |
+| **Management** | Steroids first-line; ciclosporin second-line | Steroids; ACE inhibitor or angiotensin receptor blocker (ARB) to control blood pressure; immunosuppression for high-risk disease | Steroids; ACE inhibitor or ARB; calcineurin inhibitors second-line |
+
+### Minimal change disease
+
+The classic paediatric nephrotic syndrome. Light microscopy is unremarkable — the disease is "minimal" in appearance, hence the name. The hallmark on electron microscopy is podocyte foot process effacement. There are no immune deposits, so immunofluorescence is negative. It is highly steroid-responsive (around 90% of children respond), but relapses are common.
+
+### Membranous glomerular disease
+
+The commonest cause of primary nephrotic syndrome in adults. Light microscopy shows diffuse GBM thickening, and electron microscopy reveals subepithelial immune complex deposits with intervening "spikes" of new GBM material. Around 75% of primary cases have circulating antibodies against the **phospholipase A2 receptor (anti-PLA2R)** on podocytes. Secondary causes include hepatitis B, systemic lupus erythematosus, drugs (penicillamine, gold), and malignancies (especially solid tumours in older patients — always investigate for malignancy in adults presenting with membranous nephropathy).
+
+### Focal segmental glomerulosclerosis (FSGS)
+
+Affects only some glomeruli (focal) and only part of those affected glomeruli (segmental). It is the commonest cause of nephrotic syndrome in Afro-Caribbean adults. Secondary causes include obesity, HIV (especially the collapsing variant), heroin, lithium, and lymphoma.
+
+## Secondary causes of nephrotic syndrome
+
+| Feature | Diabetic nephropathy | Amyloid nephropathy |
+| --- | --- | --- |
+| **Histology** | Diffuse GBM thickening; mesangial matrix expansion; **Kimmelstiel-Wilson nodules** (mesangial nodules) | **Apple-green birefringence under polarised light on Congo red staining** |
+| **Other features** | Classically affects Asian populations more severely; first manifests as microalbuminuria; concurrent retinopathy and neuropathy support diagnosis | AA (acute phase protein) amyloidosis is associated with chronic inflammation (rheumatoid arthritis, chronic infections such as TB); AL (light chain) amyloidosis most often arises from multiple myeloma; clinical clues include macroglossia, heart failure, and hepatomegaly |
+
+### Diabetic nephropathy stages
+
+1. Hyperfiltration (raised glomerular filtration rate, GFR).
+2. **Microalbuminuria** (urinary albumin 30-300 mg per 24 hours; the earliest detectable abnormality).
+3. Overt proteinuria (>300 mg per 24 hours).
+4. Declining GFR and approaching end-stage renal failure.
+
+ACE inhibitors or ARBs are nephroprotective at all stages. SGLT2 inhibitors (dapagliflozin, empagliflozin) further reduce progression in diabetic kidney disease.
+
+## Diagnostic workup of nephrotic syndrome
+
+- Urine dipstick: proteinuria, **without significant haematuria** (small amounts of haematuria can occur but are not prominent).
+- Urine protein-to-creatinine ratio greater than 300 mg/mmol.
+- Serum albumin: low.
+- Total cholesterol: high.
+- Serum immunoglobulins: low (lost in the urine).
+- **Renal biopsy** is the diagnostic investigation of choice in adults; it is usually deferred in children, where minimal change disease is so likely that an empirical steroid trial is often given first.
+
+## Complications of nephrotic syndrome
+
+- **Thromboembolism** — deep vein thrombosis, pulmonary embolism, **renal vein thrombosis** (loss of antithrombin III in the urine).
+- Infection — loss of immunoglobulins; encapsulated organisms (Streptococcus pneumoniae) are a particular risk.
+- Hyperlipidaemia and accelerated atherosclerosis.
+- Fluid overload and pulmonary oedema.`,
+        },
+        {
+          id: "nephritic_syndrome",
+          name: "Nephritic Syndrome",
+          content: `## Definition
+
+Nephritic syndrome is the clinical manifestation of glomerular inflammation (i.e. glomerulonephritis). The features can be remembered with the mnemonic **PHAROH**:
+
+- **P**roteinuria (less marked than in nephrotic syndrome)
+- **H**aematuria (often "**coke-coloured**" or smoky urine)
+- **A**zotaemia (raised urea and creatinine)
+- **R**ed cell casts in the urine — formed when red blood cells clump together in tubules
+- **O**liguria
+- **H**ypertension
+
+## Acute post-infectious (post-streptococcal) glomerulonephritis
+
+- Occurs **1 to 3 weeks** after a streptococcal throat infection or impetigo (usually Lancefield Group A α-haemolytic streptococcus, **Streptococcus pyogenes**).
+- Glomerular damage is thought to be due to immune complex deposition.
+- Clinical features: haematuria with red cell casts, proteinuria, oedema, hypertension.
+- Bloods: raised antistreptolysin O titre (ASOT); **low C3** (consumed by immune complexes).
+- Biopsy:
+  - Light microscopy: increased glomerular cellularity (proliferation of mesangial cells).
+  - Immunofluorescence: granular deposits of IgG and C3 along the GBM.
+  - Electron microscopy: subepithelial "**humps**" of immune complex.
+- Management is supportive — most children recover fully; adults occasionally progress to chronic kidney disease.
+
+## IgA nephropathy (Berger disease)
+
+- The **commonest glomerulonephritis worldwide**.
+- More common in patients of East and South Asian descent.
+- Caused by deposition of IgA immune complexes in the glomeruli.
+- Presents **1 to 2 days** after an upper respiratory tract infection (note: this is faster than acute post-infectious GN, which presents 1-3 weeks after). The classical exam clue is frank haematuria within 1-2 days of a sore throat.
+- Main symptoms: persistent or recurrent frank haematuria, or asymptomatic microscopic haematuria. Other nephritic features are usually mild.
+- May present alongside an associated vasculitic rash.
+- Can progress to end-stage renal failure.
+- Bloods: raised serum IgA in around 50% (not specific).
+- Biopsy: immunofluorescence shows granular deposition of **IgA and C3 in the mesangium**.
+- **Rule of thirds**: one-third asymptomatic, one-third develop chronic kidney disease, one-third develop progressive disease requiring dialysis or transplantation.
+- Management: supportive; ACE inhibitors or ARBs for proteinuria; immunosuppression for severe disease.
+
+## Henoch-Schönlein purpura (IgA vasculitis)
+
+- An IgA-mediated systemic small-vessel vasculitis, considered the systemic counterpart of IgA nephropathy.
+- Predominantly affects children aged 3-15 years.
+- Often follows a recent upper respiratory tract infection.
+- Classical tetrad:
+  - Purpuric rash on extensor surfaces of the legs and buttocks.
+  - Abdominal pain (with intussusception risk).
+  - Arthralgia or arthritis.
+  - IgA glomerulonephritis (haematuria, proteinuria).
+- Usually self-limiting. Renal involvement may rarely progress to chronic disease.
+
+## Rapidly progressive (crescentic) glomerulonephritis
+
+- The most aggressive form of glomerulonephritis — can cause end-stage renal failure within weeks.
+- Presents as nephritic syndrome, but with prominent oliguria and rapidly worsening renal function.
+- Defined histologically by the presence of **crescents** in the glomeruli — proliferation of macrophages and parietal epithelial cells in Bowman's space, pushing the glomerulus to one side.
+
+### Classification by immunological mechanism
+
+| | **Type 1 (Anti-GBM)** | **Type 2 (Immune complex)** | **Type 3 (Pauci-immune)** |
+| --- | --- | --- | --- |
+| Pathogenesis | Anti-GBM antibody against the alpha-3 chain of type IV collagen (COL4-A3) | Immune complex deposition | Pauci-immune (no anti-GBM antibodies and no significant immune complex deposits) |
+| Causes | **Goodpasture's syndrome**; HLA-DRB1 association | Systemic lupus erythematosus, IgA nephropathy, post-infectious GN, Henoch-Schönlein purpura, Alport's syndrome | cANCA: **granulomatosis with polyangiitis** (Wegener's); pANCA: **microscopic polyangiitis**, eosinophilic granulomatosis with polyangiitis (Churg-Strauss) |
+| Light microscopy | Crescents | Crescents | Crescents |
+| Immunofluorescence | **Linear** deposition of IgG along the GBM | **Granular ("lumpy-bumpy")** IgG deposition along the GBM and mesangium | Lack of (or scanty) immune deposits |
+| Additional organ involvement | Lungs — pulmonary haemorrhage (Goodpasture's) | Often limited (except in SLE) | Vasculitis, particularly cutaneous rashes and pulmonary haemorrhage |
+
+### Treatment of rapidly progressive GN
+
+- High-dose corticosteroids and cyclophosphamide.
+- **Plasma exchange** for anti-GBM disease (Goodpasture's) and severe ANCA-associated disease.
+- Rituximab is increasingly used as an alternative to cyclophosphamide for ANCA vasculitis.
+
+## Goodpasture's syndrome
+
+- Anti-GBM antibodies against the alpha-3 chain of type IV collagen (COL4-A3), present in both glomerular and pulmonary alveolar basement membrane.
+- Triad of nephritic syndrome, **pulmonary haemorrhage**, and circulating anti-GBM antibodies.
+- Linear IgG deposition along the GBM on immunofluorescence is pathognomonic.
+- Treatment: corticosteroids, cyclophosphamide, and **plasma exchange** to remove the offending antibody.
+
+## Hereditary nephritis (Alport's syndrome)
+
+- A hereditary glomerular disease caused by mutations in **type IV collagen**, most often in the alpha-5 chain.
+- **X-linked** in around 85% of cases (hence male predominance); autosomal recessive forms are rarer.
+- Classical triad: nephritic syndrome + **sensorineural deafness** + ocular abnormalities (anterior lenticonus, cataracts).
+- Presents at age 5 to 20 years with nephritic syndrome, progressing to end-stage renal failure in males.
+- Renal transplantation can rarely be complicated by anti-GBM antibody formation against the previously absent collagen chain (a Goodpasture-like syndrome in the transplanted kidney).
+
+## Thin basement membrane disease (benign familial haematuria)
+
+- Diffuse thinning of the GBM, caused by mutations in the alpha-4 chain of type IV collagen.
+- **Autosomal dominant**.
+- Common — prevalence around 5% of the population.
+- Usually asymptomatic and incidentally discovered as microscopic haematuria.
+- Renal function is normally preserved.
+- Excellent prognosis — does not usually progress.
+
+## Asymptomatic haematuria — differential diagnosis
+
+If asymptomatic haematuria appears in an exam question, the differentials include:
+1. **Thin basement membrane disease** (benign familial haematuria).
+2. **IgA nephropathy** (Berger disease).
+3. **Alport's syndrome**.
+
+IgA nephropathy and thin basement membrane disease are more common causes of asymptomatic haematuria than of full nephritic syndrome. Distinguishing between them clinically can be difficult, but useful pointers are:
+- IgA nephropathy is more likely to cause frank (visible) haematuria.
+- IgA nephropathy is more likely to cause a rise in creatinine.
+- IgA nephropathy is slightly more common in patients of Asian descent.
+- Definitive distinction usually requires renal biopsy.`,
+        },
+        {
+          id: "atn_tin",
+          name: "Acute Tubular Necrosis & Tubulointerstitial Nephritis",
+          content: `## Acute tubular injury (ATI) / acute tubular necrosis (ATN)
+
+Acute tubular necrosis is the **most common cause of acute renal failure**.
+
+### Pathophysiology
+
+Damage to tubular epithelial cells causes them to shed and form casts that block the tubules. Reduced tubular flow increases haemodynamic pressure within the nephron, which reduces the pressure gradient across the GBM and produces acute renal failure. Tubuloglomerular feedback then further reduces blood supply to the kidneys.
+
+A useful exam clue: a patient whose hypovolaemia has been corrected but who has persistent acute renal failure has likely developed established ATN (the pre-renal cause has resolved but the resulting tubular damage remains).
+
+### Causes
+
+- **Hypovolaemia**: any pre-renal cause of acute renal failure (haemorrhage, sepsis, dehydration, burns, severe heart failure) producing nephron ischaemia.
+- **Nephrotoxins**:
+  - Drugs: aminoglycosides (gentamicin), non-steroidal anti-inflammatory drugs (NSAIDs), iodinated radiographic contrast agents, amphotericin B, cisplatin.
+  - Endogenous toxins: **myoglobin** (from rhabdomyolysis), free haemoglobin (intravascular haemolysis), uric acid (tumour lysis syndrome), light chains (myeloma).
+  - Heavy metals: lead, mercury, cadmium.
+
+### Histopathology
+
+Necrosis of short segments of the tubular epithelium, with sloughing of tubular cells into the lumen. Granular ("**muddy brown**") casts of tubular epithelial cells are characteristic on urine microscopy.
+
+### Clinical course
+
+ATN is potentially reversible if the underlying insult is removed. Patients typically pass through three phases:
+1. **Initiation phase**: the insult occurs.
+2. **Maintenance phase**: oliguria with rising creatinine, lasting days to weeks. Watch for hyperkalaemia, fluid overload, and acidosis.
+3. **Recovery phase**: polyuria as tubules regenerate, but concentrating ability lags. Risk of hypokalaemia and dehydration.
+
+### Treatment
+
+- Treat the underlying cause.
+- Stop nephrotoxic drugs.
+- Supportive care with fluid balance, treatment of hyperkalaemia, and renal replacement therapy if required.
+
+## Tubulointerstitial nephritis
+
+A group of renal inflammatory disorders that involve the tubules and interstitium.
+
+### Acute pyelonephritis
+
+- Bacterial infection of the kidney, usually arising from ascending infection through the urinary tract.
+- The most common organism is **Escherichia coli**.
+- Other common organisms: Klebsiella, Proteus, Enterococcus, Pseudomonas, Staphylococcus saprophyticus.
+- Presentation: fever, chills, sweats, flank pain, renal angle tenderness, and leukocytosis. Frequency, dysuria, and haematuria may also be present.
+- Urine microscopy: **leukocyte (white cell) casts** in the urine are characteristic and distinguish from lower urinary tract infection.
+- Investigations: urine culture; blood cultures if systemically unwell; ultrasound or CT urography to look for obstruction or abscess.
+- Treatment: intravenous broad-spectrum antibiotics (typically co-amoxiclav and gentamicin per local guidelines), then oral switch when clinically improved.
+
+### Chronic pyelonephritis and reflux nephropathy
+
+- Chronic inflammation and scarring of the renal parenchyma caused by recurrent or persistent bacterial infection.
+- Underlying causes:
+  - **Chronic obstruction**: posterior urethral valves, renal calculi, prostatic enlargement.
+  - **Vesicoureteric reflux** (reflux nephropathy): retrograde flow of urine from bladder to kidney during voiding. Usually congenital, identified in childhood.
+- Histology: tubular atrophy, interstitial fibrosis, and scarring (especially at the renal poles in reflux nephropathy because of compound papillae at these sites).
+- Clinical features: recurrent urinary tract infection, hypertension, slowly progressive chronic kidney disease.
+
+### Acute interstitial nephritis (AIN)
+
+- A **hypersensitivity reaction**, usually to a drug.
+- Common offending drugs: **antibiotics** (especially beta-lactams, sulphonamides), **NSAIDs**, **proton pump inhibitors**, diuretics, allopurinol.
+- Usually begins **days to weeks after drug exposure**.
+- Classical presentation: **fever, skin rash, eosinophilia, and renal impairment** (the classical "drug reaction" tetrad).
+- Histology: **inflammatory infiltrate** with tubular injury; **eosinophils** are characteristic; sometimes granulomas.
+- Investigations: peripheral eosinophilia; urine microscopy may show **white cell casts and eosinophiluria**; renal biopsy is diagnostic.
+- Treatment: stop the offending drug. Corticosteroids for severe cases or where renal function does not recover after withdrawal of the precipitant.
+
+### Chronic interstitial nephritis / analgesic nephropathy
+
+- Seen in elderly patients with long-term consumption of analgesics, especially NSAIDs and historical combination preparations containing phenacetin (now banned). Paracetamol may also contribute.
+- Symptoms appear late: hypertension, anaemia, proteinuria, and haematuria.
+- Imaging may show papillary necrosis, with sloughed papillae appearing as filling defects on intravenous urography.
+- Increased risk of urothelial transitional cell carcinoma (especially with phenacetin).
+- Treatment: stop offending agents; supportive care.`,
+        },
+        {
+          id: "thrombotic_microangiopathies",
+          name: "Thrombotic Microangiopathies (HUS & TTP)",
+          content: `## Definition
+
+Thrombotic microangiopathies are a group of disorders characterised by:
+- **Microangiopathic haemolytic anaemia (MAHA)**: mechanical destruction of red blood cells in narrowed vessels, producing **schistocytes** (fragmented red cells) on the blood film.
+- **Thrombocytopenia**: platelets are consumed in widespread microthrombi.
+- **Microvascular thrombosis** with end-organ ischaemia.
+
+The two classical syndromes are haemolytic uraemic syndrome (HUS) and thrombotic thrombocytopenic purpura (TTP). They share a similar appearance but have different pathogenesis and organ predilection.
+
+## Comparison of HUS and TTP
+
+| Feature | **Haemolytic Uraemic Syndrome (HUS)** | **Thrombotic Thrombocytopenic Purpura (TTP)** |
+| --- | --- | --- |
+| Typical age | Usually affects **children** | Usually affects **adults** |
+| Clinical features | **Triad**: MAHA + thrombocytopenia + acute kidney injury | **Pentad**: MAHA + thrombocytopenia + acute kidney injury (often less severe than in HUS) + **fever** + **neurological symptoms** (confusion, seizures, headache) |
+| Pathogenesis | Most often due to **Shiga-like toxin** from **Escherichia coli O157:H7**, typically following undercooked beef consumption or contact at petting zoos. The toxin damages glomerular endothelium. **Atypical HUS** (non-diarrhoea-associated) is due to dysregulation of the alternative complement pathway and may be familial | Genetic or acquired deficiency of **ADAMTS13**, the protease that normally cleaves von Willebrand factor (vWF) multimers. Without it, ultra-large vWF multimers persist and bind platelets, forming microthrombi |
+| Distribution of thrombi | Confined predominantly to the **kidneys** | Throughout the circulation, especially in the **central nervous system** |
+| Renal involvement | **Prominent** | Usually less severe |
+| Neurological involvement | Less common | **Prominent** — may include headache, altered consciousness, seizures, and coma |
+
+## Shared features and investigations
+
+- Reduced haemoglobin and reduced platelet count.
+- Signs of haemolysis: raised unconjugated bilirubin, raised reticulocytes, raised lactate dehydrogenase, low haptoglobin.
+- **Schistocytes** (fragmented red blood cells) on the peripheral blood film, formed as red cells are sheared as they pass through microthrombi.
+- **Coombs (direct antiglobulin) test negative** — distinguishes from autoimmune haemolytic anaemia.
+- Reduced platelet count produces bleeding (petechiae, haematemesis, melaena, mucosal bleeding).
+
+## Management
+
+### Thrombotic thrombocytopenic purpura
+- This is a haematological emergency.
+- **Plasma exchange** (replaces ADAMTS13 and removes auto-antibodies) — the cornerstone of treatment.
+- Corticosteroids and rituximab.
+- **Caplacizumab** (anti-vWF nanobody) is a newer agent that reduces platelet aggregation.
+- **Avoid platelet transfusion** unless there is life-threatening bleeding — adding platelets fuels microthrombus formation and can worsen outcomes.
+
+### Haemolytic uraemic syndrome
+- Supportive care: fluids, blood pressure control, dialysis if required.
+- Plasma exchange in severe cases.
+- **Eculizumab** (anti-complement C5 monoclonal antibody) for atypical HUS or severe typical HUS.
+- **Avoid antibiotics** in Shiga-toxin HUS — they may worsen toxin release from dying bacteria and worsen outcomes.
+- Avoid platelet transfusion unless there is life-threatening bleeding.
+
+## Other causes of thrombotic microangiopathy
+
+- **Disseminated intravascular coagulation (DIC)** — distinguished by abnormal clotting screen with a raised PT, raised APTT, and low fibrinogen.
+- **HELLP syndrome** in pregnancy.
+- Drug-induced TMA: ciclosporin, tacrolimus, mitomycin C, gemcitabine, ticlopidine.
+- Malignant hypertension.
+- Connective tissue disease (especially scleroderma renal crisis).
+- Bone marrow transplantation.`,
+        },
+        {
+          id: "acute_renal_failure",
+          name: "Acute Renal Failure / Acute Kidney Injury",
+          content: `## Definition
+
+Acute renal failure (also called acute kidney injury, AKI) is a rapid loss of renal function manifesting as a rise in serum creatinine and urea, and reduction in urine output.
+
+The **KDIGO criteria** define AKI as any of:
+- A rise in serum creatinine of at least 26 µmol/L within 48 hours.
+- A rise in serum creatinine to at least 1.5 times baseline within the previous 7 days.
+- Urine output less than 0.5 mL per kilogram per hour for more than 6 hours.
+
+Note that prostatic and bladder pathology can cause low urine output, and this must always be considered.
+
+## Classification by site
+
+### Pre-renal (the most common category)
+
+Hypoperfusion of the kidney with no structural abnormality:
+- Hypovolaemia: haemorrhage, severe diarrhoea or vomiting, burns, dehydration.
+- Sepsis (vasodilatation and capillary leak).
+- Heart failure (cardiogenic).
+- Renal artery stenosis.
+- Drugs that disrupt renal autoregulation: NSAIDs (constrict the afferent arteriole), ACE inhibitors and ARBs (dilate the efferent arteriole).
+
+Pre-renal AKI typically responds to volume replacement. If the ischaemia is prolonged, it can progress to acute tubular necrosis (an intrinsic AKI).
+
+### Intrinsic renal
+
+Pathology within the kidney itself:
+- **Acute tubular necrosis (ATN)** — the most common intrinsic cause.
+- Acute glomerulonephritis (rapidly progressive GN, ANCA-associated vasculitis, anti-GBM disease).
+- Acute interstitial nephritis (drug hypersensitivity).
+- Thrombotic microangiopathy (HUS, TTP).
+- Vascular: large-vessel disease (renal artery thrombosis), small-vessel disease (vasculitis).
+
+### Post-renal
+
+Obstruction to urinary flow. Glomerular filtration requires a pressure gradient, so obstruction increases tubular pressure and reduces filtration:
+- Renal stones.
+- Tumours (primary or secondary, including bladder cancer and pelvic malignancies).
+- Prostatic hypertrophy.
+- Retroperitoneal fibrosis.
+- Strictures, blocked catheters.
+
+If unrelieved, post-renal obstruction can lead to permanent renal scarring.
+
+## Complications of AKI
+
+- **Hyperkalaemia** (life-threatening; risk of cardiac arrhythmia).
+- Metabolic acidosis.
+- Fluid overload and pulmonary oedema.
+- Hyponatraemia (from inability to excrete free water).
+- Hypocalcaemia, hyperphosphataemia.
+- Uraemia: confusion, pericarditis, bleeding tendency.
+
+## Indications for urgent dialysis — mnemonic AEIOU
+
+- **A**cidosis (refractory metabolic acidosis).
+- **E**lectrolyte disturbance (refractory hyperkalaemia).
+- **I**ntoxication with a dialysable substance such as lithium or aspirin.
+- **O**verload (refractory pulmonary oedema).
+- **U**raemic encephalopathy or pericarditis.
+
+## Investigation strategy
+
+- Urinalysis: blood, protein, leucocytes (urinary tract infection), red cell casts (glomerulonephritis), white cell casts (pyelonephritis or acute interstitial nephritis), muddy brown casts (acute tubular necrosis).
+- Urea and electrolytes, full blood count, C-reactive protein.
+- Bone profile (calcium, phosphate), magnesium.
+- Urine and serum osmolality.
+- ECG (looking for hyperkalaemic changes — tented T waves, widened QRS, sine wave).
+- **Renal ultrasound** to exclude obstruction (post-renal AKI).
+- Specific investigations as guided by suspected cause: ANCA, anti-GBM antibody, complement (C3, C4), immunoglobulins, autoantibodies, creatine kinase (rhabdomyolysis), urine protein quantification, renal biopsy if intrinsic cause is unclear.
+
+## Management principles
+
+- Identify and treat the cause.
+- Optimise volume status (fluid challenge if pre-renal; diuretics if overloaded).
+- Stop nephrotoxic drugs (NSAIDs, ACEi/ARB, gentamicin).
+- Treat hyperkalaemia (calcium gluconate for cardiac protection, insulin/dextrose to drive potassium into cells, salbutamol nebuliser, dietary potassium restriction).
+- Renal replacement therapy if AEIOU criteria are met.
+- Treat infection if sepsis is present.
+
+## Distinguishing pre-renal AKI from established ATN
+
+| Marker | Pre-renal AKI | Established ATN |
+| --- | --- | --- |
+| Urine osmolality | High (>500 mOsm/kg) — kidneys still concentrating | Low (<350 mOsm/kg) — concentrating ability lost |
+| Urine sodium | Low (<20 mmol/L) — reabsorbing sodium | High (>40 mmol/L) — failing to reabsorb |
+| Fractional excretion of sodium (FeNa) | <1% | >2% |
+| Urine specific gravity | High | Low (around 1.010) |
+| Response to fluid challenge | Improves | No improvement |`,
+        },
+        {
+          id: "ckd_renal",
+          name: "Chronic Kidney Disease",
+          content: `## Definition
+
+Chronic kidney disease (CKD) is the progressive, irreversible loss of renal function over a period of at least 3 months. It is characterised by prolonged symptoms and signs of uraemia (fatigue, pruritus, anorexia, and in severe disease, confusion).
+
+## Classification by GFR
+
+| Stage | Description | GFR (mL/min/1.73 m²) |
+| --- | --- | --- |
+| 1 | Kidney damage with normal renal function (often proteinuria) | Greater than 90 |
+| 2 | Mildly impaired | 60-89 |
+| 3a | Moderately impaired | 45-59 |
+| 3b | Moderately impaired | 30-44 |
+| 4 | Severely impaired | 15-29 |
+| 5 | Renal failure (generally requires renal replacement therapy) | Less than 15, or on dialysis |
+
+CKD is further classified by the degree of albuminuria (A1, A2, A3) for prognostic purposes; greater albuminuria predicts worse renal and cardiovascular outcomes.
+
+## Common causes (UK)
+
+- **Diabetes mellitus** (around 20%).
+- Glomerulonephritis (around 15%).
+- Hypertension and vascular disease (around 15%).
+- Reflux nephropathy (chronic pyelonephritis) (around 10%).
+- **Polycystic kidney disease** (around 9%).
+- Obstructive uropathy.
+- Drug-induced (long-term NSAID or lithium use).
+
+## Consequences of CKD
+
+The consequences fall into four broad categories:
+
+### 1. Progressive failure of homeostatic function
+- Metabolic acidosis (failure to excrete hydrogen ions).
+- Hyperkalaemia.
+- Fluid retention.
+
+### 2. Progressive failure of hormonal function
+- **Anaemia** — the failing kidney cannot produce sufficient erythropoietin.
+- **Renal bone disease** — reduced 1-alpha hydroxylation of vitamin D produces hypocalcaemia, which drives a secondary hyperparathyroidism. This results in osteitis fibrosa cystica.
+- Reduced production of activated vitamin D (calcitriol).
+
+### 3. Cardiovascular disease
+- Vascular calcification and uraemic cardiomyopathy.
+- Cardiovascular disease is the **leading cause of mortality** in CKD.
+
+### 4. Uraemia and death in untreated end-stage disease
+
+## Renal bone disease (renal osteodystrophy)
+
+A spectrum of bone abnormalities seen in CKD:
+- **Osteitis fibrosa cystica** (high-turnover disease from secondary hyperparathyroidism).
+- **Osteomalacia** (low calcium and active vitamin D).
+- **Adynamic bone disease** (over-treatment with vitamin D or calcium suppresses parathyroid hormone excessively).
+- **Mixed disease**.
+- **Osteoporosis**.
+
+Features: bone pain, fractures, vascular calcification, brown tumours.
+
+Treatment: phosphate restriction; phosphate binders (sevelamer, calcium acetate); active vitamin D (alfacalcidol, calcitriol); calcimimetics (cinacalcet) to suppress PTH.
+
+## Management of CKD
+
+### Slowing progression
+- Tight blood pressure control with **ACE inhibitor or ARB** (target less than 130/80 mmHg if diabetic or proteinuric).
+- Glycaemic control in diabetes.
+- **SGLT2 inhibitors** (dapagliflozin, empagliflozin) reduce CKD progression in both diabetic and non-diabetic CKD.
+- Smoking cessation; lifestyle measures.
+- Address cardiovascular risk factors.
+
+### Treating complications
+- Anaemia: iron supplementation (often intravenous); recombinant **erythropoietin** if haemoglobin is less than 100 g/L despite iron repletion.
+- Bone disease: phosphate binders, active vitamin D, calcimimetics.
+- Acidosis: oral sodium bicarbonate.
+- Hyperkalaemia: dietary advice; potassium binders (patiromer, sodium zirconium cyclosilicate).
+- Hyperlipidaemia: statin therapy (NICE recommends atorvastatin 20 mg in CKD).
+
+### Renal replacement therapy
+- **Haemodialysis**: 3-4 times per week via an arteriovenous fistula (preferred for long-term access) or a tunnelled central catheter.
+- **Peritoneal dialysis**: home-based; uses the peritoneum as the dialysis membrane via a Tenckhoff catheter. Risk of peritonitis.
+- **Renal transplantation**: the only definitive treatment, with the best long-term outcomes; lifelong immunosuppression is required.`,
+        },
+        {
+          id: "apkd",
+          name: "Adult Polycystic Kidney Disease",
+          content: `## Background
+
+Adult polycystic kidney disease (APKD) is part of a heterogeneous group of disorders characterised by **renal cysts** and numerous **systemic extra-renal manifestations**. It is the most common inherited kidney disease.
+
+## Genetics and inheritance
+
+- **Autosomal dominant** inheritance.
+- 85% of cases are due to mutations in **PKD1** on chromosome 16, encoding **polycystin-1** — earlier onset and faster progression.
+- 15% of cases are due to mutations in **PKD2** on chromosome 4, encoding **polycystin-2** — milder, later onset.
+- Accounts for approximately 10% of all cases of CKD; two-thirds of patients eventually require renal replacement therapy.
+
+> The autosomal **recessive** form (ARPKD) presents in infancy and is much rarer.
+
+## Pathology
+
+- Bilateral, large, multi-cystic kidneys with progressive destruction of renal parenchyma.
+- Cysts arise from any segment of the nephron.
+- Liver cysts (especially in PKD1).
+- Saccular ("**berry**") cerebral aneurysms in around 10% — risk of subarachnoid haemorrhage and hypertension-related complications.
+
+## Clinical features — mnemonic MISHAPES
+
+- **M** — abdominal **M**ass (palpable enlarged kidneys).
+- **I** — **I**nfected cysts and **i**ncreased blood pressure.
+- **S** — **S**tones (renal calculi).
+- **H** — **H**aematuria.
+- **A** — **A**neurysms (berry aneurysms in the circle of Willis).
+- **P** — **P**olyuria and nocturia (impaired concentrating ability).
+- **E** — **E**xtra-renal cysts (liver, ovaries, pancreas, seminal vesicles).
+- **S** — **S**ystolic murmur (mitral valve prolapse, present in around 25%).
+
+## Diagnosis
+
+Ultrasound of the kidneys is the standard diagnostic test. Diagnostic criteria are age-specific:
+- **Aged 15-39**: 3 or more cysts (unilateral or bilateral).
+- **Aged 40-59**: 2 or more cysts in each kidney.
+- **Aged 60 or older**: 4 or more cysts in each kidney.
+
+Genetic testing is reserved for cases of diagnostic uncertainty.
+
+## Management
+
+- Blood pressure control with ACE inhibitors or ARBs.
+- Treatment of urinary tract infections — penetration of cyst walls is challenging, so fluoroquinolones are often preferred.
+- Pain control.
+- **Tolvaptan** (a vasopressin V2 receptor antagonist) slows cyst growth and disease progression in selected patients with rapidly progressive disease.
+- Screening for cerebral aneurysms in patients with a family history of subarachnoid haemorrhage.
+- Renal replacement therapy is the eventual mainstay; the patient will usually require transplantation.
+
+## Differential diagnosis of bilateral cystic kidneys
+
+- **APKD** (autosomal dominant).
+- **ARPKD** (autosomal recessive; presents in infancy).
+- **Tuberous sclerosis** (autosomal dominant; renal angiomyolipomas plus cysts; cutaneous and CNS features).
+- **Von Hippel-Lindau disease** (autosomal dominant; renal cysts and clear cell renal cell carcinoma; CNS haemangioblastomas; phaeochromocytoma).
+- Acquired cystic kidney disease (in long-term dialysis patients).`,
+        },
+        {
+          id: "lupus_nephritis",
+          name: "Lupus Nephritis",
+          content: `## Background
+
+Lupus nephritis is glomerular involvement in **systemic lupus erythematosus (SLE)**. Renal involvement occurs in around 50% of SLE patients and is a major cause of morbidity and mortality.
+
+## Mechanism
+
+The fundamental lesion is **immune complex deposition** in the glomeruli (Type III hypersensitivity). Depending on the site and intensity of immune complex deposition, the clinical picture varies from isolated urinary abnormalities to acute renal failure, nephrotic syndrome, or progressive chronic renal failure.
+
+## Renal histology
+
+The classical histological features are:
+- **Wire-loop capillaries**: thickened glomerular capillary loops due to subendothelial immune complex deposition.
+- **"Lumpy-bumpy" granular deposition** of immune complexes and complement on the GBM on immunofluorescence.
+
+## ISN/RPS classification (Classes 1 to 6)
+
+| Class | Description | Histological features |
+| --- | --- | --- |
+| **Class 1** | Minimal mesangial lupus nephritis | Looks near-normal on light microscopy; mesangial immune deposits visible only on immunofluorescence or electron microscopy |
+| **Class 2** | Mesangial proliferative lupus nephritis | Mesangial cell proliferation; immune deposits limited to mesangium |
+| **Class 3** | Focal lupus nephritis | Focal subendothelial deposits — affects less than 50% of glomeruli; often presents with nephritic features |
+| **Class 4** | Diffuse lupus nephritis | Diffuse subendothelial deposits — affects more than 50% of glomeruli; the **most common and most severe** form, often presenting with nephritic syndrome and progressing to end-stage renal failure if untreated |
+| **Class 5** | Membranous lupus nephritis | Subepithelial immune deposits (resembles primary membranous nephropathy); typically presents with nephrotic syndrome |
+| **Class 6** | Advanced sclerosis | More than 90% glomerulosclerosis; end-stage disease |
+
+## Clinical features
+
+- Proteinuria (may reach nephrotic range, especially in Class 5).
+- Haematuria with red cell casts (especially in Classes 3 and 4).
+- Hypertension.
+- Falling glomerular filtration rate.
+- Active urinary sediment.
+
+## Investigations
+
+- Urinalysis, urine protein-to-creatinine ratio, urine sediment microscopy.
+- Renal function and electrolytes.
+- Complement (C3 and **C4** are typically reduced; C4 is often the first to fall).
+- **Anti-dsDNA antibodies** correlate with disease activity.
+- Anti-Sm antibodies (specific but not sensitive).
+- Renal biopsy is required to determine class and guide treatment.
+
+## Management
+
+- **Hydroxychloroquine** for all SLE patients (reduces lupus activity and the frequency of renal flares).
+- Class 1 and 2: usually no specific renal therapy required; treat extra-renal SLE.
+- Class 3 and 4: **induction** with high-dose corticosteroids plus **mycophenolate mofetil** or **cyclophosphamide**; then **maintenance** with mycophenolate or azathioprine.
+- Class 5: corticosteroids plus mycophenolate or a calcineurin inhibitor.
+- Class 6: supportive care; renal replacement therapy.
+- Adjunctive: ACE inhibitors or ARBs for proteinuria.
+- Newer agents: **belimumab** (anti-BLyS monoclonal antibody) and **anifrolumab** (anti-IFN-α receptor) for refractory disease.`,
+        },
+        {
+          id: "rcc",
+          name: "Renal Cell Carcinoma",
+          content: `## Background
+
+Renal cell carcinoma (RCC) is the most common primary malignancy of the kidney in adults, accounting for approximately 90% of all renal malignancies. It arises from the renal tubular epithelium.
+
+## Histological subtypes
+
+| Subtype | Frequency | Origin | Notes |
+| --- | --- | --- | --- |
+| **Clear cell carcinoma** | 70-80% | Proximal tubule epithelium | Cells have clear cytoplasm due to glycogen and lipid content; well differentiated; **VHL gene mutation** is common (sporadic and in von Hippel-Lindau syndrome) |
+| **Papillary carcinoma** | 10-15% | Proximal tubule epithelium | The commonest type associated with **dialysis-related cystic disease** of the kidney; better prognosis than clear cell carcinoma |
+| **Chromophobe carcinoma** | 5% | Distal tubule | Pale, eosinophilic cells; better prognosis |
+| **Collecting duct carcinoma** | Less than 1% | Collecting duct | Aggressive, with poor prognosis |
+
+## Risk factors
+
+- **Smoking** (the strongest modifiable risk factor).
+- Obesity.
+- Hypertension.
+- Unopposed oestrogen.
+- Heavy metal exposure (cadmium, asbestos).
+- Chronic kidney disease, especially long-term dialysis.
+- **Von Hippel-Lindau disease** (autosomal dominant; multiple bilateral RCCs, CNS haemangioblastomas, phaeochromocytoma).
+- **Tuberous sclerosis** (renal angiomyolipomas with risk of RCC).
+
+## Clinical features
+
+The classical triad (now an uncommon presentation, since most are detected incidentally on imaging):
+- **Costovertebral or flank pain**.
+- **Palpable abdominal mass**.
+- **Haematuria**.
+
+Other features:
+- Constitutional symptoms (weight loss, fever, fatigue) — sometimes due to paraneoplastic syndromes.
+- **Left-sided varicocele** in men (left renal vein involvement causing testicular venous obstruction). Right-sided varicocele can also occur but is rarer.
+- Anaemia of chronic disease, or polycythaemia (paraneoplastic erythropoietin secretion).
+
+## Paraneoplastic syndromes in RCC
+
+- **Polycythaemia** (ectopic erythropoietin).
+- **Hypercalcaemia** (ectopic parathyroid hormone-related peptide, PTHrP).
+- **Hypertension** (ectopic renin secretion).
+- **Cushing's syndrome** (ectopic ACTH — rare).
+- AA amyloidosis (chronic inflammation).
+- Stauffer syndrome (cholestatic jaundice without liver metastases).
+
+## Investigations
+
+- Urine dipstick (haematuria) and urine cytology.
+- **Contrast-enhanced CT abdomen** is the imaging investigation of choice. It shows an enhancing renal mass, with assessment of local invasion (renal vein, inferior vena cava), lymphadenopathy, and distant metastases.
+- MRI for assessment of inferior vena cava tumour thrombus.
+- Routine bloods including renal function, calcium, full blood count, lactate dehydrogenase.
+- Staging chest CT to look for pulmonary metastases.
+- Renal mass biopsy is increasingly used in selected cases (small renal masses, atypical features).
+
+## Staging
+
+The TNM staging system applies. Stages 1 and 2 are organ-confined; stages 3 and 4 represent local extension or distant disease.
+
+## Management
+
+- **Surgical resection** is the mainstay for localised disease:
+  - Partial nephrectomy if the tumour is small and the contralateral kidney is healthy.
+  - Radical nephrectomy for larger tumours.
+- **Targeted therapy** for metastatic disease:
+  - Tyrosine kinase inhibitors (sunitinib, pazopanib, axitinib) targeting VEGF receptors.
+  - mTOR inhibitors (everolimus, temsirolimus).
+  - VEGF inhibitors (bevacizumab).
+- **Immunotherapy**:
+  - Nivolumab (anti-PD-1) plus ipilimumab (anti-CTLA-4) is now first-line for many patients with metastatic clear cell RCC.
+  - Combinations of immunotherapy and tyrosine kinase inhibitors are increasingly used.
+- RCC is **resistant to conventional chemotherapy and radiotherapy**.
+
+## Common metastatic sites
+
+- **Lung** (cannonball lesions on chest X-ray are characteristic).
+- Bone.
+- Liver.
+- Brain.
+- Adrenal glands.
+
+## Important associated syndromes
+
+### Von Hippel-Lindau disease
+
+- Autosomal dominant; mutation in the VHL tumour suppressor gene on chromosome 3.
+- Multiple bilateral clear cell RCCs (often presenting at a younger age than sporadic RCC).
+- CNS haemangioblastomas (cerebellum, spinal cord, retina).
+- Phaeochromocytoma.
+- Pancreatic cysts and neuroendocrine tumours.
+- Endolymphatic sac tumours.
+- Patients require lifelong screening with regular MRI of the brain and abdomen.`,
         },
       ],
     },
