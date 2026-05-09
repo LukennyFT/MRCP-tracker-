@@ -3735,9 +3735,795 @@ Constrictive pericarditis is chronic pericardial fibrosis, often calcified, that
       icon: "🫁",
       topics: [
         {
-          id: "_pending_lung_path",
-          name: "(Coming soon)",
-          content: `## Pending\n\nThis section is currently empty. Lung histopathology content will be added on request.`,
+          id: "obstructive_lung",
+          name: "Obstructive Lung Diseases",
+          content: `## Spirometry definition
+
+Obstructive lung disease is defined on spirometry by an FEV1/FVC ratio less than 0.70 (i.e. 70%), with reduced FEV1. This contrasts with restrictive lung disease, where FEV1/FVC is preserved or increased but lung volumes are reduced.
+
+## Comparison of the major obstructive diseases
+
+| Feature | Chronic bronchitis | Emphysema | Asthma | Bronchiectasis | Small airway disease (bronchiolitis) |
+| --- | --- | --- | --- | --- | --- |
+| **Site** | Bronchi | Acini (alveoli + respiratory bronchioles) | Bronchi | Bronchi | Bronchioles |
+| **Pathology** | Excess mucus production and dilatation of airways | Airspace enlargement with destruction of alveolar walls | Reversible airway constriction from mast cell degranulation | Permanent fibrotic dilatation of bronchi | Inflammatory scarring or obliteration |
+| **Aetiology** | Tobacco smoke, air pollution | Tobacco smoke, alpha-1 antitrypsin deficiency | Allergens, drugs, cold air, exercise (immunological) | Recurrent infection (cystic fibrosis is the major risk factor in young patients) | Tobacco smoke, air pollutants |
+| **Clinical features** | Productive cough on most days for 3 months over 2 consecutive years | Progressive dyspnoea, cough | Episodic cough, reversible wheeze, acute dyspnoea | Cough, purulent sputum, fever | Dyspnoea, cough |
+| **Histology** | Goblet cell hyperplasia and hypertrophy of mucous glands; airway dilatation | Loss of alveolar parenchyma distal to terminal bronchioles | Smooth muscle hyperplasia, excess mucus, eosinophilic inflammation, **Curschmann spirals** (whorls of shed epithelium), **Charcot-Leyden crystals** | Permanent fibrotic dilatation of bronchi | Inflammatory obliteration |
+| **Complications** | Recurrent infection, chronic hypoxia, pulmonary hypertension | Pneumothorax, respiratory failure, pulmonary hypertension | Chronic asthma, death | Recurrent infection, haemoptysis, pulmonary hypertension, secondary (AA) amyloidosis from chronic inflammation | – |
+
+## Chronic bronchitis (clinical definition)
+
+Chronic bronchitis is a clinical diagnosis: a productive cough on most days for at least 3 months over 2 consecutive years. The pathological substrate is goblet cell hyperplasia and mucous gland hypertrophy in the bronchi. The Reid index (the ratio of mucous gland thickness to total bronchial wall thickness) is increased.
+
+## Emphysema
+
+Emphysema describes airspace enlargement with destruction of alveolar walls, distal to the terminal bronchiole. The subtypes are:
+- **Centriacinar (centrilobular)**: affects the central acinus, classically in the upper lobes. Strongly associated with smoking.
+- **Panacinar**: uniform involvement of the entire acinus, classically in the lower lobes. Associated with **alpha-1 antitrypsin deficiency**.
+- **Paraseptal**: affects the distal acinus near the pleura; predisposes to spontaneous pneumothorax.
+- **Irregular**: scarring-related; usually clinically silent.
+
+## Alpha-1 antitrypsin deficiency
+
+- An autosomal recessive (codominant) deficiency of alpha-1 antitrypsin, a serine protease inhibitor produced by the liver that normally inactivates neutrophil elastase.
+- Without functional inhibitor, elastase digests pulmonary elastin, producing panacinar emphysema. This is often early-onset (under 45 years of age) and disproportionate in non-smokers or modest smokers.
+- The same mutation can cause hepatic disease (cirrhosis, hepatocellular carcinoma) due to accumulation of misfolded protein in hepatocytes.
+- Phenotypes: PiMM (normal); PiMZ (carrier, with intermediate levels); **PiZZ (severe disease)**.
+- Treatment: smoking cessation is paramount. Augmentation therapy with intravenous alpha-1 antitrypsin is available but the cost-effectiveness is debated. Liver or lung transplantation is considered for end-stage disease.
+
+## Asthma pathology
+
+The hallmark of asthma is reversible airway constriction. The key histological findings on bronchoalveolar lavage or biopsy are:
+- **Curschmann spirals**: whorls of shed epithelium in mucus.
+- **Eosinophil infiltrate** within the airway wall.
+- **Charcot-Leyden crystals**: crystalline products of eosinophil granule contents.
+- Smooth muscle hypertrophy and hyperplasia.
+- Goblet cell hyperplasia and basement membrane thickening.
+
+(Acute and chronic clinical management is covered in the Asthma entry of the Tracker. The features above are the pathological details typically tested in MRCP histopath-flavoured questions.)
+
+## Chronic obstructive pulmonary disease (COPD)
+
+In practice, most patients have features of both chronic bronchitis and emphysema, and are diagnosed clinically as having **chronic obstructive pulmonary disease (COPD)**.
+
+- Diagnosis requires post-bronchodilator FEV1/FVC less than 0.70.
+- GOLD severity by FEV1: Mild (≥ 80%), Moderate (50-79%), Severe (30-49%), Very severe (< 30%).
+- NICE 2018 treatment ladder:
+  1. Short-acting bronchodilator (short-acting beta-agonist or short-acting muscarinic antagonist) for symptom relief.
+  2. If non-asthmatic features: long-acting bronchodilator combination (LABA + LAMA).
+  3. If asthmatic features (raised eosinophils, atopy, diurnal variation): LABA + inhaled corticosteroid (ICS), then triple therapy (LABA + LAMA + ICS) if needed.
+- Long-term oxygen therapy (LTOT) for chronic hypoxia: PaO₂ less than 7.3 kPa, or 7.3-8 kPa with cor pulmonale, secondary polycythaemia, or peripheral oedema.
+- Pulmonary rehabilitation, smoking cessation, and influenza/pneumococcal vaccinations are essential.`,
+        },
+        {
+          id: "bronchiectasis_path",
+          name: "Bronchiectasis",
+          content: `## Definition
+
+Bronchiectasis is permanent, abnormal dilatation of bronchi due to chronic inflammation and destruction of the bronchial wall. Histologically there is fibrosis with loss of muscle and elastic tissue.
+
+## Pathophysiology — the vicious cycle
+
+Recurrent infection or persistent inflammation produces bronchial wall oedema and excess mucus production. Lymphocyte recruitment and protease release damage the bronchial wall. The damaged airway is more prone to further infection and inflammation, and the cycle perpetuates itself.
+
+## Causes
+
+### Inflammatory and acquired
+
+- **Post-infectious**: the most common cause, accounting for around 18% of adult cases. Pertussis (whooping cough) and severe pneumonia (especially in childhood) are classic precipitants.
+- Abnormal host defence:
+  - Primary: hypogammaglobulinaemia (such as common variable immunodeficiency).
+  - Secondary: chemotherapy, post-transplant immunosuppression, HIV infection.
+- Obstruction: extrinsic compression, intrinsic foreign body, or right middle lobe syndrome (often secondary to chronic obstruction in COPD).
+- Post-inflammatory: aspiration.
+- Secondary to bronchiolar disease (obliterative bronchiolitis) or interstitial fibrosis (cryptogenic fibrosing alveolitis, sarcoidosis).
+- Connective tissue disease (rheumatoid arthritis, systemic lupus erythematosus, Sjögren's syndrome).
+- Severe asthma — particularly **allergic bronchopulmonary aspergillosis (ABPA)**.
+
+### Congenital
+
+- **Cystic fibrosis** (see separate topic).
+- **Primary ciliary dyskinesia (PCD)**, including **Kartagener's syndrome** (PCD with situs inversus and infertility).
+- Hypogammaglobulinaemia.
+- **Young's syndrome**: rhinosinusitis, azoospermia, and bronchiectasis.
+
+## Clinical features
+
+- Chronic productive cough with copious purulent sputum.
+- Recurrent chest infections.
+- Haemoptysis (sometimes massive, from hypertrophied bronchial arteries).
+- Coarse inspiratory crackles on auscultation, often with wheeze.
+- Clubbing in severe disease.
+
+## Investigations
+
+- **High-resolution CT (HRCT)** is the gold standard. It shows dilated, thickened bronchi with the **signet ring sign** (a bronchus larger than its accompanying artery in cross-section), tram-track lines, and a "cluster of grapes" appearance.
+- Sputum culture (assessing for chronic colonisation with Pseudomonas aeruginosa, non-tuberculous mycobacteria, or Aspergillus).
+- Spirometry (often obstructive).
+- Investigations for cause: serum immunoglobulins, sweat test for cystic fibrosis, total IgE and Aspergillus-specific IgE/IgG, autoantibodies, ciliary function studies (saccharin test or nasal nitric oxide as screens; ciliary biopsy as gold standard).
+
+## Complications
+
+- Recurrent infection.
+- Massive haemoptysis from bronchial artery erosion.
+- Pulmonary hypertension and cor pulmonale.
+- Secondary (AA) amyloidosis from sustained chronic inflammation.
+
+## Management
+
+- Airway clearance physiotherapy and exercise.
+- Treatment of acute exacerbations with antibiotics guided by previous sputum cultures.
+- Long-term low-dose macrolide (azithromycin) for frequent exacerbations — has anti-inflammatory effects beyond antibacterial activity.
+- Treatment of the underlying cause where possible.
+- Selected patients: nebulised tobramycin or colistin for chronic Pseudomonas; lung transplantation for end-stage disease.`,
+        },
+        {
+          id: "cystic_fibrosis_path",
+          name: "Cystic Fibrosis",
+          content: `## Genetics
+
+Cystic fibrosis is an autosomal recessive disorder caused by mutations in the **cystic fibrosis transmembrane conductance regulator (CFTR)** gene on chromosome 7. The most common mutation is **delta-F508 (Phe508del)**, accounting for around 70% of UK alleles. Over 2000 different CFTR mutations have been described.
+
+CFTR is a chloride channel; defective function causes abnormally thick, sticky secretions on epithelial surfaces.
+
+## Multisystem effects
+
+- **Lungs**: thick airway secretions impair mucociliary clearance, causing chronic bacterial colonisation. Initial colonisers are Staphylococcus aureus and Haemophilus influenzae; later **Pseudomonas aeruginosa** (associated with worse prognosis), and **Burkholderia cepacia** (associated with very poor prognosis). Recurrent infection produces bronchiectasis.
+- **Pancreas**: pancreatic duct obstruction → exocrine insufficiency (steatorrhoea, malabsorption, fat-soluble vitamin deficiency); islet damage → CF-related diabetes (5-15% of patients by adolescence).
+- **Sinuses**: chronic sinusitis and nasal polyps.
+- **Gastrointestinal tract**: meconium ileus in 15% of neonates; **distal intestinal obstruction syndrome (DIOS)** in older patients.
+- **Hepatobiliary**: focal biliary cirrhosis (5%); gallstones.
+- **Reproductive**: **congenital bilateral absence of the vas deferens** in 95% of males, producing obstructive azoospermia. Females have reduced fertility from cervical mucus changes.
+- **Skin**: salty sweat (the basis of the diagnostic test).
+- **Bones**: osteopenia and osteoporosis (due to malabsorption and corticosteroid use).
+
+## Diagnosis
+
+- **Newborn heel-prick (Guthrie test)**: immunoreactive trypsinogen (IRT) screen, followed by DNA mutation analysis if positive.
+- **Sweat test** is the gold standard: a sweat chloride concentration greater than 60 mmol/L on 2 separate samples confirms the diagnosis.
+- Genetic testing for CFTR mutations.
+
+## Management
+
+Comprehensive multidisciplinary care has dramatically improved life expectancy (now 50+ years for those with access to modern therapy).
+
+### Disease-modifying therapy — CFTR modulators
+
+- **Ivacaftor** for gating mutations (such as G551D) — opens the CFTR channel.
+- **Lumacaftor/tezacaftor + ivacaftor** for delta-F508 homozygotes.
+- **Elexacaftor/tezacaftor/ivacaftor (Kaftrio / Trikafta)** is now standard of care for delta-F508 (homozygous or heterozygous), and is highly effective.
+
+### Symptomatic management
+
+- Chest physiotherapy.
+- Mucolytics: **dornase alfa** (recombinant DNase that breaks down DNA from neutrophils in sputum) and **hypertonic saline** (osmotic effect drawing water into airway).
+- Antibiotics: prophylactic flucloxacillin in infancy; eradication therapy for first Pseudomonas isolates; long-term nebulised tobramycin or colistin for chronic Pseudomonas.
+- **Pancreatic enzyme replacement (Creon)** with all meals.
+- Fat-soluble vitamin (A, D, E, K) supplementation.
+- High-calorie diet, often with overnight nasogastric or gastrostomy feeds.
+- Lung transplantation for end-stage disease (FEV1 less than 30% predicted).`,
+        },
+        {
+          id: "ild_ipf",
+          name: "Interstitial Lung Disease & Idiopathic Pulmonary Fibrosis",
+          content: `## Definition
+
+Interstitial lung disease (ILD) is an umbrella term covering more than 200 conditions characterised by inflammation and fibrosis of the pulmonary interstitium (the tissue between the alveolar epithelium and the capillary endothelium). Together they account for around 15% of respiratory disease burden.
+
+## Spirometry pattern
+
+ILD shows a **restrictive pattern**:
+- Reduced FEV1 and FVC.
+- **Preserved or increased FEV1/FVC ratio** (greater than 70%).
+- Reduced total lung capacity and lung volumes.
+- Reduced **carbon monoxide diffusing capacity (DLCO or TLCO)**.
+- Reduced compliance.
+
+## Typical presentation
+
+- Chronic, progressive shortness of breath, often over months to years.
+- Dry cough.
+- **Fine, end-inspiratory "Velcro" crackles** at the lung bases.
+- Cyanosis in advanced disease, with secondary pulmonary hypertension and **cor pulmonale**.
+
+In advanced disease, high-resolution CT shows **ground-glass change** (active inflammation) progressing to **honeycomb fibrosis** (end-stage).
+
+## Categorisation
+
+ILD is conventionally categorised into 4 groups:
+
+### 1. Fibrosing
+- Cryptogenic fibrosing alveolitis / idiopathic pulmonary fibrosis.
+- Pneumoconiosis.
+- Cryptogenic organising pneumonia.
+- Connective tissue disease-associated (rheumatoid arthritis, systemic sclerosis, polymyositis/dermatomyositis, SLE).
+- Drug-induced (amiodarone, methotrexate, nitrofurantoin, bleomycin).
+- Radiation pneumonitis.
+
+### 2. Granulomatous
+- Sarcoidosis.
+- Extrinsic allergic alveolitis (hypersensitivity pneumonitis).
+- ANCA-associated vasculitis: granulomatosis with polyangiitis (Wegener's), eosinophilic GPA (Churg-Strauss), microscopic polyangiitis.
+
+### 3. Eosinophilic
+- Acute eosinophilic pneumonia.
+- Chronic eosinophilic pneumonia.
+- Loeffler's syndrome (transient pulmonary eosinophilia, often parasitic).
+- Allergic bronchopulmonary aspergillosis.
+
+### 4. Smoking-related
+- Respiratory bronchiolitis-associated ILD.
+- Desquamative interstitial pneumonia.
+- Pulmonary Langerhans cell histiocytosis.
+
+## Idiopathic pulmonary fibrosis (IPF) / cryptogenic fibrosing alveolitis
+
+- Male predominance; typically presents at 40-70 years.
+- **Aetiology unknown**; risk factors include smoking and gastro-oesophageal reflux disease.
+- The histological pattern of fibrosis is **Usual Interstitial Pneumonia (UIP)** — required for diagnosis. The same UIP pattern is also seen in connective tissue disease-associated fibrosis, asbestosis, and chronic hypersensitivity pneumonitis, so clinical context is essential.
+
+### Histology of UIP
+- Progressive, patchy interstitial fibrosis with loss of normal lung architecture.
+- **Honeycomb change** (cyst-like spaces lined by hyperplastic type II pneumocytes), beginning peripherally (subpleural).
+- **Fibroblast foci** at the leading edge of fibrosis (active sites of injury).
+- Hyperplasia of type II pneumocytes producing the cyst formation.
+
+### Clinical and imaging features
+- Increasing exertional dyspnoea, dry cough, weight loss.
+- Hypoxaemia, with cyanosis, pulmonary hypertension, and cor pulmonale.
+- Clubbing in 50% of patients.
+- HRCT: peripheral and basal predominant reticulation with **honeycombing** and traction bronchiectasis.
+
+### Management
+- **Antifibrotics**: pirfenidone or nintedanib slow disease progression but do not reverse fibrosis.
+- Long-term oxygen therapy for hypoxia.
+- Pulmonary rehabilitation.
+- Lung transplantation for end-stage disease.
+- Steroids and immunosuppressants are **not effective** in IPF and may worsen outcomes (the PANTHER-IPF trial demonstrated harm with the combination of prednisolone, azathioprine, and N-acetylcysteine).
+
+### Prognosis
+Poor: median survival is 2 to 5 years from diagnosis.
+
+## Cryptogenic organising pneumonia (COP)
+
+- Idiopathic counterpart of organising pneumonia.
+- Histology: polypoid plugs of connective tissue (**Masson bodies**) within distal airways and alveoli.
+- Presents subacutely with fever, malaise, cough, and dyspnoea over weeks; often misdiagnosed as community-acquired pneumonia not responding to antibiotics.
+- **Highly steroid-responsive** — most patients improve dramatically on prednisolone.
+
+## Connective tissue disease-associated ILD
+
+- Most commonly seen with **systemic sclerosis** (especially the diffuse cutaneous form with anti-Scl-70 antibodies) and rheumatoid arthritis.
+- Also: polymyositis/dermatomyositis (anti-Jo-1 antibody-positive often), SLE, Sjögren's syndrome.
+- May predate or follow the joint or skin manifestations.
+- HRCT pattern is most often non-specific interstitial pneumonia (NSIP) rather than UIP.
+- Treatment: corticosteroids and immunosuppression (cyclophosphamide, mycophenolate, rituximab).`,
+        },
+        {
+          id: "pneumoconiosis_path",
+          name: "Pneumoconiosis & Occupational Lung Disease",
+          content: `## Definition
+
+Pneumoconiosis is occupational lung disease caused by inhalation of mineral dusts or inorganic particles. Particles 1 to 5 micrometres in diameter reach the respiratory bronchioles, where macrophages phagocytose them, producing inflammation, fibrosis, or both.
+
+## Coal worker's pneumoconiosis (CWP)
+
+- Caused by inhalation of coal dust over many years (classically in coal miners).
+- The disease has a predilection for the **upper lobes**.
+- **Simple CWP**: small (1-5 mm) round nodules predominantly in the upper zones; usually asymptomatic.
+- **Progressive massive fibrosis (PMF)**: confluent fibrotic masses (greater than 1 cm) with surrounding emphysema; severe restriction and dyspnoea.
+- **Caplan's syndrome**: coal worker's pneumoconiosis combined with rheumatoid arthritis, producing multiple large pulmonary nodules.
+
+## Silicosis
+
+- Caused by inhalation of silica dust (mining, sandblasting, stone-cutting, pottery, quartz work).
+- Upper-zone predominant nodular fibrosis.
+- Histology: **silicotic nodules** with whorled hyalinised collagen and surrounding dust-laden macrophages; birefringent silica crystals visible under polarised light.
+- **Egg-shell calcification** of hilar lymph nodes is characteristic on chest X-ray.
+- Increased susceptibility to **tuberculosis** ("silicotuberculosis").
+- Some increased risk of lung cancer.
+
+## Asbestosis
+
+Asbestos exposure (shipyards, insulation, building demolition, vehicle brake linings) can cause four pulmonary lesions:
+
+### 1. Benign pleural plaques
+- The most common asbestos-related lesion.
+- Pearly white, calcified plaques on the parietal pleura, especially over the diaphragm and lower thorax.
+- Asymptomatic with no risk of malignant transformation. They serve as a marker of asbestos exposure rather than asbestosis itself.
+
+### 2. Asbestosis (interstitial fibrosis)
+- Diffuse interstitial fibrosis predominantly affecting the **lower lobes** (this contrasts with most pneumoconioses, which affect the upper lobes).
+- Progressive dyspnoea, dry cough, basal crackles, clubbing.
+- Histology: fibrosis with **asbestos bodies** (asbestos fibres coated with iron-protein complex, golden-brown, beaded appearance) — also called "ferruginous bodies".
+- Latency 10 to 20 years from exposure.
+- No specific treatment beyond supportive care.
+
+### 3. Bronchogenic adenocarcinoma
+- The risk is multiplied by smoking. Smoking alone gives a 5-fold increased risk; the combination of smoking and asbestos gives a 50-fold increased risk.
+- Behaves like other primary lung adenocarcinomas.
+
+### 4. Mesothelioma
+- See lung tumour topic for details.
+
+## Berylliosis
+
+- Granulomatous lung disease caused by chronic exposure to beryllium (aerospace, electronics, ceramic industries).
+- Histologically indistinguishable from sarcoidosis (non-caseating granulomas).
+- Beryllium **lymphocyte transformation testing** distinguishes berylliosis from sarcoidosis.
+- Treatment: corticosteroids; remove from exposure.
+
+## Hard metal lung disease
+
+Hard metal pneumoconiosis (caused by cobalt and tungsten carbide exposure) produces giant-cell interstitial pneumonia ("hard metal lung").
+
+## General principles
+
+- A detailed occupational history is essential.
+- Imaging (chest X-ray, HRCT) shows characteristic patterns by exposure type.
+- Removal from exposure is the most important intervention.
+- In the United Kingdom, occupational lung disease is reportable under the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations (RIDDOR).
+- Compensation may be available under the Industrial Injuries Disablement Benefit scheme.`,
+        },
+        {
+          id: "hypersensitivity_pneumonitis_path",
+          name: "Hypersensitivity Pneumonitis & Granulomatous Lung Disease",
+          content: `## Granuloma definition
+
+A granuloma is a focal collection of histiocytes (macrophages) — often with multinucleate giant cells — formed when the immune system attempts to wall off a stimulus that cannot be eliminated.
+
+## Causes of pulmonary granulomatous disease
+
+### Infectious
+- **Tuberculosis** (caseating granulomas).
+- Fungal: histoplasmosis, cryptococcosis, coccidioidomycosis, aspergillosis, mucormycosis.
+- Parasites; Pneumocystis (rarely).
+
+### Non-infectious
+- **Sarcoidosis** (non-caseating granulomas — see Sarcoidosis topic).
+- Foreign body granulomas (aspiration; intravenous drug use with talc).
+- Drug-induced.
+- **Hypersensitivity pneumonitis (extrinsic allergic alveolitis)**.
+- ANCA-associated vasculitis: granulomatosis with polyangiitis, eosinophilic granulomatosis with polyangiitis.
+
+## Hypersensitivity pneumonitis (extrinsic allergic alveolitis, EAA)
+
+Hypersensitivity pneumonitis is a group of immune-mediated lung disorders caused by intense or prolonged exposure to inhaled **organic** antigens, producing widespread **alveolar inflammation** (in contrast to asthma, which produces airway inflammation).
+
+It is typically an occupational lung disease and may be acute or chronic. The mechanism is a combined Type III (immune complex) and Type IV (delayed cell-mediated) hypersensitivity reaction to the inhaled antigen.
+
+### Histology
+- Polypoid plugs of loose connective tissue within alveoli and bronchioles.
+- Granuloma formation (poorly formed, non-caseating).
+- Lymphocytic infiltrate; bronchoalveolar lavage shows lymphocytosis with a low CD4:CD8 ratio (less than 1) — this contrasts with sarcoidosis, where the CD4:CD8 ratio is greater than 3.5.
+
+### Acute presentation
+Inhalation of antigenic dust by a sensitised individual produces flu-like systemic symptoms (fever, chills, chest pain, dyspnoea, dry cough) **within 4 to 8 hours of exposure**. Symptoms usually settle by the following day if exposure is removed. Recurrent acute episodes may progress to chronic disease.
+
+### Subacute presentation
+Insidious dyspnoea, cough, fatigue, and weight loss over weeks to months with recurrent low-grade exposures.
+
+### Chronic presentation
+Progressive, persistent productive cough and dyspnoea, finger clubbing, and severe weight loss. The radiological pattern eventually resembles idiopathic pulmonary fibrosis but with **upper-lobe predominance** (in contrast to the basal predominance of IPF).
+
+### Classical examples
+- **Farmer's lung**: mouldy hay, grain, or silage (Saccharopolyspora rectivirgula).
+- **Bird (pigeon) fancier's lung**: proteins in avian excreta and feathers — the most common type in the UK.
+- **Humidifier's lung**: heated water reservoirs (Thermactinomyces species).
+- **Malt-worker's lung**: germinating barley (Aspergillus clavatus or Aspergillus fumigatus).
+- **Cheese-washer's lung**: mouldy cheese (Aspergillus clavatus or Penicillium casei).
+- **Mushroom-worker's lung**: mushroom compost.
+- **Hot-tub lung**: Mycobacterium avium complex (atypical mycobacteria) in hot-tub aerosols.
+
+### Investigations
+- HRCT: centrilobular ground-glass nodules, mosaic attenuation with air trapping on expiratory views; in chronic disease, upper-lobe predominant fibrosis with honeycombing.
+- Spirometry: restrictive pattern with reduced DLCO; mild obstruction may also be present in chronic disease.
+- Serum precipitating IgG antibodies (precipitins) to suspected antigen — supports diagnosis but positive in many asymptomatic exposed individuals.
+- Lung biopsy in unclear cases.
+
+### Management
+**Recognise early** — progression to fibrosis can be prevented by early removal of the antigen. Steroids may help in subacute disease (oral prednisolone 0.5 mg/kg/day for 2 weeks tapered over 4-6 weeks). Established fibrosis is irreversible. Mycophenolate or azathioprine as steroid-sparing agents in selected cases. Antifibrotics (pirfenidone, nintedanib) have emerging evidence in fibrotic hypersensitivity pneumonitis.
+
+## ANCA-associated granulomatous lung disease
+
+(Detailed in the Vasculitides topic.) Brief summary:
+
+- **Granulomatosis with polyangiitis (Wegener's)**: cANCA / anti-PR3; sinusitis with saddle-nose deformity, pulmonary cavitation or haemorrhage, and rapidly progressive glomerulonephritis.
+- **Eosinophilic GPA (Churg-Strauss)**: pANCA / anti-MPO; the triad of asthma + eosinophilia + systemic vasculitis.
+- **Microscopic polyangiitis**: pANCA / anti-MPO; pulmonary-renal syndrome (no granulomas histologically — distinguishes from GPA).`,
+        },
+        {
+          id: "pneumonia_histopath",
+          name: "Pneumonia (histopathological patterns)",
+          content: `## Pathological classification of pneumonia
+
+Pneumonia is categorised pathologically by its anatomical pattern, which corresponds (loosely) to organism virulence.
+
+### 1. Bronchopneumonia
+- **Patchy peri-bronchial distribution** of consolidation, often bilateral and basal.
+- Caused by **low-virulence organisms** in patients with reduced defence mechanisms.
+- Typically affects elderly, frail, or post-operative patients.
+- Common organisms: Streptococcus pneumoniae, Haemophilus influenzae, Staphylococcus aureus, Klebsiella, anaerobes.
+
+### 2. Lobar pneumonia
+- **Fibrinosuppurative consolidation** of an entire lobe, with sharp anatomical boundaries.
+- Typically high-virulence organisms in previously healthy patients.
+- The most common pathogen is **Streptococcus pneumoniae** (classically with rust-coloured sputum from haemorrhage).
+- Other causes: Klebsiella pneumoniae (especially in alcoholics, often with upper-lobe cavitation), Legionella pneumophila (from contaminated water systems).
+
+#### Stages of lobar pneumonia
+1. **Congestion** (1-2 days): vascular engorgement; intra-alveolar fluid with few neutrophils.
+2. **Red hepatisation** (2-4 days): the lobe looks liver-like — red, firm, airless. Massive intra-alveolar exudate of red cells, neutrophils, and fibrin.
+3. **Grey hepatisation** (4-8 days): red cells lyse, leaving a fibrinopurulent exudate; the lobe appears grey and dry.
+4. **Resolution** (8+ days): exudate digested by enzymes and either coughed up or cleared by macrophages; lung architecture is usually restored without scarring.
+
+### 3. Atypical pneumonia
+- **Interstitial pneumonitis**: inflammation in the alveolar septa, with little or no intra-alveolar exudate.
+- Most commonly caused by:
+  - **Mycoplasma pneumoniae** (cold agglutinin haemolysis, erythema multiforme).
+  - **Chlamydophila pneumoniae**.
+  - **Legionella pneumophila** (water-source exposure; hyponatraemia, hepatitis).
+- The chest X-ray often looks worse than the patient — in contrast to lobar pneumonia, where the patient often looks worse than the chest X-ray.
+- Treatment requires macrolides or tetracyclines because these organisms lack a cell wall and are therefore intrinsically resistant to beta-lactams.
+
+### 4. Aspiration pneumonia
+- Right lower lobe predominance (gravitational).
+- Mixed flora including anaerobes; risk of lung abscess.
+- Associated with reduced consciousness, dysphagia, alcoholism, achalasia.
+
+### 5. Pneumonia in immunocompromised hosts
+
+| Host | Organisms |
+| --- | --- |
+| HIV with CD4 less than 200 | **Pneumocystis jirovecii (PCP)**, Mycobacterium tuberculosis, Mycobacterium avium complex |
+| Splenectomy | Encapsulated organisms — **NHS** mnemonic: Neisseria meningitidis, Haemophilus influenzae, Streptococcus pneumoniae |
+| Cystic fibrosis | Pseudomonas aeruginosa, Burkholderia cepacia, Staphylococcus aureus |
+| Neutropenia | Aspergillus (HRCT shows the classical **halo sign**) |
+
+## CURB-65 score (community-acquired pneumonia severity)
+
+One point each for:
+- **C**onfusion (abbreviated mental test score 8 or less).
+- **U**rea greater than 7 mmol/L.
+- **R**espiratory rate at least 30 per minute.
+- **B**lood pressure: systolic less than 90 mmHg or diastolic 60 mmHg or less.
+- Age 65 years or older.
+
+| Score | Severity | Setting | Antibiotics (UK NICE) |
+| --- | --- | --- | --- |
+| 0-1 | Mild | Outpatient | Oral amoxicillin (or macrolide if penicillin-allergic) |
+| 2 | Moderate | Consider admission | Oral amoxicillin + clarithromycin |
+| 3-5 | Severe | Admit, consider intensive care | Intravenous co-amoxiclav + clarithromycin (per local guidance) |
+
+## Hospital-acquired pneumonia
+
+Hospital-acquired pneumonia develops more than 48 hours after hospital admission. Common organisms include Enterobacteriaceae, Pseudomonas, Staphylococcus aureus (including methicillin-resistant Staphylococcus aureus), and Haemophilus.
+
+Treatment is piperacillin-tazobactam with or without vancomycin (per local guidelines).`,
+        },
+        {
+          id: "lung_tumours",
+          name: "Lung Tumours",
+          content: `## Classification
+
+Lung cancers are broadly divided into:
+- **Non-small cell lung cancer (NSCLC)** — about 80%.
+  - Squamous cell carcinoma.
+  - Adenocarcinoma.
+  - Large cell carcinoma.
+- **Small cell lung cancer (SCLC)** — about 15-20%.
+
+The distinction is important because SCLC is generally treated with chemotherapy alone (rarely with surgery), whereas NSCLC may be amenable to surgical resection if localised.
+
+## Squamous cell carcinoma (historically 30-50%; now declining as smoking falls)
+
+- Strongest correlation with smoking; M > F.
+- The highest rate of **p53** and **c-myc** mutations among lung cancers.
+- **Central** location (proximal bronchi).
+- Local spread is common; metastasis is relatively late.
+- Tends to be less responsive to chemotherapy than other types.
+- Histology: **keratinisation** (forming "keratin pearls") and **intercellular bridges (desmosomes)**.
+- Can cavitate (forming a thick-walled cavity on imaging).
+- Causes paraneoplastic **hypercalcaemia** by secreting parathyroid hormone-related peptide (PTHrP).
+- Progression: normal epithelium → hyperplasia → squamous metaplasia → dysplasia → carcinoma in situ → invasive carcinoma.
+
+## Adenocarcinoma (now the most common type, 20-30% historically and rising)
+
+- Most common type in **women and non-smokers**.
+- Malignant epithelial tumour with **glandular differentiation or mucin production**.
+- **Peripheral** location (in distal bronchioles or alveoli).
+- Tends to metastasise early.
+- Histology: gland formation with mucin production; cytology shows mucin-vacuolated cells.
+- Common driver mutations:
+  - **EGFR** (epidermal growth factor receptor) — targetable with tyrosine kinase inhibitors (gefitinib, erlotinib, osimertinib).
+  - **EML4-ALK** fusion — targetable with ALK inhibitors (crizotinib, alectinib).
+  - **KRAS** — historically untargetable; sotorasib is now available for KRAS G12C.
+  - **PD-L1** expression directs the choice of immunotherapy.
+- Progression: atypical adenomatous hyperplasia → adenocarcinoma in situ (formerly bronchoalveolar carcinoma, BAC) → mixed pattern adenocarcinoma.
+
+## Small cell carcinoma (SCLC) — about 20-25%
+
+- Strong relationship with smoking.
+- **Central** location (proximal bronchi).
+- Arises from neuroendocrine cells (Kulchitsky cells).
+- Highly malignant, with early metastases (commonly to bone, adrenal glands, liver, and brain).
+- Histology: small, poorly differentiated **"oat cells"** with scant cytoplasm and stippled "salt-and-pepper" chromatin.
+- p53 and **RB1** mutations are common.
+- **Paraneoplastic syndromes**:
+  - **SIADH** from ectopic antidiuretic hormone (ADH) — hyponatraemia.
+  - **Cushing's syndrome** from ectopic ACTH.
+  - **Lambert-Eaton myasthenic syndrome** (anti-VGCC antibodies) — proximal weakness that improves with repeated activity.
+  - Limbic encephalitis (anti-Hu antibodies).
+- Treatment: chemotherapy (etoposide + cisplatin or carboplatin) with or without radiotherapy. Surgery is rarely indicated.
+- Despite being chemotherapy-sensitive, the prognosis is poor due to early metastasis at diagnosis.
+
+## Large cell carcinoma (10-15%)
+
+- Poorly differentiated NSCLC — large cells with large nuclei and prominent nucleoli.
+- No evidence of glandular or squamous differentiation by definition.
+- Behaves aggressively with poor prognosis.
+
+## Mesothelioma
+
+- Arises from parietal or visceral pleura (rarely peritoneal).
+- Strong association with **asbestos exposure**, with a latency of 25 to 45 years.
+- Spreads diffusely within the pleural space, characteristically encasing the lung.
+- Presentation: chest pain, dyspnoea, weight loss, and extensive pleural effusion.
+- Histology: epithelioid (most common), sarcomatoid, or mixed type; **calretinin positive** on immunohistochemistry.
+- Prognosis is poor (median survival 12 months); palliative care, chemotherapy (cisplatin + pemetrexed), and occasionally immunotherapy (nivolumab + ipilimumab).
+- Indwelling pleural catheter for symptomatic effusion.
+
+## Carcinoid tumours
+
+- Low-grade neuroendocrine tumours (well-differentiated).
+- Usually present in younger patients than other lung cancers.
+- Slower growing, with better prognosis after surgical resection.
+- Can secrete serotonin → **carcinoid syndrome** (flushing, diarrhoea, bronchoconstriction). However, carcinoid syndrome usually only occurs when there are liver metastases bypassing first-pass metabolism, or with bronchial primary tumours secreting directly into the systemic circulation.
+
+## Paraneoplastic syndromes — summary
+
+- **Antidiuretic hormone (ADH)** → SIADH (small cell).
+- **Adrenocorticotrophic hormone (ACTH)** → Cushing's syndrome (small cell).
+- **Parathyroid hormone-related peptide (PTHrP)** → hypercalcaemia and bone pain (squamous cell).
+- **Calcitonin** → hypocalcaemia (small cell).
+- **Serotonin** → carcinoid syndrome (carcinoid).
+- **Bradykinin** → cough.
+- **Lambert-Eaton myasthenic syndrome** (anti-VGCC) — proximal weakness that improves with repeated activity (small cell).
+- Limbic encephalitis, cerebellar degeneration (anti-Hu, anti-Yo).
+- Acanthosis nigricans, dermatomyositis (cutaneous markers of underlying malignancy).
+
+## Molecular markers and targeted therapy
+
+| Marker | Tumour type | Significance |
+| --- | --- | --- |
+| **ERCC1** high | NSCLC | Poorer response to cisplatin |
+| **EGFR** mutation | Adenocarcinoma | Target for tyrosine kinase inhibitors (gefitinib, erlotinib, osimertinib) |
+| **KRAS** mutation | Adeno or squamous | Poor prognosis; non-response to most TKIs (sotorasib for G12C) |
+| **EML4-ALK** fusion | Adenocarcinoma | Target for ALK inhibitors (crizotinib, alectinib) |
+| **PD-L1** expression | NSCLC | Directs use of immune checkpoint inhibitors (pembrolizumab) |
+| **RET, ROS1, NTRK, BRAF V600E** | Adenocarcinoma | Each has dedicated targeted therapies |
+
+## Staging
+
+The most important prognostic factor is **stage** (TNM classification):
+- **T** (tumour size and local invasion of pleura, mediastinum, etc.): T1 to T4.
+- **N** (lymph node involvement): N0 (no nodes), N1 (ipsilateral hilar), N2 (mediastinal), N3 (contralateral or supraclavicular).
+- **M** (distant metastasis): M0 or M1.
+
+Common metastatic sites: bone (osteolytic), liver, brain, adrenal glands.
+
+## Investigation pathway
+
+- Chest X-ray (often the initial finding).
+- **Contrast-enhanced CT chest, abdomen, and pelvis** for staging.
+- **PET-CT** for further staging and detection of distant disease.
+- **Bronchoscopy** with biopsy (for central tumours).
+- **CT-guided percutaneous biopsy** (for peripheral tumours).
+- **EBUS** (endobronchial ultrasound) for sampling mediastinal lymph nodes.
+- Pulmonary function tests for fitness for surgery or radiotherapy.
+
+## Treatment summary
+
+### NSCLC
+- Stage I-II: surgical resection (lobectomy ideally) plus adjuvant chemotherapy.
+- Stage IIIA: surgery plus chemoradiotherapy.
+- Stage IIIB: chemoradiotherapy with durvalumab consolidation.
+- Stage IV (metastatic): targeted therapy if mutation-driven; immunotherapy (pembrolizumab) with or without chemotherapy if PD-L1 positive; chemotherapy alone otherwise.
+
+### SCLC
+- Limited stage: chemoradiotherapy plus prophylactic cranial irradiation.
+- Extensive stage: chemotherapy with or without immunotherapy (atezolizumab or durvalumab).`,
+        },
+        {
+          id: "pulmonary_vasculature",
+          name: "Pulmonary Vasculature: PE & Pulmonary Hypertension",
+          content: `## Pulmonary embolism
+
+### Origin and risk factors
+
+Approximately **95% of pulmonary emboli originate from deep vein thrombosis (DVT)** of the lower limbs or pelvis.
+
+Risk factors are best understood through **Virchow's triad**:
+1. **Stasis** — immobility, long-haul travel, plaster casts, post-operative state, paralysis.
+2. **Endothelial / vessel wall injury** — surgery, trauma, central venous catheters.
+3. **Hypercoagulability**:
+   - **Inherited**: factor V Leiden (the commonest), prothrombin G20210A mutation, antithrombin III deficiency, protein C or S deficiency.
+   - **Acquired**: malignancy (especially pancreatic, lung, ovarian), pregnancy and the puerperium, oral contraceptive pill, hormone replacement therapy, antiphospholipid syndrome, polycythaemia, smoking.
+
+### Clinical patterns and consequences
+
+- **Massive (saddle) pulmonary embolus**: a large embolus impacting at the bifurcation of the main pulmonary artery, or both main pulmonary arteries. Acute right heart strain produces cor pulmonale, cardiogenic shock, and death if more than 60% of the pulmonary vascular bed is occluded.
+- **Submassive PE**: right ventricular dysfunction without shock. These patients are at risk of decompensation.
+- **Small peripheral PE**: may be silent or cause peripheral wedge-shaped infarctions, pleuritic chest pain, and haemoptysis.
+- **Recurrent small emboli** can produce chronic thromboembolic pulmonary hypertension (CTEPH).
+
+### Non-thrombotic emboli
+
+- **Fat embolism**: classically after long-bone fracture; the triad is respiratory failure, neurological signs, and a petechial rash.
+- **Amniotic fluid embolism**: a catastrophic event during or just after labour with high mortality.
+- **Tumour embolism**: rare; may present like recurrent PE.
+- **Air embolism**: from central line manipulation or diving accidents.
+- **Foreign body embolism**: from intravenous drug use (talc).
+
+### Investigations
+
+- **Wells score** for clinical probability.
+- **D-dimer** if low or intermediate Wells: a negative result reliably excludes PE.
+- **CT pulmonary angiogram (CTPA)** is the diagnostic gold standard.
+- **V/Q scan** for those who cannot have iodinated contrast (renal failure, contrast allergy, pregnancy).
+- ECG: sinus tachycardia is the most common finding; the classical S1Q3T3 pattern (deep S in lead I, Q with T-wave inversion in lead III) is uncommon but specific. Right bundle branch block and right axis deviation occur in massive PE.
+- Arterial blood gas: typically type 1 respiratory failure with respiratory alkalosis from hyperventilation.
+- Echocardiogram in massive PE: right ventricular dilatation, paradoxical septal motion, and McConnell's sign (hypokinesis of the right ventricular free wall with sparing of the apex).
+
+### Management
+
+- **Massive PE** with haemodynamic instability: **systemic thrombolysis** (alteplase) with or without catheter-directed thrombolysis or surgical embolectomy.
+- **Submassive or non-massive PE**: anticoagulation with a **direct oral anticoagulant (DOAC, e.g. rivaroxaban or apixaban)** is now first-line for most patients. Low molecular weight heparin (LMWH) bridging is no longer required for DOACs.
+- Cancer-associated thrombosis: LMWH or specific DOACs (edoxaban, apixaban) are preferred.
+- Inferior vena cava filter if anticoagulation is contraindicated.
+- Duration of anticoagulation:
+  - Provoked PE with reversible factor: 3 months.
+  - Unprovoked PE: 3 months minimum, often extended; consider thrombophilia screening.
+  - Recurrent or with persistent risk factor: indefinite.
+
+## Pulmonary hypertension
+
+### Definition
+
+Pulmonary hypertension is defined as a **mean pulmonary arterial pressure greater than 25 mmHg at rest**, measured at right heart catheterisation.
+
+### Classification (WHO/Nice 2018)
+
+| Class | Group | Examples |
+| --- | --- | --- |
+| **1** | Pulmonary arterial hypertension (PAH) | Idiopathic; hereditary (BMPR2 mutation); drug- or toxin-induced (anorexigens, methamphetamine); associated with congenital heart disease, connective tissue disease, HIV infection, schistosomiasis, or portal hypertension. Idiopathic PAH is most common in women aged 20-40. |
+| **2** | PH due to **left heart disease** | Systolic or diastolic dysfunction; valvular disease |
+| **3** | PH due to **lung disease** | COPD, ILD, sleep apnoea, high altitude |
+| **4** | **Chronic thromboembolic PH (CTEPH)** | Many small clots over time producing fibrotic occlusion |
+| **5** | PH with unclear or multifactorial mechanisms | Sarcoidosis, sickle cell disease, chronic kidney disease |
+
+### Pathophysiology
+
+Sustained pulmonary vasoconstriction leads to vascular remodelling: intimal fibrosis, medial hypertrophy, and plexiform lesions. Right ventricular pressure rises, eventually leading to right ventricular failure.
+
+The location of pathology can be:
+- **Pre-capillary** (chronic hypoxia, embolism, PAH).
+- **Capillary** (pulmonary fibrosis).
+- **Post-capillary** (left heart disease, pulmonary veno-occlusive disease).
+
+### Investigations
+
+- **Echocardiogram**: estimated pulmonary artery systolic pressure from the tricuspid regurgitation jet. Useful as a screening test.
+- **Right heart catheterisation**: definitive.
+- Investigation for cause: HRCT (lung disease), V/Q scan (CTEPH), echocardiogram (left heart disease), connective tissue serology, HIV test, liver function tests (portal hypertension).
+
+### Management (focused on Group 1 PAH)
+
+- **Calcium channel blockers** (diltiazem, nifedipine) only if vasoreactive on right heart catheterisation (a small minority).
+- **Endothelin receptor antagonists**: bosentan, ambrisentan, macitentan.
+- **Phosphodiesterase 5 (PDE5) inhibitors**: sildenafil, tadalafil.
+- **Soluble guanylate cyclase stimulators**: riociguat (also for CTEPH).
+- **Prostacyclin analogues**: epoprostenol (intravenous infusion), iloprost (inhaled), treprostinil.
+- Lung or heart-lung transplantation for refractory disease.
+
+For Group 2 (left heart) and Group 3 (lung disease) pulmonary hypertension, treat the underlying disease — PAH-specific therapies do not help and can be harmful.
+
+For Group 4 CTEPH, **pulmonary endarterectomy** is potentially curative; balloon pulmonary angioplasty for inoperable cases; riociguat for medical therapy.
+
+### Complications
+
+Right heart failure: peripheral oedema, ascites, raised jugular venous pressure, hepatic congestion ("nutmeg liver").`,
+        },
+        {
+          id: "pulmonary_oedema_ards",
+          name: "Pulmonary Oedema & Diffuse Alveolar Damage / ARDS",
+          content: `## Pulmonary oedema
+
+Pulmonary oedema is intra-alveolar fluid accumulation that impairs gas exchange.
+
+### Aetiology
+
+- **Cardiogenic** (the commonest): left heart failure raises pulmonary capillary hydrostatic pressure, forcing fluid into the alveoli. Causes include myocardial ischaemia, hypertension, valvular disease, and arrhythmia.
+- **Non-cardiogenic**: increased capillary permeability — see ARDS below.
+- **Other**: high altitude, neurogenic (after head injury or subarachnoid haemorrhage), iatrogenic fluid overload, re-expansion pulmonary oedema (after rapid lung re-expansion following thoracocentesis or chest drain insertion).
+
+### Histology
+
+- **Acute**: intra-alveolar pink-staining fluid (a proteinaceous transudate).
+- **Chronic**: iron-laden macrophages — "**heart failure cells**" — which are haemosiderin-containing macrophages derived from extravasated red blood cells.
+
+### Chest X-ray findings
+
+The classical features (mnemonic ABCDE):
+- **A**lveolar opacification ("**bat's wing**" pattern, perihilar).
+- **B** — Kerley **B** lines (short horizontal lines at the lung periphery from interlobular septal oedema).
+- **C**ardiomegaly (suggests a cardiac cause).
+- **D**iversion of upper lobe vessels (cephalisation).
+- **E**ffusions (often bilateral).
+
+Fluid in the horizontal fissure is also commonly seen.
+
+### Acute management
+
+- Sit the patient upright.
+- High-flow oxygen, target SpO₂ 94-98%.
+- **Intravenous loop diuretic** (furosemide 40-80 mg).
+- **Nitrates** (GTN infusion) if systolic blood pressure is greater than 110 mmHg.
+- **CPAP or non-invasive ventilation** if severe.
+- Treat the precipitant (ischaemia, arrhythmia, infection, non-compliance).
+
+## Diffuse alveolar damage (DAD) and acute respiratory distress syndrome (ARDS)
+
+### Definition
+
+Diffuse alveolar damage is the histological substrate of acute respiratory distress syndrome (ARDS) — acute injury to the alveoli leading to an exudative inflammatory reaction, increased capillary permeability, and rapid onset of severe respiratory failure that often requires intensive care unit admission and mechanical ventilation.
+
+### Berlin criteria for ARDS (2012)
+
+ARDS is defined by:
+1. Onset within 1 week of a known clinical insult.
+2. Bilateral opacities on chest X-ray, not fully explained by cardiac failure or fluid overload.
+3. PaO₂/FiO₂ ratio (with positive end-expiratory pressure of at least 5 cm H₂O):
+   - Mild: 200-300 mmHg.
+   - Moderate: 100-200 mmHg.
+   - Severe: less than 100 mmHg.
+4. Respiratory failure not fully explained by cardiac failure (use echocardiogram if uncertain).
+
+### Aetiology
+
+- **Pulmonary**: pneumonia (most common), aspiration, inhalational injury, near-drowning, fat embolism, lung contusion.
+- **Extrapulmonary**: sepsis, severe trauma, massive blood transfusion (transfusion-related acute lung injury, TRALI), pancreatitis, burns, drug overdose.
+- Neonatal: **hyaline membrane disease** from surfactant deficiency in premature infants.
+
+### Pathophysiology
+
+1. **Exudative phase** (days 1-7): damage to the alveolar-capillary membrane allows leakage of protein-rich fluid into alveoli, producing **hyaline membranes** (the histological hallmark — eosinophilic membranes lining alveoli, composed of fibrin and necrotic epithelial debris). Surfactant function is lost. Severe hypoxaemia ensues.
+2. **Proliferative phase** (1-3 weeks): proliferation of type II pneumocytes attempts repair; fibroblasts begin laying down collagen.
+3. **Fibrotic phase** (more than 3 weeks): if injury is sustained, irreversible fibrosis develops with cyst formation and traction bronchiectasis.
+
+### Macroscopic and chest X-ray findings
+
+- Lungs: heavy, firm, plum-coloured, **airless**.
+- Chest X-ray: bilateral diffuse opacification ("**white-out**" of all lung fields).
+
+### Management of ARDS
+
+The cornerstone is supportive:
+- Treat the underlying cause (e.g. antibiotics for sepsis).
+- **Lung-protective mechanical ventilation**: low tidal volumes (6 mL per kilogram of ideal body weight), low plateau pressures (less than 30 cm H₂O), adequate positive end-expiratory pressure, and permissive hypercapnia.
+- Conservative fluid management (avoid fluid overload).
+- **Prone positioning** for severe cases (PaO₂/FiO₂ less than 150 mmHg) — improves V/Q matching and improves mortality.
+- Neuromuscular blockade in early severe ARDS.
+- **Extracorporeal membrane oxygenation (ECMO)** in selected refractory cases.
+- Steroids (dexamethasone in COVID-19; debated role in non-COVID ARDS).
+
+### Hyaline membrane disease (neonatal)
+
+- Affects premature infants, particularly those born before 32 weeks of gestation.
+- Cause: insufficient surfactant production by immature type II pneumocytes.
+- Histology: hyaline membranes lining alveoli (the same morphological substrate as adult ARDS).
+- Treatment: antenatal corticosteroids when preterm delivery is anticipated; postnatal exogenous surfactant; CPAP; mechanical ventilation as needed.`,
         },
       ],
     },
