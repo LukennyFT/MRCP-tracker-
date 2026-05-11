@@ -6006,9 +6006,620 @@ Other presentations:
       icon: "🔬",
       topics: [
         {
-          id: "_pending_pancreatic_path",
-          name: "(Coming soon)",
-          content: `## Pending\n\nThis section is currently empty. Pancreatic histopathology content will be added on request.`,
+          id: "pancreas_anatomy_function",
+          name: "Pancreas: Anatomy, Physiology & Congenital Anomalies",
+          content: `## Anatomy
+
+The pancreas lies retroperitoneally across the upper abdomen at the level of the first and second lumbar vertebrae. It is divided into:
+- **Head** (with the uncinate process), encircled by the C-shaped duodenum.
+- **Neck**, overlying the superior mesenteric vessels.
+- **Body**, lying posterior to the stomach.
+- **Tail**, extending to the splenic hilum within the splenorenal ligament.
+
+The **main pancreatic duct (of Wirsung)** drains the body and tail, joining the common bile duct at the **ampulla of Vater** in the second part of the duodenum, where flow is controlled by the **sphincter of Oddi**. The smaller **accessory duct (of Santorini)** typically drains the upper head through the minor papilla.
+
+Blood supply is from the splenic artery (body and tail) and the gastroduodenal and superior mesenteric arteries (head, via the pancreaticoduodenal arcades). Venous drainage is to the portal vein.
+
+## Exocrine and endocrine function
+
+The pancreas has two functionally distinct components.
+
+| Component | Cells | Function |
+| --- | --- | --- |
+| **Exocrine** | Acinar cells (digestive enzymes) and ductal cells (bicarbonate-rich fluid) | Secretes around 2 L per day of alkaline fluid containing zymogens (trypsinogen, chymotrypsinogen, proelastase, procarboxypeptidase) plus active amylase and lipase. Trypsin is activated in the duodenum by enterokinase, then activates the other zymogens. |
+| **Endocrine** | Islets of Langerhans | Alpha cells secrete **glucagon**; beta cells secrete **insulin** and amylin; delta cells secrete **somatostatin** (inhibits alpha, beta, and gut hormones); PP cells secrete **pancreatic polypeptide**; epsilon cells secrete **ghrelin**. |
+
+### Regulation of exocrine secretion
+- **Secretin**: produced by **S-cells of the duodenum** in response to duodenal acid. It stimulates bicarbonate-rich pancreatic ductal secretion, neutralising gastric acid.
+- **Cholecystokinin (CCK)**: produced by **I-cells of the duodenum** in response to fat and protein in the lumen. It stimulates pancreatic enzyme secretion from acinar cells, gallbladder contraction, and sphincter of Oddi relaxation.
+- Vagal cholinergic stimulation augments both.
+
+## Congenital pancreatic anomalies
+
+### Pancreas divisum
+- The commonest pancreatic anomaly (around 5-10% of the population).
+- Failure of fusion of the **dorsal and ventral pancreatic buds** in embryogenesis, leaving the main duct of the dorsal pancreas (Santorini) draining through the minor papilla, and a small ventral duct (Wirsung) draining through the major papilla.
+- Most cases are asymptomatic. A minority develop **recurrent acute pancreatitis** from relative outflow obstruction at the minor papilla.
+- Diagnosis: magnetic resonance cholangiopancreatography (MRCP); ERCP.
+- Management: minor papilla sphincterotomy or stenting in symptomatic patients.
+
+### Annular pancreas
+- A ring of pancreatic tissue encircling the second part of the duodenum, from incomplete rotation of the ventral pancreatic bud.
+- Often presents in infancy with duodenal obstruction (bilious vomiting, "double bubble" on imaging) — strongly associated with **trisomy 21 (Down syndrome)**.
+- In adults, may present with peptic ulcer disease, pancreatitis, or duodenal obstruction.
+- Treatment: surgical bypass (duodenoduodenostomy) rather than resection of the pancreatic ring.
+
+### Ectopic (heterotopic) pancreas
+- Pancreatic tissue found outside the normal site, most commonly in the **stomach, duodenum, or jejunum**; Meckel diverticulum is another classical site.
+- Usually an incidental finding. May rarely cause obstruction, bleeding, or undergo neoplastic transformation.
+
+### Other rare anomalies
+- **Agenesis** of the dorsal pancreas (associated with diabetes and exocrine insufficiency).
+- **Pancreatic cysts**, including those in von Hippel-Lindau disease and autosomal dominant polycystic kidney disease.`,
+        },
+        {
+          id: "acute_pancreatitis",
+          name: "Acute Pancreatitis",
+          content: `## Definition
+
+Acute pancreatitis is acute inflammation of the pancreas caused by intracellular activation of zymogens, with auto-digestion of the gland and a variable systemic inflammatory response.
+
+## Causes — the **"I GET SMASHED"** mnemonic
+
+| Letter | Cause | Comments |
+| --- | --- | --- |
+| **I** | **Idiopathic** | Around 10-20%; consider occult biliary microlithiasis, sphincter of Oddi dysfunction, IgG4 disease |
+| **G** | **Gallstones** | The commonest cause in the UK (around 50%). Stones impacted at the ampulla obstruct both biliary and pancreatic drainage |
+| **E** | **Ethanol** | The second commonest cause (around 25%). Direct acinar cell toxicity and ductal obstruction by viscous secretions |
+| **T** | **Trauma** | Including post-ERCP (around 3-5% of ERCPs) |
+| **S** | **Steroids** | |
+| **M** | **Mumps** and other infections (Coxsackie, CMV, HIV) | |
+| **A** | **Autoimmune** | Type 1 IgG4-related; type 2 (idiopathic duct-centric) |
+| **S** | **Scorpion sting** (Tityus trinitatis, in Trinidad) | More common in exams than in life |
+| **H** | **Hyperlipidaemia** (triglycerides greater than 11.3 mmol/L), **hypercalcaemia**, **hypothermia** | |
+| **E** | **ERCP** (endoscopic retrograde cholangiopancreatography) | |
+| **D** | **Drugs**: azathioprine, mesalazine, didanosine, GLP-1 analogues, valproate, thiazides, oestrogens, tetracyclines | |
+
+## Pathophysiology
+
+Inappropriate intracellular activation of trypsinogen → trypsin cascade → activation of phospholipase A2, elastase, and lipase → auto-digestion of the gland with **acinar cell necrosis**, vascular damage, and a systemic inflammatory response. **Fat necrosis** in surrounding tissues produces calcium soap formation (saponification), which sequesters calcium and causes **hypocalcaemia**.
+
+### Histological patterns
+- **Periductal** necrosis (acinar cells near ducts) — obstructive causes.
+- **Perilobular** necrosis (edge of lobules) — ischaemic causes.
+- **Panlobular** necrosis — combination of both, in severe disease.
+
+The dominant histological process is **coagulative necrosis**.
+
+## Clinical features
+
+- **Severe epigastric pain** of sudden onset, often radiating through to the back and relieved by sitting forward.
+- Vomiting, anorexia.
+- Fever, tachycardia, hypotension in severe disease.
+- **Cullen's sign**: periumbilical bruising from retroperitoneal haemorrhage tracking via the falciform ligament.
+- **Grey-Turner's sign**: flank bruising from retroperitoneal haemorrhage.
+- Reduced bowel sounds (ileus).
+
+## Diagnosis
+
+Diagnosis requires **at least 2 of 3** criteria (the **Atlanta classification**):
+1. Characteristic abdominal pain.
+2. **Serum amylase or lipase greater than 3 times the upper limit of normal**.
+3. Characteristic imaging findings.
+
+### Notes on serum enzymes
+- **Amylase** rises within hours but falls rapidly (often normal after 3-5 days). The level does not correlate with severity.
+- **Lipase** is **more sensitive and specific** than amylase, rises earlier, and stays elevated longer. It is now the preferred test where available.
+- A normal amylase does not exclude pancreatitis (severe necrosis with little remaining functional tissue, late presentation, or hypertriglyceridaemia interfering with the assay).
+
+### Imaging
+- **Erect chest X-ray and abdominal X-ray** to exclude perforation and obstruction. May show a "sentinel loop" of dilated jejunum.
+- **Abdominal ultrasound** within 24 hours to identify gallstones and dilated common bile duct (the cause directs early ERCP).
+- **Contrast-enhanced CT** is not required at diagnosis; it is best performed at 72-96 hours from onset to assess severity and detect necrosis.
+- **MRCP** for suspected common bile duct stones or pancreatic duct disruption.
+
+## Severity scoring
+
+Around 20% of cases progress to severe pancreatitis. Several scoring systems exist:
+
+- **Modified Glasgow (Imrie) score** — **"PANCREAS"** mnemonic, calculated at admission and 48 hours; a score of 3 or more predicts severe disease:
+  - **P**aO₂ less than 8 kPa.
+  - **A**ge greater than 55 years.
+  - **N**eutrophils (white cell count greater than 15 × 10⁹/L).
+  - **C**alcium less than 2 mmol/L.
+  - **R**enal (urea greater than 16 mmol/L).
+  - **E**nzymes (LDH greater than 600 IU/L, AST greater than 200 IU/L).
+  - **A**lbumin less than 32 g/L.
+  - **S**ugar (glucose greater than 10 mmol/L).
+- **APACHE II**: ICU-grade severity score; recalculated daily.
+- **BISAP** (Bedside Index of Severity in Acute Pancreatitis): 5 variables in the first 24 hours.
+- **Ranson criteria** (older, US-based, requires data at admission and 48 hours).
+- **CT severity index (Balthazar)** assessed at 72-96 hours.
+
+## Revised Atlanta classification (2012)
+
+- **Mild**: no organ failure or complications.
+- **Moderately severe**: transient organ failure (resolving within 48 hours) or local complications.
+- **Severe**: persistent organ failure (longer than 48 hours).
+
+## Management
+
+### Initial supportive care
+- **Aggressive intravenous fluid resuscitation** with crystalloid (Hartmann's preferred over normal saline); target urine output greater than 0.5 mL/kg/h.
+- **Analgesia**: opioid analgesia titrated to effect; pethidine is no longer favoured over morphine.
+- **Antiemetics**.
+- **Nutrition**: oral feeding as soon as tolerated. **Early enteral nutrition** (nasogastric or nasojejunal) within 72 hours in severe disease is superior to parenteral nutrition (reduces infection and mortality).
+- **Oxygen** to maintain SpO₂ greater than 94%.
+- **Glucose, calcium, and magnesium** monitoring and replacement.
+
+### Antibiotics
+- **Routine prophylactic antibiotics are not indicated**, even in necrotising pancreatitis (no benefit and risk of fungal superinfection).
+- Antibiotics (e.g. imipenem, piperacillin-tazobactam) are reserved for documented **infected necrosis** (positive fine-needle aspirate or clear clinical deterioration), or for associated cholangitis.
+
+### Treating the cause
+- **Gallstone pancreatitis**: urgent **ERCP within 72 hours** if there is associated cholangitis or persistent biliary obstruction. **Laparoscopic cholecystectomy during the same admission** (mild disease) or within 2-4 weeks (severe disease) to prevent recurrence.
+- **Alcohol**: abstinence and structured support.
+- **Hypertriglyceridaemia**: insulin infusion, plasmapheresis if severe (greater than 11.3 mmol/L).
+- **Drug-induced**: stop the offending agent.
+
+## Complications
+
+### Local
+- **Acute peripancreatic fluid collection** (less than 4 weeks, no defined wall).
+- **Pancreatic pseudocyst** (after 4 weeks; a fluid collection with a non-epithelialised fibrous wall; classically associated with alcoholic pancreatitis). May rupture, become infected, or compress adjacent structures.
+- **Walled-off necrosis** (after 4 weeks; a mature necrotic collection).
+- **Infected pancreatic necrosis** — high mortality. Managed by **step-up approach**: percutaneous drainage first, then endoscopic or minimally invasive necrosectomy if needed.
+- **Pancreatic abscess**.
+- **Pancreatic ascites** or **pancreatic fistula** (from duct disruption).
+- **Splenic or portal vein thrombosis**, leading to left-sided portal hypertension and gastric varices.
+- **Pseudoaneurysm** of splenic, gastroduodenal, or hepatic arteries — risk of catastrophic haemorrhage; managed by angiographic embolisation.
+
+### Systemic
+- **Acute respiratory distress syndrome (ARDS)**.
+- **Acute kidney injury**.
+- **Disseminated intravascular coagulation**.
+- **Hypocalcaemia** (saponification).
+- **Hyperglycaemia** (loss of beta cell function).
+- **Multi-organ failure** in severe disease.
+
+## Prognosis
+
+Overall mortality around 5%; severe pancreatitis with persistent organ failure has 30-50% mortality. Recurrence is common with persistent risk factors (alcohol, untreated gallstones).`,
+        },
+        {
+          id: "chronic_pancreatitis",
+          name: "Chronic Pancreatitis",
+          content: `## Definition
+
+Chronic pancreatitis is a progressive fibroinflammatory disease of the pancreas characterised by irreversible destruction of parenchyma, leading to **exocrine and endocrine insufficiency**.
+
+## Aetiology — the **TIGAR-O** classification
+
+| Category | Examples |
+| --- | --- |
+| **T** Toxic-metabolic | Alcohol (the commonest, around 70-80%), tobacco smoking, hypercalcaemia, hypertriglyceridaemia, chronic kidney disease, drugs |
+| **I** Idiopathic | Early- and late-onset idiopathic disease, tropical pancreatitis |
+| **G** Genetic | **PRSS1** (cationic trypsinogen — autosomal dominant hereditary pancreatitis with 80% lifetime risk), **CFTR** (cystic fibrosis), **SPINK1** (a trypsin inhibitor) |
+| **A** Autoimmune | Type 1 (IgG4-related); type 2 (idiopathic duct-centric) |
+| **R** Recurrent and severe acute pancreatitis | Post-necrotic chronic pancreatitis; recurrent gallstone disease |
+| **O** Obstructive | Pancreas divisum (controversial), pancreatic duct stricture from tumour or trauma, sphincter of Oddi dysfunction |
+
+## Pathology
+
+- **Fibrosis** with progressive loss of acinar parenchyma; islets are relatively preserved until late.
+- **Ductal dilatation** with intraductal protein plugs that may calcify.
+- **Parenchymal calcification** (visible on plain abdominal X-ray or CT).
+- **Atrophy** of remaining pancreatic tissue.
+
+Histologically, chronic pancreatitis can be very difficult to distinguish from pancreatic ductal adenocarcinoma — both feature fibrosis with atrophic glands.
+
+## Clinical features
+
+- **Epigastric pain radiating to the back**, often relieved by sitting forward; the pain is recurrent or constant, may be precipitated by alcohol or food, and is the dominant symptom in most patients.
+- **Steatorrhoea** (pale, bulky, offensive stools) from exocrine insufficiency, which usually appears when more than 90% of pancreatic exocrine function is lost.
+- **Weight loss** from malabsorption and food avoidance.
+- **Type 3c diabetes mellitus** (pancreatogenic) from endocrine insufficiency: brittle glycaemic control with hypoglycaemic episodes (loss of both insulin and counter-regulatory glucagon).
+- Fat-soluble vitamin deficiency (A, D, E, K).
+- Vitamin B12 deficiency (loss of pancreatic proteases that release B12 from R-protein).
+
+## Investigations
+
+- **Faecal elastase-1**: less than 200 μg/g of stool indicates pancreatic exocrine insufficiency; less than 100 μg/g indicates severe insufficiency. Now the preferred non-invasive test.
+- **Serum amylase and lipase**: usually normal in chronic disease (burnt-out gland).
+- **CT abdomen** with pancreas protocol: pancreatic calcification, ductal dilatation, atrophy.
+- **MRCP with secretin stimulation** for early ductal disease.
+- **Endoscopic ultrasound (EUS)** is the most sensitive test for early changes and can guide tissue sampling.
+- **Glucose tolerance and HbA1c** for endocrine assessment.
+- **IgG4 level** if autoimmune pancreatitis suspected.
+
+## Autoimmune pancreatitis
+
+A distinct steroid-responsive form of chronic pancreatitis.
+
+### Type 1 (IgG4-related disease)
+- Part of the systemic **IgG4-related disease (IgG4-RD)** spectrum.
+- Older men, often presenting with **painless obstructive jaundice** (mimicking pancreatic cancer).
+- Diffusely enlarged "sausage-shaped" pancreas with a delayed rim of enhancement.
+- Raised serum IgG4 (greater than 1.4 g/L).
+- Histology: lymphoplasmacytic infiltrate rich in **IgG4-positive plasma cells**, **storiform fibrosis**, and **obliterative phlebitis**.
+- Associated with other IgG4-RD: sclerosing cholangitis, retroperitoneal fibrosis, Riedel's thyroiditis, Mikulicz disease.
+- **Highly responsive to oral corticosteroids**; relapse common, often requiring azathioprine or rituximab maintenance.
+
+### Type 2 (idiopathic duct-centric pancreatitis)
+- Younger patients, equal sex distribution.
+- Often associated with **inflammatory bowel disease** (ulcerative colitis more than Crohn's).
+- Histology: granulocytic epithelial lesions; no IgG4 elevation.
+- Also steroid-responsive; lower relapse rate.
+
+## Management
+
+### Pain
+- Smoking cessation and alcohol abstinence (most important).
+- Simple analgesia, then NSAIDs, then tramadol; opioids may be necessary but addiction risk is high.
+- **Pancreatic enzyme replacement** (paradoxically helpful — feedback inhibition of CCK release reduces pancreatic stimulation).
+- **Pregabalin** for neuropathic pain.
+- **Endoscopic therapy**: pancreatic duct stenting, stone extraction, sphincterotomy for ductal hypertension.
+- **Coeliac plexus block** (percutaneous or EUS-guided) for refractory pain.
+- **Surgery**: lateral pancreaticojejunostomy (Puestow procedure) for dilated duct; pancreatic head resection (Frey, Beger, or pancreaticoduodenectomy) for focal disease.
+
+### Exocrine insufficiency
+- **Pancreatic enzyme replacement therapy (Creon, pancrelipase)** with all meals.
+- Fat-soluble vitamin (A, D, E, K) supplementation.
+- Often a proton pump inhibitor improves enzyme efficacy by reducing acid inactivation.
+
+### Endocrine insufficiency (type 3c diabetes)
+- Insulin is usually required.
+- Careful glycaemic monitoring because of high hypoglycaemia risk.
+
+## Complications
+
+- Pancreatic pseudocyst.
+- Pancreatic ascites or fistula.
+- Splenic or portal vein thrombosis with left-sided portal hypertension.
+- Common bile duct stricture with obstructive jaundice.
+- Duodenal obstruction.
+- **Pancreatic adenocarcinoma**: lifetime risk is significantly elevated (around 4% at 20 years; greater in hereditary pancreatitis — up to 40-50% lifetime risk with PRSS1 mutations).`,
+        },
+        {
+          id: "pancreatic_ductal_adenocarcinoma",
+          name: "Pancreatic Ductal Adenocarcinoma",
+          content: `## Epidemiology
+
+- Pancreatic ductal adenocarcinoma (PDAC) accounts for around **85% of all pancreatic malignancies**.
+- Around the **fifth commonest cause of cancer death** in the UK despite being only the 10th commonest cancer — reflecting the very poor prognosis.
+- Median age at diagnosis around 65-70 years; men slightly more than women.
+- Rising incidence, particularly in younger patients (obesity-driven).
+
+## Risk factors
+
+### Modifiable
+- **Smoking** (relative risk 2-3; the most important modifiable risk factor).
+- Obesity, type 2 diabetes mellitus (a small increased risk; new-onset diabetes in a patient over 50 may be the presenting feature).
+- Chronic pancreatitis (4% lifetime risk; much higher with hereditary pancreatitis).
+- Heavy alcohol consumption.
+- Dietary factors (processed and red meat; low fruit and vegetable intake).
+
+### Non-modifiable and genetic
+- Increasing age.
+- Family history (risk increases with the number of affected first-degree relatives).
+- **Hereditary syndromes**:
+  - **Hereditary pancreatitis** (PRSS1 mutation — up to 40% lifetime risk).
+  - **BRCA1 and BRCA2** germline mutations.
+  - **Lynch syndrome** (mismatch repair gene mutations).
+  - **Peutz-Jeghers syndrome** (STK11/LKB1).
+  - **Familial atypical multiple mole and melanoma syndrome (FAMMM)** with CDKN2A mutation.
+  - **Hereditary breast-ovarian cancer syndrome** (BRCA2 in particular).
+  - Familial pancreatic cancer kindreds.
+
+## Site
+
+- **Around 70% arise in the head of the pancreas** (and uncinate process), classically presenting with painless obstructive jaundice.
+- 15-20% body, 5-10% tail.
+
+## Molecular pathology
+
+PDAC develops from precursor lesions — **pancreatic intraepithelial neoplasia (PanIN-1, -2, -3)** — through sequential genetic events:
+- **KRAS** mutations (greater than 90%): the earliest and most consistent change.
+- **CDKN2A (p16) loss** (around 90%).
+- **TP53 mutation** (around 75%).
+- **SMAD4 (DPC4) loss** (around 55%): correlates with metastatic potential.
+- **BRCA2** mutations in around 5%.
+
+Two other precursor lesions exist:
+- **Intraductal papillary mucinous neoplasm (IPMN)** — main duct or branch duct cystic lesion; main duct IPMNs have a 50-60% risk of malignant transformation and are usually resected.
+- **Mucinous cystic neoplasm (MCN)** — almost exclusively in women, in the body or tail; ovarian-type stroma.
+
+## Clinical features
+
+- **Painless obstructive jaundice** (classical presentation of head-of-pancreas cancer); pale stools, dark urine, pruritus.
+- **Persistent abdominal pain radiating to the back**, often worse at night, relieved by leaning forward (body and tail tumours).
+- Cachexia, anorexia, weight loss.
+- **New-onset diabetes mellitus** in an older patient, particularly without obesity, may be the presenting feature in 1% of new diabetics over 50.
+- **Steatorrhoea** from pancreatic duct obstruction.
+- **Trousseau syndrome**: migratory superficial thrombophlebitis from a hypercoagulable state (around 10% of cases).
+- **Courvoisier's sign**: a palpable, non-tender, distended gallbladder in a jaundiced patient suggests pancreatic head cancer rather than gallstones (Courvoisier's law: in obstructive jaundice, a palpable gallbladder is not due to gallstones because chronic stone disease usually produces a fibrotic, contracted gallbladder).
+- **Virchow's node** (left supraclavicular lymphadenopathy via the thoracic duct, Troisier's sign).
+- **Sister Mary Joseph nodule** (umbilical metastasis).
+- Ascites in advanced disease.
+- Abdominal mass in late disease.
+
+## Investigations
+
+### Bloods
+- Conjugated hyperbilirubinaemia with raised alkaline phosphatase and gamma-glutamyl transferase (obstructive picture).
+- Anaemia, low albumin, deranged clotting (vitamin K malabsorption).
+- Raised calcium.
+- **CA 19-9**: a tumour marker; raised in around 80% of pancreatic cancers. Specificity is limited (raised in cholestasis of any cause, cholangiocarcinoma, gastric, and colorectal cancer). Useful for monitoring response and recurrence after curative resection. Note: about 5% of patients (Lewis blood-group negative) cannot synthesise CA 19-9.
+
+### Imaging
+- **Pancreas-protocol contrast-enhanced CT abdomen and pelvis** is the cornerstone investigation. Identifies the tumour, vascular involvement (resectability), and metastases.
+- **Endoscopic ultrasound (EUS)** is the most sensitive test for small (less than 2 cm) tumours and provides tissue diagnosis via fine-needle aspiration or biopsy.
+- **MRCP** to delineate biliary and pancreatic ductal anatomy.
+- **PET-CT** for distant staging in selected cases.
+- **Staging laparoscopy** in borderline resectable disease to detect occult peritoneal or liver disease.
+
+## Resectability assessment
+
+- **Resectable**: no contact with major arteries (coeliac, superior mesenteric, hepatic) and limited or no contact with the superior mesenteric vein or portal vein.
+- **Borderline resectable**: limited arterial contact (less than 180 degrees) and reconstructable venous involvement.
+- **Locally advanced**: greater than 180-degree arterial contact (unresectable).
+- **Metastatic**: distant disease.
+
+Only around 15-20% of patients have resectable disease at presentation.
+
+## Management
+
+### Resectable disease
+- **Whipple procedure (pancreaticoduodenectomy)** for head, neck, and uncinate tumours: en-bloc resection of the pancreatic head, duodenum, common bile duct, gallbladder, and proximal jejunum, with reconstruction (pancreaticojejunostomy, hepaticojejunostomy, gastrojejunostomy). Pylorus-preserving variants are common.
+- **Distal pancreatectomy** with splenectomy for body and tail tumours.
+- **Total pancreatectomy** for diffuse disease (rare).
+- **Adjuvant chemotherapy** improves survival; **modified FOLFIRINOX** (5-fluorouracil, leucovorin, irinotecan, oxaliplatin) is preferred in fit patients (PRODIGE 24 trial). Gemcitabine plus capecitabine or gemcitabine plus nab-paclitaxel are alternatives.
+
+### Borderline resectable and locally advanced disease
+- **Neoadjuvant chemotherapy** (FOLFIRINOX or gemcitabine + nab-paclitaxel) followed by reassessment for surgery. Adding radiotherapy in selected cases.
+
+### Metastatic disease (palliative)
+- **First-line chemotherapy**:
+  - **FOLFIRINOX** in fit patients (ECOG performance status 0-1).
+  - **Gemcitabine + nab-paclitaxel** in slightly less fit patients.
+  - Gemcitabine alone in frail patients.
+- **Olaparib** (PARP inhibitor) maintenance in germline BRCA1/2-mutated metastatic disease (POLO trial).
+- **Pembrolizumab** in mismatch-repair-deficient or MSI-high tumours (rare in pancreatic cancer).
+
+### Symptomatic and supportive care
+- **Biliary stenting** (ERCP or percutaneous transhepatic) for obstructive jaundice.
+- **Duodenal stenting** or gastrojejunostomy for gastric outlet obstruction.
+- **Pancreatic enzyme replacement** for steatorrhoea.
+- **Coeliac plexus block** (EUS or percutaneous) for intractable pain.
+- **Specialist palliative care** input early.
+
+## Prognosis
+
+Five-year survival overall remains around **5%**, the worst of all common cancers. Survival in resected disease with adjuvant chemotherapy reaches 20-25% at 5 years. Locally advanced disease has a median survival of around 12 months, and metastatic disease 6-9 months on chemotherapy.`,
+        },
+        {
+          id: "pancreatic_neuroendocrine_tumours",
+          name: "Pancreatic Neuroendocrine & Other Rare Tumours",
+          content: `## Pancreatic neuroendocrine tumours (pNETs)
+
+Pancreatic neuroendocrine tumours arise from the islets of Langerhans and account for around 1-2% of pancreatic neoplasms. They lie on a spectrum from indolent to highly malignant.
+
+### Classification
+- **Functional** (around 50%): present with a clinical syndrome related to hormone over-secretion.
+- **Non-functional** (around 50%): present incidentally on imaging or with local mass effect or metastases.
+
+The WHO grading (G1 to G3, plus high-grade NEC) and pathology are described in the GI Neuroendocrine Tumours topic. Most pNETs are circumscribed, 1-5 cm tumours in the body or tail, with cells arranged in nests or trabeculae and granular eosinophilic cytoplasm. They stain positively for **chromogranin A** and **synaptophysin**.
+
+### Functional pNETs
+
+| Tumour | Cell of origin | Hormone | Clinical syndrome | Diagnosis | Other notes |
+| --- | --- | --- | --- | --- | --- |
+| **Insulinoma** | Beta cells | Insulin | **Whipple's triad**: spontaneous hypoglycaemia, plasma glucose less than 2.5 mmol/L at the time of symptoms, relief with glucose. Symptoms of neuroglycopenia (confusion, seizures, behavioural change) and adrenergic activation | 72-hour supervised fast with paired insulin, C-peptide, and proinsulin during hypoglycaemia. Inappropriately high insulin and C-peptide. Negative sulfonylurea screen | Most common functional pNET. Around 90% are benign and solitary; 10% in MEN1. Cure by enucleation or distal pancreatectomy. Diazoxide for medical control. |
+| **Gastrinoma (Zollinger-Ellison syndrome)** | Non-beta islet cells (often duodenal wall — "gastrinoma triangle") | Gastrin | Severe, recurrent, and atypical-site peptic ulcers (jejunal ulcers are characteristic); secretory diarrhoea (acid inactivates lipase) | Fasting serum gastrin (greater than 1000 pg/mL is diagnostic with a high gastric acid output); secretin stimulation test (paradoxical rise in gastrin); endoscopy | Second commonest functional pNET. 25% are part of MEN1 (suspect in young patients or those with multifocal disease). High-dose proton pump inhibitor controls symptoms; surgery for localised disease |
+| **VIPoma (Verner-Morrison syndrome)** | Islet cells | Vasoactive intestinal peptide | **WDHA syndrome**: Watery Diarrhoea, Hypokalaemia, Achlorhydria | Plasma VIP greater than 75 pmol/L during a symptomatic episode | Rare; often metastatic at diagnosis. Octreotide controls symptoms |
+| **Glucagonoma** | Alpha cells | Glucagon | **4 Ds**: Dermatitis (necrolytic migratory erythema), Diabetes mellitus, DVT, Depression. Also weight loss, glossitis, anaemia | Plasma glucagon greater than 1000 pg/mL | Tail of pancreas; often large and metastatic at diagnosis |
+| **Somatostatinoma** | Delta cells | Somatostatin | The "inhibitory" triad: diabetes mellitus, cholelithiasis (somatostatin inhibits CCK), steatorrhoea (inhibits pancreatic enzymes) | Plasma somatostatin level | Very rare; often large at diagnosis |
+| **PPoma** | PP cells | Pancreatic polypeptide | Usually no specific syndrome | Plasma PP raised | Often considered alongside non-functional pNETs |
+
+### Non-functional pNETs
+
+- Often large at presentation (slow-growing without hormone signs).
+- May present with abdominal pain, weight loss, jaundice, or a palpable mass.
+- Around 90% express somatostatin receptors and stain positively for chromogranin A.
+
+### Multiple endocrine neoplasia type 1 (MEN1)
+
+Around 15-20% of pNETs occur as part of **MEN1** (the **"3 Ps"**):
+- **P**ituitary adenoma.
+- **P**arathyroid hyperplasia (commonest manifestation; primary hyperparathyroidism in 95%).
+- **P**ancreatic endocrine tumour (most commonly gastrinoma, then insulinoma).
+
+MEN1 is autosomal dominant, due to mutations in the **MEN1** gene on chromosome 11q13 encoding menin. Other features include foregut carcinoids, adrenocortical adenomas, lipomas, and facial angiofibromas. Screening starts in childhood with serum calcium and pituitary hormone profiles, plus imaging at intervals.
+
+(MEN2A and MEN2B are RET-driven and involve medullary thyroid carcinoma plus phaeochromocytoma; they do not feature pancreatic NETs.)
+
+### Investigations
+
+- Cross-sectional imaging: contrast-enhanced **CT or MRI** for the primary tumour.
+- **⁶⁸Ga-DOTATATE PET-CT**: highly sensitive for somatostatin-receptor-positive tumours; preferred over the older Indium-111 octreotide scan.
+- **Endoscopic ultrasound with fine-needle aspiration** for histological confirmation, especially for small tumours.
+- Hormone-specific biochemistry where a functional syndrome is suspected.
+- Genetic testing for MEN1 in patients with multifocal disease, young age, or family history.
+
+### Management
+
+- **Surgical resection** is the only curative treatment: enucleation for small tumours, distal pancreatectomy or Whipple procedure for larger lesions.
+- **Somatostatin analogues** (octreotide, lanreotide) control symptoms and have antiproliferative effects (PROMID and CLARINET trials).
+- **Targeted therapy**: **everolimus** (an mTOR inhibitor) and **sunitinib** (a multi-tyrosine kinase inhibitor) are licensed for advanced pNETs.
+- **Peptide receptor radionuclide therapy (PRRT)** with ¹⁷⁷Lu-DOTATATE for somatostatin-receptor-positive disease.
+- **Chemotherapy**: streptozocin combinations, or temozolomide-capecitabine, for grade 2-3 disease. Platinum-etoposide for poorly differentiated neuroendocrine carcinoma.
+- **Hepatic-directed therapy**: resection, ablation, transarterial embolisation, or selective internal radiation therapy (SIRT) for metastatic disease confined to the liver.
+
+## Acinar cell carcinoma
+
+A rare malignant tumour of the exocrine pancreas, accounting for around 1% of pancreatic neoplasms.
+
+- Occurs in **older adults**, more commonly in men.
+- **Lipase hypersecretion syndrome** in around 10%: subcutaneous fat necrosis (presenting as tender nodules on the limbs), polyarthralgia, and peripheral eosinophilia — analogous to the lipase-driven complications of severe acute pancreatitis.
+- Histology: cells with **eosinophilic granular cytoplasm**, positive for **lipase, trypsin, and chymotrypsin** on immunohistochemistry. Cells form acinar structures.
+- Often large and aggressive at diagnosis.
+- Management: surgical resection if localised; chemotherapy (regimens used in pancreatic ductal adenocarcinoma or colorectal cancer have been tried).
+- **Prognosis**: median survival around 18 months; 5-year survival less than 10%.
+
+## Solid pseudopapillary neoplasm
+
+- A rare, low-grade malignant tumour with a striking female predominance (around 90%); typically presents in young women in the second or third decade.
+- Usually in the body or tail; well-circumscribed, often cystic.
+- **CTNNB1 (beta-catenin)** mutations are characteristic.
+- Excellent prognosis: 5-year survival greater than 95% with surgical resection.
+
+## Pancreatoblastoma
+
+- Rare paediatric pancreatic tumour, with a small adult peak.
+- Mixed acinar, ductal, and squamous (squamoid corpuscle) histology.
+- Associated with **Beckwith-Wiedemann syndrome** and **familial adenomatous polyposis**.
+- Treated by resection plus chemotherapy.
+
+## Pancreatic cystic neoplasms
+
+A range of cystic lesions of varying malignant potential, increasingly detected incidentally on cross-sectional imaging.
+
+| Lesion | Features |
+| --- | --- |
+| **Serous cystadenoma** | Almost always benign; older women; "honeycomb" appearance of microcysts; surveillance unless symptomatic |
+| **Mucinous cystic neoplasm (MCN)** | Almost exclusively in women; body or tail; ovarian-type stroma; surgical resection because of malignant potential |
+| **Intraductal papillary mucinous neoplasm (IPMN)** | Communicates with the pancreatic duct. **Main-duct** IPMN has 50-60% lifetime risk of malignant transformation — resected. **Branch-duct** IPMN has lower risk and may be surveilled if low-risk features. Diagnosed by MRCP, EUS, and cyst fluid analysis (raised CEA in mucinous lesions) |
+| **Pseudocyst** | Inflammatory, non-neoplastic; follows pancreatitis; non-epithelialised wall (covered in Acute Pancreatitis topic) |`,
+        },
+        {
+          id: "biliary_pathology",
+          name: "Gallstones, Cholecystitis & Cholangiocarcinoma",
+          content: `## Anatomy and physiology
+
+Bile is produced by hepatocytes and concentrated in the gallbladder. Bile flow runs from intrahepatic bile ducts → right and left hepatic ducts → common hepatic duct → cystic duct branches to the gallbladder → common bile duct → joins the pancreatic duct at the **ampulla of Vater** → enters the duodenum at the major papilla, controlled by the **sphincter of Oddi**.
+
+Bile contains bile acids (cholesterol-derived, conjugated with taurine or glycine), cholesterol, phospholipids (predominantly phosphatidylcholine), bilirubin diglucuronide, and electrolytes. Bile acids emulsify dietary fat and are reabsorbed in the terminal ileum (enterohepatic circulation, around 6 times per day).
+
+## Gallstones (cholelithiasis)
+
+### Epidemiology
+Highly common: around 10-15% of adults in Western populations. Most are asymptomatic.
+
+### Risk factors — the **"5 Fs"**
+- **F**emale (oestrogen increases biliary cholesterol secretion).
+- **F**at (obesity).
+- **F**orties (age).
+- **F**ertile (pregnancy and oral contraceptive pill).
+- **F**air (Caucasian or Native American).
+- Plus: rapid weight loss, total parenteral nutrition, ileal disease or resection (reduced bile acid reabsorption), haemolytic anaemia (pigment stones), cirrhosis, diabetes mellitus, family history.
+
+### Types of stones
+
+| Type | Composition | Radiopacity | Associations |
+| --- | --- | --- | --- |
+| **Cholesterol** (around 80%) | Cholesterol-rich, often mixed | **Radiolucent** (only 10-20% visible on plain X-ray) | The classical "5 Fs" risk factors |
+| **Pigment — black** | Calcium bilirubinate | **Radio-opaque** | Chronic haemolysis (sickle cell disease, hereditary spherocytosis, thalassaemia, mechanical valves), cirrhosis |
+| **Pigment — brown** | Calcium bilirubinate plus bacterial deposits | Variable | Biliary stasis and chronic infection (e.g. Clonorchis sinensis liver fluke in East Asia) |
+| **Mixed** | Cholesterol + calcium salts | Variable | Common |
+
+## Clinical syndromes from gallstones
+
+### Asymptomatic cholelithiasis
+- Most (60-80%) of patients with gallstones are asymptomatic.
+- Generally no intervention; cholecystectomy considered only in selected high-risk groups (sickle cell disease, large stones, gallbladder polyps, porcelain gallbladder, prior to bariatric surgery in some pathways).
+
+### Biliary colic
+- Transient obstruction of the cystic duct by a stone.
+- Severe right upper quadrant or epigastric pain, often after a fatty meal, lasting up to 6 hours, then resolving spontaneously.
+- No fever, no peritonism, no jaundice.
+- Liver function tests and inflammatory markers normal.
+- Ultrasound confirms gallstones.
+- Management: analgesia and elective **laparoscopic cholecystectomy** within 6 weeks.
+
+### Acute cholecystitis
+- Persistent cystic duct obstruction with gallbladder inflammation.
+- Right upper quadrant pain (more than 6 hours), fever, nausea.
+- **Murphy's sign**: inspiratory arrest on palpation of the right upper quadrant.
+- Raised white cell count and C-reactive protein.
+- Ultrasound: gallstones, gallbladder wall thickening (greater than 3 mm), pericholecystic fluid, sonographic Murphy's sign.
+- Management: intravenous fluids, analgesia, antibiotics (e.g. co-amoxiclav, or piperacillin-tazobactam), and **early laparoscopic cholecystectomy within 7 days** of presentation (Tokyo guidelines).
+- **Acalculous cholecystitis** (around 10%): occurs in critically ill, fasted, or post-operative patients without gallstones; managed by percutaneous cholecystostomy and antibiotics.
+- Complications: empyema, gangrene, perforation, **emphysematous cholecystitis** (gas-forming infection, especially in diabetic patients; high mortality).
+
+### Chronic cholecystitis
+- Recurrent low-grade inflammation producing fibrosis and a contracted gallbladder.
+- **Porcelain gallbladder**: dystrophic calcification of the gallbladder wall, with an increased risk of gallbladder carcinoma; cholecystectomy is recommended.
+
+### Choledocholithiasis
+- Stones in the common bile duct (CBD).
+- May produce obstructive jaundice, biliary colic, pancreatitis, or cholangitis.
+- Investigations: liver function tests show an obstructive pattern (raised conjugated bilirubin, alkaline phosphatase, gamma-glutamyl transferase). Ultrasound may show CBD dilatation greater than 6 mm. **MRCP** is the diagnostic test of choice. **ERCP** is therapeutic.
+
+### Ascending cholangitis
+- Bacterial infection of an obstructed biliary tree, classically by Escherichia coli, Klebsiella, Enterobacter, or Enterococcus.
+- **Charcot's triad**: right upper quadrant pain + fever + jaundice (around 50% of cases).
+- **Reynolds' pentad**: Charcot's triad plus hypotension and confusion — life-threatening sepsis.
+- Management: aggressive resuscitation, broad-spectrum intravenous antibiotics covering Gram-negatives and anaerobes (piperacillin-tazobactam locally), and **urgent biliary drainage** by ERCP with sphincterotomy and stone extraction. Percutaneous transhepatic cholangiography (PTC) if ERCP is not feasible.
+
+### Gallstone ileus
+- A large stone erodes through the gallbladder wall into the duodenum, forms a cholecystoduodenal fistula, and impacts in the terminal ileum (the narrowest point) producing small bowel obstruction.
+- **Rigler's triad** on abdominal X-ray: small bowel obstruction, pneumobilia (air in the biliary tree), and an ectopic gallstone.
+- Usually in elderly women; mortality high. Treatment: laparotomy with enterolithotomy.
+
+### Mirizzi syndrome
+- Extrinsic compression of the common hepatic duct by a stone impacted in Hartmann's pouch or the cystic duct, producing obstructive jaundice.
+- Diagnosed by MRCP. Treatment: cholecystectomy, sometimes with biliary reconstruction.
+
+### Gallbladder cancer
+- Adenocarcinoma in 90% of cases.
+- 90% associated with gallstones; other risk factors include porcelain gallbladder, gallbladder polyps greater than 1 cm, primary sclerosing cholangitis, chronic typhoid carriage.
+- Most are diagnosed incidentally after cholecystectomy or present late with weight loss, jaundice, and right upper quadrant mass.
+- Poor prognosis (5-year survival around 10% overall).
+
+## Cholangiocarcinoma
+
+A malignant tumour of the biliary epithelium, classified by anatomical location:
+
+| Location | Comments |
+| --- | --- |
+| **Intrahepatic** (around 10%) | Within the liver parenchyma; presents like hepatocellular carcinoma |
+| **Hilar (Klatskin)** (around 50%) | At the bifurcation of the common hepatic duct. Bismuth-Corlette classification (I-IV) describes the extent of duct involvement |
+| **Distal extrahepatic** (around 40%) | Below the cystic duct; resected by Whipple procedure |
+
+### Risk factors
+- **Primary sclerosing cholangitis (PSC)**: 5-15% lifetime risk; carries a poor prognosis.
+- **Liver flukes**: Clonorchis sinensis and Opisthorchis viverrini in East Asia.
+- **Hepatolithiasis**.
+- **Choledochal cysts**: congenital dilatations of the biliary tree, particularly type IV; classified by Todani.
+- **Chronic hepatitis B and C** (especially for intrahepatic cholangiocarcinoma).
+- **Cirrhosis** of any cause.
+- Toxin exposure: thorotrast (historical), nitrosamines.
+
+### Clinical features
+- **Painless obstructive jaundice** with cholestatic liver function tests.
+- Weight loss, pruritus, pale stools, dark urine.
+- Right upper quadrant pain in some patients.
+- Cholangitis if biliary obstruction is complicated by infection.
+
+### Investigations
+- **Cross-sectional imaging**: contrast-enhanced CT and MRI with MRCP delineate the extent of disease.
+- **ERCP with brush cytology** and **fluorescence in situ hybridisation (FISH)** of the brushings improves diagnostic yield.
+- **CA 19-9** is raised in around 80% (also raised in benign cholestasis; less useful in PSC).
+- **Endoscopic ultrasound** with fine-needle aspiration for distal lesions.
+- **Staging laparoscopy** before resection.
+
+### Management
+- **Surgical resection** is the only curative option:
+  - Intrahepatic: hepatic resection.
+  - Hilar: extended hepatectomy plus extrahepatic bile duct resection and Roux-en-Y hepaticojejunostomy.
+  - Distal: Whipple procedure.
+- **Liver transplantation** with neoadjuvant chemoradiotherapy is offered in selected centres for early hilar disease (the Mayo protocol).
+- **Adjuvant chemotherapy** with capecitabine improves survival after curative resection (BILCAP trial).
+- **Advanced disease**: palliative chemotherapy with **gemcitabine + cisplatin** (ABC-02 trial); newer regimens add **durvalumab** (an anti-PD-L1 checkpoint inhibitor, TOPAZ-1 trial). Targeted therapies for actionable mutations (FGFR2 fusions — pemigatinib; IDH1 mutations — ivosidenib; BRAF V600E; HER2 amplification).
+- **Biliary drainage**: ERCP or percutaneous transhepatic stenting for symptom control.
+
+### Prognosis
+Overall 5-year survival is around 10%; rises to 25-40% in resected disease. PSC-associated cholangiocarcinoma has a particularly poor prognosis because of late detection.`,
         },
       ],
     },
