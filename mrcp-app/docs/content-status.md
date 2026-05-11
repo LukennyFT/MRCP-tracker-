@@ -43,6 +43,7 @@ Unchanged from initial spec. 4 phases over 22 weeks, exam date 23 September 2026
 | **Renal Pathology** (`renal_path`) | 9 | Revamped. Topics: nephrotic_syndrome, nephritic_syndrome, atn_tin, thrombotic_microangiopathies, acute_renal_failure, ckd_renal, apkd, lupus_nephritis, rcc. |
 | **GI Pathology** (`gi_path`) | 11 | Revamped. Topics: oesophageal_pathology, gastric_pathology, coeliac_disease_path, congenital_paediatric_gi, bowel_obstruction_ischaemia, ibd_pathology, infective_colitis, diverticular_disease, gi_neuroendocrine_carcinoid, colorectal_polyps, colorectal_cancer_path. |
 | **Pancreatic Pathology** (`pancreatic_path`) | 6 | Revamped. Topics: pancreas_anatomy_function, acute_pancreatitis, chronic_pancreatitis, pancreatic_ductal_adenocarcinoma, pancreatic_neuroendocrine_tumours, biliary_pathology. Note: biliary tract (gallstones, cholecystitis, cholangiocarcinoma) is grouped here as in the MedEd PDF; may be moved to a dedicated `biliary_path` section later if needed. Diabetes deliberately not duplicated here (already in Chemical Pathology / Endocrinology). |
+| **Liver Pathology** (`liver_path`) | 11 | Revamped. Topics: liver_anatomy_injury, acute_liver_failure_dili, cirrhosis_portal_htn, alcoholic_liver_disease, nafld_masld, viral_hepatitis_liver, autoimmune_hepatitis_path, cholestatic_pbc_psc, haemochromatosis, wilson_a1at (combined as both rare genetic causes), liver_tumours. |
 
 ### Single-topic legacy sections (preserved from old "Histopath Highlights")
 
@@ -64,7 +65,6 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 | Section ID | Display name | PDF source pages (approx) |
 | --- | --- | --- |
-| `liver_path` | Liver Pathology | 214-221 |
 | `urological_path` | Urological Pathology | 222-224 |
 | `gynae_path` | Gynaecological Pathology | 233-238 |
 | `breast_path` | Breast Pathology | 239-243 |
@@ -92,6 +92,7 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 In reverse chronological order. Keep the last ~10 entries; trim older.
 
+- **2026-05-11** — Populated Liver Pathology (11 topics): liver_anatomy_injury (zones, stellate cell fibrogenesis, LFT pattern recognition, acute/chronic hepatitis patterns), acute_liver_failure_dili (King's College criteria, paracetamol/NAC, DILI R-factor), cirrhosis_portal_htn (Child-Pugh, MELD/UKELD, SAAG, SBP, HRS, hepatopulmonary), alcoholic_liver_disease (Maddrey DF, STOPAH trial, Lille score), nafld_masld (FIB-4, FibroScan, resmetirom, MASLD terminology), viral_hepatitis_liver (A-E with chronicity focus, HBV serology table, DAAs for HCV, HEV in pregnancy/immunosuppression), autoimmune_hepatitis_path (Type 1/2, IAIHG criteria), cholestatic_pbc_psc (AMA, p-ANCA, MRCP beading vs onion-skin fibrosis, IgG4-SC mimic), haemochromatosis (HFE C282Y/H63D, MCP arthropathy), wilson_a1at (ATP7B, Kayser-Fleischer, ALP:bili ratio; A1AT PiZZ panacinar emphysema, PAS-D globules), liver_tumours (BCLC, atezo-bev IMbrave150, hepatic adenoma molecular subtypes, hepatoblastoma, metastases).
 - **2026-05-11** — Populated Pancreatic Pathology (6 topics): pancreas_anatomy_function, acute_pancreatitis, chronic_pancreatitis (incl. autoimmune type 1 IgG4-related and type 2), pancreatic_ductal_adenocarcinoma, pancreatic_neuroendocrine_tumours (incl. acinar cell, solid pseudopapillary, pancreatoblastoma, cystic neoplasms), biliary_pathology (gallstones, cholecystitis, cholangiocarcinoma — grouped here as in PDF).
 - **2026-05-11** — Populated GI Pathology (11 topics): oesophageal_pathology, gastric_pathology (+ H. pylori + PUD), coeliac_disease_path, congenital_paediatric_gi, bowel_obstruction_ischaemia, ibd_pathology, infective_colitis (with C. difficile), diverticular_disease, gi_neuroendocrine_carcinoid, colorectal_polyps (+ familial syndromes), colorectal_cancer_path.
 - **2026-05-11** — Added 2 topics to Lung Pathology beyond the MedEd PDF: `pleural_disease` (effusion, Light's criteria, empyema, pneumothorax classification and management, pleural tumours) and `obstructive_sleep_apnoea` (definitions, AHI grading, ESS/STOP-BANG, polysomnography, CPAP/MAS/surgery, CSA, OHS). Lung Pathology now has 12 topics.
@@ -105,10 +106,9 @@ In reverse chronological order. Keep the last ~10 entries; trim older.
 
 Listed in likely PDF-order, but the user can ask in any order:
 
-1. Populate `liver_path`.
-2. Populate `urological_path`.
-3. Populate `gynae_path`.
-4. Populate `breast_path`.
-5. Populate `cerebral_path`.
-6. Populate the bone sections.
-7. Populate `skin_path`.
+1. Populate `urological_path`.
+2. Populate `gynae_path`.
+3. Populate `breast_path`.
+4. Populate `cerebral_path`.
+5. Populate the bone sections.
+6. Populate `skin_path`.
