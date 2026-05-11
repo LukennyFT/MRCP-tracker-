@@ -4525,6 +4525,270 @@ The cornerstone is supportive:
 - Histology: hyaline membranes lining alveoli (the same morphological substrate as adult ARDS).
 - Treatment: antenatal corticosteroids when preterm delivery is anticipated; postnatal exogenous surfactant; CPAP; mechanical ventilation as needed.`,
         },
+        {
+          id: "pleural_disease",
+          name: "Pleural Disease",
+          content: `## Anatomy and physiology
+
+The pleura is a double-layered serous membrane. The **visceral pleura** covers the lung surface and is supplied by the bronchial circulation; the **parietal pleura** lines the chest wall, diaphragm, and mediastinum, and is supplied by the systemic circulation (intercostal arteries). The two layers enclose the pleural space, which normally contains 10 to 20 mL of lubricating fluid produced by the parietal pleura and absorbed by lymphatics in the visceral pleura.
+
+Only the parietal pleura carries somatic pain fibres (intercostal nerves); irritation of the visceral pleura is painless. This is why pleuritic chest pain localises sharply to the chest wall.
+
+## Pleural effusion
+
+A pleural effusion is an abnormal accumulation of fluid in the pleural space.
+
+### Light's criteria — transudate vs exudate
+
+The first diagnostic step is to classify the fluid, because the differential diagnoses differ markedly.
+
+Light's criteria classify an effusion as an **exudate** if any one of the following is met:
+- Pleural fluid protein divided by serum protein is greater than 0.5.
+- Pleural fluid lactate dehydrogenase (LDH) divided by serum LDH is greater than 0.6.
+- Pleural fluid LDH is greater than two-thirds of the upper limit of normal serum LDH.
+
+Light's criteria are highly sensitive (around 98%) but only moderately specific. Around 25% of patients with cardiac failure on diuretics are mislabelled as exudates by Light's criteria. In this scenario, a **serum-to-pleural albumin gradient greater than 12 g/L** (or a serum-to-pleural protein gradient greater than 31 g/L) correctly reclassifies them as transudates.
+
+### Causes
+
+| Type | Mechanism | Examples |
+| --- | --- | --- |
+| **Transudate** | Increased hydrostatic pressure or reduced oncotic pressure; the pleura itself is normal | Left ventricular failure (commonest); cirrhosis with ascites; nephrotic syndrome; hypoalbuminaemia; constrictive pericarditis; hypothyroidism; peritoneal dialysis; Meigs' syndrome (ovarian fibroma with ascites and pleural effusion) |
+| **Exudate** | Increased capillary permeability from inflammation or malignancy; pleural disease itself | Pneumonia (parapneumonic); malignancy (lung, breast, lymphoma, mesothelioma); pulmonary embolism with infarction; tuberculosis; rheumatoid arthritis; systemic lupus erythematosus; pancreatitis (left-sided); oesophageal rupture; drug-induced (amiodarone, methotrexate, phenytoin, nitrofurantoin) |
+
+### Investigations
+
+- **Chest X-ray**: blunting of the costophrenic angle requires around 200 mL of fluid on an erect film; meniscus sign at the upper margin; complete white-out with tracheal deviation away from the affected side in massive effusion.
+- **Thoracic ultrasound**: more sensitive than X-ray (detects as little as 50 mL), distinguishes simple from loculated or septated fluid, and guides safe pleural aspiration. Now mandatory for pleural procedures under British Thoracic Society (BTS) guidance.
+- **Contrast-enhanced computed tomography (CT) of the thorax**: best for identifying the underlying cause and characterising pleural thickening, masses, or trapped lung.
+- **Diagnostic pleural aspiration (thoracocentesis)** with biochemical, microbiological, and cytological analysis:
+  - Protein and LDH for Light's criteria.
+  - pH (a pH less than 7.2 in the context of parapneumonic effusion mandates urgent chest drain).
+  - Glucose (low in rheumatoid arthritis, empyema, malignancy, and tuberculosis).
+  - Total and differential cell count (neutrophils in parapneumonic effusion; lymphocytes in tuberculosis or malignancy).
+  - Cytology (positive in around 60% of malignant effusions on first sample; sensitivity rises with repeat sampling).
+  - Amylase (raised in pancreatitis and oesophageal rupture).
+  - Triglycerides (greater than 1.24 mmol/L in chylothorax).
+  - Microscopy, culture, and sensitivities, including specific stains and culture for tuberculosis.
+  - Adenosine deaminase (ADA): a level greater than 40 U/L is suggestive of tuberculous pleurisy.
+
+### Specific pleural effusion patterns
+
+- **Parapneumonic effusion**: simple (sterile reactive transudate), complicated (positive bacterial culture, pH less than 7.2, or glucose less than 2.2 mmol/L), or empyema (frank pus in the pleural space). Complicated and empyemic effusions require chest drain.
+- **Malignant pleural effusion**: most commonly from carcinoma of the lung, breast, or ovary, or from lymphoma. Treatment options are repeated therapeutic aspiration, indwelling pleural catheter, or pleurodesis (chemical, with sterile talc slurry or talc poudrage at thoracoscopy).
+- **Tuberculous pleurisy**: predominantly lymphocytic exudate with high adenosine deaminase. Pleural biopsy (Abrams needle or thoracoscopic) improves diagnostic yield to over 90%.
+- **Haemothorax**: blood within the pleural space, typically from trauma, ruptured thoracic aortic aneurysm, or anticoagulation. Pleural fluid haematocrit greater than 50% of the peripheral haematocrit confirms the diagnosis. Requires large-bore intercostal drainage.
+- **Chylothorax**: lymph within the pleural space, from thoracic duct injury (surgery, trauma) or malignancy (especially lymphoma). Fluid is milky-white with triglycerides greater than 1.24 mmol/L. Management is drainage, a low-fat diet with medium-chain triglyceride substitution, octreotide, and surgical ligation of the thoracic duct for persistent leak.
+
+## Empyema
+
+Empyema is pus within the pleural space. Around 40% of bacterial pneumonias develop a parapneumonic effusion, of which about 10% progress to empyema. Other causes include chest trauma, thoracic surgery, and oesophageal rupture.
+
+### Stages
+1. **Exudative (acute)**: free-flowing inflammatory fluid; drains easily.
+2. **Fibrinopurulent**: fibrin deposition produces septations and loculations.
+3. **Organising (chronic)**: a dense fibrous peel forms, trapping the lung and requiring surgical decortication.
+
+### Microbiology
+Streptococcus pneumoniae, Streptococcus milleri group, Staphylococcus aureus, anaerobes (especially in aspiration-related empyema), and Gram-negative organisms.
+
+### Management
+- **Broad-spectrum antibiotics** (commonly intravenous co-amoxiclav plus metronidazole, or piperacillin-tazobactam if hospital-acquired), narrowed to culture, for 3 to 6 weeks.
+- **Intercostal chest drain** as soon as the diagnosis is made.
+- **Intrapleural fibrinolytics**: intrapleural alteplase combined with deoxyribonuclease (DNase) for organised or loculated empyema, based on the MIST2 trial, which showed improved radiographic outcomes and reduced surgical referral.
+- **Video-assisted thoracoscopic surgery (VATS)** when medical therapy and drainage fail to control sepsis or evacuate the pleural space.
+- **Decortication** (open thoracotomy) for chronic organised empyema with trapped lung.
+
+## Pneumothorax
+
+A pneumothorax is air within the pleural space, which abolishes the negative intrapleural pressure and allows partial or complete lung collapse.
+
+### Classification
+
+| Type | Mechanism | Typical patient |
+| --- | --- | --- |
+| **Primary spontaneous** | Rupture of an apical subpleural bleb in an otherwise healthy lung | Tall, thin, young male smokers; age 20-40 years |
+| **Secondary spontaneous** | Underlying lung disease | Chronic obstructive pulmonary disease (the commonest cause), asthma, cystic fibrosis, tuberculosis, Pneumocystis jirovecii pneumonia, Langerhans cell histiocytosis, lymphangioleiomyomatosis, Marfan syndrome, Ehlers-Danlos syndrome |
+| **Traumatic** | Penetrating or blunt chest injury, including iatrogenic causes (central venous catheter, transbronchial or CT-guided lung biopsy, positive-pressure ventilation, thoracocentesis) | Any |
+| **Tension** | A one-way valve allows air to enter the pleural space on inspiration but not leave on expiration; positive intrapleural pressure shifts the mediastinum and obstructs venous return | Any — life-threatening |
+| **Catamenial** | Thoracic endometriosis with cyclical pneumothorax | Women of reproductive age, within 72 hours of menstruation |
+
+### Clinical features
+- Sudden-onset pleuritic chest pain and dyspnoea.
+- Reduced breath sounds, hyper-resonant percussion note, and reduced chest expansion on the affected side.
+- **Tension pneumothorax** additionally produces tracheal deviation away from the affected side, distended neck veins (where venous return is obstructed), hypotension, and progression to cardiac arrest if untreated. **Tension pneumothorax is a clinical diagnosis** — do not wait for a chest X-ray; perform needle decompression immediately.
+
+### Investigations
+- **Erect posteroanterior chest X-ray** taken on full inspiration: visceral pleural line with absence of lung markings peripheral to it. Size is measured at the level of the hilum (BTS convention).
+- **Computed tomography of the chest** is the most sensitive modality, detects occult pneumothoraces in trauma, and identifies underlying lung disease that determines management.
+
+### Management (British Thoracic Society 2010 guidance, with awareness of revised 2023 framework)
+
+**Primary spontaneous pneumothorax**:
+- Small (less than 2 cm rim at the hilum) and minimally symptomatic: observation with high-flow oxygen (which accelerates resorption of pleural air) and a repeat chest X-ray.
+- Larger or symptomatic: simple aspiration via a 16-18 gauge cannula. If this fails or the pneumothorax recurs, insert an intercostal chest drain.
+
+**Secondary spontaneous pneumothorax**: a lower threshold for chest drain because of poor underlying lung reserve. All patients over 50 years of age or with significant underlying lung disease should be admitted.
+
+**Tension pneumothorax**: immediate needle decompression. The traditional landmark is the second intercostal space in the mid-clavicular line; updated Advanced Trauma Life Support (ATLS) guidance favours the fifth intercostal space in the anterior axillary line because of more reliable pleural penetration in adults. Formal intercostal chest drain must follow.
+
+**Recurrence prevention** (video-assisted thoracoscopic surgery with pleurectomy, abrasive pleurodesis, or chemical pleurodesis with talc):
+- Second ipsilateral pneumothorax.
+- First contralateral pneumothorax.
+- First episode in a high-risk occupation (commercial diver, pilot).
+- Persistent air leak beyond 5 to 7 days.
+
+### Related entities
+- **Pneumomediastinum**: air in the mediastinum, often from oesophageal perforation (Boerhaave syndrome), tracheobronchial injury, or alveolar rupture with dissection along bronchovascular sheaths (the Macklin effect). **Hamman's sign** (a crepitant noise synchronous with the heartbeat) is classical.
+- **Surgical (subcutaneous) emphysema**: palpable crepitus in soft tissues, usually from tension pneumothorax, chest drain dysfunction, or airway injury.
+
+## Pleural tumours
+
+- **Mesothelioma** — covered in detail in the Lung Tumours topic. Asbestos-associated; latency 25 to 45 years.
+- **Solitary fibrous tumour of the pleura**: rare, usually benign mesenchymal tumour. Can produce **non-islet-cell tumour hypoglycaemia** by secreting insulin-like growth factor 2 (IGF-2) — known as **Doege-Potter syndrome**.
+- **Metastatic pleural disease**: most commonly from carcinoma of the lung, breast, or ovary, usually presenting as a malignant pleural effusion.
+
+## Pleural plaques
+
+Discussed in the Pneumoconiosis topic. Asymptomatic, often calcified parietal pleural plaques are the commonest asbestos-related lesion. They serve as a marker of past asbestos exposure and do not themselves progress to malignancy.`,
+        },
+        {
+          id: "obstructive_sleep_apnoea",
+          name: "Obstructive Sleep Apnoea",
+          content: `## Definitions
+
+- **Apnoea**: complete cessation of airflow for at least 10 seconds.
+- **Hypopnoea**: a reduction in airflow of at least 30%, with at least a 4% drop in oxygen saturation or an arousal from sleep, lasting at least 10 seconds.
+- **Apnoea-Hypopnoea Index (AHI)**: the number of apnoeas plus hypopnoeas per hour of sleep. The AHI is the cardinal measure of severity.
+- **Obstructive sleep apnoea (OSA)**: repetitive partial or complete collapse of the upper airway during sleep, with **preserved respiratory effort**, producing intermittent hypoxia and arousal. This is distinguished from central sleep apnoea, in which respiratory effort is absent.
+- **Obstructive sleep apnoea syndrome (OSAS)**: OSA combined with daytime symptoms, most commonly excessive daytime sleepiness.
+
+## Epidemiology
+
+OSA affects approximately 4% of middle-aged men and 2% of middle-aged women in the United Kingdom, and prevalence is rising in parallel with obesity. The condition is markedly under-diagnosed; many patients present indirectly through road traffic accidents, resistant hypertension, or cardiovascular events.
+
+## Pathophysiology
+
+During sleep, particularly in **rapid eye movement (REM) sleep**, pharyngeal dilator muscle tone falls. In susceptible patients, the upper airway (typically at the level of the soft palate or the tongue base) collapses inward under the negative intrathoracic pressure generated by inspiration. The resulting apnoea or hypopnoea provokes:
+
+1. **Progressive hypoxaemia and hypercapnia**.
+2. **Sympathetic nervous system activation**, with surges in blood pressure and heart rate.
+3. **Arousal** from sleep to restore upper airway patency, fragmenting sleep architecture and producing daytime symptoms.
+
+Recurrent intermittent hypoxia produces systemic oxidative stress, endothelial dysfunction, and chronic low-grade inflammation. This is the mechanistic basis for the cardiovascular complications of OSA.
+
+## Risk factors
+
+- **Obesity**: the single strongest factor (raised body mass index and increased neck circumference, defined as greater than 17 inches or 43 cm in men, greater than 16 inches or 41 cm in women).
+- Male sex.
+- Increasing age.
+- Postmenopausal status in women (oestrogen and progesterone maintain upper airway tone).
+- Craniofacial features: retrognathia, micrognathia, macroglossia, high-arched palate.
+- Tonsillar or adenoidal hypertrophy (the commonest cause in children).
+- Endocrine disease: acromegaly, hypothyroidism, polycystic ovary syndrome (PCOS).
+- Smoking and alcohol use (alcohol particularly reduces pharyngeal tone in the evening).
+- Sedative use (benzodiazepines, opioids).
+- Family history (heritability around 40%).
+
+## Clinical features
+
+### Reported by the bed partner
+- Loud habitual snoring (present in essentially all symptomatic cases).
+- Witnessed apnoeas, often terminating with a snort or gasp.
+- Restless sleep.
+
+### Reported by the patient
+- Excessive daytime sleepiness — the most disabling symptom.
+- Unrefreshing sleep.
+- Morning headache (related to overnight hypercapnia).
+- Nocturia.
+- Reduced concentration, memory impairment, low mood.
+- Reduced libido.
+
+### Examination
+- Obesity and raised neck circumference.
+- Crowded oropharynx (Mallampati score 3 or 4).
+- Retrognathia, macroglossia, or tonsillar hypertrophy.
+- Hypertension is often the only objective sign.
+
+## Screening tools
+
+- **Epworth Sleepiness Scale (ESS)**: an 8-item self-report questionnaire about the likelihood of dozing in everyday situations (e.g. reading, watching television, sitting as a passenger in a car). Score ranges from 0 to 24. A score greater than 10 indicates excessive daytime sleepiness; greater than 16 is severe.
+- **STOP-BANG questionnaire**: 8 items — **S**noring, **T**iredness, **O**bserved apnoea, blood **P**ressure raised, **B**ody mass index greater than 35 kg/m², **A**ge greater than 50 years, **N**eck circumference greater than 40 cm, **G**ender male. A score of 3 or more is sensitive for OSA; a score of 5 or more is highly specific.
+- **Berlin Questionnaire** is an alternative validated screening instrument.
+
+## Diagnosis
+
+The diagnostic gold standard is **in-laboratory polysomnography**, which records electroencephalogram (EEG), electrooculogram (EOG), submental electromyogram (EMG), electrocardiogram (ECG), oronasal airflow (nasal pressure transducer and thermistor), respiratory effort (thoracic and abdominal impedance belts), peripheral oxygen saturation by pulse oximetry, and body position.
+
+**Home sleep apnoea testing** (limited-channel cardiorespiratory polygraphy, typically measuring airflow, effort, saturation, heart rate, and position) is now first-line in adults with a high clinical pre-test probability and no significant comorbidities (such as heart failure, neuromuscular disease, or severe chronic obstructive pulmonary disease). It is more accessible and is equally accurate in this population.
+
+### Severity grading by AHI
+
+| AHI (events per hour) | Severity |
+| --- | --- |
+| Less than 5 | Normal |
+| 5 to 14 | Mild |
+| 15 to 29 | Moderate |
+| 30 or more | Severe |
+
+## Complications
+
+OSA is independently associated with:
+
+- **Cardiovascular disease**: systemic hypertension (particularly resistant hypertension), atrial fibrillation, coronary artery disease, heart failure, ischaemic stroke, and sudden cardiac death.
+- **Metabolic disease**: type 2 diabetes mellitus, insulin resistance, and the metabolic syndrome.
+- **Pulmonary hypertension**, particularly in severe disease or when COPD coexists (the "overlap syndrome").
+- **Road traffic accidents**: 2 to 7 times the population baseline risk. Under the United Kingdom Driver and Vehicle Licensing Agency (DVLA) rules, untreated OSA with excessive daytime sleepiness disqualifies a driver, and the DVLA must be notified by the patient.
+- **Perioperative complications**: difficult intubation, postoperative respiratory failure, and arrhythmia.
+- **Mood disorders** and cognitive impairment.
+
+## Management
+
+### Lifestyle and conservative measures
+- **Weight loss** is the most effective long-term measure. A 10% reduction in body weight reduces the AHI by approximately 25%.
+- Avoidance of alcohol and sedatives in the evening.
+- Smoking cessation.
+- Positional therapy (sleeping in the lateral rather than supine position; positional alarms or the "tennis ball in a T-shirt" technique).
+- Treatment of nasal obstruction (intranasal corticosteroids, nasal dilators, septoplasty in selected cases).
+
+### Continuous positive airway pressure (CPAP)
+- **First-line treatment** for moderate to severe OSA, and for mild OSA with significant symptoms.
+- A nasal or full-face mask delivers a pneumatic splint that holds the upper airway open during sleep, abolishing obstructive events.
+- CPAP reduces AHI to near-normal, improves daytime sleepiness, quality of life, blood pressure control, and (in observational data) cardiovascular event rates.
+- The principal limitation is adherence. Around 50% of users achieve good long-term adherence, defined as greater than 4 hours per night on at least 70% of nights. Pressure titration may be performed in the sleep laboratory or by **auto-titrating positive airway pressure (APAP)** at home.
+
+### Mandibular advancement splints (MAS)
+- Custom-fitted dental appliances that protrude the mandible, enlarging the retropalatal and retrolingual airway.
+- An alternative for patients with mild to moderate OSA, those intolerant of CPAP, or those who prefer it. Less efficacious than CPAP but generally better tolerated.
+
+### Surgery
+- **Adenotonsillectomy** is curative in most paediatric cases.
+- **Uvulopalatopharyngoplasty (UPPP)** produces modest results in carefully selected adults.
+- **Maxillomandibular advancement** is highly effective in selected patients with retrognathia.
+- **Bariatric surgery** can be transformative in obese patients with severe OSA, often reducing AHI dramatically and eliminating CPAP dependence.
+- **Hypoglossal nerve stimulation** (an implantable pulse generator that stimulates the genioglossus during inspiration) is an emerging option for patients intolerant of CPAP, in selected anatomical subtypes.
+
+### Driving
+Patients must be advised not to drive until symptoms are controlled (typically once established on CPAP). The DVLA rules differ between Group 1 (cars and motorcycles) and Group 2 (heavy goods vehicle and passenger-carrying vehicle) licences, with stricter requirements for Group 2. It is the patient's legal responsibility to inform the DVLA.
+
+## Central sleep apnoea (CSA)
+
+Distinguished from OSA by the **absence of respiratory effort** during the apnoeic episode. Major causes:
+
+- **Cheyne-Stokes respiration** in heart failure (a crescendo-decrescendo pattern of breathing punctuated by regular central apnoeas).
+- Brainstem disease (cerebrovascular accident, multiple sclerosis, syringobulbia, brainstem tumour).
+- Opioid use.
+- High altitude.
+
+Treatment targets the underlying disease. **Adaptive servo-ventilation (ASV)** is contraindicated in patients with heart failure with reduced ejection fraction; the SERVE-HF trial demonstrated increased cardiovascular mortality in this group.
+
+## Obesity hypoventilation syndrome (OHS, Pickwickian syndrome)
+
+The combination of obesity (body mass index of 30 kg/m² or greater) with daytime hypercapnia (arterial partial pressure of carbon dioxide, PaCO₂, greater than 6 kPa) and sleep-disordered breathing, in the absence of another cause of hypoventilation. Around 90% of patients also have OSA.
+
+Management is non-invasive ventilation (continuous positive airway pressure if OSA-predominant; bilevel positive airway pressure if pure hypoventilation), weight loss (including bariatric surgery), and optimisation of comorbidities. Untreated OHS has a markedly increased mortality.`,
+        },
       ],
     },
     {
