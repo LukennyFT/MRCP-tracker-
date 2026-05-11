@@ -6629,9 +6629,1454 @@ Overall 5-year survival is around 10%; rises to 25-40% in resected disease. PSC-
       icon: "🔬",
       topics: [
         {
-          id: "_pending_liver_path",
-          name: "(Coming soon)",
-          content: `## Pending\n\nThis section is currently empty. Liver histopathology content will be added on request.`,
+          id: "liver_anatomy_injury",
+          name: "Liver Anatomy, Function & Patterns of Injury",
+          content: `## Anatomy
+
+### Macroscopic
+The liver is the largest solid organ in the body, lying in the right upper quadrant under the diaphragm. It receives a **dual blood supply**:
+- **Portal vein** (around 75% of inflow, low pressure, deoxygenated, nutrient-rich) draining the gut and spleen.
+- **Hepatic artery** (around 25% of inflow, oxygenated) from the coeliac axis.
+
+Venous drainage is through three **hepatic veins** to the inferior vena cava. Bile drains via the right and left hepatic ducts to the common hepatic duct.
+
+The liver is divided into **eight Couinaud segments** based on portal and hepatic venous anatomy — the basis of segmental liver surgery.
+
+### Microscopic — the hepatic lobule
+
+The basic structural unit is the **hepatic lobule**, conventionally depicted as a hexagon.
+- At the **centre** lies the **terminal hepatic (centrilobular) vein**.
+- At each of the six **points** sits a **portal tract** containing the **portal triad**: a branch of the hepatic artery, a branch of the portal vein, and a bile duct (plus lymphatics).
+- Plates of hepatocytes radiate from the central vein towards the portal tracts, separated by **sinusoids** lined by fenestrated endothelial cells and **Kupffer cells** (resident hepatic macrophages).
+- The **space of Disse** lies between sinusoidal endothelium and hepatocytes, containing **stellate cells (Ito cells)** that store vitamin A in their quiescent state.
+
+### Acinar zones
+
+The functional **acinus of Rappaport** is divided into three zones based on distance from the portal triad:
+
+| Zone | Location | Oxygenation | Selected vulnerabilities |
+| --- | --- | --- | --- |
+| **Zone 1** | Periportal (closest to triad) | Highest oxygen tension | Viral hepatitis (first cells exposed to viraemia); haemochromatosis (iron deposition); eclampsia |
+| **Zone 2** | Mid-zonal | Intermediate | Yellow fever (classical) |
+| **Zone 3** | Centrilobular (closest to central vein) | Lowest oxygen tension; richest in cytochrome P450 enzymes | **Ischaemic injury** ("shock liver"), **paracetamol toxicity**, alcohol, halothane, carbon tetrachloride |
+
+## Functions of the liver
+
+1. **Metabolism**: glycolysis, glycogen storage, gluconeogenesis, amino acid synthesis and transamination, lipogenesis, lipoprotein assembly, fatty acid oxidation. Phase I (cytochrome P450) and phase II (conjugation) drug metabolism.
+2. **Protein synthesis**: virtually all circulating plasma proteins except gamma globulins — albumin, fibrinogen, prothrombin and the other coagulation factors (except factor VIII, partly synthesised by endothelium), antithrombin, protein C and S, ceruloplasmin, transferrin, ferritin, alpha-1 antitrypsin.
+3. **Storage**: glycogen, vitamins A, D, B12 (large quantities); vitamin K, folate, iron, and copper (smaller stores).
+4. **Hormone metabolism**: 25-hydroxylation of vitamin D; conjugation and excretion of oestrogen, glucocorticoids, and thyroid hormones; metabolism of insulin, growth hormone, parathyroid hormone, and others.
+5. **Bile synthesis and secretion**: 600 to 1000 mL daily of bile containing bile acids, cholesterol, phospholipids, bilirubin diglucuronide.
+6. **Immune function**: Kupffer cell phagocytosis of gut-derived antigens reaching the liver via the portal circulation; production of complement and acute phase proteins.
+
+## Liver function tests — pattern recognition
+
+| Pattern | ALT/AST | ALP/GGT | Bilirubin | Typical causes |
+| --- | --- | --- | --- | --- |
+| **Hepatocellular** | Markedly raised (often greater than 10× upper limit) | Mildly raised | Variable | Viral hepatitis (A, B, C, E), drug-induced (paracetamol, isoniazid), autoimmune hepatitis, ischaemic hepatitis |
+| **Cholestatic** | Mildly raised | Markedly raised (ALP greater than 3× ULN; GGT confirms hepatic origin) | Conjugated hyperbilirubinaemia | Gallstones, primary biliary cholangitis, primary sclerosing cholangitis, drug-induced, pancreatic head tumour, intrahepatic cholestasis of pregnancy |
+| **Mixed** | Moderate rise both | Moderate rise both | Variable | Many causes — interpret in clinical context |
+| **Isolated hyperbilirubinaemia** | Normal | Normal | Unconjugated (Gilbert syndrome, haemolysis); conjugated (Dubin-Johnson, Rotor) | |
+
+### Markers of synthetic function
+- **Albumin**: a marker of chronic disease (half-life around 20 days).
+- **Prothrombin time (or INR)**: a marker of acute synthetic failure (factor VII has the shortest half-life of around 6 hours). The INR is therefore the best dynamic marker in acute liver failure.
+
+### AST:ALT ratio
+- **AST:ALT greater than 2** (often with both raised modestly) is classical for **alcoholic liver disease** (AST is more sensitive to alcohol-related mitochondrial injury; ALT is reduced by alcohol-induced pyridoxine deficiency).
+- AST:ALT around or below 1 in viral hepatitis and most other parenchymal causes.
+- AST:ALT raised in **cirrhosis of any cause** because of reduced hepatic ALT clearance and synthesis.
+
+## Patterns of histological injury
+
+### Acute hepatitis
+- **Spotty necrosis**: small foci of hepatocyte necrosis with surrounding lymphocytic infiltrate, scattered throughout the lobule.
+- **Ballooning degeneration** of injured hepatocytes.
+- Apoptotic **Councilman bodies** (shrunken, eosinophilic, anucleate hepatocytes).
+- Variable cholestasis.
+- Causes: viral (hepatitis A-E, EBV, CMV), drugs (paracetamol, isoniazid, halothane), ischaemia, autoimmune flare, Wilson's disease in acute presentation.
+
+### Chronic hepatitis
+Chronic hepatitis is graded (severity of inflammation) and staged (severity of fibrosis), classically using the **Ishak** or **METAVIR** systems.
+
+**Histological features in order of increasing severity:**
+1. **Portal inflammation**: lymphocytic infiltrate confined to portal tracts.
+2. **Interface hepatitis (piecemeal necrosis)**: lymphocytes spill across the limiting plate, eroding the border between portal tract and parenchyma, with progressive hepatocyte loss at the interface.
+3. **Lobular inflammation**: lymphocytes within the parenchyma and around individual hepatocytes.
+4. **Bridging necrosis**: confluent necrosis linking portal tracts to central veins, or portal tracts to one another. The development of **portal-central bridging** is the critical step towards cirrhosis: it allows blood to bypass functioning hepatocytes (intrahepatic shunting), accelerating loss of detoxification function and the development of hepatic encephalopathy.
+5. **Cirrhosis**: fibrosis with regenerative nodules (covered in the Cirrhosis topic).
+
+Causes: chronic viral (HBV ± HDV, HCV), autoimmune hepatitis, drug-induced, metabolic (Wilson's, haemochromatosis, alpha-1 antitrypsin deficiency, NAFLD/NASH), alcohol.
+
+## Liver fibrogenesis
+
+In the normal liver, hepatic **stellate cells** lie quiescent in the space of Disse and store vitamin A. With chronic injury:
+1. Kupffer cell activation and inflammatory cytokine release (TGF-beta, PDGF) activate stellate cells.
+2. Activated stellate cells transform into **myofibroblast-like cells**, lose vitamin A stores, and deposit type I and III collagen in the space of Disse.
+3. Capillarisation of sinusoids (loss of endothelial fenestrations) impairs exchange with hepatocytes.
+4. Myofibroblast contraction constricts sinusoids, raising intrahepatic vascular resistance — the substrate for portal hypertension.
+5. Hepatocyte regeneration occurs in nodules between fibrous septa, disturbing normal vascular architecture.
+
+Early fibrosis is potentially reversible if the cause is removed (e.g. hepatitis C eradication, abstinence from alcohol, removal of toxins). Established cirrhosis is largely irreversible.`,
+        },
+        {
+          id: "acute_liver_failure_dili",
+          name: "Acute Liver Failure & Drug-Induced Liver Injury",
+          content: `## Acute liver failure (ALF)
+
+### Definition
+Acute liver failure is the rapid development of **hepatic synthetic dysfunction (INR ≥ 1.5)** with **hepatic encephalopathy** in a patient **without pre-existing chronic liver disease**, within 26 weeks of jaundice onset.
+
+Classified by the interval between jaundice and encephalopathy:
+- **Hyperacute**: 0-7 days. Highest rate of cerebral oedema and intracranial hypertension; best spontaneous recovery rate. Typical of paracetamol overdose and hepatitis A.
+- **Acute**: 8-28 days.
+- **Subacute**: 29 days-12 weeks. Lower rate of cerebral oedema but worse spontaneous recovery. Typical of drug-induced and seronegative hepatitis.
+
+### Causes
+- **Drug-induced** (the commonest cause in the UK): **paracetamol** accounts for around half; non-paracetamol drugs (antibiotics, antiepileptics, recreational drugs, herbal remedies).
+- **Viral hepatitis**: hepatitis A, B (especially with HDV coinfection), E (particularly in pregnancy), HSV (rarely), CMV.
+- **Vascular**: ischaemic hepatitis from shock or Budd-Chiari syndrome.
+- **Metabolic**: acute fatty liver of pregnancy, HELLP syndrome, Wilson's disease (acute presentation classically with Coombs-negative haemolysis and disproportionately low alkaline phosphatase).
+- **Autoimmune hepatitis** (acute severe presentation).
+- **Toxins**: Amanita phalloides (death cap mushroom), carbon tetrachloride, organic solvents.
+- **Malignant infiltration**: lymphoma, metastases.
+
+### Clinical features
+- Jaundice (often the presenting feature).
+- **Encephalopathy** (defining feature) — graded by the **West Haven criteria**:
+  - **Grade 1**: mild confusion, altered sleep pattern, asterixis just appearing.
+  - **Grade 2**: drowsiness, disorientation, asterixis present.
+  - **Grade 3**: marked confusion, somnolence but rousable, gross asterixis.
+  - **Grade 4**: coma, unresponsive to painful stimuli.
+- **Coagulopathy**: bruising, gastrointestinal bleeding.
+- **Hypoglycaemia** from loss of gluconeogenesis.
+- **Cerebral oedema and intracranial hypertension** (in advanced encephalopathy): the leading cause of death; manifests with abnormal pupillary responses, decerebrate posturing, brainstem signs.
+- **Acute kidney injury** (hepatorenal syndrome type 1, or paracetamol-related acute tubular necrosis).
+- **Multi-organ failure**: ARDS, sepsis, lactic acidosis, hypotension.
+
+### Investigations
+- INR, full blood count, urea and electrolytes, glucose (frequent monitoring), arterial blood gas with lactate, full liver screen (paracetamol level, hepatitis serology, autoantibodies, ferritin, ceruloplasmin in those under 40, alpha-1 antitrypsin, HIV).
+- Cranial imaging if focal neurological signs or encephalopathy beyond grade 2.
+- Ultrasound liver with Doppler to exclude vascular causes.
+
+### Management
+- **Transfer to a tertiary liver unit** as early as possible.
+- **Supportive care** in intensive care: airway protection in grade 3-4 encephalopathy, fluid resuscitation, glucose, correction of acidosis, careful fluid balance.
+- **N-acetylcysteine** in paracetamol overdose; also has evidence of benefit in non-paracetamol ALF (improves transplant-free survival).
+- **Prophylactic antibiotics and antifungals** in encephalopathic patients (high infection rate).
+- **Lactulose and rifaximin** for encephalopathy — though their benefit in ALF (as opposed to chronic decompensation) is less clear.
+- **Mannitol or hypertonic saline** for raised intracranial pressure.
+- **Renal replacement therapy** for AKI or refractory acidosis.
+- **Avoid sedatives and benzodiazepines** (worsen encephalopathy).
+- **Liver transplantation** is the only definitive treatment for those with poor prognosis (see criteria below).
+
+### King's College criteria for liver transplantation
+
+These criteria identify patients with sufficiently poor spontaneous prognosis to justify emergency transplantation listing.
+
+**Paracetamol-induced ALF** — one of:
+- Arterial pH less than 7.30 after fluid resuscitation, OR
+- All three of: INR greater than 6.5 (prothrombin time greater than 100 seconds), creatinine greater than 300 μmol/L, **and** grade 3 or 4 encephalopathy.
+
+**Non-paracetamol ALF** — INR greater than 6.5, **or any three** of:
+- Drug-induced or seronegative hepatitis aetiology.
+- Age less than 10 or greater than 40 years.
+- More than 7 days from jaundice to encephalopathy.
+- INR greater than 3.5.
+- Bilirubin greater than 300 μmol/L.
+
+Arterial lactate (greater than 3.5 mmol/L after early resuscitation, or greater than 3.0 after 12 hours) is an additional independent predictor in paracetamol ALF (the modified King's criteria).
+
+## Drug-induced liver injury (DILI)
+
+DILI is the leading cause of acute liver failure in the UK and a major cause of drug withdrawal from the market.
+
+### Classification
+
+**Intrinsic (dose-dependent, predictable)**:
+- The classical example is **paracetamol**.
+- Carbon tetrachloride, amanitin (death cap mushrooms).
+
+**Idiosyncratic (unpredictable, dose-independent, host factors important)**:
+- Antibiotics: **co-amoxiclav** (the commonest cause of DILI in the UK), flucloxacillin, nitrofurantoin, isoniazid, rifampicin, tetracyclines.
+- Anticonvulsants: phenytoin, sodium valproate, lamotrigine, carbamazepine.
+- Antifungals: ketoconazole, terbinafine.
+- Statins (usually mild and reversible).
+- NSAIDs: diclofenac.
+- Antitubercular agents: rifampicin, isoniazid, pyrazinamide.
+- Methotrexate (chronic fibrosis).
+- Amiodarone (steatohepatitis-like injury).
+- Recreational drugs: MDMA, cocaine.
+- Herbal and complementary medicines: kava, black cohosh, green tea extract, ayurvedic remedies.
+
+### Patterns of injury (R-factor)
+The **R-factor** (ratio of ALT/ULN to ALP/ULN) classifies the pattern:
+- **R ≥ 5**: hepatocellular pattern (e.g. paracetamol, isoniazid).
+- **R ≤ 2**: cholestatic pattern (e.g. co-amoxiclav, flucloxacillin, anabolic steroids).
+- **2 < R < 5**: mixed (e.g. amitriptyline, carbamazepine).
+
+### Diagnosis
+DILI is a **diagnosis of exclusion**. The **Roussel-Uclaf Causality Assessment Method (RUCAM)** scores the probability of a drug being causative based on temporal relationship, course after withdrawal, alternative causes, comorbidity, and rechallenge.
+
+### Management
+- **Withdraw the suspected drug** immediately.
+- **Supportive care**.
+- **N-acetylcysteine** for paracetamol toxicity (see below).
+- **Corticosteroids** are not routinely indicated; consider in DRESS syndrome (drug reaction with eosinophilia and systemic symptoms) and severe immune-mediated DILI from checkpoint inhibitors.
+- **Liver transplantation** if King's College criteria are met.
+- Report through the **Yellow Card scheme** (UK Medicines and Healthcare products Regulatory Agency).
+
+## Paracetamol overdose
+
+### Pathophysiology
+Paracetamol is normally conjugated by glucuronidation and sulphation (around 90%). Around 5% is metabolised by **cytochrome P450 (CYP2E1)** to **N-acetyl-p-benzoquinone imine (NAPQI)**, a highly reactive electrophile. NAPQI is normally detoxified by conjugation with **glutathione**.
+
+In overdose, conjugation pathways saturate, more paracetamol enters the CYP2E1 pathway, glutathione stores become depleted, and NAPQI binds covalently to hepatocyte proteins — particularly in **zone 3 (centrilobular)** where CYP2E1 activity is highest — producing necrosis.
+
+### Risk factors for severe injury
+- Chronic alcohol use (induces CYP2E1).
+- Enzyme-inducing drugs: phenytoin, carbamazepine, rifampicin, St John's wort.
+- Malnutrition or anorexia (depleted glutathione stores).
+- HIV.
+
+### Toxic dose
+- Acute single ingestion of more than 75 mg/kg can be hepatotoxic; over 150 mg/kg is potentially fatal.
+- Lower thresholds (75 mg/kg) for the high-risk groups above.
+- **Staggered overdose** (multiple ingestions over more than one hour) and ingestion timing uncertainty have prompted UK policy to treat all such cases with N-acetylcysteine regardless of paracetamol levels.
+
+### Clinical course
+- **0-24 hours**: often asymptomatic; mild nausea, vomiting.
+- **24-72 hours**: right upper quadrant pain, rising aminotransferases (often greater than 1000 IU/L), rising INR.
+- **72-96 hours**: peak hepatotoxicity; jaundice, encephalopathy, coagulopathy, AKI (paracetamol-induced acute tubular necrosis is a direct toxic effect distinct from hepatorenal syndrome).
+- **4-14 days**: recovery or progression to ALF and death.
+
+### Management
+
+- **Resuscitation** with intravenous fluids.
+- **Activated charcoal** if presentation within 1 hour of ingestion.
+- **Paracetamol level at 4 hours or more** post-ingestion (earlier samples are unreliable). Plot on the UK **single nomogram** (a single treatment line at 100 mg/L at 4 hours, falling to 15 mg/L at 15 hours — adopted in 2012, replacing the dual high-risk and standard lines).
+- **N-acetylcysteine (NAC)**:
+  - Indicated if level above the treatment line, in staggered overdose, in late presentation (more than 8 hours) regardless of level pending the result, in any patient with abnormal liver function and a credible history.
+  - Replenishes hepatic glutathione and is most effective if started within 8 hours of ingestion (almost 100% liver-protective).
+  - The original 21-hour regimen is being replaced in many centres with the simplified 12-hour SNAP protocol (lower rate of anaphylactoid reactions).
+- **Liver transplantation** if King's College criteria are met.
+
+## Other patterns of liver injury
+
+### Granulomatous hepatitis
+Non-caseating granulomas in the liver. Causes:
+- **Drugs**: allopurinol, carbamazepine, sulphonamides.
+- **Infections**: tuberculosis (caseating), schistosomiasis, Q fever, brucellosis, leishmaniasis.
+- **Autoimmune**: primary biliary cholangitis, sarcoidosis.
+- **Idiopathic**.
+
+### Ischaemic hepatitis ("shock liver")
+- Centrilobular (zone 3) necrosis from systemic hypoperfusion.
+- Aminotransferases rise rapidly into the thousands and fall back to normal over 7-10 days as perfusion is restored.
+- Treatment is of the underlying cause.
+
+### Budd-Chiari syndrome
+- Hepatic venous outflow obstruction at the hepatic veins or suprahepatic IVC.
+- **Triad**: abdominal pain, ascites, hepatomegaly.
+- Causes: myeloproliferative neoplasms (especially JAK2-positive polycythaemia vera or essential thrombocythaemia, the commonest), antiphospholipid syndrome, paroxysmal nocturnal haemoglobinuria, oral contraceptive pill, pregnancy, malignancy, hereditary thrombophilia.
+- Doppler ultrasound is the first investigation; venography is definitive.
+- Treatment: anticoagulation, treatment of the underlying cause, interventional radiology (angioplasty/stenting), TIPS, or liver transplantation.
+
+### Sinusoidal obstruction syndrome (veno-occlusive disease)
+- Damage to sinusoidal endothelial cells with secondary obstruction of small hepatic venules.
+- Classical setting: bone marrow transplantation conditioning (busulfan, cyclophosphamide); pyrrolizidine alkaloid (bush tea) ingestion.
+- Treatment: defibrotide; supportive care.`,
+        },
+        {
+          id: "cirrhosis_portal_htn",
+          name: "Cirrhosis & Portal Hypertension",
+          content: `## Definition
+
+Cirrhosis is a **diffuse pathological process** characterised by:
+1. **Hepatocyte necrosis** with progressive parenchymal loss.
+2. **Bridging fibrosis** linking portal tracts to central veins or to one another.
+3. **Regenerative nodules** of hepatocytes.
+4. **Disturbed vascular architecture**.
+
+These changes raise intrahepatic vascular resistance and disrupt the normal sinusoidal exchange between blood and hepatocytes, producing both **portal hypertension** and **synthetic failure**.
+
+## Causes
+
+| Category | Examples |
+| --- | --- |
+| **Alcohol-related** | Chronic excess alcohol intake (the second commonest cause in the UK) |
+| **Metabolic-dysfunction-associated** | NAFLD/MASLD (now the commonest cause in the UK) |
+| **Viral** | Chronic hepatitis B (with or without delta), chronic hepatitis C |
+| **Autoimmune** | Autoimmune hepatitis, primary biliary cholangitis, primary sclerosing cholangitis |
+| **Genetic** | Hereditary haemochromatosis, Wilson's disease, alpha-1 antitrypsin deficiency, cystic fibrosis, galactosaemia, glycogen storage disease, tyrosinaemia |
+| **Vascular** | Budd-Chiari syndrome, right heart failure (cardiac cirrhosis, "nutmeg liver") |
+| **Drug-induced** | Methotrexate, amiodarone, isoniazid |
+| **Cryptogenic** | Diagnosis of exclusion; many have unrecognised NAFLD |
+
+## Histopathology
+
+| Feature | Comment |
+| --- | --- |
+| **Micronodular** (nodules less than 3 mm) | Uniform involvement; classically **alcoholic liver disease**, biliary disease, haemochromatosis |
+| **Macronodular** (nodules greater than 3 mm, variable) | Variable nodule size; classically **viral hepatitis**, Wilson's disease, alpha-1 antitrypsin deficiency |
+| **Mixed** | Common in late-stage disease of any cause |
+
+Special stains may suggest a cause: Prussian blue (iron in haemochromatosis), Rhodanine or orcein (copper in Wilson's), PAS-diastase (alpha-1 antitrypsin globules), Sirius red or Masson's trichrome (fibrosis).
+
+## Clinical features
+
+### Compensated cirrhosis
+- Often asymptomatic for many years.
+- Stigmata of chronic liver disease on examination:
+  - Palmar erythema, **Dupuytren's contracture**, clubbing.
+  - **Spider naevi** (more than 5 on the upper body is abnormal; oestrogen-related).
+  - **Gynaecomastia**, testicular atrophy, loss of secondary sexual hair.
+  - **Caput medusae** (recanalised umbilical vein in portal hypertension).
+  - Hepatomegaly (often the liver is small and shrunken in late disease).
+  - Splenomegaly (portal hypertension).
+  - Jaundice (late).
+  - Bruising, petechiae.
+  - Parotid swelling (alcohol-related).
+
+### Decompensated cirrhosis
+Defined by the appearance of any one of: **ascites, variceal bleeding, encephalopathy, or jaundice**. Decompensation marks a major change in prognosis (1-year mortality rises from less than 5% in compensated disease to 20-50% in decompensated).
+
+## Investigations
+
+### Imaging
+- **Ultrasound** with Doppler: nodular liver outline, splenomegaly, ascites, hepatofugal portal vein flow in advanced portal hypertension.
+- **Transient elastography (FibroScan)**: non-invasive measurement of liver stiffness; greater than 12.5 kPa supports cirrhosis (cut-offs differ slightly by aetiology).
+- **MRI** for hepatocellular carcinoma surveillance and characterisation.
+
+### Liver screen
+Even when a cause is apparent (alcohol), all patients with newly diagnosed cirrhosis should have a full liver screen to identify coexisting and treatable causes:
+- Hepatitis B (HBsAg, HBcAb) and hepatitis C (HCV antibody, HCV RNA if positive) serology.
+- HIV.
+- Autoantibodies: ANA, anti-smooth muscle antibody, anti-LKM, anti-mitochondrial antibody; immunoglobulin profile (raised IgG in autoimmune hepatitis, raised IgM in PBC).
+- Ferritin and transferrin saturation (haemochromatosis).
+- Ceruloplasmin and 24-hour urinary copper in patients under 40 years.
+- Alpha-1 antitrypsin level and phenotype.
+- Alpha-fetoprotein (HCC marker).
+
+### Liver biopsy
+- Only required when the diagnosis is uncertain after non-invasive testing.
+- Transjugular route preferred in coagulopathy or ascites.
+
+## Severity scoring
+
+### Child-Pugh score
+
+| Variable | 1 point | 2 points | 3 points |
+| --- | --- | --- | --- |
+| Bilirubin (μmol/L) | Less than 34 | 34-50 | Greater than 50 |
+| Albumin (g/L) | Greater than 35 | 28-35 | Less than 28 |
+| Prothrombin time (seconds prolonged) | Less than 4 | 4-6 | Greater than 6 |
+| Ascites | None | Mild | Moderate or severe |
+| Encephalopathy | None | Grade 1-2 | Grade 3-4 |
+
+| Total | Class | Approximate 1-year survival |
+| --- | --- | --- |
+| 5-6 | **A** | 100% |
+| 7-9 | **B** | 80% |
+| 10-15 | **C** | 45% |
+
+### Model for End-Stage Liver Disease (MELD)
+MELD = 3.78 × ln(bilirubin) + 11.2 × ln(INR) + 9.57 × ln(creatinine) + 6.43.
+- Score range 6 to 40.
+- The principal tool used to allocate liver transplants in adults (UKELD is the UK variant, additionally incorporating sodium).
+- Sodium-adjusted MELD (MELD-Na) is now standard in many regions, accounting for the strong adverse prognostic effect of hyponatraemia.
+
+## Portal hypertension
+
+Portal hypertension is defined by a **hepatic venous pressure gradient (HVPG) greater than 5 mmHg** (normal 1-5 mmHg). Complications appear at:
+- HVPG greater than 10 mmHg: **clinically significant portal hypertension** (varices appear).
+- HVPG greater than 12 mmHg: variceal bleeding becomes likely.
+
+### Aetiological classification
+
+| Site | Causes |
+| --- | --- |
+| **Pre-hepatic** | Portal vein thrombosis (cirrhosis, thrombophilia, malignancy, neonatal umbilical sepsis); splenic vein thrombosis (chronic pancreatitis — causes left-sided portal hypertension with isolated gastric varices); congenital atresia |
+| **Hepatic — pre-sinusoidal** | Schistosomiasis (Symmers' pipe-stem fibrosis), primary biliary cholangitis (early), congenital hepatic fibrosis, sarcoidosis |
+| **Hepatic — sinusoidal** | **Cirrhosis** (the commonest cause overall), severe acute alcoholic hepatitis |
+| **Hepatic — post-sinusoidal** | Sinusoidal obstruction syndrome (veno-occlusive disease) |
+| **Post-hepatic** | Budd-Chiari syndrome, IVC obstruction, constrictive pericarditis, severe right heart failure |
+
+### Consequences and management of portal hypertension
+
+- **Oesophageal and gastric varices**: see Oesophageal Pathology topic for full management.
+- **Caput medusae**: dilated periumbilical veins through a recanalised umbilical vein.
+- **Anorectal varices** (not haemorrhoids, which are normal vascular structures).
+- **Splenomegaly** with hypersplenism (thrombocytopenia, less marked anaemia and leucopenia).
+- **Ascites**.
+- **Portosystemic encephalopathy** (intrahepatic shunting allows gut-derived toxins to bypass detoxification).
+
+## Decompensation events
+
+### Ascites
+
+Pathogenesis combines portal hypertension, splanchnic vasodilatation, activation of the renin-angiotensin-aldosterone system, and sodium and water retention.
+
+**Diagnostic ascitic tap** (sent for cell count and differential, culture in blood culture bottles, protein, albumin, cytology):
+- **Serum-ascites albumin gradient (SAAG)**:
+  - **SAAG greater than 11 g/L**: portal-hypertensive (cirrhosis, cardiac failure, Budd-Chiari, alcoholic hepatitis).
+  - **SAAG less than 11 g/L**: non-portal-hypertensive (peritoneal malignancy, tuberculous peritonitis, pancreatitis, nephrotic syndrome).
+- Ascitic neutrophil count greater than 250 cells/mm³ defines **spontaneous bacterial peritonitis** (SBP).
+
+**Management of cirrhotic ascites**:
+- **Salt restriction** (less than 2 g sodium per day).
+- **Spironolactone** (start 100 mg daily, titrate up to 400 mg) first-line; add **furosemide** (40 mg daily up to 160 mg) if needed. Aim for weight loss of 0.5-1 kg per day.
+- **Therapeutic paracentesis** with **20% human albumin solution replacement** (8 g per litre of ascites drained beyond 5 L).
+- **TIPS** for refractory ascites.
+- **Liver transplantation** is the definitive treatment.
+
+### Spontaneous bacterial peritonitis (SBP)
+
+- Bacterial infection of ascitic fluid without a surgical source.
+- Common pathogens: Escherichia coli, Klebsiella, Streptococcus pneumoniae.
+- Often subtle: fever, abdominal pain, encephalopathy, or simply renal deterioration.
+- Diagnosis: ascitic neutrophil count greater than 250 cells/mm³.
+- Treatment: **intravenous cefotaxime or piperacillin-tazobactam** for 5-7 days. Add **intravenous human albumin (1.5 g/kg on day 1, 1 g/kg on day 3)** to reduce the risk of hepatorenal syndrome.
+- **Secondary prophylaxis**: oral ciprofloxacin or norfloxacin daily.
+- **Primary prophylaxis** in selected high-risk patients (low-protein ascites with advanced disease).
+
+### Hepatic encephalopathy
+
+A reversible neuropsychiatric disorder due to accumulation of gut-derived neurotoxins (especially ammonia) that bypass hepatic clearance via portosystemic shunts and a failing liver.
+
+**Common precipitants**: gastrointestinal bleeding, infection (including SBP), constipation, electrolyte disturbance (especially hypokalaemia, hyponatraemia), dehydration from over-diuresis, sedative drugs (benzodiazepines), high dietary protein load, alcohol binge, recent TIPS insertion.
+
+**Grading**: West Haven criteria (see Acute Liver Failure topic).
+
+**Management**:
+- Identify and treat the precipitant.
+- **Lactulose** (titrated to 2-3 soft bowel motions daily) — acidifies the colon, traps ammonia as ammonium, accelerates gut transit.
+- **Rifaximin** (a non-absorbable antibiotic) for recurrent encephalopathy.
+- Avoid benzodiazepines and other sedatives.
+- Adequate nutrition (do not restrict protein long-term; consider branched-chain amino acid supplementation).
+
+### Hepatorenal syndrome (HRS)
+
+A functional acute kidney injury in advanced cirrhosis, with intense renal vasoconstriction despite normal renal histology.
+
+- **Type 1 HRS (acute)**: rapid doubling of creatinine to greater than 220 μmol/L within 2 weeks. Median survival 2 weeks untreated.
+- **Type 2 HRS (subacute)**: gradual progression, often associated with refractory ascites. Median survival 6 months.
+
+Diagnosis is largely one of exclusion of other AKI causes (hypovolaemia, sepsis, intrinsic renal disease, post-renal cause). Diuretics should be stopped and intravenous albumin given as a volume challenge.
+
+**Treatment**: **terlipressin plus albumin** (improves renal function in around 40%); transjugular intrahepatic portosystemic shunt (TIPS) in selected patients; liver transplantation is the definitive treatment.
+
+### Hepatopulmonary syndrome and portopulmonary hypertension
+
+- **Hepatopulmonary syndrome**: intrapulmonary vascular dilatation producing right-to-left shunting and hypoxaemia, classically with **platypnoea** (dyspnoea worse on standing) and **orthodeoxia** (oxygen saturation falls on standing). Treatment: oxygen, liver transplantation.
+- **Portopulmonary hypertension**: pulmonary arterial hypertension in the context of portal hypertension. Treatment: PAH-specific therapies; transplantation in selected patients.
+
+## Hepatocellular carcinoma surveillance
+
+All patients with cirrhosis (regardless of cause) require **6-monthly ultrasound surveillance for hepatocellular carcinoma**, with or without alpha-fetoprotein. See Liver Tumours topic.
+
+## Liver transplantation
+
+Indications:
+- Decompensated cirrhosis (UKELD score 49 or greater).
+- Acute liver failure (King's College criteria).
+- Variant syndromes: hepatopulmonary syndrome, intractable pruritus in PBC, polycystic liver disease, recurrent cholangitis.
+- Hepatocellular carcinoma within the **Milan criteria** (single lesion less than 5 cm or up to 3 lesions each less than 3 cm, with no vascular invasion or metastases).
+
+Contraindications include extrahepatic malignancy, severe cardiopulmonary disease, active substance misuse, and uncontrolled sepsis. Five-year survival following transplantation is around 75-80%.`,
+        },
+        {
+          id: "alcoholic_liver_disease",
+          name: "Alcoholic Liver Disease",
+          content: `## Spectrum
+
+Alcohol-related liver disease (ALD) is a spectrum from reversible fatty infiltration through inflammatory hepatitis to irreversible cirrhosis. Around 90% of heavy drinkers develop steatosis; 20-40% develop alcoholic hepatitis; 8-20% progress to cirrhosis. Susceptibility is modulated by genetics (e.g. PNPLA3 polymorphism), sex (women are more susceptible at equivalent intake), nutrition, and coexisting liver disease.
+
+## Hepatic steatosis (alcoholic fatty liver)
+
+- **Macroscopic**: large, soft, pale yellow, greasy liver.
+- **Histology**: accumulation of intracellular triglyceride as **macrovesicular fat droplets** within hepatocytes, typically beginning in zone 3 (centrilobular).
+- Clinical: usually asymptomatic; may be detected by mildly raised aminotransferases, raised GGT, and macrocytosis on full blood count.
+- **Fully reversible** with abstinence within 2-6 weeks.
+
+## Alcoholic hepatitis
+
+A potentially life-threatening inflammatory injury, often precipitated by heavy binge drinking on a background of chronic use.
+
+### Histology
+- **Hepatocyte ballooning degeneration** (swollen, rounded cells with pale cytoplasm).
+- **Mallory-Denk bodies** (also called Mallory hyaline): irregular eosinophilic intracytoplasmic inclusions composed of clumped intermediate filaments (cytokeratins 8 and 18). They are characteristic but not specific to ALD — also seen in non-alcoholic steatohepatitis, Wilson's disease, and chronic cholestasis.
+- **Neutrophilic infiltrate** (uncommon among hepatic inflammatory diseases — most are lymphocytic).
+- **Steatosis** and progressive **pericellular fibrosis** in a "chicken-wire" pattern around hepatocytes and central veins.
+- Cholestasis in severe cases.
+
+### Clinical features
+- Jaundice in a heavy drinker, usually with weeks-to-months of background symptoms.
+- Tender hepatomegaly.
+- Anorexia, fever, nausea.
+- Features of acute decompensation: ascites, encephalopathy, coagulopathy.
+- Examination shows the stigmata of chronic liver disease (palmar erythema, spider naevi, gynaecomastia, parotid enlargement, Dupuytren's contracture).
+
+### Investigations
+- Aminotransferases moderately raised (rarely above 300 IU/L; the **AST:ALT ratio greater than 2** is classical).
+- GGT and ALP raised.
+- Bilirubin raised.
+- Prolonged INR.
+- Macrocytic anaemia (MCV greater than 100), thrombocytopenia.
+- Hypoalbuminaemia, hyponatraemia.
+- Raised CRP and white cell count (often without infection).
+- Ultrasound to exclude biliary obstruction and assess hepatocellular carcinoma.
+- Septic screen (urinary, blood, ascitic, chest) — infection coexists in around 25%.
+
+### Severity scoring
+
+The **Maddrey discriminant function (DF)** identifies patients with sufficiently severe disease to consider corticosteroids:
+
+DF = 4.6 × (patient's prothrombin time − control PT in seconds) + serum bilirubin (mg/dL)
+
+A DF of 32 or greater (or the presence of hepatic encephalopathy) defines severe alcoholic hepatitis with poor short-term prognosis. Other tools: **Glasgow Alcoholic Hepatitis Score (GAHS)**, **MELD score**, and the **Lille score** at day 7 to assess steroid response.
+
+### Management
+- **Alcohol abstinence** (the most important intervention). Manage withdrawal with chlordiazepoxide (or lorazepam if hepatic encephalopathy is present).
+- **Nutrition**: most patients are protein-energy malnourished. Provide 35-40 kcal/kg/day and 1.2-1.5 g protein/kg/day; nasogastric feeding if oral intake inadequate (do not restrict protein, even with encephalopathy).
+- **Pabrinex** (parenteral B-vitamins) before any carbohydrate to prevent Wernicke's encephalopathy; continue with oral thiamine.
+- Treat infection promptly.
+- **Corticosteroids** (prednisolone 40 mg daily for 28 days) are considered in severe disease (Maddrey DF greater than 32) — the STOPAH trial showed a modest 28-day mortality benefit but no longer-term survival benefit. Day 7 **Lille score greater than 0.45** indicates non-response and steroids should be stopped (responders continue).
+- **Pentoxifylline** was previously used but the STOPAH trial showed no benefit.
+- **N-acetylcysteine** with steroids may have additive benefit (one French trial showed reduced infections).
+- Address coexisting conditions: malnutrition, alcohol use disorder, hepatitis C, HIV.
+- **Early liver transplantation** is increasingly offered for severe alcoholic hepatitis non-responsive to steroids, in carefully selected patients without prior abstinence (challenges the older "6 months sobriety" rule, which has no evidence base).
+
+### Prognosis
+Each episode of severe alcoholic hepatitis carries 10-20% short-term mortality; mortality is around 40% at 6 months in severe disease without transplant. Even with full recovery, around 40% progress to cirrhosis within 5 years.
+
+## Alcoholic cirrhosis
+
+- **Macroscopic**: classically yellow-tan, fatty, enlarged in earlier stages, transforming into a shrunken, non-fatty, brown organ ("end-stage" liver).
+- **Histology**: **micronodular cirrhosis** with regenerative nodules less than 3 mm and dense bands of fibrous tissue, with continuing steatosis and Mallory-Denk bodies in active disease.
+- Clinical course and complications are those of cirrhosis of any cause (see Cirrhosis topic).
+- Abstinence at any stage improves prognosis; even decompensated cirrhotic patients may improve to recompensation.
+
+## Wider effects of alcohol
+
+Beyond the liver, chronic alcohol misuse causes:
+- **Gastrointestinal**: oesophageal varices, Mallory-Weiss tears, acute and chronic pancreatitis, gastritis, increased risk of oesophageal squamous cell carcinoma, colorectal cancer.
+- **Cardiovascular**: dilated cardiomyopathy, hypertension, atrial fibrillation ("holiday heart"), haemorrhagic stroke.
+- **Neurological**: peripheral neuropathy, cerebellar degeneration (vermal atrophy with gait ataxia), Wernicke-Korsakoff syndrome (thiamine deficiency — confusion, ophthalmoplegia, ataxia → amnesia and confabulation), central pontine myelinolysis if sodium is corrected too rapidly.
+- **Haematological**: macrocytic anaemia (direct marrow toxicity, folate deficiency), thrombocytopenia, neutropenia.
+- **Endocrine**: hypogonadism, feminisation, pseudo-Cushing's syndrome.
+- **Skeletal**: avascular necrosis of the femoral head, osteoporosis.
+- **Foetal**: foetal alcohol spectrum disorder.
+
+## Screening and pathways
+
+UK guidance uses screening tools such as the **AUDIT (Alcohol Use Disorders Identification Test)** in primary and secondary care, with brief intervention or referral to specialist alcohol services. Hospital admission for alcohol-related disease should always trigger structured alcohol-team review and consideration of pharmacotherapy (acamprosate, naltrexone, disulfiram, baclofen) and psychological support.`,
+        },
+        {
+          id: "nafld_masld",
+          name: "NAFLD / MASLD & Non-Alcoholic Steatohepatitis",
+          content: `## Definitions and terminology
+
+Hepatic steatosis affecting more than 5% of hepatocytes in the absence of significant alcohol intake or other identifiable cause has historically been termed **non-alcoholic fatty liver disease (NAFLD)**. New consensus terminology (2023, AASLD and EASL) renames the condition **metabolic dysfunction-associated steatotic liver disease (MASLD)** to emphasise its association with cardiometabolic risk factors:
+
+- **MASLD**: hepatic steatosis plus at least one of: overweight or obesity, type 2 diabetes mellitus, hypertension, raised triglycerides, low HDL cholesterol.
+- **MetALD**: MASLD with moderate alcohol intake (between safe limits and harmful drinking).
+- **Steatotic liver disease (SLD)**: the umbrella term.
+
+In MRCP examinations, the older terms (NAFLD, NASH) remain in use and are used interchangeably below.
+
+## Spectrum
+
+| Stage | Features |
+| --- | --- |
+| **Simple steatosis (NAFL / MAFL)** | Hepatic steatosis without significant inflammation or fibrosis. Generally benign |
+| **Non-alcoholic steatohepatitis (NASH / MASH)** | Steatosis plus inflammation and hepatocyte ballooning. May progress to fibrosis |
+| **Fibrosis** | Progressive deposition of collagen between hepatocytes and pericellular |
+| **Cirrhosis** | End-stage; complications as for cirrhosis of any cause, including hepatocellular carcinoma |
+
+## Epidemiology
+
+- The **commonest cause of chronic liver disease** in the Western world.
+- Estimated prevalence approximately 25% globally, with much higher rates in obese and diabetic populations (up to 70% of patients with type 2 diabetes mellitus).
+- Now the **fastest-growing indication for liver transplantation** in many Western countries.
+
+## Risk factors
+
+- **Obesity**: the central driver. Body mass index correlates with steatosis severity, but the metabolic profile (insulin resistance, central adiposity) matters more than BMI alone.
+- **Type 2 diabetes mellitus** and insulin resistance.
+- **Metabolic syndrome**: central obesity, hypertension, dyslipidaemia (raised triglycerides, low HDL), hyperglycaemia.
+- **Polycystic ovary syndrome**.
+- **Obstructive sleep apnoea**.
+- **Hypothyroidism**, **hypopituitarism**.
+- **Genetic**: the **PNPLA3 I148M** variant strongly predisposes; **TM6SF2** and **MBOAT7** variants also contribute.
+- Rapid weight loss and total parenteral nutrition.
+- Drugs: amiodarone, tamoxifen, methotrexate, corticosteroids, antiretrovirals (older agents), valproate.
+
+## Pathogenesis (the "multi-hit" hypothesis)
+
+1. Insulin resistance and elevated free fatty acid flux to the liver promote hepatic triglyceride accumulation.
+2. Lipotoxic intermediates (diacylglycerol, ceramide) activate inflammatory pathways and produce hepatocyte injury.
+3. Oxidative stress, mitochondrial dysfunction, gut microbiome derangement, and adipose tissue-derived cytokines drive inflammation and stellate cell activation.
+4. Progressive fibrosis and eventual cirrhosis.
+
+## Histology
+
+Histologically, NAFLD and NASH closely resemble alcoholic liver disease:
+- **Macrovesicular steatosis**, predominantly zone 3.
+- **Hepatocyte ballooning**.
+- **Mallory-Denk bodies**.
+- Lobular inflammation (mainly neutrophils and lymphocytes).
+- Progressive pericellular "chicken-wire" fibrosis.
+- The **NAFLD activity score (NAS)** grades steatosis, lobular inflammation, and ballooning; fibrosis is staged separately (F0-F4) by the Kleiner system.
+
+## Clinical features
+
+- Usually **asymptomatic**, found incidentally with raised liver enzymes or on imaging.
+- A minority report right upper quadrant ache or fatigue.
+- Hepatomegaly in some.
+- Examination findings of chronic liver disease appear only with advanced fibrosis or cirrhosis.
+
+## Investigations
+
+### Diagnosis of steatosis
+- Ultrasound shows a hyperechoic ("bright") liver — sensitive only when steatosis exceeds 30%.
+- MRI proton density fat fraction (MRI-PDFF) and controlled attenuation parameter (CAP) on FibroScan quantify steatosis accurately.
+- The diagnosis requires exclusion of other causes (alcohol, viral hepatitis, autoimmune, metabolic, drugs).
+
+### Non-invasive assessment of fibrosis (the key determinant of prognosis)
+
+The principal challenge is identifying the ~20% of NAFLD patients with significant fibrosis, who are at risk of complications. Routine population-wide liver biopsy is impractical, so non-invasive scores are used:
+
+- **FIB-4 index** (calculated from age, AST, ALT, platelets): the standard first-line screening tool. Less than 1.3 effectively excludes advanced fibrosis (high negative predictive value); greater than 3.25 strongly suggests advanced fibrosis.
+- **NAFLD Fibrosis Score (NFS)**: another widely-used calculator.
+- **Enhanced liver fibrosis (ELF) test**: a serum panel of three direct fibrosis markers; ELF ≥ 10.51 suggests advanced fibrosis.
+- **Transient elastography (FibroScan)**: a liver stiffness measurement greater than 12 kPa suggests advanced fibrosis; less than 8 kPa makes it unlikely. Failure rate is higher with morbid obesity.
+- **Magnetic resonance elastography (MRE)**: highly accurate but less widely available.
+
+### Liver biopsy
+- The gold standard for distinguishing simple steatosis from NASH and for staging fibrosis.
+- Indications: diagnostic uncertainty (especially with elevated autoantibodies or overlap with autoimmune hepatitis), discordant non-invasive tests, intermediate-risk patients in whom management would change.
+
+## Management
+
+### Lifestyle (the foundation of treatment)
+
+- **Weight loss** is the single most effective intervention:
+  - 3-5% weight loss improves steatosis.
+  - 7-10% weight loss improves inflammation and ballooning.
+  - **Greater than 10% weight loss** can produce fibrosis regression.
+- Mediterranean diet, reduced refined carbohydrate intake, limit fructose-sweetened beverages.
+- At least 150 minutes of moderate aerobic exercise per week plus resistance training.
+- Complete alcohol abstinence in advanced disease.
+
+### Pharmacological options
+
+There is no licensed UK therapy specifically for NAFLD or NASH as of 2026. Several agents have shown benefit:
+
+- **Vitamin E** (800 IU daily): improves NASH histology in non-diabetic adults (PIVENS trial). Avoid in patients with prostate cancer risk and avoid in diabetics.
+- **Pioglitazone** (a thiazolidinedione): improves NASH and fibrosis in patients with and without diabetes; side effects include weight gain, fluid retention, fractures.
+- **GLP-1 receptor agonists** (semaglutide, liraglutide): improve steatosis and inflammation; weight loss is the principal mechanism.
+- **SGLT-2 inhibitors**: improve hepatic steatosis through weight loss and metabolic effects.
+- **Resmetirom** (a thyroid hormone receptor beta agonist): the first agent approved in the US in 2024 for NASH with significant fibrosis (the MAESTRO-NASH trial). Not yet UK-licensed.
+
+### Treatment of associated conditions
+
+Aggressive management of coexisting cardiovascular risk factors is critical (most patients with NAFLD die of cardiovascular disease rather than liver disease):
+- **Type 2 diabetes**: prefer agents with favourable hepatic profile (GLP-1 analogues, SGLT-2 inhibitors, pioglitazone).
+- **Dyslipidaemia**: statins are safe and recommended for cardiovascular risk reduction, even with abnormal liver function tests.
+- **Hypertension**, **obstructive sleep apnoea**, **polycystic ovary syndrome** management.
+
+### Surgical and procedural options
+
+- **Bariatric surgery** in eligible patients (BMI greater than 35 with comorbidity, or greater than 40 without): produces substantial NASH regression and may reverse fibrosis.
+- **Liver transplantation** for decompensated cirrhosis or hepatocellular carcinoma. NASH is now the leading indication in many Western countries. Recurrence in the graft is common given persistent metabolic drivers.
+
+## Hepatocellular carcinoma surveillance
+
+Patients with NAFLD-cirrhosis require **6-monthly ultrasound** surveillance, as for cirrhosis of any cause. HCC may also arise in NASH without cirrhosis (about 10-20% of cases), although structured surveillance is not currently recommended in the absence of cirrhosis outside research settings.`,
+        },
+        {
+          id: "viral_hepatitis_liver",
+          name: "Viral Hepatitis — Liver Pathology Perspective",
+          content: `## Overview
+
+The **five hepatotropic viruses** (A, B, C, D, E) produce overlapping clinical patterns but differ markedly in transmission, chronicity, treatment, and pathological features. Hepatitis B and C are the major causes of chronic hepatitis, cirrhosis, and hepatocellular carcinoma worldwide.
+
+(Microbiology and serology are covered in the **Microbiology** notebook section. This topic focuses on liver pathology, chronicity, and management.)
+
+## Summary table
+
+| Feature | Hepatitis A | Hepatitis B | Hepatitis C | Hepatitis D | Hepatitis E |
+| --- | --- | --- | --- | --- | --- |
+| **Virus** | RNA (picornavirus) | DNA (hepadnavirus) | RNA (flavivirus) | RNA (defective; needs HBV) | RNA (hepevirus) |
+| **Transmission** | Faecal-oral | Blood, sexual, vertical | Blood (IVDU, transfusion before 1991) | Blood, sexual (with HBV) | Faecal-oral (zoonotic from pigs in UK) |
+| **Incubation** | 2-6 weeks | 6 weeks-6 months | 2-26 weeks | Varies | 2-9 weeks |
+| **Chronic carriage** | **Never** | 5-10% adults; greater than 90% if perinatal | **60-85%** | High if superinfection | Usually no (immunocompetent); chronic in immunosuppressed |
+| **Vaccine available** | **Yes** | **Yes** | No | Indirect (via HBV vaccine) | Yes (China only) |
+| **Fulminant hepatitis** | Rare | Rare; risk increased with HDV coinfection | Very rare | High in HDV superinfection | High in pregnancy (especially 3rd trimester) |
+| **HCC risk** | No | Yes (even without cirrhosis) | Yes (with cirrhosis) | Yes | Rare |
+
+## Hepatitis A virus (HAV)
+
+- Single-stranded RNA picornavirus.
+- Faecal-oral transmission; outbreaks linked to contaminated food and water, particularly seafood from sewage-polluted waters. International travel is the commonest risk factor in UK cases.
+- Self-limiting acute illness in most adults; **does not cause chronic hepatitis**.
+- Around 1% develop **fulminant hepatic failure**; risk highest in older patients and those with pre-existing liver disease.
+- Histology: acute hepatitis with **periportal (zone 1) inflammation and spotty necrosis** — a distinctive feature among the viral hepatitides.
+- Diagnosis: **anti-HAV IgM** (acute infection); anti-HAV IgG (past infection or immunisation).
+- Management: supportive. **Vaccine** is highly effective; recommended for travellers to endemic areas, men who have sex with men, IVDU, chronic liver disease, occupational risk.
+
+## Hepatitis B virus (HBV)
+
+### Virology
+- Partially double-stranded DNA hepadnavirus.
+- Replicates via a reverse transcriptase, producing covalently closed circular DNA (cccDNA) in hepatocyte nuclei that persists for the life of the cell — the basis for difficulty in achieving cure.
+- Genome encodes: surface antigen (HBsAg), core antigen (HBcAg, intracellular), e antigen (HBeAg, secreted, marker of replication), DNA polymerase, X protein.
+
+### Transmission and natural history
+- Blood, sexual, and vertical (mother-to-child) transmission.
+- **Vertical transmission** is the dominant route worldwide; 90% of infants exposed perinatally develop chronic infection (compared with 5-10% of immunocompetent adults).
+- Phases of chronic HBV: immune tolerant → immune active → inactive carrier → reactivation (possibly).
+
+### Serology (essential for MRCP)
+
+| Marker | Meaning |
+| --- | --- |
+| **HBsAg** | Surface antigen — present in acute and chronic infection. Indicates infectivity |
+| **Anti-HBs** | Antibody to surface antigen — indicates immunity, from past infection or vaccination |
+| **HBeAg** | E antigen — high replication and infectivity |
+| **Anti-HBe** | Antibody to e antigen — usually lower infectivity (but watch for pre-core mutants — HBeAg-negative but viraemic) |
+| **HBcAb (anti-HBc) IgM** | Recent infection (acute or reactivation) |
+| **HBcAb IgG** | Past or chronic infection — **never positive after vaccination alone** (key distinguishing point — vaccinated patients have only anti-HBs) |
+| **HBV DNA** | Viral load — directs therapy |
+
+### Histology of chronic HBV
+- **"Ground-glass" hepatocytes**: hepatocytes with a homogeneous, pale, eosinophilic cytoplasm containing accumulated HBsAg — a classical and high-yield finding.
+- Variable lobular and interface hepatitis.
+- Progressive fibrosis to cirrhosis.
+- Increased risk of HCC even **without cirrhosis** (HBV integrates into the host genome).
+
+### Management
+- **Acute HBV**: usually self-limiting; only severe or fulminant cases need antiviral therapy.
+- **Chronic HBV**: treat if HBV DNA greater than 2000 IU/mL with ALT raised, or significant fibrosis/cirrhosis on biopsy or non-invasive testing.
+  - **Tenofovir** (TDF or TAF) or **entecavir** — high genetic barrier nucleos(t)ide analogues, first-line.
+  - **Pegylated interferon alpha** — finite course of 48 weeks, lower seroconversion rate, more side effects.
+  - **Goal** is HBV DNA suppression and (rarely) functional cure with HBsAg loss. Lifelong therapy is usual.
+- Screening for HCC with 6-monthly ultrasound in cirrhotic patients, in non-cirrhotic Asian men over 40, African patients over 20, and those with a family history of HCC.
+
+### Vaccination
+- Highly effective recombinant HBsAg vaccine (3-dose schedule).
+- UK universal childhood vaccination since 2017.
+- **Hepatitis B immunoglobulin (HBIG)** given to non-immune individuals after high-risk exposure (needlestick, neonate of HBsAg-positive mother).
+
+## Hepatitis C virus (HCV)
+
+### Virology and transmission
+- Single-stranded RNA flavivirus.
+- Six major genotypes (1-6); the commonest in the UK are genotype 1 and 3.
+- **Blood-borne**: IVDU is the dominant route in the UK; transfusion was a major route before 1991 (screening introduced).
+- Sexual transmission is uncommon except in HIV-positive men who have sex with men. Vertical transmission is around 5%.
+
+### Natural history
+- Acute HCV is usually subclinical.
+- **60-85% develop chronic infection** (the highest chronicity rate of the hepatotropic viruses).
+- 20-30% of chronically infected patients develop cirrhosis over 20-30 years.
+- Of cirrhotics, 1-4% per year develop HCC.
+
+### Extra-hepatic manifestations
+- **Mixed cryoglobulinaemia** with palpable purpura, arthralgia, peripheral neuropathy, glomerulonephritis (cryoglobulinaemic membranoproliferative GN).
+- **Membranoproliferative glomerulonephritis**.
+- **Lichen planus**.
+- **Porphyria cutanea tarda**.
+- **B-cell non-Hodgkin lymphoma**.
+- Type 2 diabetes mellitus.
+
+### Histology
+- Mild-to-moderate lymphocytic portal inflammation with **lymphoid follicles** (sometimes with germinal centres) — a relatively distinctive feature.
+- Macrovesicular steatosis, especially in genotype 3.
+- Bile duct damage.
+- Progressive fibrosis.
+
+### Diagnosis
+- **Anti-HCV antibody** for screening (remains positive after cure).
+- **HCV RNA (PCR)** confirms active infection.
+- **Genotype** previously guided therapy but is less critical with modern pangenotypic agents.
+
+### Treatment
+- **Direct-acting antivirals (DAAs)** have revolutionised HCV care:
+  - **Sofosbuvir/velpatasvir** (Epclusa) — pangenotypic, 12 weeks.
+  - **Glecaprevir/pibrentasvir** (Maviret) — pangenotypic, 8-16 weeks.
+- **Cure rates greater than 95%** in 8-12 weeks of oral therapy.
+- Cure (sustained virological response at 12 weeks, SVR12) reduces but does not eliminate HCC risk in cirrhotic patients; HCC surveillance continues after cure.
+- No HCV vaccine.
+
+## Hepatitis D virus (HDV, delta agent)
+
+- A defective RNA virus that requires HBsAg to assemble its envelope and replicate.
+- Modes of infection:
+  - **Coinfection**: simultaneous acute HBV and HDV — similar course to acute HBV but with biphasic transaminase rises.
+  - **Superinfection**: HDV acquired by a chronic HBV carrier — high risk of fulminant hepatitis and accelerated progression to cirrhosis.
+- Diagnosis: anti-HDV antibody, HDV RNA.
+- Treatment: pegylated interferon alpha was historically the only option (limited efficacy); **bulevirtide** (an HDV entry inhibitor) is now licensed in Europe and improves outcomes.
+
+## Hepatitis E virus (HEV)
+
+- Single-stranded RNA hepevirus.
+- Faecal-oral transmission; major waterborne outbreaks in Asia and Africa; in the UK, **zoonotic** transmission from undercooked pork is now the dominant route (genotype 3).
+- Usually self-limiting acute hepatitis with no chronic carriage in immunocompetent patients.
+- **High mortality in pregnant women** (up to 25% in third trimester) — a key MRCP point.
+- **Chronic infection** is now recognised in **immunocompromised patients** (solid organ transplant recipients, HIV, haematological malignancy); progresses rapidly to cirrhosis.
+- Diagnosis: anti-HEV IgM (acute), HEV RNA (chronic, immunosuppressed).
+- Management: supportive in acute disease; **ribavirin** (with or without reduction in immunosuppression) for chronic infection in transplant recipients.
+
+## Other viruses
+
+Several non-hepatotropic viruses cause hepatitis as part of systemic infection:
+- **Epstein-Barr virus (EBV)** in infectious mononucleosis: mild hepatitis is common.
+- **Cytomegalovirus (CMV)** in immunocompromised hosts.
+- **Herpes simplex virus** can cause severe fulminant hepatitis in pregnancy and immunocompromised hosts (often anicteric — "ALT in the thousands without jaundice").
+- **Yellow fever**, **dengue**, **Ebola**, **Lassa fever**: viral haemorrhagic fevers with hepatitis as a component.`,
+        },
+        {
+          id: "autoimmune_hepatitis_path",
+          name: "Autoimmune Hepatitis",
+          content: `## Definition
+
+Autoimmune hepatitis (AIH) is a chronic, progressive immune-mediated inflammatory liver disease characterised by interface hepatitis, hypergammaglobulinaemia (raised IgG), autoantibodies, and a brisk response to immunosuppression.
+
+## Epidemiology
+
+- Predominantly affects **women** (around 75-80% of cases).
+- **Bimodal age distribution**: a peak in adolescence to young adulthood and a second peak postmenopause.
+- Associated with HLA-DR3 (younger patients, more aggressive disease) and HLA-DR4 (older patients, milder disease, better steroid response).
+
+## Associated autoimmune conditions
+
+In around 30-50% of patients another autoimmune disorder coexists:
+- Autoimmune thyroid disease (Hashimoto's, Graves').
+- Coeliac disease.
+- Type 1 diabetes mellitus.
+- Rheumatoid arthritis, systemic lupus erythematosus, Sjögren's syndrome.
+- Inflammatory bowel disease (especially ulcerative colitis).
+- Vitiligo.
+- Primary biliary cholangitis or primary sclerosing cholangitis (the **overlap syndromes**).
+
+## Classification
+
+| Type | Antibody profile | Demographic |
+| --- | --- | --- |
+| **Type 1** (about 80%) | **Antinuclear antibody (ANA)** and/or **anti-smooth muscle antibody (SMA, directed against F-actin)**; raised IgG; anti-soluble liver antigen/liver-pancreas antibody (anti-SLA/LP) in a subset | Any age; female predominance; less severe |
+| **Type 2** (about 20%) | **Anti-liver-kidney microsomal antibody type 1 (anti-LKM1)**, directed against cytochrome P450 2D6; ± anti-liver cytosol type 1 (anti-LC1) | Predominantly children and young adults; often more aggressive |
+
+A small proportion of patients are autoantibody-negative but otherwise have the typical clinical and histological features and respond to immunosuppression ("seronegative AIH").
+
+## Histopathology
+
+The hallmark is **interface hepatitis (piecemeal necrosis)** — lymphoplasmacytic infiltrate spilling across the limiting plate from portal tracts into the parenchyma. Other features:
+- **Plasma cell-rich infiltrate** (a relatively distinctive feature).
+- **Lobular inflammation**, sometimes with hepatocyte rosetting.
+- **Emperipolesis** (lymphocytes within hepatocytes).
+- Variable bridging necrosis and fibrosis; cirrhosis in established disease (around one-third are cirrhotic at diagnosis).
+
+## Clinical features
+
+The clinical spectrum is broad:
+- **Asymptomatic** (about 25%) — incidental finding of abnormal liver function tests.
+- **Insidious chronic hepatitis**: fatigue, malaise, joint pain, intermittent jaundice over months.
+- **Acute hepatitis** mimicking viral or drug-induced injury.
+- **Acute liver failure** — rare but described.
+- **Decompensated cirrhosis** at first presentation.
+
+Examination may show stigmata of chronic liver disease; cushingoid features develop with treatment.
+
+## Investigations
+
+- Liver function tests: **hepatitic** pattern (transaminases raised, often markedly), with progressively rising bilirubin and a falling albumin in advanced disease.
+- **Immunoglobulins**: characteristically raised **IgG**, often greater than 1.5 times the upper limit of normal. Useful for monitoring response.
+- **Autoantibodies**: ANA, SMA, anti-LKM1, anti-SLA/LP, anti-LC1.
+- Negative viral hepatitis serology, normal copper studies, normal alpha-1 antitrypsin, normal ferritin and transferrin saturation.
+- **Liver biopsy** is recommended in all patients to confirm the diagnosis, assess severity, and exclude overlap syndromes — although treatment can be started before biopsy in fulminant cases.
+
+### Diagnostic scoring
+
+The **International Autoimmune Hepatitis Group (IAIHG) simplified diagnostic criteria** combine autoantibody titres, IgG, histology, and exclusion of viral hepatitis to give a probability score.
+
+## Treatment
+
+The objective is to induce and maintain **biochemical remission** (normalisation of ALT, AST, and IgG) and to suppress histological activity.
+
+### Induction of remission
+- **Prednisolone** alone (30-40 mg daily, tapering over weeks), OR
+- **Prednisolone (20-30 mg) plus azathioprine (1-2 mg/kg)** — combination therapy reduces steroid dose and side effects.
+- **Budesonide** is an alternative to prednisolone in non-cirrhotic patients; less systemic steroid effect but contraindicated in cirrhosis (portosystemic shunting bypasses first-pass metabolism).
+
+### Maintenance
+- Lower-dose **prednisolone (5-10 mg daily) plus azathioprine** for at least 2-3 years after remission.
+- **Mycophenolate mofetil** or tacrolimus as second-line for azathioprine intolerance or non-response.
+- TPMT (thiopurine methyltransferase) activity should be tested before starting azathioprine.
+
+### Withdrawal of immunosuppression
+- May be considered after at least 2-3 years of sustained biochemical and histological remission.
+- Relapse occurs in 50-80% of patients after withdrawal; many require lifelong therapy.
+
+### Refractory disease
+- Around 10-15% of patients fail to respond or relapse repeatedly.
+- Options: tacrolimus, mycophenolate, cyclosporin, rituximab, infliximab.
+
+## Liver transplantation
+
+- Indicated for decompensated cirrhosis or acute liver failure not responding to medical therapy.
+- Excellent outcomes; 5-year survival around 85%.
+- **Recurrent AIH** in the graft occurs in around 20-40%, often within a year, and is managed with intensified immunosuppression.
+
+## Variant ("overlap") syndromes
+
+AIH may overlap with:
+- **Primary biliary cholangitis** (AIH-PBC overlap): cholestatic pattern with raised AMA in addition to AIH features; managed with combined ursodeoxycholic acid and immunosuppression.
+- **Primary sclerosing cholangitis** (AIH-PSC overlap): more common in younger patients with inflammatory bowel disease; typical MRCP/ERCP findings of PSC alongside autoimmune hepatitis features.
+
+## Prognosis
+
+With treatment, 10-year survival is around 90% in non-cirrhotic patients and around 65% in those who present with cirrhosis. Without treatment, 6-month mortality of severe untreated AIH was around 40% in historical series.`,
+        },
+        {
+          id: "cholestatic_pbc_psc",
+          name: "Primary Biliary Cholangitis & Primary Sclerosing Cholangitis",
+          content: `## Overview
+
+Primary biliary cholangitis (PBC) and primary sclerosing cholangitis (PSC) are chronic **cholestatic liver diseases** characterised by progressive bile duct destruction, eventual cirrhosis, and increased risk of malignancy. Despite both being cholestatic, they differ markedly in epidemiology, immunology, imaging, treatment, and associated diseases.
+
+## Primary biliary cholangitis (PBC)
+
+(Renamed from "primary biliary cirrhosis" in 2015 because most patients are now diagnosed before cirrhosis develops.)
+
+### Definition and pathology
+PBC is a chronic autoimmune inflammatory disease causing **destruction of small and medium-sized intrahepatic bile ducts**, leading to cholestasis and (over many years) cirrhosis.
+
+### Epidemiology
+- **F:M ratio 10:1**.
+- **Peak incidence 40-60 years**.
+- Strong association with other autoimmune conditions: Sjögren's syndrome (sicca), autoimmune thyroid disease, systemic sclerosis (especially limited cutaneous / CREST), rheumatoid arthritis, coeliac disease.
+
+### Immunology
+- **Anti-mitochondrial antibody (AMA)** is positive in **over 95%** — directed against the **E2 subunit of the pyruvate dehydrogenase complex** on the inner mitochondrial membrane. Highly specific for PBC.
+- **Anti-nuclear antibodies** (anti-sp100 and anti-gp210) are positive in around 30%, with anti-gp210 associated with worse prognosis.
+- Raised **IgM**.
+
+### Histopathology
+- **Florid duct lesion**: dense lymphoplasmacytic and granulomatous destruction of interlobular bile ducts (a hallmark; "**granulomas around bile ducts**").
+- Progressive ductopenia.
+- Periportal "biliary interface hepatitis".
+- Progressive fibrosis and eventual biliary cirrhosis.
+- **Copper deposition** in periportal hepatocytes (chronic cholestasis), stainable with orcein or rhodanine.
+
+### Clinical features
+- Often asymptomatic at diagnosis (found by raised ALP on routine testing).
+- **Fatigue** (the commonest symptom; often severe, may persist after transplant).
+- **Pruritus** (often nocturnal and severe; can be the dominant symptom).
+- Right upper quadrant discomfort.
+- Late features: jaundice, xanthelasma, hepatomegaly, splenomegaly, decompensated cirrhosis.
+
+### Associated and complications
+- **Sicca syndrome** (dry eyes, dry mouth).
+- **Osteoporosis** (chronic cholestasis impairs vitamin D and calcium absorption).
+- **Hyperlipidaemia**, particularly raised cholesterol with characteristic **xanthelasma**; cardiovascular risk is not increased above baseline.
+- **Fat-soluble vitamin (A, D, E, K) deficiency**.
+- **Hepatocellular carcinoma** (in cirrhotic patients only).
+
+### Investigations
+- Liver function tests: **cholestatic pattern** (markedly raised ALP and GGT, with bilirubin rising only later).
+- **AMA-positive**, raised IgM.
+- **Ultrasound**: typically normal — no bile duct dilatation (a useful distinguishing feature from PSC).
+- MRCP usually unnecessary if the diagnostic triad is present; consider to exclude PSC if AMA-negative.
+- **Liver biopsy** confirms diagnosis when the typical biochemical and serological findings are absent, or when overlap with autoimmune hepatitis is suspected.
+
+### Management
+- **Ursodeoxycholic acid (UDCA)** 13-15 mg/kg/day: the foundation of treatment. Improves liver biochemistry, slows progression, and improves transplant-free survival. Around 60% achieve adequate biochemical response.
+- **Obeticholic acid** (an FXR agonist) for second-line treatment in patients with inadequate response to UDCA (POISE trial). Side effect: pruritus.
+- **Pruritus** management ladder: cholestyramine first-line; rifampicin, naltrexone, or sertraline second-line.
+- **Bisphosphonates** for osteoporosis prophylaxis and treatment, with calcium and vitamin D.
+- **Fat-soluble vitamin replacement**.
+- **Liver transplantation** for decompensated disease or intractable symptoms (fatigue, pruritus); excellent post-transplant survival but PBC may recur in the graft.
+
+### Prognosis
+Variable — slowly progressive over 10-20 years in most patients. The **GLOBE score** and **UK-PBC risk score** stratify response to UDCA and prognosis.
+
+## Primary sclerosing cholangitis (PSC)
+
+### Definition and pathology
+PSC is a chronic inflammatory and fibrosing disease of the **intrahepatic and extrahepatic bile ducts**, producing multifocal stricture formation and progressive cholestasis.
+
+### Epidemiology
+- **M:F ratio 2:1**.
+- Median age at diagnosis around 40 years.
+- **Strong association with inflammatory bowel disease**: 70-80% of PSC patients have IBD (usually pancolitic ulcerative colitis), although only 5-7% of UC patients develop PSC.
+
+### Histopathology
+- Concentric **"onion-skin" periductal fibrosis** around interlobular bile ducts — the classical histological hallmark.
+- Bile duct atrophy and disappearance (ductopenia).
+- Lymphocytic infiltrate.
+- Progressive biliary cirrhosis.
+
+### Clinical features
+- Often asymptomatic at diagnosis (incidental cholestasis or following IBD work-up).
+- Fatigue, pruritus, intermittent right upper quadrant pain.
+- **Recurrent episodes of cholangitis** (fever, jaundice, right upper quadrant pain) in advanced disease.
+- Late features: jaundice, weight loss, decompensated cirrhosis.
+
+### Investigations
+- Liver function tests: cholestatic pattern.
+- **Atypical perinuclear anti-neutrophil cytoplasmic antibody (p-ANCA, atypical or 'x-ANCA')**: positive in around 80%, but not specific.
+- ANA and SMA can be weakly positive.
+- **Magnetic resonance cholangiopancreatography (MRCP)** is the diagnostic test of choice: shows multifocal strictures and dilations producing a "**beaded**" appearance of the biliary tree, sometimes with diverticular outpouchings.
+- **ERCP** with brush cytology is reserved for therapeutic intervention or when cholangiocarcinoma is suspected.
+- Liver biopsy is not usually required (sampling error and disease patchiness limit its value), but may identify small-duct PSC (a milder variant with normal cholangiography).
+- **Colonoscopy with biopsies** to identify or characterise associated IBD, and for colorectal cancer surveillance.
+
+### Associations and complications
+- **Cholangiocarcinoma**: 10-15% lifetime risk; the leading malignancy in PSC and a major cause of mortality. Surveillance (with CA 19-9, MRI/MRCP) is recommended but its efficacy is uncertain.
+- **Gallbladder cancer**: increased risk; any gallbladder polyp warrants cholecystectomy.
+- **Colorectal cancer**: PSC plus ulcerative colitis carries a markedly elevated risk — annual surveillance colonoscopy from diagnosis is recommended.
+- **Recurrent ascending cholangitis**, often Gram-negative.
+- **Hepatocellular carcinoma** in cirrhotic patients.
+- **Fat-soluble vitamin deficiency**, osteoporosis, fatigue, pruritus (as in any cholestatic disease).
+
+### Management
+- **No proven disease-modifying medical therapy**. Ursodeoxycholic acid is widely used despite mixed evidence; **high-dose** UDCA (28-30 mg/kg/day) showed harm in one trial and should be avoided.
+- **Endoscopic management of dominant strictures**: ERCP with balloon dilatation; stenting reserved for refractory strictures. Brush cytology and fluorescence in situ hybridisation (FISH) at each ERCP to screen for cholangiocarcinoma.
+- **Recurrent cholangitis**: prophylactic antibiotics in selected patients; treat episodes with broad-spectrum cover.
+- **Liver transplantation** is the only effective treatment for advanced disease; allocation typically uses MELD or UKELD. Recurrence in the graft occurs in around 20%.
+- **Symptom management**: cholestyramine, rifampicin, naltrexone, sertraline for pruritus; bisphosphonates for osteoporosis.
+
+### IgG4-related sclerosing cholangitis
+An important mimic of PSC: part of the IgG4-related disease spectrum (covered in the Chronic Pancreatitis topic). Distinguishing features include:
+- Older patient.
+- Raised serum IgG4.
+- IgG4-positive plasma cell infiltrate on biopsy.
+- Associated autoimmune pancreatitis, retroperitoneal fibrosis, dacryoadenitis.
+- **Highly responsive to corticosteroids** (unlike true PSC).
+
+## Comparison table — PBC vs PSC
+
+| Feature | PBC | PSC |
+| --- | --- | --- |
+| **Sex** | F:M 10:1 | M:F 2:1 |
+| **Age** | 40-60 | Around 40 |
+| **Association** | Sjögren's, autoimmune thyroid, systemic sclerosis | **Inflammatory bowel disease (especially UC)** |
+| **Duct involvement** | **Small/medium intrahepatic** | **Intrahepatic + extrahepatic** |
+| **Key antibody** | **Anti-mitochondrial antibody (AMA)** | **p-ANCA (atypical)** |
+| **Immunoglobulin** | Raised IgM | Variable; raised IgG/IgM |
+| **Ultrasound** | Normal — no duct dilatation | Bile duct dilatation |
+| **MRCP/ERCP** | Normal duct tree | **Multifocal strictures — "beaded" appearance** |
+| **Histology** | **Florid duct lesion with granulomas** | **Onion-skin periductal fibrosis** |
+| **Treatment** | UDCA, obeticholic acid | No proven disease-modifying therapy; endoscopic stricture management; transplant |
+| **Cancer risk** | HCC if cirrhotic | **Cholangiocarcinoma** (10-15%), gallbladder, colorectal (if UC) |`,
+        },
+        {
+          id: "haemochromatosis",
+          name: "Hereditary Haemochromatosis",
+          content: `## Definition
+
+Hereditary haemochromatosis is an **autosomal recessive disorder of iron metabolism** producing inappropriate iron absorption from the duodenum, with progressive iron deposition in liver, heart, pancreas, joints, skin, and endocrine organs.
+
+It is one of the **commonest inherited disorders in Caucasians** of Northern European descent.
+
+## Genetics
+
+- **HFE gene** on chromosome **6p21.3** (close to the HLA locus).
+- **C282Y mutation**: a cysteine-to-tyrosine substitution at position 282; **homozygosity** accounts for around 80-90% of clinical disease.
+- **H63D mutation**: a histidine-to-aspartate substitution; usually clinically significant only as compound heterozygosity (**C282Y/H63D**), and even then with reduced penetrance.
+- **Heterozygote carrier frequency** for C282Y is around 1 in 10 in northern Europeans; **homozygote prevalence** around 1 in 200-400.
+- **Penetrance** is incomplete — only around 30% of C282Y homozygotes develop clinical disease. Female carriers tend to present later (menstrual iron loss is protective).
+- Rare non-HFE forms exist:
+  - **Juvenile haemochromatosis** (HJV — hemojuvelin; HAMP — hepcidin) presents under age 30 with severe cardiac and endocrine disease.
+  - **Transferrin receptor 2 (TFR2)** mutations.
+  - **Ferroportin disease (SLC40A1)** — usually autosomal dominant.
+
+## Pathophysiology
+
+HFE protein normally regulates the production of **hepcidin** (the master regulator of iron homeostasis, made by hepatocytes). Hepcidin binds **ferroportin** on enterocytes and macrophages, causing its internalisation and degradation — reducing dietary iron absorption and macrophage iron release.
+
+In HFE haemochromatosis, hepcidin levels are inappropriately low, ferroportin activity is preserved, and **dietary iron absorption is upregulated despite excess body iron**.
+
+Excess iron is then deposited in tissues, where it generates reactive oxygen species (Fenton reaction) producing oxidative damage to:
+- **Liver** (zone 1 periportal hepatocytes first): progressive fibrosis, cirrhosis, and hepatocellular carcinoma.
+- **Heart**: dilated and restrictive cardiomyopathy, arrhythmia.
+- **Pancreas** (islets): "bronze diabetes".
+- **Pituitary**: hypogonadotrophic hypogonadism.
+- **Anterior pituitary**: panhypopituitarism in advanced disease.
+- **Skin**: melanin and iron deposition produce a slate-grey/bronze pigmentation.
+- **Joints**: pseudo-osteoarthritis pattern, classically affecting the second and third metacarpophalangeal joints; chondrocalcinosis on X-ray.
+
+## Clinical features
+
+Disease typically presents in the **fifth decade** in men and **postmenopausally** in women.
+
+### Classical features
+- **Skin bronzing** (combined melanin and iron deposition).
+- **Diabetes mellitus** ("bronze diabetes").
+- **Hepatomegaly** with cirrhosis.
+- **Cardiomyopathy** (dilated or restrictive), arrhythmias.
+- **Hypogonadism** (loss of libido, erectile dysfunction, amenorrhoea, infertility) from hypothalamic-pituitary iron deposition.
+- **Arthropathy**: pseudo-OA pattern affecting the **second and third MCP joints** (a key MRCP point); chondrocalcinosis with pseudogout-like episodes.
+- **Pseudogout** (calcium pyrophosphate deposition).
+- Fatigue (a common early symptom).
+- Hypothyroidism in some patients.
+
+### Late and complicated features
+- Decompensated cirrhosis.
+- **Hepatocellular carcinoma**: up to 200-fold increased risk; develops in around 30% of cirrhotic patients.
+- Heart failure.
+
+## Investigations
+
+### Iron studies
+- **Raised serum ferritin** (acute phase reactant; also raised in inflammation, alcohol, malignancy, hyperthyroidism).
+- **Raised transferrin saturation** (the most sensitive and earliest marker; greater than 45% is suggestive, greater than 60% in men or greater than 50% in women is highly suggestive).
+- **Raised serum iron**.
+- **Reduced total iron-binding capacity (TIBC)**.
+
+### Genetic testing
+- **HFE genotyping** for C282Y and H63D in patients with raised transferrin saturation or unexplained chronic liver disease.
+
+### Liver assessment
+- **MRI T2*** (or **R2*** by ferriscan): non-invasive quantification of hepatic iron content; largely replaces liver biopsy for this purpose.
+- **Liver biopsy** historically the gold standard, with hepatic iron index (μmol iron per gram dry weight divided by age in years) over 1.9 being diagnostic. Now reserved for staging fibrosis and confirming uncertain cases.
+
+### Other organ assessment
+- HbA1c, fasting glucose.
+- Echocardiogram and cardiac MRI for cardiomyopathy assessment.
+- LH, FSH, testosterone, oestradiol, TSH.
+- Joint X-rays for chondrocalcinosis.
+
+## Histology
+- Iron-laden hepatocytes (zone 1 first, then panlobular in established disease), stained blue by **Perls' Prussian blue** stain.
+- Progressive fibrosis culminating in micronodular cirrhosis.
+
+## Management
+
+### Venesection (the cornerstone)
+- **Induction**: 500 mL whole blood (≈ 250 mg iron) **weekly or twice-weekly** until serum ferritin falls below 50 μg/L and transferrin saturation falls below 50%.
+- **Maintenance**: typically 2-4 venesections per year, lifelong, to maintain ferritin within target range.
+
+### Iron chelation
+- **Desferrioxamine** (parenteral) for patients unable to tolerate venesection (e.g. severe cardiomyopathy or anaemia).
+- **Deferasirox** and **deferiprone** (oral chelators) are used in transfusional iron overload (thalassaemia, MDS) — less established in primary haemochromatosis.
+
+### Dietary advice
+- Avoid iron supplements and **vitamin C supplements with meals** (vitamin C enhances iron absorption).
+- Limit alcohol (which accelerates liver injury).
+- Avoid raw shellfish (Vibrio vulnificus infection has higher mortality in iron-overloaded patients).
+
+### Hepatocellular carcinoma surveillance
+- All cirrhotic patients require **6-monthly ultrasound** surveillance, with or without alpha-fetoprotein.
+
+### Family screening
+- First-degree relatives should be offered iron studies and HFE genotyping.
+
+## Prognosis
+- Early diagnosis and treatment before cirrhosis is established results in **normal life expectancy**.
+- Once cirrhosis develops, the principal cause of death is **hepatocellular carcinoma**; the risk is not eliminated by subsequent iron depletion (although it falls).
+
+## Secondary iron overload (for distinction)
+
+Iron overload can also be acquired:
+- **Transfusional**: thalassaemia major, sickle cell disease, myelodysplastic syndromes — each unit of red cells delivers around 200-250 mg of iron, which has no excretion pathway.
+- **Ineffective erythropoiesis** with raised gut iron absorption: thalassaemia intermedia, sideroblastic anaemia.
+- **Chronic liver disease**: alcoholic liver disease and porphyria cutanea tarda can produce modest iron overload, and may unmask haemochromatosis.
+
+In transfusional iron overload, venesection is not appropriate; iron chelation is required.`,
+        },
+        {
+          id: "wilson_a1at",
+          name: "Wilson Disease & Alpha-1 Antitrypsin Deficiency",
+          content: `## Wilson's disease
+
+### Definition
+Wilson's disease is an **autosomal recessive disorder of copper metabolism** producing copper accumulation in liver, brain, cornea, and other tissues. It is rare but treatable; missed diagnosis is fatal, so a high index of suspicion is essential.
+
+### Genetics
+- **ATP7B gene** on chromosome **13q14**.
+- Encodes a **copper-transporting ATPase** expressed on the canalicular membrane of hepatocytes; responsible for biliary copper excretion and incorporation of copper into ceruloplasmin.
+- Over 600 mutations described; most patients are compound heterozygotes — limits the utility of single-mutation screening.
+- Prevalence around **1 in 30,000-100,000**.
+
+### Pathophysiology
+- ATP7B dysfunction reduces:
+  - Hepatocyte excretion of copper into bile (the principal route of copper excretion).
+  - Incorporation of copper into apoceruloplasmin to form mature ceruloplasmin.
+- Free copper accumulates in hepatocytes, generating oxidative damage, then spills into the bloodstream and deposits in extrahepatic tissues — particularly the **basal ganglia**, the **cornea** (Descemet's membrane), and the kidneys.
+
+### Presentation by age
+- **Children and young adults (typically 10-25 years)**: usually present with **hepatic disease** — chronic hepatitis, cirrhosis, or acute liver failure with the classical pattern of:
+  - **Coombs-negative haemolytic anaemia** (free copper damages red cells).
+  - **Disproportionately low alkaline phosphatase** relative to the height of bilirubin (the **ALP:bilirubin ratio less than 4** is highly suggestive).
+  - **Low ratio of AST to ALT** is unusual — AST often dominates.
+- **Young adults (typically 20-30 years)**: more often present with **neuropsychiatric disease**:
+  - **Parkinsonism**: tremor (classically wing-beating), rigidity, bradykinesia.
+  - **Dysarthria, drooling, dystonia**.
+  - **Cerebellar signs**: ataxia.
+  - **Personality change**, depression, psychosis, cognitive decline.
+- Almost all patients with neurological disease have **Kayser-Fleischer rings** (greenish-brown copper deposits in Descemet's membrane of the cornea) — visible on slit-lamp examination.
+
+### Other features
+- **Sunflower cataracts**.
+- **Renal tubular dysfunction** (Fanconi-like): aminoaciduria, glycosuria, hypercalciuria, distal renal tubular acidosis, renal stones.
+- **Cardiomyopathy** and arrhythmia (rare).
+- **Arthropathy**, osteopenia.
+
+### Investigations
+
+| Test | Finding |
+| --- | --- |
+| **Serum ceruloplasmin** | **Low** (less than 0.2 g/L) in around 80-95%; can be raised by pregnancy, OCP, or inflammation, masking the diagnosis |
+| **Serum total copper** | **Low** (most copper circulates bound to ceruloplasmin) |
+| **Serum free (non-ceruloplasmin-bound) copper** | **Raised** (greater than 25 μg/dL) — more reliable but not widely measured |
+| **24-hour urinary copper** | **Raised** (greater than 100 μg/24 h, but commonly much higher in symptomatic disease; greater than 40 μg/24 h is suspicious) |
+| **Penicillamine challenge** | Marked rise in urinary copper after penicillamine — useful in equivocal cases, particularly in children |
+| **Slit-lamp examination** | **Kayser-Fleischer rings** (present in over 95% of neurological cases) |
+| **Liver biopsy** | Markedly raised hepatic copper content (greater than 250 μg/g dry weight is diagnostic). **Rhodanine** or **orcein** stain shows copper-binding protein. Mallory-Denk bodies and fibrosis in established disease |
+| **MRI brain** | "**Face of the giant panda**" sign in the midbrain (high signal in tegmentum, with sparing of red nuclei and lateral substantia nigra). Lentiform nucleus changes also common |
+| **Genetic testing** | ATP7B sequencing — useful for confirmation and family screening |
+
+The **Leipzig criteria** combine biochemical, clinical, and genetic findings to score the diagnostic likelihood.
+
+### Management
+
+- **Lifelong** treatment is essential and disease-modifying.
+- **D-penicillamine**: a copper chelator; first-line in many centres. Side effects include rash, lupus-like syndrome, glomerulonephritis, pyridoxine deficiency, marrow suppression, and (rarely) **paradoxical neurological worsening** at initiation.
+- **Trientine**: an alternative chelator with a better side-effect profile; increasingly preferred as first-line.
+- **Zinc** (zinc acetate or sulphate): induces enterocyte metallothionein, which binds dietary copper and traps it in shed enterocytes. Used either alone (in asymptomatic siblings or as maintenance) or in combination with chelators.
+- **Low-copper diet**: avoid shellfish, liver, nuts, chocolate, mushrooms.
+- **Liver transplantation**: indicated for acute liver failure or decompensated cirrhosis. Transplantation effectively cures the metabolic defect.
+- **Family screening**: siblings should be offered ATP7B genotyping.
+
+### Prognosis
+- With early diagnosis and treatment, prognosis is excellent.
+- Neurological damage is often only partially reversible; hepatic damage is more responsive.
+
+## Alpha-1 antitrypsin (A1AT) deficiency
+
+### Definition
+Alpha-1 antitrypsin deficiency is the **commonest genetic cause of liver disease in children** and an important cause of early-onset emphysema in adults. It is caused by deficient production or misfolding of **alpha-1 antitrypsin**, a serine protease inhibitor produced by the liver.
+
+### Genetics
+- **SERPINA1 gene** on chromosome **14q32**.
+- Inheritance is autosomal **codominant**: each allele contributes independently to circulating A1AT levels.
+- Common alleles (Pi = protease inhibitor):
+  - **M**: normal allele; **PiMM** is the wild-type genotype.
+  - **S**: produces around 60% of normal levels.
+  - **Z**: produces only around 15% of normal levels and the protein misfolds, accumulating in hepatocytes.
+- Common phenotypes:
+  - **PiMZ**: heterozygous carrier; mildly reduced levels; usually asymptomatic but a possible cofactor with other liver insults.
+  - **PiSZ**: moderate deficiency; intermediate risk.
+  - **PiZZ**: severe deficiency; the classical disease genotype.
+
+### Pathophysiology
+- Normal A1AT inhibits **neutrophil elastase** in the lung interstitium.
+- In PiZZ:
+  - **Lung**: low circulating A1AT permits unopposed elastase activity → progressive **panacinar emphysema** (worst at the lung bases, distinguishing it from the upper-lobe predominance of smoking-related centriacinar emphysema). Smoking accelerates dramatically.
+  - **Liver**: misfolded Z protein accumulates as **intracytoplasmic globules in periportal hepatocytes** — the toxic gain-of-function mechanism for liver injury. Histology: **PAS-positive, diastase-resistant globules** within hepatocytes (a high-yield diagnostic finding).
+
+### Clinical features
+
+**Lung**
+- **Early-onset emphysema** (often before age 45), especially in smokers.
+- Lower-lobe predominant panacinar emphysema.
+- Chronic obstructive pulmonary disease, bronchiectasis, recurrent infections.
+- Less common: necrotising granulomatous lesions, panniculitis, ANCA-associated vasculitis (especially anti-PR3 / GPA).
+
+**Liver**
+- **Neonatal jaundice and cholestasis** in around 10% of PiZZ infants; most resolve, but about 3% progress to childhood cirrhosis.
+- **Adult liver disease**: chronic hepatitis, cirrhosis, and hepatocellular carcinoma in a subset of PiZZ adults — often presenting in the sixth or seventh decade.
+
+**Skin**
+- **Panniculitis**: tender, ulcerating subcutaneous nodules.
+
+### Investigations
+- **Serum alpha-1 antitrypsin level**: low (less than 11 μmol/L in severe deficiency); a normal level does not exclude disease as A1AT is an acute phase reactant.
+- **Phenotyping** by isoelectric focusing electrophoresis: identifies M, S, Z, and rare alleles.
+- **Genotyping** for SERPINA1 mutations (especially Z and S).
+- **Liver biopsy**: PAS-positive, diastase-resistant intracytoplasmic globules in periportal hepatocytes; variable fibrosis.
+- **Chest imaging and pulmonary function**: lower-zone emphysema on CT; obstructive pattern with reduced DLCO.
+
+### Management
+
+**Pulmonary**
+- **Smoking cessation** is the single most important intervention.
+- Standard COPD management: bronchodilators, inhaled corticosteroids in selected patients, pulmonary rehabilitation, vaccinations, long-term oxygen therapy.
+- **Augmentation therapy** with intravenous purified human A1AT: available in some countries; modest efficacy with high cost; not currently funded in the UK NHS.
+- **Lung volume reduction surgery** or **lung transplantation** in advanced disease.
+
+**Hepatic**
+- No specific medical therapy; management of complications of liver disease.
+- **Avoid alcohol**.
+- **Hepatocellular carcinoma surveillance** in cirrhotic patients.
+- **Liver transplantation** for decompensated cirrhosis cures the metabolic defect (the new liver produces normal A1AT).
+
+### Family screening
+- First-degree relatives of patients with severe deficiency should be offered phenotyping or genotyping.`,
+        },
+        {
+          id: "liver_tumours",
+          name: "Liver Tumours",
+          content: `## Overview
+
+Hepatic neoplasms are categorised as **benign** or **malignant**, and within malignant tumours, into **primary** and **metastatic** (the latter being the **commonest malignant liver lesion overall**).
+
+## Benign hepatic tumours
+
+### Hepatic haemangioma
+- **The commonest benign liver tumour** (around 5% of adults at autopsy).
+- More common in women; oestrogen-responsive.
+- Asymptomatic in the vast majority; very large lesions may cause pain or, rarely, Kasabach-Merritt syndrome (consumptive coagulopathy).
+- Imaging: characteristic peripheral nodular enhancement with centripetal fill-in on contrast CT or MRI. No biopsy is needed if imaging is typical (and indeed biopsy is contraindicated because of bleeding risk).
+- Management: observation. Resection only for symptomatic or massive lesions.
+
+### Focal nodular hyperplasia (FNH)
+- The second commonest benign hepatic lesion.
+- Predominantly in young women; not driven by the oral contraceptive pill (in contrast to hepatic adenoma).
+- Represents a hyperplastic response to an underlying vascular malformation, **not** a true neoplasm.
+- Histology: hyperplastic hepatocytes with a **central stellate fibrous scar** containing dystrophic vessels; bile ductules at the edge of fibrous septa.
+- Imaging: hyperintense on arterial phase with a central scar (best seen on MRI with hepatobiliary contrast — Eovist).
+- No malignant potential; management is observation.
+
+### Hepatic adenoma
+- A true benign hepatocellular neoplasm.
+- Strong association with **oral contraceptive pill** use (also anabolic steroids in men).
+- May regress on stopping the OCP.
+- Classified molecularly into HNF1α-inactivated (largest group), beta-catenin-activated (higher malignant potential), inflammatory (associated with telangiectatic features), and unclassified subtypes.
+- Clinical features: often asymptomatic; can present with abdominal pain, intraperitoneal haemorrhage (a feared complication, especially in pregnancy or with large lesions), or rarely malignant transformation.
+- Imaging: hyperintense on arterial phase; can be hard to distinguish from FNH or hepatocellular carcinoma — biopsy or excision often required.
+- **Management**:
+  - Stop OCP/anabolic steroids and reassess at 6 months.
+  - **Resection** if symptomatic, greater than 5 cm, not regressing on OCP cessation, beta-catenin-mutated, or in a man.
+  - Caution in pregnancy because of bleeding risk.
+
+### Other benign lesions
+- **Simple hepatic cysts**: very common; observation only.
+- **Cystadenoma** (mucinous cystic neoplasm of the liver): rare; surgical resection because of premalignant potential.
+- **Bile duct hamartoma (von Meyenburg complex)**.
+- **Hepatic lipoma, angiomyolipoma**.
+
+## Hepatocellular carcinoma (HCC)
+
+### Epidemiology
+- The third commonest cause of cancer death worldwide.
+- 80-90% of cases occur on a background of **cirrhosis** of any cause — cirrhosis is the dominant risk factor.
+
+### Risk factors
+- **Hepatitis B** (the leading cause worldwide; risk significant even without cirrhosis because of viral genome integration).
+- **Hepatitis C** (the leading cause in the UK; risk requires cirrhosis).
+- **Alcoholic liver disease** with cirrhosis.
+- **NAFLD/NASH** with cirrhosis (a rising cause).
+- **Haemochromatosis** with cirrhosis (very high lifetime risk).
+- **Alpha-1 antitrypsin deficiency** with cirrhosis.
+- **Aflatoxin B1** (a fungal toxin from Aspergillus flavus contaminating stored grains; particularly relevant in sub-Saharan Africa).
+- **Androgenic anabolic steroids**.
+- **Tyrosinaemia**, glycogen storage diseases.
+
+### Clinical features
+- Most patients are diagnosed asymptomatically through surveillance.
+- Symptomatic presentation: decompensation of cirrhosis (worsening ascites, encephalopathy, jaundice), right upper quadrant pain, weight loss.
+- **Paraneoplastic syndromes**: erythrocytosis (ectopic erythropoietin), hypoglycaemia (ectopic insulin-like growth factor), hypercalcaemia (PTHrP), polymyalgia, watery diarrhoea.
+- **Hepatic arterial bruit** in some patients.
+
+### Surveillance
+All cirrhotic patients require **6-monthly ultrasound** of the liver, with or without alpha-fetoprotein. AFP alone is not sensitive or specific enough.
+
+### Investigations
+- **Alpha-fetoprotein (AFP)**: raised in around 60-70%; a level greater than 400 ng/mL is highly suggestive. AFP is also raised in pregnancy, germ cell tumours, and benign liver disease.
+- **Imaging** (the diagnostic test of choice — biopsy is often unnecessary):
+  - **Multiphase contrast-enhanced CT or MRI**: classical HCC shows **arterial-phase hyperenhancement** with **venous- or delayed-phase washout** ("hypervascular with washout"). The **LI-RADS** system formalises imaging-based diagnosis.
+- **Biopsy** when imaging is inconclusive or for biomarker testing in advanced disease — generally avoided in resectable disease because of seeding risk.
+
+### Staging
+**Barcelona Clinic Liver Cancer (BCLC) staging** integrates tumour burden, liver function (Child-Pugh), and performance status, and directs management:
+
+| Stage | Features | First-line management |
+| --- | --- | --- |
+| **0 — very early** | Single nodule less than 2 cm, no portal hypertension, Child-Pugh A, PS 0 | Curative: ablation, resection, or transplantation |
+| **A — early** | 1-3 nodules each less than 3 cm or single larger nodule; preserved function | Resection, transplantation, or local ablation |
+| **B — intermediate** | Multinodular, no vascular invasion or extrahepatic spread | **Transarterial chemoembolisation (TACE)** |
+| **C — advanced** | Vascular invasion or extrahepatic spread; PS 1-2 | **Systemic therapy** (see below) |
+| **D — terminal** | Severe decompensation, PS greater than 2 | Best supportive care |
+
+### Treatment
+
+**Curative**
+- **Resection**: for single tumours in preserved liver function without portal hypertension.
+- **Liver transplantation**: indications based on the **Milan criteria** (single tumour ≤ 5 cm, or up to 3 tumours each ≤ 3 cm, without vascular invasion or extrahepatic disease). Some centres use extended criteria (UCSF). Transplantation treats both the cancer and the underlying liver disease.
+- **Local ablation**: radiofrequency or microwave ablation for lesions less than 3 cm; comparable outcomes to resection in small tumours.
+
+**Locoregional**
+- **Transarterial chemoembolisation (TACE)**: intra-arterial delivery of chemotherapy (typically doxorubicin) plus arterial embolisation; first-line for BCLC B.
+- **Transarterial radioembolisation (TARE / SIRT)**: yttrium-90-loaded microspheres.
+
+**Systemic (advanced disease)**
+- **Atezolizumab + bevacizumab** (anti-PD-L1 + anti-VEGF): first-line for advanced HCC, based on the IMbrave150 trial — superior to sorafenib.
+- **Durvalumab + tremelimumab** (anti-PD-L1 + anti-CTLA-4): alternative first-line (HIMALAYA trial).
+- **Tyrosine kinase inhibitors**:
+  - **Sorafenib** (the original first-line agent; modest survival benefit).
+  - **Lenvatinib**: non-inferior to sorafenib (REFLECT trial).
+  - Second-line: **regorafenib**, **cabozantinib**, **ramucirumab** (for AFP ≥ 400).
+- Immune checkpoint inhibitors as second-line: nivolumab, pembrolizumab.
+
+### Prognosis
+Depends on stage and liver function. With curative resection or transplantation, 5-year survival can exceed 60%. With advanced disease and modern systemic therapy, median survival is around 12-18 months.
+
+## Intrahepatic cholangiocarcinoma
+
+A primary malignancy of the intrahepatic biliary epithelium. Detailed in the **Pancreatic Pathology → Biliary Pathology** topic.
+
+Key points specific to intrahepatic cholangiocarcinoma:
+- Around 10% of liver malignancies.
+- Risk factors: PSC, hepatitis B and C, cirrhosis, liver flukes, hepatolithiasis.
+- Imaging: often a peripheral mass with progressive delayed enhancement (unlike HCC).
+- Diagnosis is by biopsy.
+- Treatment: surgical resection if localised; gemcitabine + cisplatin chemotherapy with durvalumab for advanced disease (TOPAZ-1).
+
+## Angiosarcoma of the liver
+
+- Rare, highly aggressive malignant tumour of vascular endothelial origin.
+- Associated with environmental exposures: **vinyl chloride** (PVC industry), **arsenic**, **Thorotrast** (a historical radiocontrast agent).
+- Histology: pleomorphic spindle and epithelioid cells lining vascular channels.
+- Usually presents late; poor prognosis with median survival around 6 months.
+- Surgical resection where feasible; chemotherapy of limited efficacy.
+
+## Epithelioid haemangioendothelioma
+
+A rare low- to intermediate-grade vascular tumour, often multifocal in the liver, with indolent behaviour but malignant potential. Surgical resection or liver transplantation can be curative.
+
+## Hepatoblastoma
+
+- The commonest primary liver malignancy in children, typically occurring under 3 years of age.
+- Arises from immature hepatocyte precursors.
+- Associated with **Beckwith-Wiedemann syndrome** and **familial adenomatous polyposis**.
+- Presents with abdominal mass, weight loss, anorexia, and **markedly elevated AFP**.
+- Treatment: neoadjuvant chemotherapy (typically cisplatin-based) followed by surgical resection. 5-year survival around 80% with modern multimodality therapy.
+
+## Hepatic metastases
+
+Hepatic metastases are **the commonest malignant lesion in the liver overall** — far outnumbering primary tumours.
+
+### Common primary sources
+- **Gastrointestinal tract** (colorectal, gastric, oesophageal, pancreatic) — drained directly by the portal circulation.
+- **Breast**.
+- **Lung**.
+- **Neuroendocrine tumours**.
+- **Melanoma**, **renal cell carcinoma**, **ovarian carcinoma**.
+
+### Features
+- Usually multiple, of varying sizes.
+- Imaging characteristics depend on the primary; most appear as hypovascular lesions, but neuroendocrine, renal cell, melanoma, and thyroid metastases are typically hypervascular.
+- Liver function is preserved until late.
+
+### Management
+- Depends on the primary tumour and resectability.
+- **Colorectal liver metastases** are a special case: aggressive resection (with or without ablation) of oligometastatic disease, after perioperative chemotherapy, achieves 5-year survival of 30-50% — the principal example of curative treatment of metastatic solid malignancy.
+- Local therapies: radiofrequency ablation, microwave ablation, SIRT (yttrium-90).
+- Systemic chemotherapy as for the primary tumour.`,
         },
       ],
     },
