@@ -41,6 +41,7 @@ Unchanged from initial spec. 4 phases over 22 weeks, exam date 23 September 2026
 | **Cardiac Pathology** (`cardiac_path`) | 8 | Revamped (full sentences). Topics: atherosclerosis, ihd_mi, heart_failure, cardiomyopathy, rheumatic_fever, endocarditis, valve_disease, pericarditis. |
 | **Lung Pathology** (`lung_path`) | 12 | Revamped. Topics: obstructive_lung, bronchiectasis_path, cystic_fibrosis_path, ild_ipf, pneumoconiosis_path, hypersensitivity_pneumonitis_path, pneumonia_histopath, lung_tumours, pulmonary_vasculature, pulmonary_oedema_ards, pleural_disease, obstructive_sleep_apnoea. The last two go beyond the MedEd PDF (which lacks dedicated pleural and OSA sections) — added on user request 2026-05-11 for MRCP-relevant depth. |
 | **Renal Pathology** (`renal_path`) | 9 | Revamped. Topics: nephrotic_syndrome, nephritic_syndrome, atn_tin, thrombotic_microangiopathies, acute_renal_failure, ckd_renal, apkd, lupus_nephritis, rcc. |
+| **GI Pathology** (`gi_path`) | 11 | Revamped. Topics: oesophageal_pathology, gastric_pathology, coeliac_disease_path, congenital_paediatric_gi, bowel_obstruction_ischaemia, ibd_pathology, infective_colitis, diverticular_disease, gi_neuroendocrine_carcinoid, colorectal_polyps, colorectal_cancer_path. |
 
 ### Single-topic legacy sections (preserved from old "Histopath Highlights")
 
@@ -62,7 +63,6 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 | Section ID | Display name | PDF source pages (approx) |
 | --- | --- | --- |
-| `gi_path` | GI Pathology | 201-209 |
 | `pancreatic_path` | Pancreatic Pathology | 210-213 |
 | `liver_path` | Liver Pathology | 214-221 |
 | `urological_path` | Urological Pathology | 222-224 |
@@ -92,6 +92,7 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 In reverse chronological order. Keep the last ~10 entries; trim older.
 
+- **2026-05-11** — Populated GI Pathology (11 topics): oesophageal_pathology, gastric_pathology (+ H. pylori + PUD), coeliac_disease_path, congenital_paediatric_gi, bowel_obstruction_ischaemia, ibd_pathology, infective_colitis (with C. difficile), diverticular_disease, gi_neuroendocrine_carcinoid, colorectal_polyps (+ familial syndromes), colorectal_cancer_path.
 - **2026-05-11** — Added 2 topics to Lung Pathology beyond the MedEd PDF: `pleural_disease` (effusion, Light's criteria, empyema, pneumothorax classification and management, pleural tumours) and `obstructive_sleep_apnoea` (definitions, AHI grading, ESS/STOP-BANG, polysomnography, CPAP/MAS/surgery, CSA, OHS). Lung Pathology now has 12 topics.
 - **2026-05-09** — Added Renal Pathology (9 topics). Confirmed Lung Pathology (10 topics) was completed earlier in session.
 - **2026-05-09** — Restructured "Histopath Highlights" into 20 separate sections in PDF order; populated `cardiac_path` (8 topics).
@@ -103,12 +104,11 @@ In reverse chronological order. Keep the last ~10 entries; trim older.
 
 Listed in likely PDF-order, but the user can ask in any order:
 
-1. Populate `gi_path` (GI Pathology).
-2. Populate `pancreatic_path`.
-3. Populate `liver_path`.
-4. Populate `urological_path`.
-5. Populate `gynae_path`.
-6. Populate `breast_path`.
-7. Populate `cerebral_path`.
-8. Populate the bone sections.
-9. Populate `skin_path`.
+1. Populate `pancreatic_path`.
+2. Populate `liver_path`.
+3. Populate `urological_path`.
+4. Populate `gynae_path`.
+5. Populate `breast_path`.
+6. Populate `cerebral_path`.
+7. Populate the bone sections.
+8. Populate `skin_path`.
