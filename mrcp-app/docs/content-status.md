@@ -13,7 +13,7 @@ All 15 specialties are populated.
 | Cardiology | Populated | Includes pulmonary stenosis (added during this project). |
 | Congenital & Genetic Cardiac | Populated | |
 | Respiratory | Populated | `hypersensitivity_pneumonitis` topic was renamed to **Extrinsic Allergic Alveolitis (Hypersensitivity Pneumonitis)** and expanded; ID unchanged so user statuses preserved. |
-| Gastroenterology | Populated | Added `boerhaaves` (Boerhaave's syndrome) and `hydatid_cyst` (echinococcosis) on 2026-05-12. |
+| Gastroenterology | Populated | Added `boerhaaves` (Boerhaave's syndrome), `budd_chiari` (Budd-Chiari syndrome), and `hydatid_cyst` (echinococcosis) on 2026-05-12. |
 | Renal & Electrolytes | Populated | |
 | Endocrinology | Populated | |
 | Neurology | Populated | |
@@ -92,6 +92,7 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 In reverse chronological order. Keep the last ~10 entries; trim older.
 
+- **2026-05-12** — Added `budd_chiari` (Budd-Chiari syndrome) to Gastroenterology tracker conditions. Includes JAK2 MPN as commonest cause, classical triad, Doppler USS with caudate lobe hypertrophy, EASL stepwise management (anticoagulation → TIPSS → transplant).
 - **2026-05-12** — Added `hydatid_cyst` (Echinococcosis) to Gastroenterology tracker conditions. Includes E. granulosus vs E. multilocularis, WHO USS CE1-CE5 staging, albendazole + PAIR + surgery management, anaphylaxis risk from rupture.
 - **2026-05-12** — Added `boerhaaves` (Boerhaave's syndrome) to Gastroenterology tracker conditions. Includes Mackler's triad, Hamman's sign, CT with gastrografin, surgical emergency with ~30% mortality.
 - **2026-05-11** — Populated Liver Pathology (11 topics): liver_anatomy_injury (zones, stellate cell fibrogenesis, LFT pattern recognition, acute/chronic hepatitis patterns), acute_liver_failure_dili (King's College criteria, paracetamol/NAC, DILI R-factor), cirrhosis_portal_htn (Child-Pugh, MELD/UKELD, SAAG, SBP, HRS, hepatopulmonary), alcoholic_liver_disease (Maddrey DF, STOPAH trial, Lille score), nafld_masld (FIB-4, FibroScan, resmetirom, MASLD terminology), viral_hepatitis_liver (A-E with chronicity focus, HBV serology table, DAAs for HCV, HEV in pregnancy/immunosuppression), autoimmune_hepatitis_path (Type 1/2, IAIHG criteria), cholestatic_pbc_psc (AMA, p-ANCA, MRCP beading vs onion-skin fibrosis, IgG4-SC mimic), haemochromatosis (HFE C282Y/H63D, MCP arthropathy), wilson_a1at (ATP7B, Kayser-Fleischer, ALP:bili ratio; A1AT PiZZ panacinar emphysema, PAS-D globules), liver_tumours (BCLC, atezo-bev IMbrave150, hepatic adenoma molecular subtypes, hepatoblastoma, metastases).
