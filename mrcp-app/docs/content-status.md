@@ -13,7 +13,7 @@ All 15 specialties are populated.
 | Cardiology | Populated | Includes pulmonary stenosis (added during this project). |
 | Congenital & Genetic Cardiac | Populated | |
 | Respiratory | Populated | `hypersensitivity_pneumonitis` topic was renamed to **Extrinsic Allergic Alveolitis (Hypersensitivity Pneumonitis)** and expanded; ID unchanged so user statuses preserved. |
-| Gastroenterology | Populated | Added `boerhaaves` (Boerhaave's syndrome), `budd_chiari` (Budd-Chiari syndrome), and `hydatid_cyst` (echinococcosis) on 2026-05-12. |
+| Gastroenterology | Populated | Added `boerhaaves` (Boerhaave's syndrome), `budd_chiari` (Budd-Chiari syndrome), `carcinoid_syndrome`, and `hydatid_cyst` (echinococcosis) on 2026-05-12. |
 | Renal & Electrolytes | Populated | |
 | Endocrinology | Populated | |
 | Neurology | Populated | |
@@ -92,6 +92,7 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 In reverse chronological order. Keep the last ~10 entries; trim older.
 
+- **2026-05-12** — Added `carcinoid_syndrome` to Gastroenterology tracker conditions. Includes flushing/diarrhoea/bronchoconstriction/right-heart valve disease, 24h 5-HIAA, ⁶⁸Ga-DOTATATE PET-CT, somatostatin analogues, PRRT, carcinoid crisis management.
 - **2026-05-12** — Added `budd_chiari` (Budd-Chiari syndrome) to Gastroenterology tracker conditions. Includes JAK2 MPN as commonest cause, classical triad, Doppler USS with caudate lobe hypertrophy, EASL stepwise management (anticoagulation → TIPSS → transplant).
 - **2026-05-12** — Added `hydatid_cyst` (Echinococcosis) to Gastroenterology tracker conditions. Includes E. granulosus vs E. multilocularis, WHO USS CE1-CE5 staging, albendazole + PAIR + surgery management, anaphylaxis risk from rupture.
 - **2026-05-12** — Added `boerhaaves` (Boerhaave's syndrome) to Gastroenterology tracker conditions. Includes Mackler's triad, Hamman's sign, CT with gastrografin, surgical emergency with ~30% mortality.
