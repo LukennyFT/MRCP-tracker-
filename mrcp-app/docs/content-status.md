@@ -1,6 +1,6 @@
 # Content Status
 
-**Last updated**: 2026-05-12.
+**Last updated**: 2026-05-15.
 
 This is the "pick up where we left off" file. **Update it every time content is added, removed, or restyled.** Use today's date in the field above.
 
@@ -13,7 +13,7 @@ All 15 specialties are populated.
 | Cardiology | Populated | Includes pulmonary stenosis (added during this project). |
 | Congenital & Genetic Cardiac | Populated | |
 | Respiratory | Populated | `hypersensitivity_pneumonitis` topic was renamed to **Extrinsic Allergic Alveolitis (Hypersensitivity Pneumonitis)** and expanded; ID unchanged so user statuses preserved. |
-| Gastroenterology | Populated | Added `boerhaaves`, `budd_chiari`, `carcinoid_syndrome`, `hydatid_cyst`, `gastric_cancer`, and `hcc` on 2026-05-12. |
+| Gastroenterology | Populated | Added `boerhaaves`, `budd_chiari`, `carcinoid_syndrome`, `hydatid_cyst`, `gastric_cancer`, and `hcc` on 2026-05-12. Added `ascending_cholangitis` on 2026-05-15. |
 | Renal & Electrolytes | Populated | |
 | Endocrinology | Populated | |
 | Neurology | Populated | |
@@ -92,6 +92,7 @@ Each has a single `_pending_<id>` topic. When the user asks for one, replace the
 
 In reverse chronological order. Keep the last ~10 entries; trim older.
 
+- **2026-05-15** — Added `ascending_cholangitis` after `psc` in Gastroenterology tracker (Charcot's triad, Reynolds' pentad, urgent ERCP drainage). Removed the `alcoholic_hepatitis` entry added earlier — user pointed out the acute syndrome is already covered by the broader `alcohol_liver` entry.
 - **2026-05-12** — Added `hcc` (Hepatocellular Carcinoma) to Gastroenterology tracker conditions (concise style).
 - **2026-05-12** — Added `gastric_cancer` to Gastroenterology tracker conditions (concise style).
 - **2026-05-12** — Updated `ibs` treatment field to align with NICE CG61 (2015): removed lactulose (avoid in IBS), demoted low-FODMAP to second-line, added linaclotide for refractory IBS-C, added CBT/hypnotherapy as third-line, added peppermint oil and hyoscine to antispasmodic options. Also trimmed the four GI tracker additions from 2026-05-12 (Boerhaave's, Budd-Chiari, carcinoid, hydatid) to match the concise style of the older entries.
