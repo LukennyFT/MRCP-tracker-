@@ -39,7 +39,7 @@ The app has four views switched via the top tab strip:
 
 - **`today`** — auto-detects current week (1-22) and phase from today's date. Shows the day's hours and Q-target, plus this week's flagged systems with one-click jumps into Tracker.
 - **`plan`** — all 4 phases (Foundation → Consolidation → Intensification → Final Stretch). The weekly rhythm card recalculates live based on the hours/week slider.
-- **`tracker`** — 15 specialties; each condition has green/yellow/red status buttons, search/filter, day-counter since last status change, and a per-condition Apple Pencil note canvas.
+- **`tracker`** — 15 specialties; each condition has green/yellow/red status buttons, search/filter, day-counter since last status change, and a per-condition Apple Pencil note canvas. The Tracker has a **view-mode toggle** at the top: **List** (default — the existing card list with search and filter) or **Constellation** (an SVG skill-tree where each condition is a star on a concentric ring around the specialty hub; tapping a star cycles status `none → green → yellow → red`). Both modes read/write the same `mrcp_statuses` data.
 - **`notebook`** — distilled pathology content. Sidebar of sections (desktop) or horizontal chip strip (mobile). Topics rendered via the Markdown-lite renderer (see below).
 
 ## localStorage keys
@@ -53,6 +53,7 @@ All app state is persisted per-device; a subset is also synced via Firestore (se
 | `mrcp_statuses` | object | ✅ | `{conditionId: "green"\|"yellow"\|"red"}` |
 | `mrcp_status_changed_at` | object | ✅ | `{conditionId: timestampMs}` — drives day-counter |
 | `mrcp_active_specialty` | string | per-device | Last viewed specialty in tracker |
+| `mrcp_tracker_mode` | "list" \| "constellation" | per-device | Tracker view mode (list cards vs constellation skill-tree) |
 | `mrcp_notes` | object | not synced (size) | `{conditionId: pngDataUrl}` for Pencil notes |
 | `mrcp_notebook_bookmarks` | object | ✅ | `{topicId: true}` |
 | `mrcp_notebook_section` | string | per-device | Last viewed notebook section |
