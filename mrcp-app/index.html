@@ -1152,11 +1152,270 @@
     }
 
     // -------- TRACKER VIEW --------
+
+    // Constellation (skill-tree) sub-view: same data as list mode, different visual.
+    // Conditions are stars on concentric rings; tap cycles status (none → green → yellow → red → none).
+    function ConstellationView({ specialty, statuses, setStatus, statusChangedAt, setHoverId, hoverId }) {
+      const conditions = specialty.conditions;
+      const N = conditions.length;
+
+      // Ring layout: weight inner rings lighter so outer rings carry more nodes.
+      const rings = N <= 8 ? 1 : N <= 20 ? 2 : N <= 36 ? 3 : 4;
+      const counts = [];
+      const weights = Array.from({ length: rings }, (_, i) => i + 1);
+      const wSum = weights.reduce((a, b) => a + b, 0);
+      let placed = 0;
+      for (let r = 0; r < rings; r++) {
+        const c = (r === rings - 1) ? (N - placed) : Math.round(N * weights[r] / wSum);
+        counts.push(c);
+        placed += c;
+      }
+
+      // Dynamic viewBox so dense specialties get more room.
+      const VB = rings === 1 ? 900 : rings === 2 ? 1100 : rings === 3 ? 1350 : 1600;
+      const CENTER = VB / 2;
+      const MAX_R = VB * 0.42;
+      const STAR_R = 38;
+
+      // Ring radii: inner rings closer to centre, outer wider.
+      const ringRadii = Array.from({ length: rings }, (_, r) =>
+        rings === 1 ? MAX_R * 0.65 : MAX_R * (0.35 + (r * 0.6 / Math.max(1, rings - 1)))
+      );
+
+      // Compute positions
+      const positions = [];
+      let idx = 0;
+      for (let r = 0; r < rings; r++) {
+        const count = counts[r];
+        const ringR = ringRadii[r];
+        const angleStep = (Math.PI * 2) / count;
+        // Offset alternate rings so labels stagger
+        const baseAngle = -Math.PI / 2 + (r % 2 === 1 ? angleStep / 2 : 0);
+        for (let i = 0; i < count; i++) {
+          const angle = baseAngle + i * angleStep;
+          positions.push({
+            condition: conditions[idx],
+            x: CENTER + Math.cos(angle) * ringR,
+            y: CENTER + Math.sin(angle) * ringR,
+            angle, ring: r,
+          });
+          idx++;
+        }
+      }
+
+      // Stats
+      const stats = { green: 0, yellow: 0, red: 0, none: 0 };
+      conditions.forEach(c => stats[statuses[c.id] || "none"]++);
+      const rated = N - stats.none;
+      const pct = N ? Math.round((rated / N) * 100) : 0;
+
+      const cycleStatus = (cid) => {
+        const order = ["none", "green", "yellow", "red"];
+        const cur = statuses[cid] || "none";
+        setStatus(cid, order[(order.indexOf(cur) + 1) % order.length]);
+      };
+
+      // Truncate long names for labels
+      const truncate = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s;
+
+      return (
+        <div style={{
+          position: "relative",
+          background: "radial-gradient(ellipse at center, #0f1428 0%, #050810 100%)",
+          borderRadius: 12, padding: "0.7rem",
+          boxShadow: "inset 0 0 80px rgba(74, 138, 220, 0.08)",
+        }}>
+          {/* Decorative background stars */}
+          <svg viewBox={`0 0 ${VB} ${VB}`} style={{
+            width: "100%", height: "auto", display: "block",
+            maxHeight: "calc(100vh - 320px)",
+          }}>
+            <defs>
+              <radialGradient id="cg-center-glow" cx="50%" cy="50%">
+                <stop offset="0%" stopColor="#4a8adc" stopOpacity={0.35} />
+                <stop offset="60%" stopColor="#4a8adc" stopOpacity={0.08} />
+                <stop offset="100%" stopColor="#4a8adc" stopOpacity={0} />
+              </radialGradient>
+              <filter id="cg-star-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Sparse background dots — purely decorative */}
+            {Array.from({ length: 60 }).map((_, i) => {
+              const seed = i * 7919;
+              const bx = (seed % VB);
+              const by = ((seed * 13) % VB);
+              const br = ((seed % 30) > 26) ? 2.4 : 1.4;
+              const op = 0.15 + ((seed % 50) / 100);
+              return <circle key={`bg-${i}`} cx={bx} cy={by} r={br} fill="#cfdcec" opacity={op} />;
+            })}
+
+            {/* Centre glow */}
+            <circle cx={CENTER} cy={CENTER} r={MAX_R * 1.05} fill="url(#cg-center-glow)" />
+
+            {/* Connecting lines */}
+            {positions.map(pos => (
+              <line key={`line-${pos.condition.id}`}
+                x1={CENTER} y1={CENTER} x2={pos.x} y2={pos.y}
+                stroke="#2a4a8a" strokeWidth={1.5} strokeDasharray="4 5" opacity={0.45} />
+            ))}
+
+            {/* Ring orbit hints */}
+            {ringRadii.map((rr, r) => (
+              <circle key={`ring-${r}`} cx={CENTER} cy={CENTER} r={rr}
+                fill="none" stroke="#1c2a4a" strokeWidth={1} strokeDasharray="2 6" opacity={0.4} />
+            ))}
+
+            {/* Centre node — specialty hub */}
+            <circle cx={CENTER} cy={CENTER} r={STAR_R * 2.1}
+              fill="#1a1a2e" stroke="#4a8adc" strokeWidth={3} filter="url(#cg-star-glow)" />
+            <text x={CENTER} y={CENTER - 4} textAnchor="middle"
+              fontSize={STAR_R * 1.4} fill="#fff" style={{ pointerEvents: "none" }}>
+              {specialty.icon}
+            </text>
+            <text x={CENTER} y={CENTER + STAR_R * 1.2} textAnchor="middle"
+              fontSize={20} fill="#9ab5cc" fontFamily="monospace" fontWeight={700}
+              style={{ pointerEvents: "none" }}>
+              {pct}%
+            </text>
+            <text x={CENTER} y={CENTER + STAR_R * 1.7} textAnchor="middle"
+              fontSize={14} fill="#6b8aa6" fontFamily="monospace"
+              style={{ pointerEvents: "none" }}>
+              {rated}/{N}
+            </text>
+
+            {/* Stars */}
+            {positions.map(pos => {
+              const cid = pos.condition.id;
+              const status = statuses[cid] || "none";
+              const sc = STATUS_CONFIG[status];
+              const isHovered = hoverId === cid;
+
+              const fillColor = status === "none" ? "#1a1a2e" : sc.color;
+              const strokeColor = status === "none" ? "#5a6a8a" : sc.color;
+              const labelFill = status === "none" ? "#7a8ab0" : "#e6edf5";
+
+              // Label position: pushed outward radially
+              const labelOffsetR = STAR_R + 22;
+              const labelX = pos.x + Math.cos(pos.angle) * labelOffsetR * 0.0 + 0;
+              const labelY = pos.y + STAR_R + 24;
+
+              return (
+                <g key={cid} style={{ cursor: "pointer" }}
+                  onClick={() => cycleStatus(cid)}
+                  onMouseEnter={() => setHoverId(cid)}
+                  onMouseLeave={() => setHoverId(null)}>
+                  {/* Glow halo for rated stars */}
+                  {status !== "none" && (
+                    <circle cx={pos.x} cy={pos.y} r={STAR_R + 10}
+                      fill={sc.color} opacity={isHovered ? 0.35 : 0.22} />
+                  )}
+                  {/* The star body */}
+                  <circle cx={pos.x} cy={pos.y} r={STAR_R}
+                    fill={fillColor} stroke={strokeColor} strokeWidth={4}
+                    filter={status !== "none" ? "url(#cg-star-glow)" : null} />
+                  {/* Tick mark inside if rated */}
+                  {status !== "none" && (
+                    <text x={pos.x} y={pos.y + STAR_R * 0.32} textAnchor="middle"
+                      fontSize={STAR_R * 0.95} fill="#fff" fontWeight={700}
+                      style={{ pointerEvents: "none" }}>✓</text>
+                  )}
+                  {/* Larger tap target */}
+                  <circle cx={pos.x} cy={pos.y} r={STAR_R + 14}
+                    fill="transparent" />
+                  {/* Label below */}
+                  <text x={labelX} y={labelY} textAnchor="middle"
+                    fontSize={18} fill={labelFill}
+                    fontFamily="'Palatino Linotype', Georgia, serif"
+                    style={{ pointerEvents: "none" }}>
+                    {truncate(pos.condition.name, 18)}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+
+          {/* Floating header */}
+          <div style={{
+            position: "absolute", top: 14, left: 14, right: 14,
+            display: "flex", justifyContent: "space-between", alignItems: "flex-start",
+            pointerEvents: "none",
+          }}>
+            <div style={{
+              background: "rgba(26, 26, 46, 0.85)",
+              border: "1px solid #2a4a8a", borderRadius: 6,
+              padding: "0.45rem 0.75rem", fontSize: "0.72rem",
+              color: "#9ab5cc", fontFamily: "monospace",
+              backdropFilter: "blur(4px)",
+            }}>
+              Tap a star to cycle status
+            </div>
+            <div style={{
+              background: "rgba(26, 26, 46, 0.85)",
+              border: "1px solid #2a4a8a", borderRadius: 6,
+              padding: "0.45rem 0.75rem", fontSize: "0.72rem",
+              color: "#cfdcec", fontFamily: "monospace",
+              backdropFilter: "blur(4px)",
+              display: "flex", gap: "0.8rem", alignItems: "center",
+            }}>
+              {["green", "yellow", "red"].map(s => (
+                <span key={s} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <span style={{ width: 8, height: 8, borderRadius: "50%",
+                    background: STATUS_CONFIG[s].color, boxShadow: `0 0 6px ${STATUS_CONFIG[s].color}` }} />
+                  <span>{stats[s]}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Hovered condition detail */}
+          {hoverId && (() => {
+            const c = conditions.find(x => x.id === hoverId);
+            if (!c) return null;
+            const status = statuses[c.id] || "none";
+            const sc = STATUS_CONFIG[status];
+            return (
+              <div style={{
+                position: "absolute", bottom: 14, left: 14, right: 14,
+                background: "rgba(26, 26, 46, 0.92)",
+                border: `1px solid ${status === "none" ? "#4a6a8a" : sc.color}`,
+                borderRadius: 8, padding: "0.6rem 0.85rem",
+                color: "#e6edf5", fontFamily: "'Palatino Linotype', Georgia, serif",
+                fontSize: "0.88rem", lineHeight: 1.4,
+                backdropFilter: "blur(6px)",
+                pointerEvents: "none",
+              }}>
+                <div style={{ fontWeight: 700, marginBottom: 2 }}>{c.name}</div>
+                {status !== "none" && statusChangedAt[c.id] && (
+                  <div style={{ fontSize: "0.72rem", color: sc.color, fontFamily: "monospace" }}>
+                    {sc.label} · {fmtDaysShort(statusChangedAt[c.id])}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+        </div>
+      );
+    }
+
     function TrackerView({ statuses, setStatus, statusChangedAt, activeSpecialty, setActiveSpecialty, notes, setNote }) {
       const [search, setSearch] = useState("");
       const [filterStatus, setFilterStatus] = useState("all");
       const [expandedId, setExpandedId] = useState(null);
       const [noteEditId, setNoteEditId] = useState(null);
+      const [viewMode, setViewModeState] = useState(() => {
+        try { return localStorage.getItem("mrcp_tracker_mode") || "list"; } catch (e) { return "list"; }
+      });
+      const [hoverId, setHoverId] = useState(null);
+      const setViewMode = (m) => {
+        setViewModeState(m);
+        try { localStorage.setItem("mrcp_tracker_mode", m); } catch (e) {}
+      };
 
       const currentSpecialty = SPECIALTIES.find(s => s.id === activeSpecialty) || SPECIALTIES[0];
 
@@ -1285,32 +1544,54 @@
                           fontFamily: "'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif" }}>
               {/* Controls */}
               <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", alignItems: "center", marginBottom: "0.9rem" }}>
+                {/* View mode toggle (List / Constellation) */}
                 <div style={{
-                  display: "flex", alignItems: "center", gap: 6,
-                  background: "#fff", border: "1px solid #d0d0c0", borderRadius: 6,
-                  padding: "0.35rem 0.7rem", flex: 1, maxWidth: 320,
+                  display: "inline-flex", background: "#1a1a2e", borderRadius: 6,
+                  padding: 3, border: "1px solid #2a4a8a",
                 }}>
-                  <span style={{ color: "#888", fontSize: "0.85rem" }}>🔍</span>
-                  <input value={search} onChange={e => setSearch(e.target.value)}
-                    placeholder="Search conditions..." style={{
-                    border: "none", outline: "none", fontSize: "0.85rem",
-                    background: "transparent", width: "100%", color: "#1a1a1a", fontFamily: "inherit",
-                  }} />
-                </div>
-                <div style={{ display: "flex", gap: 4 }}>
-                  {["all","none","green","yellow","red"].map(f => (
-                    <button key={f} onClick={() => setFilterStatus(f)} style={{
-                      padding: "0.3rem 0.65rem", borderRadius: 5, cursor: "pointer",
-                      fontSize: "0.72rem", fontFamily: "monospace",
-                      background: filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].bg) : "#fff",
-                      color: filterStatus === f ? (f === "all" || f === "none" ? "#fff" : STATUS_CONFIG[f].color) : "#666",
-                      border: `1px solid ${filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].border) : "#d0d0c0"}`,
-                      fontWeight: filterStatus === f ? 600 : 400,
-                    }}>
-                      {f === "all" ? "All" : f === "none" ? "Unrated" : STATUS_CONFIG[f].label}
-                    </button>
+                  {[
+                    { id: "list", label: "📋 List" },
+                    { id: "constellation", label: "✦ Constellation" },
+                  ].map(m => (
+                    <button key={m.id} onClick={() => setViewMode(m.id)} style={{
+                      padding: "0.32rem 0.7rem", borderRadius: 4, cursor: "pointer",
+                      fontSize: "0.72rem", fontFamily: "monospace", fontWeight: 600,
+                      background: viewMode === m.id ? "#2a4a8a" : "transparent",
+                      color: viewMode === m.id ? "#fff" : "#9ab5cc",
+                      border: "none",
+                    }}>{m.label}</button>
                   ))}
                 </div>
+                {viewMode === "list" && (
+                  <React.Fragment>
+                    <div style={{
+                      display: "flex", alignItems: "center", gap: 6,
+                      background: "#fff", border: "1px solid #d0d0c0", borderRadius: 6,
+                      padding: "0.35rem 0.7rem", flex: 1, maxWidth: 320,
+                    }}>
+                      <span style={{ color: "#888", fontSize: "0.85rem" }}>🔍</span>
+                      <input value={search} onChange={e => setSearch(e.target.value)}
+                        placeholder="Search conditions..." style={{
+                        border: "none", outline: "none", fontSize: "0.85rem",
+                        background: "transparent", width: "100%", color: "#1a1a1a", fontFamily: "inherit",
+                      }} />
+                    </div>
+                    <div style={{ display: "flex", gap: 4 }}>
+                      {["all","none","green","yellow","red"].map(f => (
+                        <button key={f} onClick={() => setFilterStatus(f)} style={{
+                          padding: "0.3rem 0.65rem", borderRadius: 5, cursor: "pointer",
+                          fontSize: "0.72rem", fontFamily: "monospace",
+                          background: filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].bg) : "#fff",
+                          color: filterStatus === f ? (f === "all" || f === "none" ? "#fff" : STATUS_CONFIG[f].color) : "#666",
+                          border: `1px solid ${filterStatus === f ? (f === "all" || f === "none" ? "#1a1a2e" : STATUS_CONFIG[f].border) : "#d0d0c0"}`,
+                          fontWeight: filterStatus === f ? 600 : 400,
+                        }}>
+                          {f === "all" ? "All" : f === "none" ? "Unrated" : STATUS_CONFIG[f].label}
+                        </button>
+                      ))}
+                    </div>
+                  </React.Fragment>
+                )}
               </div>
 
               {/* Specialty header */}
@@ -1321,6 +1602,13 @@
               </div>
 
               {/* Conditions */}
+              {viewMode === "constellation" && (
+                <ConstellationView specialty={currentSpecialty}
+                  statuses={statuses} setStatus={setStatus}
+                  statusChangedAt={statusChangedAt}
+                  hoverId={hoverId} setHoverId={setHoverId} />
+              )}
+              {viewMode === "list" && (
               <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
                 {filtered.map(condition => {
                   const status = statuses[condition.id] || "none";
@@ -1479,6 +1767,7 @@
                   </div>
                 )}
               </div>
+              )}
             </div>
           </div>
 
